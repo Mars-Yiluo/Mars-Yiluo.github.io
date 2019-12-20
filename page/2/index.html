@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YiluoTalk">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;2&#x2F;index.html">
+<meta property="og:site_name" content="YiluoTalk">
+<meta property="og:description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="伊洛">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>YiluoTalk</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YiluoTalk</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">愿您享受每一天，Just Enjoy !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E7%94%9F%E6%88%90%E5%99%A8%20(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E7%94%9F%E6%88%90%E5%99%A8%20(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero生成器 (一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:05:59 / 修改时间：13:05:58" itemprop="dateCreated datePublished" datetime="2019-12-20T13:05:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ1N2I1ZWNkOTcxZDM4YmUucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-生成器"><a href="#1-生成器" class="headerlink" title="1.生成器"></a>1.生成器</h5><ul>
+<li><p><code>Generator</code>是一个用于创建迭代器的简单而强大的工具。 它们的写法类似标准的函数</p>
+<h5 id="2-创建生成器的两中方法"><a href="#2-创建生成器的两中方法" class="headerlink" title="2.创建生成器的两中方法"></a>2.创建生成器的两中方法</h5><h6 id="（一）yield-编写生成器函数，函数的返回值就是生成器"><a href="#（一）yield-编写生成器函数，函数的返回值就是生成器" class="headerlink" title="（一）yield 编写生成器函数，函数的返回值就是生成器"></a>（一）yield 编写生成器函数，函数的返回值就是生成器</h6></li>
+<li><p>承接上文迭代器，还是用游戏中的英雄技能举例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hero</span><span class="params">(*skills)</span>:</span></span><br><span class="line">    print(<span class="string">'英雄的释放技能分别如下'</span>)</span><br><span class="line">    <span class="keyword">for</span> release_skill <span class="keyword">in</span> skills:</span><br><span class="line">         <span class="keyword">yield</span> release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">skill = hero(<span class="string">'一骑当千'</span>,<span class="string">'单刀赴会'</span>,<span class="string">'青龙偃月'</span>,<span class="string">'刀锋铁骑'</span>)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> skill:</span><br><span class="line">    print(s)</span><br></pre></td></tr></table></figure></li>
+<li><p><code>hero</code>函数中传入英雄的<code>1-4</code>技能</p>
+</li>
+<li><p>来看一下运行结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line">英雄的释放技能分别如下</span><br><span class="line">一骑当千</span><br><span class="line">单刀赴会</span><br><span class="line">青龙偃月</span><br><span class="line">刀锋铁骑</span><br></pre></td></tr></table></figure></li>
+<li><p>这样使用比迭代器的好处是，生成器不会像迭代器放在内存中，是用户传入数值动态生成的</p>
+<h6 id="（二）生成器表达式"><a href="#（二）生成器表达式" class="headerlink" title="（二）生成器表达式"></a>（二）生成器表达式</h6></li>
+<li><p>另一种创建生成器的方式就是通过表达式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.5</span> (default, Nov <span class="number">29</span> <span class="number">2019</span>, <span class="number">14</span>:<span class="number">32</span>:<span class="number">46</span>)</span><br><span class="line">[Clang <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.39</span><span class="number">.2</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = (x+x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">4</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x1058537d0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> s:</span><br><span class="line"><span class="meta">... </span>    print(x)</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>s</code> 就是生成器，然后遍历查看结果</p>
+<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://img-blog.csdnimg.cn/20191212143708978.jpeg" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI1ZTBlZDg4Y2NkMGQ4ZWUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%BF%AD%E4%BB%A3%E5%99%A8(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%BF%AD%E4%BB%A3%E5%99%A8(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero装饰器(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:04:59 / 修改时间：13:04:16" itemprop="dateCreated datePublished" datetime="2019-12-20T13:04:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY5YThlNzE4MTI0ODc0YmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-迭代器"><a href="#1-迭代器" class="headerlink" title="1.迭代器"></a>1.迭代器</h5><ul>
+<li>大多数容器对象都可以使用 <a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句，承接上文装饰器的例子，还是拿英雄的技能举例子</li>
+<li>王者荣耀中英雄关羽的技能有<code>一骑当千</code> <code>单刀赴会</code> <code>青龙偃月</code> <code>刀锋铁骑</code>   用  <code>for</code>语句分别迭代出<code>1-4</code>技能<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.5</span> (default, Nov <span class="number">29</span> <span class="number">2019</span>, <span class="number">14</span>:<span class="number">32</span>:<span class="number">46</span>)</span><br><span class="line">[Clang <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.39</span><span class="number">.2</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = [<span class="string">'一骑当千'</span>,<span class="string">'单刀赴会'</span>,<span class="string">'青龙偃月'</span>,<span class="string">'刀锋铁骑'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> skill <span class="keyword">in</span> skills:</span><br><span class="line"><span class="meta">... </span>    print(skill)</span><br><span class="line">...</span><br><span class="line">一骑当千</span><br><span class="line">单刀赴会</span><br><span class="line">青龙偃月</span><br><span class="line">刀锋铁骑</span><br></pre></td></tr></table></figure></li>
+<li>在幕后，<a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句会调用容器对象中的 <a href="https://docs.python.org/zh-cn/3/library/functions.html#iter" target="_blank" rel="noopener" title="iter"><code>iter()</code></a>。 该函数返回一个定义了 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__" target="_blank" rel="noopener" title="iterator.__next__"><code>__next__()</code></a> 方法的迭代器对象，该方法将逐一访问容器中的元素</li>
+<li>我们现在利用一下  <code>iter()</code>函数 和 <code>next()</code>函数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = [<span class="string">'一骑当千'</span>,<span class="string">'单刀赴会'</span>,<span class="string">'青龙偃月'</span>,<span class="string">'刀锋铁骑'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skill = iter(skills)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(skill)</span><br><span class="line">&lt;list_iterator object at <span class="number">0x1037ea5d0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'一骑当千'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'单刀赴会'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'青龙偃月'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'刀锋铁骑'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></li>
+<li><code>skill</code>就是迭代器</li>
+<li><code>next</code>迭代到没有值的时候就会报错<br><img src="https://img-blog.csdnimg.cn/20191212132344939.jpeg" alt="在这里插入图片描述"><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNiYjFhOTUwMzJjMTc3YjAucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%A3%85%E9%A5%B0%E5%99%A8(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%A3%85%E9%A5%B0%E5%99%A8(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero装饰器(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:02:59 / 修改时间：13:02:20" itemprop="dateCreated datePublished" datetime="2019-12-20T13:02:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWQwNzRhZjUzM2I5MWMwZWIucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-装饰器定义"><a href="#1-装饰器定义" class="headerlink" title="1.装饰器定义"></a>1.装饰器定义</h5><ul>
+<li><code>装饰器</code>本质上是一个<code>函数</code>，可以接受一个<code>函数</code>作为<code>参数</code><h5 id="2-装饰器简单的例子"><a href="#2-装饰器简单的例子" class="headerlink" title="2.装饰器简单的例子"></a>2.装饰器简单的例子</h5></li>
+<li>承接之前的内容，英雄释放火焰技能。打印出英雄释放技能的时间<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">release_skills</span><span class="params">(hero)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">release_skill</span><span class="params">(*skill, **skills)</span>:</span></span><br><span class="line">        print(datetime.now().strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>))</span><br><span class="line">        <span class="keyword">return</span> hero(*skill, **skills)</span><br><span class="line">    <span class="keyword">return</span> release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@release_skills</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hero</span><span class="params">(name, skill)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (name + <span class="string">'--&gt;'</span>+<span class="string">'释放技能：'</span>+ skill)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(hero(<span class="string">'关羽'</span>, <span class="string">'fire'</span>))</span><br><span class="line">print(hero.__name__)</span><br></pre></td></tr></table></figure></li>
+<li>如上，<code>release_skills</code>装饰器负责打印释放技能的时间<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line"><span class="number">2019</span><span class="number">-12</span><span class="number">-12</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">49</span></span><br><span class="line">关羽--&gt;释放技能：fire</span><br><span class="line">release_skill</span><br></pre></td></tr></table></figure></li>
+<li>我们运行<code>hero</code>函数的时候，同时打印出了英雄释放火焰技能的时间</li>
+<li>可是我们发现了一个比较严重的问题，<code>hero</code> 函数应变成了<code>release_skill</code>函数了，看上面的代码，确实<code>hero</code>已经被<code>release_skill</code>改变了</li>
+<li>那如何解决这个被改变的问题呢？ 总不能用完装饰器，被装饰的函数已经不是之前的函数吧，还好<code>Python</code> 提供了方法解决这个问题<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">release_skills</span><span class="params">(hero)</span>:</span></span><br><span class="line"><span class="meta">    @wraps(hero)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">release_skill</span><span class="params">(*skill, **skills)</span>:</span></span><br><span class="line">        print(datetime.now().strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>))</span><br><span class="line">        <span class="keyword">return</span> hero(*skill, **skills)</span><br><span class="line">    <span class="keyword">return</span> release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@release_skills</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hero</span><span class="params">(name, skill)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (name + <span class="string">'--&gt;'</span>+<span class="string">'释放技能：'</span>+ skill)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(hero(<span class="string">'关羽'</span>, <span class="string">'fire'</span>))</span><br><span class="line">print(hero.__name__)</span><br></pre></td></tr></table></figure></li>
+<li>上面的代码用到了<code>wraps()</code>，然后我们运行一下看下结果函数是否被改变<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line"><span class="number">2019</span><span class="number">-12</span><span class="number">-12</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span></span><br><span class="line">关羽--&gt;释放技能：fire</span><br><span class="line">hero</span><br></pre></td></tr></table></figure></li>
+<li>函数依旧是<code>hero</code>，看来是完美解决了这个问题</li>
+<li><code>@</code>是 <code>Python</code> 提供的语法糖，语法糖指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用<h5 id="3-带参数的装饰器（……待续）"><a href="#3-带参数的装饰器（……待续）" class="headerlink" title="3.带参数的装饰器（……待续）"></a>3.带参数的装饰器（……待续）</h5><img src="https://img-blog.csdnimg.cn/20191212114123401.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTMyNzUyMDM2MTI3Y2VmZGYucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTUwY2NiZjlkNzE5N2ZjYWQucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 软件测试用例设计(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:54:59 / 修改时间：11:54:45" itemprop="dateCreated datePublished" datetime="2019-12-20T11:54:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY3YTg4YTkzMTc3NDY3OWQucG5n?x-oss-process=image/format,png" alt=""></p>
+<h4 id="软件测试用例设计"><a href="#软件测试用例设计" class="headerlink" title="软件测试用例设计"></a>软件测试用例设计</h4><h5 id="1-测试用例的主要构成元素"><a href="#1-测试用例的主要构成元素" class="headerlink" title="1.测试用例的主要构成元素"></a>1.测试用例的主要构成元素</h5><ul>
+<li>测试用例的基本要素包括：测试用例编号、测试标题、重要级别、测试数据输入、操作步骤、预期结果，实际结果</li>
+<li>测试用例是软件测试团队的主要工作成果之一</li>
+<li>测试用例的质量与写该用例的测试人员的水平关系极大</li>
+<li>执行测试用例：当一个软件版本被测试时，测试人员会使用一整套的测试用例（或者筛选其中的一部分），将这些用例逐个在被测的软件上执行，并判断其结果是否和预期相符，并以此评价软件版本的质量<h5 id="2-测试用例设计需要注意"><a href="#2-测试用例设计需要注意" class="headerlink" title="2.测试用例设计需要注意"></a>2.测试用例设计需要注意</h5><blockquote>
+<p>1.用语简洁清晰，但不能过于简单</p>
+</blockquote>
+</li>
+</ul>
+<p>2.用语无歧义，尽量少用过长的句子<br>3.用例的各个基本要素要齐备，不能缺失<br>4.用例的步骤应该足够详细 ，操作应该明确<br>5.容易被其它测试工程师读懂  ，并能顺利执行 </p>
+<h5 id="3-如何设计测试用例"><a href="#3-如何设计测试用例" class="headerlink" title="3.如何设计测试用例"></a>3.如何设计测试用例</h5><ul>
+<li>等价类</li>
+<li>边界值 </li>
+<li>场景法</li>
+<li>错误推测法</li>
+<li>因果图</li>
+<li>正交试验法<h5 id="4-测试用例的粒度"><a href="#4-测试用例的粒度" class="headerlink" title="4. 测试用例的粒度"></a>4. 测试用例的粒度</h5><blockquote>
+<p>1.粒度，指的是粗细 程度。粒度大，就是说一个用例所涵盖的关注内容比较多  ，反之同理</p>
+</blockquote>
+</li>
+</ul>
+<p>2.用例的粒度大，则总的用例数就少，用例看起来也简洁<br>3.用例的粒度小，则单条用例关注的测试点很集中，不容易遗漏，并且执行需要的时间比较好估计</p>
+<h5 id="5-测试用例的整合"><a href="#5-测试用例的整合" class="headerlink" title="5. 测试用例的整合"></a>5. 测试用例的整合</h5><ul>
+<li>优秀的测试用例写作者，具有的是灵活发散的思维，和全面的视野，写出的用例套能保证涉及软件运行时的各个关键要点，在执行完这样的用例并且没有发现问题，我们就可以对软件的质量下一个良好的结论<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><img src="https://img-blog.csdnimg.cn/20191211183310789.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTY5ZTgyMTJhYTQwNzgwNTMucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc1MjhiNzQ4Y2YwMzUxNDQucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%20UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%20Zero%20to%20Hero%20Selenium%E5%9F%BA%E7%A1%80(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%20UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%20Zero%20to%20Hero%20Selenium%E5%9F%BA%E7%A1%80(%E4%B8%80)/" class="post-title-link" itemprop="url">Python UI自动化测试实战 Zero to Hero Selenium基础(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:48:59 / 修改时间：11:53:11" itemprop="dateCreated datePublished" datetime="2019-12-20T11:48:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化测试</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">UI自动化测试</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRiMWE2MzdhZTAyZjY2ODEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-Selenium介绍"><a href="#1-Selenium介绍" class="headerlink" title="1.Selenium介绍"></a>1.Selenium介绍</h5><ul>
+<li><strong>Selenium</strong>是用于<a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener" title="软件测试">测试</a><a href="https://en.wikipedia.org/wiki/Web_application" target="_blank" rel="noopener" title="Web应用程序">Web应用程序</a>的可移植<a href="https://en.wikipedia.org/wiki/Software_framework" target="_blank" rel="noopener" title="软件架构">框架</a>。Selenium提供了一种回放工具，用于编写<a href="https://en.wikipedia.org/wiki/Functional_testing" target="_blank" rel="noopener" title="功能测试">功能测试，</a>而无需学习测试<a href="https://en.wikipedia.org/wiki/Scripting_language" target="_blank" rel="noopener" title="脚本语言">脚本语言</a>（Selenium IDE）。它还提供了一种<a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言">特定</a>于测试<a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言">领域的语言</a>（Selenese），可以用多种流行的编程语言编写测试，包括<a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank" rel="noopener" title="C Sharp（编程语言）">C＃</a>，<a href="https://en.wikipedia.org/wiki/Groovy_(programming_language)" target="_blank" rel="noopener" title="Groovy（编程语言）">Groovy</a>，<a href="https://en.wikipedia.org/wiki/Java_(software_platform)" target="_blank" rel="noopener" title="Java（软件平台）">Java</a>，<a href="https://en.wikipedia.org/wiki/Perl" target="_blank" rel="noopener" title="佩尔">Perl</a>，<a href="https://en.wikipedia.org/wiki/PHP" target="_blank" rel="noopener" title="的PHP">PHP</a>，<a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener" title="Python（编程语言）">Python</a>，<a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)" target="_blank" rel="noopener" title="Ruby（编程语言）">Ruby</a>和<a href="https://en.wikipedia.org/wiki/Scala_(programming_language)" target="_blank" rel="noopener" title="Scala（编程语言）">Scala</a>。然后可以在大多数现代<a href="https://en.wikipedia.org/wiki/Web_browser" target="_blank" rel="noopener" title="网页浏览器">Web浏览器上</a>运行测试。Selenium继续<a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener" title="软件测试"></a> <a href="https://en.wikipedia.org/wiki/Web_application" target="_blank" rel="noopener" title="Web应用程序"></a><a href="https://en.wikipedia.org/wiki/Functional_testing" target="_blank" rel="noopener" title="功能测试"></a><a href="https://en.wikipedia.org/wiki/Scripting_language" target="_blank" rel="noopener" title="脚本语言"></a><a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言"></a><a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank" rel="noopener" title="C Sharp（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Groovy_(programming_language)" target="_blank" rel="noopener" title="Groovy（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Java_(software_platform)" target="_blank" rel="noopener" title="Java（软件平台）"></a><a href="https://en.wikipedia.org/wiki/Perl" target="_blank" rel="noopener" title="佩尔"></a><a href="https://en.wikipedia.org/wiki/PHP" target="_blank" rel="noopener" title="的PHP"></a><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener" title="Python（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)" target="_blank" rel="noopener" title="Ruby（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Scala_(programming_language)" target="_blank" rel="noopener" title="Scala（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Web_browser" target="_blank" rel="noopener" title="网页浏览器"></a><a href="https://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener" title="微软Windows">Windows</a>，<a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener" title="的Linux">Linux</a>和<a href="https://en.wikipedia.org/wiki/MacOS" target="_blank" rel="noopener" title="苹果系统">macOS</a>。它是根据<a href="https://en.wikipedia.org/wiki/Apache_License_2.0" target="_blank" rel="noopener" title="Apache License 2.0">Apache License 2.0</a>发布<a href="https://en.wikipedia.org/wiki/Open-source_software" target="_blank" rel="noopener" title="开源软件">的开源软件</a>(引自维基百科)</li>
+</ul>
+<h5 id="2-Selenium的安装"><a href="#2-Selenium的安装" class="headerlink" title="2.Selenium的安装"></a>2.Selenium的安装</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  ~ pip install selenium</span><br><span class="line">Collecting selenium</span><br><span class="line">  Using cached https://files.pythonhosted.org/packages/<span class="number">80</span>/d6/<span class="number">4294</span>f0b4bce4de0abf13e17190289f9d0613b0a44e5dd6a7f5ca98459853/selenium<span class="number">-3.141</span><span class="number">.0</span>-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: urllib3 <span class="keyword">in</span> ./yiluo/lib/python3<span class="number">.7</span>/site-packages (<span class="keyword">from</span> selenium) (<span class="number">1.25</span><span class="number">.7</span>)</span><br><span class="line">Installing collected packages: selenium</span><br><span class="line">Successfully installed selenium<span class="number">-3.141</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-安装谷歌浏览器驱动"><a href="#3-安装谷歌浏览器驱动" class="headerlink" title="3.安装谷歌浏览器驱动"></a>3.安装谷歌浏览器驱动</h5><ul>
+<li><p>下载驱动： <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></p>
+</li>
+<li><p>解压后，将<code>chromedriver</code>移动到<code>/usr/local/bin</code>目录下</p>
+</li>
+</ul>
+<h5 id="4-简单的尝试打开简书"><a href="#4-简单的尝试打开简书" class="headerlink" title="4.简单的尝试打开简书"></a>4.简单的尝试打开简书</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">'https://www.jianshu.com/u/3c9531339206'</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python web.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5NTlmNTY5NDExNmM4YjIucG5n?x-oss-process=image/format,png" alt="自动打开的网页"></p>
+<h5 id="6-定位元素的一些方式"><a href="#6-定位元素的一些方式" class="headerlink" title="6.定位元素的一些方式"></a>6.定位元素的一些方式</h5><blockquote>
+<p>id<br>    name<br>    class name<br>    tag name<br>    link text<br>    partial link text<br>    xpath<br>    css selector<br>######7. Python webdriver 中的使用方法</p>
+</blockquote>
+<blockquote>
+<p>find_element_by_id()<br>    find_element_by_name()<br>    find_element_by_class_name()<br>    find_element_by_tag_name()<br>    find_element_by_link_text()<br>    find_element_by_partial_link_text()<br>    find_element_by_xpath()<br>    find_element_by_css_selector()</p>
+</blockquote>
+<h5 id="8-实例软件测试网站Testerhome的登陆脚本"><a href="#8-实例软件测试网站Testerhome的登陆脚本" class="headerlink" title="8.实例软件测试网站Testerhome的登陆脚本"></a>8.实例软件测试网站Testerhome的登陆脚本</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">"https://testerhome.com/"</span>)</span><br><span class="line"><span class="comment"># 放大窗口</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入登陆页面</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="main-page"]/div[1]/nav/div/ul[1]/li[2]/a'</span>).click()</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入账号</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'user_login'</span>).send_keys(<span class="string">'你的账户'</span>)</span><br><span class="line"><span class="comment"># 输入密码</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'user_password'</span>).send_keys(<span class="string">'你的密码'</span>)</span><br><span class="line"><span class="comment"># 点击登陆按钮</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="new_user"]/div[4]/input'</span>).click()</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 关闭窗口</span></span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTFmMTM0NTIxMTkxYWQ5MTcucG5n?x-oss-process=image/format,png" alt="登陆成功"></p>
+<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTNjN2RmY2U3MzNjYjNjNjkucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://img-blog.csdnimg.cn/20191211175851493.jpeg" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>享受每一天，Just Enjoy ! </p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJhYmIyZDExYWMwZTI5ODUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 软件测试方案(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:46:59 / 修改时间：11:47:18" itemprop="dateCreated datePublished" datetime="2019-12-20T11:46:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU2ZTEzNGI0MjE3MjY2MzUucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-测试方案的目的"><a href="#1-测试方案的目的" class="headerlink" title="1.测试方案的目的"></a>1.测试方案的目的</h5><ul>
+<li>所以测试方案目的是: 在方向上明确要测什么、怎么测，以及达到什么样质量标准</li>
+<li>软件测试方案有助于软件项目成员理解和执行测试过程中的各项活动，同时测试方案也有助于测试活动的管理<h5 id="2-测试计划和测试方案的区别"><a href="#2-测试计划和测试方案的区别" class="headerlink" title="2.测试计划和测试方案的区别"></a>2.测试计划和测试方案的区别</h5></li>
+<li>测试方案需要在测试计划的指导下进行，测试计划提出“做什么”，而测试方案明确“怎么做”<h5 id="3-如何编写有效的测试方案"><a href="#3-如何编写有效的测试方案" class="headerlink" title="3.如何编写有效的测试方案"></a>3.如何编写有效的测试方案</h5></li>
+<li>测试需求分析</li>
+<li>测试策略</li>
+<li>测试资源</li>
+<li>测试进度计划</li>
+<li>风险管理</li>
+<li>质量</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU4ODEwZjU2MDBiMjMxYmYuanBlZw?x-oss-process=image/format,png" alt=""></p>
+<h5 id="4-测试需求分析"><a href="#4-测试需求分析" class="headerlink" title="4. 测试需求分析"></a>4. 测试需求分析</h5><ul>
+<li>测试需求分析就是把产品需求和对用户的理解（用户体验）转化、分解成测试功能 点，产品需求是我们测试需求主要输入，但不是全部，我们还需要仔细分析产品设计说明，可以产出更多可测试的功能点（这些功能点往往没有包含在产品需求 中）。还要加入对性能、安全、接口和回归测试范围分析。测试需求是确定测试进度计划和资源的主要依据</li>
+<li>评估风险并确定测试优先级<h5 id="5-测试策略"><a href="#5-测试策略" class="headerlink" title="5.测试策略"></a>5.测试策略</h5></li>
+<li>制定测试策略</li>
+<li>测试进度计划<br>根据测试需求和策略，结合项目优先级和测试资源情况，评估测试进度计划<h5 id="6-测试类型"><a href="#6-测试类型" class="headerlink" title="6.测试类型"></a>6.测试类型</h5><blockquote>
+<p>测试类型<br>功能测试<br>界面测试<br>安全测试<br>数据库测试<br>可靠性测试<br>集成测试<br>兼容性测试<br>自动化测试<br>性能测试<br>回归测试</p>
+</blockquote>
+<h5 id="…-待续"><a href="#…-待续" class="headerlink" title="…..待续"></a>…..待续</h5><img src="https://img-blog.csdnimg.cn/20191211162338871.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE1ODUxYTk2YjhjYzgzYWMucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTkyYzJiYjM5OTM3MmY4YTkucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B(%E4%BA%8C)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B(%E4%BA%8C)/" class="post-title-link" itemprop="url">Python基础 Zero to Hero面向对象编程(二)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:45:59 / 修改时间：11:45:05" itemprop="dateCreated datePublished" datetime="2019-12-20T11:45:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRjZjZmMzQxOGNiMWY0ZGIucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-私有属性和方法"><a href="#1-私有属性和方法" class="headerlink" title="1.私有属性和方法"></a>1.私有属性和方法</h5><ul>
+<li><code>Python</code> 在属性方法名前添加 <code>__</code>（<code>两个下划线 __</code>）来拒绝外部的访问</li>
+<li>两个下划线是设置私有<code>属性/方法</code>的标准样式， 还有一种设置<code>私有属性/方法</code>的样式，就是在<code>属性/方法</code>名字前加一个下划线<code>_</code> 但是其实这样的<code>私有属性/方法</code>只仅仅是视为不能直接访问，但是实际上还是可以访问的<h5 id="2-类属性，类方法"><a href="#2-类属性，类方法" class="headerlink" title="2.类属性，类方法"></a>2.类属性，类方法</h5><code>类属性</code>和<code>类方法</code>是可以直接使用类访问，不需要<code>实例化</code></li>
+<li>类属性<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Hero</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    skill = <span class="string">'fire'</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self._name = name</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Hero.skill</span><br><span class="line"><span class="string">'fire'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>xiangyu= Hero(<span class="string">'项羽'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>xiangyu.skill</span><br><span class="line"><span class="string">'fire'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.创建一个英雄类</p>
+</blockquote>
+</li>
+</ul>
+<p>2.英雄的技能是火焰<br>3.初始化英雄的名字<br>4.实例一个英雄<br>5.调用英雄的技能属性</p>
+<ul>
+<li>类方法<br>类方法用装饰器 <code>@classmethod</code>装饰，类方法中可以访问类属性<br>类方法的第一个参数传入的是类对象，而不是<code>实例对象</code>，约定俗成的，<code>类方法</code>中要指代类对象本身都使用 <code>cls</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Hero</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">... </span>    skill = <span class="string">'fire'</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line"><span class="meta">... </span>        self._name = name</span><br><span class="line"><span class="meta">... </span>    @classmethod</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">get_skill</span><span class="params">(cls)</span>:</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> cls.skill</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Hero.get_skill()</span><br><span class="line"><span class="string">'fire'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>liubei = Hero(<span class="string">'刘备'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>liubei._name</span><br><span class="line"><span class="string">'刘备'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>liubei.get_skill()</span><br><span class="line"><span class="string">'fire'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.不需要实例化就可以调用</p>
+</blockquote>
+</li>
+<li>静态方法<br>静态方法用装饰器 <code>@staticmethod</code> 装饰，和 <code>@classmethod</code> 有点类似。静态方法在运行时不需要实例的参与，并且也不需要传递<code>cls</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hero</span><span class="params">(object)</span>:</span></span><br><span class="line">     skill = <span class="string">'fire'</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">         self._name = name</span><br><span class="line"><span class="meta">     @staticmethod</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">release_skills</span><span class="params">()</span>:</span></span><br><span class="line">         print(guanyu._name + <span class="string">' '</span> +<span class="string">'释放技能'</span> + <span class="string">': '</span>+ Hero.skill)</span><br><span class="line"></span><br><span class="line">guanyu = Hero(<span class="string">'关羽'</span>)</span><br><span class="line">Hero.release_skills()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.静态方法 ，英雄释放技能</p>
+</blockquote>
+</li>
+</ul>
+<p>2.不需要实例化直接释放火焰技能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python test.py</span><br><span class="line">关羽 释放技能: fire</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU4MDIzNmRhZDg4NDBiZmQuanBlZw?x-oss-process=image/format,png" alt=""></p>
+<h5 id="3-property-装饰器"><a href="#3-property-装饰器" class="headerlink" title="3.property 装饰器"></a>3.property 装饰器</h5><p><code>@property</code> 装饰器可以将一个<code>方法</code>变成一个<code>属性</code>来使用，通过 <code>@property</code> 装饰器可以获得和修改对象的某一个<code>属性</code></p>
+<blockquote>
+<p>@property 表示只读<br>    @property 和 @<em>.setter 表示可读可写<br>    @property、@</em>.setter、和 @<em>.deleter 表示可读可写可删除<br>    @property 必须定义在 @</em>.setter 的前面<br>    类必须继承 object 父类，否则 @property 不会生效</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hero</span><span class="params">(object)</span>:</span></span><br><span class="line">     skill = <span class="string">'fire'</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">         self._name = name</span><br><span class="line"><span class="meta">     @property</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">         <span class="keyword">return</span> self._name</span><br><span class="line"><span class="meta">     @name.setter</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, value)</span>:</span></span><br><span class="line">         <span class="keyword">if</span> isinstance(value, str):</span><br><span class="line">             self._name = value</span><br><span class="line">         <span class="keyword">else</span>:</span><br><span class="line">             <span class="keyword">raise</span> ValueError</span><br><span class="line"><span class="meta">     @name.deleter</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">         print(<span class="string">'del name'</span>)</span><br><span class="line">         <span class="keyword">del</span> self._name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">liubei = Hero(<span class="string">'刘备'</span>)</span><br><span class="line">print(liubei.name)</span><br><span class="line">liubei.name = <span class="string">'关羽'</span></span><br><span class="line">print(liubei.name)</span><br><span class="line">liubei.name = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python test.py</span><br><span class="line">刘备</span><br><span class="line">关羽</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">26</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    liubei.name = <span class="number">100</span></span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">15</span>, <span class="keyword">in</span> name</span><br><span class="line">    <span class="keyword">raise</span> ValueError</span><br><span class="line">ValueError</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.这样的好处是可以在方法中对用户传入的数据进行校验（校验了英雄名称是字符串）</p>
+</blockquote>
+<ul>
+<li>删除英雄<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">liubei = Hero(<span class="string">'刘备'</span>)</span><br><span class="line">print(liubei.name)</span><br><span class="line">liubei.name = <span class="string">'关羽'</span></span><br><span class="line">print(liubei.name)</span><br><span class="line"><span class="keyword">del</span> liubei.name</span><br><span class="line">print(liubei.name)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python test.py</span><br><span class="line">刘备</span><br><span class="line">关羽</span><br><span class="line">删除名字</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">27</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(liubei.name)</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> name</span><br><span class="line">    <span class="keyword">return</span> self._name</span><br><span class="line">AttributeError: <span class="string">'Hero'</span> object has no attribute <span class="string">'_name'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.英雄已经被成功删除</p>
+</blockquote>
+<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><img src="https://img-blog.csdnimg.cn/2019121111253969.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU0NTA2OWFhYmIxMjdiNzcucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRiN2NiYmI2YTUwZDAxYWEucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础 Zero to Hero面向对象编程(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:40:59 / 修改时间：11:42:26" itemprop="dateCreated datePublished" datetime="2019-12-20T11:40:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTJkODVjYzNmMzU3MWE5YzgucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-面向对象编程简介"><a href="#1-面向对象编程简介" class="headerlink" title="1. 面向对象编程简介"></a>1. 面向对象编程简介</h5><p><strong>面向对象程序设计</strong>（英语：Object-oriented programming，<a href="https://zh.wikipedia.org/wiki/%E7%BC%A9%E5%86%99" target="_blank" rel="noopener" title="缩写">缩写</a>：OOP）是种具有<a href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E8%B1%A1_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" target="_blank" rel="noopener" title="对象 (计算机科学)">对象</a>概念的<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B" target="_blank" rel="noopener" title="编程范型">程序编程典范</a>，同时也是一种程序开发的抽象方针。它可能包含<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE" target="_blank" rel="noopener" title="数据">数据</a>、<a href="https://zh.wikipedia.org/w/index.php?title=%E5%B1%9E%E6%80%A7_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)&action=edit&redlink=1" target="_blank" rel="noopener">属性</a>、<a href="https://zh.wikipedia.org/wiki/%E6%BA%90%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener" title="源代码">代码</a>与<a href="https://zh.wikipedia.org/wiki/%E6%96%B9%E6%B3%95_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8)" target="_blank" rel="noopener" title="方法 (计算机科学)">方法</a>。对象则指的是<a href="https://zh.wikipedia.org/wiki/%E7%B1%BB_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" target="_blank" rel="noopener" title="类 (计算机科学)">类</a>的实例。它将<a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E4%BB%B6_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8)" target="_blank" rel="noopener" title="对象 (计算机科学)">对象</a>作为<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener" title="计算机程序">程序</a>的基本单元，将程序和<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE" target="_blank" rel="noopener" title="数据">数据</a><a href="https://zh.wikipedia.org/wiki/%E5%B0%81%E8%A3%9D_(%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)" target="_blank" rel="noopener" title="封装 (面向对象编程)">封装</a>其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。在面向对象程序编程里，计算机程序会被设计成彼此相关的对象（引自维基百科）</p>
+<h5 id="2-面向对象4个核心概念"><a href="#2-面向对象4个核心概念" class="headerlink" title="2.面向对象4个核心概念"></a>2.面向对象4个核心概念</h5><ul>
+<li><p>抽象</p>
+</li>
+<li><p>封装 </p>
+</li>
+<li><p>继承 </p>
+</li>
+<li><p>多态</p>
+<h5 id="3-类的定义"><a href="#3-类的定义" class="headerlink" title="3.类的定义"></a>3.类的定义</h5></li>
+<li><p>类和对象<br><code>面向对象</code>的两个基本概念<code>类</code>和<code>实例</code>，而<code>实例</code>是根据类创建出来的一个个具体的<code>“对象”</code>,一个类中既会定义<code>属性</code>，也会定义<code>方法</code></p>
+</li>
+<li><p>类的命名规则遵循<code>大驼峰命名法</code>：每个单词的第一个字母都大写，私有类使用<code>下划线</code>开头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>:</span></span><br><span class="line">    &lt;statement<span class="number">-1</span>&gt;</span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">    &lt;statement-N&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>下面定义一个<code>People</code>的类，并且实例化为<code>student</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">pass</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student = People()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(student)</span><br><span class="line">&lt;__main__.People object at <span class="number">0x10e1796d0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>People()</span><br><span class="line">&lt;__main__.People object at <span class="number">0x10e179750</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>People</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">__main__</span>.<span class="title">People</span>'&gt;</span></span><br><span class="line">&gt;&gt;&gt; student.name = 'yiluo'</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student.name</span><br><span class="line"><span class="string">'yiluo'</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>0x10e1796d0</code>为内存地址</p>
+</li>
+<li><p>实例方法<br>在 <code>Python</code> 中只要新建一个类就会自动创建它的<code>内置类方法</code>或<code>属性</code>，可以通过 <code>dir(类名)</code>查看</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">pass</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dir(People)</span><br><span class="line">[<span class="string">'__class__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__dict__'</span>, <span class="string">'__dir__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__eq__'</span>, <span class="string">'__format__'</span>, <span class="string">'__ge__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__gt__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__init_subclass__'</span>, <span class="string">'__le__'</span>, <span class="string">'__lt__'</span>, <span class="string">'__module__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'__weakref__'</span>]</span><br></pre></td></tr></table></figure></li>
+<li><p>其中最常用的是 <code>__init__</code> 方法，它可以对实例进行<code>初始化设置</code>（类的<code>内置方法</code>前后各有两个下划线 <code>_</code>，简称：“<code>双下划线</code>”）</p>
+</li>
+<li><p>下面重新写一个类并初始化名字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code touch people.py</span><br><span class="line">(yiluo) ➜  Code vim people.py</span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.name = <span class="string">'yiluo'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">student = People()</span><br><span class="line">print(student.name)</span><br></pre></td></tr></table></figure></li>
+<li><p>执行文件打印出了名字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python people.py</span><br><span class="line">yiluo</span><br></pre></td></tr></table></figure></li>
+<li><p>类中的函数通常称作方法，<code>self</code>所指的是就是实例本身，下面修改下类中的属性，也就是年龄</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = <span class="string">'20'</span></span><br><span class="line"></span><br><span class="line">student = People(<span class="string">'yiluo'</span>)</span><br><span class="line">print(student.name)</span><br><span class="line">student.age = <span class="string">'18'</span></span><br><span class="line">print(student.age)</span><br></pre></td></tr></table></figure></li>
+<li><p>年龄被修改为了18岁</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python people.py</span><br><span class="line">yiluo</span><br><span class="line"><span class="number">18</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>__repr__</code> 来格式化实例的打印格式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Student: &#123;&#125;'</span>.format(self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">student = People(<span class="string">'yiluo'</span>, <span class="number">20</span>)</span><br><span class="line">print(student.name)</span><br><span class="line">print(student.age)</span><br><span class="line">print(student)</span><br></pre></td></tr></table></figure></li>
+<li><p>格式化打印输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python people.py</span><br><span class="line">yiluo</span><br><span class="line"><span class="number">20</span></span><br><span class="line">Student:yiluo</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20191210224643977.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM4NjIzMQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h5 id="4-类的封装"><a href="#4-类的封装" class="headerlink" title="4.类的封装"></a>4.类的封装</h5><p>在<code>面向对象</code>的语言中，<code>封装</code>就是用类将<code>数据</code>和<code>基于数据</code>的操作封装在一起，隐藏<code>内部数据</code>，对外提供公共的访问</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self._name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_age</span><span class="params">(self, age)</span>:</span></span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self, score)</span>:</span></span><br><span class="line">        print(<span class="string">'姓名：&#123;&#125;'</span>.format(self.get_name()) + <span class="string">' '</span>+ <span class="string">'年龄：&#123;&#125;'</span>.format(self.get_age())+ <span class="string">' '</span> +  <span class="string">'得分:&#123;&#125;'</span>.format(score) )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建实例对象student</span></span><br><span class="line">student = People(<span class="string">'yiluo'</span>, <span class="string">'20'</span>)</span><br><span class="line">student.get_name()</span><br><span class="line">student.get_age()</span><br><span class="line">student.score(<span class="string">'98'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#重新设置名字和年龄</span></span><br><span class="line">student.set_name(<span class="string">'luoyi'</span>)</span><br><span class="line">student.set_age(<span class="string">'19'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#重新获得名字和年龄</span></span><br><span class="line">student.get_name()</span><br><span class="line">student.get_age()</span><br><span class="line">student.score(<span class="string">'99'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python 的<code>私有属性</code>用一个或两个下划线开头表示，一个下划线表示外部调用者不应该直接调用这个<code>属性</code>，但其实还是可以调用的； 如果是<code>两个下划线</code>就不能调用</li>
+<li>执行一下，看下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python people.py</span><br><span class="line">姓名：yiluo 年龄：<span class="number">20</span> 得分:<span class="number">98</span></span><br><span class="line">姓名：luoyi 年龄：<span class="number">19</span> 得分:<span class="number">99</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-类的继承与方法重写"><a href="#5-类的继承与方法重写" class="headerlink" title="5.类的继承与方法重写"></a>5.类的继承与方法重写</h5></li>
+<li>继承分为两种：<code>单继承</code>和<code>多继承</code>。<code>单继承</code>是指子类只继承于一个父类，相应的<code>多继承</code>是指子类继承于多个父类</li>
+<li><code>单继承</code>与<code>方法重写</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self._name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_age</span><span class="params">(self, age)</span>:</span></span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">title</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(People)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">title</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'姓名&#123;&#125;'</span>.format(self.get_name()) + <span class="string">' '</span> + <span class="string">'年龄&#123;&#125;'</span>.format(self.get_age()) + <span class="string">' '</span> + <span class="string">'职业：学生'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span><span class="params">(People)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">title</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'姓名&#123;&#125;'</span>.format(self.get_name()) + <span class="string">' '</span> + <span class="string">'年龄&#123;&#125;'</span>.format(self.get_age()) + <span class="string">' '</span> + <span class="string">'职业：教师'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">'yiluo'</span>, <span class="string">'20'</span>)</span><br><span class="line">teacher = Teacher(<span class="string">'luoyi'</span>, <span class="string">'19'</span>)</span><br><span class="line">student.title()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python people.py</span><br><span class="line">姓名yiluo 年龄<span class="number">20</span> 职业：学生</span><br><span class="line">姓名luoyi 年龄<span class="number">19</span> 职业：教师</span><br></pre></td></tr></table></figure>
+<ul>
+<li>所谓重写父类的方法就是指：在子类中定义和父类同名的方法，那么子类中的该方法就会覆盖掉父类中对应的方法<h5 id="6-类的多继承"><a href="#6-类的多继承" class="headerlink" title="6.类的多继承"></a>6.类的多继承</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.name = <span class="string">'yiluo'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo1</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'打印名字'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Age</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.age = <span class="number">20</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo2</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'打印年龄'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Somebody</span><span class="params">(Name, Age)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        Name.__init__(self)</span><br><span class="line">        Age.__init__(self)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo3</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'打印某人'</span>)</span><br><span class="line"></span><br><span class="line">somebody = Somebody()</span><br><span class="line">print(somebody.name)</span><br><span class="line">print(somebody.age)</span><br><span class="line">somebody.demo1()</span><br><span class="line">somebody.demo2()</span><br><span class="line">somebody.demo3()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yiluo) ➜  Code python demo.py</span><br><span class="line">yiluo</span><br><span class="line"><span class="number">20</span></span><br><span class="line">打印名字</span><br><span class="line">打印年龄</span><br><span class="line">打印某人</span><br></pre></td></tr></table></figure>
+<h5 id="7-多态"><a href="#7-多态" class="headerlink" title="7.多态"></a>7.多态</h5>多态就是使用同一方法对不同对象可以产生不同的结果<h5 id="…-待续"><a href="#…-待续" class="headerlink" title="…..待续"></a>…..待续</h5><img src="https://img-blog.csdnimg.cn/20191210225133104.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTdkZWE2OTNkZDY4MTU1MzYucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy!</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU2MWQyOTU5ZTY5OWJlNDMucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 软件测试计划(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:38:59 / 修改时间：11:39:07" itemprop="dateCreated datePublished" datetime="2019-12-20T11:38:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTg5NjFlMDFhZGJhYWQ1MGMucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-测试计划"><a href="#1-测试计划" class="headerlink" title="1.测试计划"></a>1.测试计划</h5><p>1.什么是测试计划<br>测试人员能够了解整个<code>项目测试</code>情况以及项目测试不同阶段的所要进行的工作</p>
+<p>2.测试计划谁来编写<br>具有丰富经验的<code>项目测试负责人</code></p>
+<h5 id="2-测试计划的定义"><a href="#2-测试计划的定义" class="headerlink" title="2.测试计划的定义"></a>2.测试计划的定义</h5><p>被测试项目的<code>背景、目标、范围、方式、资源、进度安排、测试组织、测试执行进入与退出标准</code>、本测试计划的审批与变更方式，以及与测试有关的风险等方面</p>
+<h5 id="3-制定测试计划"><a href="#3-制定测试计划" class="headerlink" title="3.制定测试计划"></a>3.制定测试计划</h5><ul>
+<li>认真做好<code>测试资料</code>的搜集整理工作</li>
+<li>明确测<code>试的目标</code>，<code>增强测试计划</code>的<code>实用性</code>；</li>
+<li>坚持<code>“5W”规则</code>，明确<code>内容</code>与<code>过程</code></li>
+<li>采用<code>评审</code>和更新机制，保证<code>测试计划</code>满足实际需求<h5 id="4-测试计划包含内容"><a href="#4-测试计划包含内容" class="headerlink" title="4.测试计划包含内容"></a>4.测试计划包含内容</h5></li>
+<li>测试环境<br>包括：<code>软件+硬件+网络+数据准备+测试工具</code><br>测试环境是测试人员为进行软件测试而搭建的环境</li>
+<li>硬件环境，软件环境</li>
+<li>测试开始，测试结束条件</li>
+<li>测试<code>进度</code>与<code>跟踪</code></li>
+<li>测试<code>风险</code>与<code>解决</code><br>确定<code>测试需求，风险评估</code>，确定测试对象<code>优先级</code>，确定测试对象<code>优先顺序</code><h5 id="……-待续"><a href="#……-待续" class="headerlink" title="…….待续"></a>…….待续</h5><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTFiYzgyZWMyZWViYWI5MjcucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+<img src="https://img-blog.csdnimg.cn/20191210161034690.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBlMmVhMjJlNDM1MGUxMjEucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%B5%8B%E8%AF%95%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%B5%8B%E8%AF%95%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 测试流程及测试需求分析(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 11:36:59 / 修改时间：11:36:27" itemprop="dateCreated datePublished" datetime="2019-12-20T11:36:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3OTVmODc4NmJmMzA3YjAucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-软件测试流程"><a href="#1-软件测试流程" class="headerlink" title="1.软件测试流程"></a>1.软件测试流程</h5><blockquote>
+<ul>
+<li>测试需求分析</li>
+<li>编写测试计划</li>
+<li>编写测试方案</li>
+<li>测试用例设计</li>
+<li>执行测试，提交缺陷</li>
+<li>编写测试报告</li>
+</ul>
+</blockquote>
+<h5 id="2-软件测试简要流程"><a href="#2-软件测试简要流程" class="headerlink" title="2.软件测试简要流程"></a>2.软件测试简要流程</h5><p><code>开始，测试设计，设计评审，测试执行，修复问题，回归测试，测试结束</code></p>
+<h5 id="3-测试需求分析"><a href="#3-测试需求分析" class="headerlink" title="3.测试需求分析"></a>3.测试需求分析</h5><ul>
+<li>什么是测试需求<blockquote>
+<p>1.测试需求主要解决“测什么”的问题 ，用来识别什么内容是需要进行测试的</p>
+</blockquote>
+</li>
+</ul>
+<p>2.测试需求通常是以软件开发需求为基础进行分析，通过对开发需求的细化和分解，形成可测试的内容<br>3.测试需求应全部覆盖已定义的业务流程，以及功能和非功能方面的需求，不需要实际的数据出现</p>
+<ul>
+<li>测试需求来自哪里<blockquote>
+<p>1.业务需求<br>2.功能内部逻辑（需求规格说明书）</p>
+</blockquote>
+</li>
+</ul>
+<p>3.MRD(市场需求文档)<br>4.技术设计方案</p>
+<h5 id="4-测试需求分析"><a href="#4-测试需求分析" class="headerlink" title="4.测试需求分析"></a>4.测试需求分析</h5><blockquote>
+<ul>
+<li>需求采集</li>
+<li>测试需求分析</li>
+<li>测试需求评审</li>
+</ul>
+</blockquote>
+<h5 id="5-测试要点分析"><a href="#5-测试要点分析" class="headerlink" title="5.测试要点分析"></a>5.测试要点分析</h5><blockquote>
+<p>1.测试要点是对原始测试需求表每一条开发需求的细化和分解，形成的可测试的分层描述的软件需求<br>2.通过分析每条开发需求描述中的输入、输出、处理、限制、约束等，给出对应的验证内容<br>3.通过分析各个功能模块之间的业务顺序，和各个功能模块之间传递的信息和数据（功能交互分析） 对存在功能交互的功能项，给出对应的验证内容</p>
+</blockquote>
+<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI3ZGM2MmNkZWQ0ZGRlYjAucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2019121015334391.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNmNDNlMWQ4OGMxODlkZjMucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">伊洛</p>
+  <div class="site-description" itemprop="description">公号「伊洛的小屋」 伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">伊洛</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
