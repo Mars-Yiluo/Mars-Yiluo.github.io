@@ -19,7 +19,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
+    hostname: new URL('https://yiluotalk.com').hostname,
     root: '/',
     scheme: 'Pisces',
     version: '7.6.0',
@@ -49,7 +49,7 @@
   <meta name="description" content="1. 异常的定义 异常处理，是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况（即超出程序正常执行流程的某些特殊条件）  2. 错误和异常 写程序的时候通常会出现错误，目前（至少）有两种可区分的错误：语法错误和 异常 语法错误：又称解析错误，经常容易遇到 异常：即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误3. 简单的例子12345# 伊洛Yiluo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python基础 Zero to Hero 异常的处理 (一)">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;20&#x2F;Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2019&#x2F;12&#x2F;20&#x2F;Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)&#x2F;index.html">
 <meta property="og:site_name" content="YiluoTalk">
 <meta property="og:description" content="1. 异常的定义 异常处理，是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况（即超出程序正常执行流程的某些特殊条件）  2. 错误和异常 写程序的时候通常会出现错误，目前（至少）有两种可区分的错误：语法错误和 异常 语法错误：又称解析错误，经常容易遇到 异常：即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误3. 简单的例子12345# 伊洛Yiluo">
 <meta property="og:locale" content="zh_CN">
@@ -66,7 +66,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWFkMDg2NjVlOWViOGNlMGQucG5n?x-oss-process&#x3D;image&#x2F;format,png">
 
-<link rel="canonical" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
+<link rel="canonical" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -180,7 +180,7 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+            <div class="content">
             
 
   <div class="posts-expand">
@@ -188,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -237,7 +237,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWFkMDg2NjVlOWViOGNlMGQucG5n?x-oss-process=image/format,png" alt=""></p>
+        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWFkMDg2NjVlOWViOGNlMGQucG5n?x-oss-process=image/format,png" alt=""></p>
 <h5 id="1-异常的定义"><a href="#1-异常的定义" class="headerlink" title="1. 异常的定义"></a>1. 异常的定义</h5><ul>
 <li>异常处理，是<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener" title="编程语言">编程语言</a>或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况（即超出程序正常执行流程的某些特殊条件）</li>
 </ul>
@@ -278,7 +278,23 @@
 <p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>2019年12月16日<br>愿您享受每一天，Just Enjoy !</p>
 </blockquote>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRjOGFiMjlhNThjMjU0YWUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     
