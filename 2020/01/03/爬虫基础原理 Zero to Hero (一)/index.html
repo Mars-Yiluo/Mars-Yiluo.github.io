@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://yiluotalk.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="1.什么是爬虫？网络爬虫（英语：web crawler），也叫网络蜘蛛（spider），是一种用来自动浏览万维网的网络机器人  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！   其实通俗的来讲，本质上爬虫就是自动化的程序，自动化模拟人的操作。比如在网站上下载小说，下载图片，下载视频等等。如果让你本人下载1-2张图片可能很容易，但是如果让你下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫基础原理 Zero to Hero (一)">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;01&#x2F;03&#x2F;%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)&#x2F;index.html">
+<meta property="og:site_name" content="YiluoTalk">
+<meta property="og:description" content="1.什么是爬虫？网络爬虫（英语：web crawler），也叫网络蜘蛛（spider），是一种用来自动浏览万维网的网络机器人  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！   其实通俗的来讲，本质上爬虫就是自动化的程序，自动化模拟人的操作。比如在网站上下载小说，下载图片，下载视频等等。如果让你本人下载1-2张图片可能很容易，但是如果让你下载">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThkZTk0OWZjZmExNmJkOGQucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWYwODdlZTU2MGJmMTNkZTUucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTczMzU3YWQzNjZlNzY2MDcucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTRkNjUwNWQ1ZTkzN2FjZWUucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWUwNzFiY2JkY2MyNDFiMTEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIyODAyNzJhMWEzOThjZDAucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTllYjNjNTE4Y2ZiYmQwNzUucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTYyNDczMzM2MGMwODVmMWEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIxY2Q3MTFmZTUyODg5MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU0OTI1YmMzMGUxNzdlNzIucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20200103174004965.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTA5N2JiYmJmNWEyOWY0NzcucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5ODE4OThiZTY1MzYzOTQucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="article:published_time" content="2020-01-03T09:15:59.000Z">
+<meta property="article:modified_time" content="2020-01-03T09:45:33.000Z">
+<meta property="article:author" content="伊洛">
+<meta property="article:tag" content="Zero to Hero">
+<meta property="article:tag" content="Python爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThkZTk0OWZjZmExNmJkOGQucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+
+<link rel="canonical" href="https://yiluotalk.com/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>爬虫基础原理 Zero to Hero (一) | YiluoTalk</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="YiluoTalk" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YiluoTalk</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">享受每一天，Just Enjoy !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+            <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」       伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          爬虫基础原理 Zero to Hero (一)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-03 17:15:59 / 修改时间：17:45:33" itemprop="dateCreated datePublished" datetime="2020-01-03T17:15:59+08:00">2020-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThkZTk0OWZjZmExNmJkOGQucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-什么是爬虫？"><a href="#1-什么是爬虫？" class="headerlink" title="1.什么是爬虫？"></a>1.什么是爬虫？</h5><p><strong>网络爬虫</strong>（英语：web crawler），也叫<strong>网络蜘蛛</strong>（spider），是一种用来自动浏览<a href="https://zh.wikipedia.org/wiki/%E4%B8%87%E7%BB%B4%E7%BD%91" target="_blank" rel="noopener" title="万维网">万维网</a>的<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank" rel="noopener">网络机器人</a></p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<ul>
+<li>其实通俗的来讲，本质上爬虫就是自动化的程序，自动化模拟人的操作。比如在网站上下载小说，下载图片，下载视频等等。如果让你本人下载<code>1-2</code>张图片可能很容易，但是如果让你下载<code>100</code>张甚至<code>10000</code>张图片的话，就一定会发狂了。所以就交给自动化的爬虫来帮你下载<code>10000</code>张图片！解放你的双手～<h5 id="2-浏览器获取数据过程"><a href="#2-浏览器获取数据过程" class="headerlink" title="2.浏览器获取数据过程"></a>2.浏览器获取数据过程</h5><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWYwODdlZTU2MGJmMTNkZTUucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>浏览器向服务等发送<code>http</code>，<code>request</code>请求</li>
+<li>服务器响应<code>response</code></li>
+<li>浏览器<code>解析数据</code></li>
+<li>展示给用户<h5 id="3-Rquest-和-Response"><a href="#3-Rquest-和-Response" class="headerlink" title="3.Rquest 和 Response"></a>3.Rquest 和 Response</h5></li>
+<li><code>Request</code> 包含内容</li>
+</ul>
+<p>1.请求方式通常有<code>Get</code> <code>Post</code> <code>Put</code> <code>Delete</code><br>2.请求<code>URL</code><br>3.请求头<br>4.请求体</p>
+<ul>
+<li><p>来请求一些伊洛的个人博客 <a href="https://yiluotalk.com">https://yiluotalk.com</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTczMzU3YWQzNjZlNzY2MDcucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>点击<code>Network</code>,查看<code>headers</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTRkNjUwNWQ1ZTkzN2FjZWUucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>注意一般服务器会对请求数据做校验，一般在请求头里面需要加<code>user-agent</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWUwNzFiY2JkY2MyNDFiMTEucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p><code>Response</code> 包含内容</p>
+</li>
+</ul>
+<p>1.响应状态 ，<code>状态码</code><br>2.响应头 <code>response</code> <code>headers</code><br>3.响应体信息</p>
+<ul>
+<li>来看一下伊洛博客的返回<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIyODAyNzJhMWEzOThjZDAucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>返回的是<code>html</code>页面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTllYjNjNTE4Y2ZiYmQwNzUucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="4-爬虫的过程"><a href="#4-爬虫的过程" class="headerlink" title="4. 爬虫的过程"></a>4. 爬虫的过程</h5><ul>
+<li>通过上面我们已经比较清楚了，浏览器请求服务器到服务器响应，浏览器解析展示给用户的简单过程，那么我们爬虫的话大概分几步呢<br>通常来说分为四个步骤</li>
+<li>1.爬取数据 发起<code>http</code>请求 （来用<code>python</code>代码演示下）<br>可能需要爬取的数据是会有 <code>Html文档</code>，<code>Json格式文本</code>，<code>图片</code>，<code>视频</code>，等<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://yiluotalk.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.status_code)</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure></li>
+<li>2.获取响应内容<br>如上获取了响应的状态码为<code>200</code></li>
+<li>3.解析内容<br>解析的方式可能有很多种，后续展开讲述下</li>
+</ul>
+<ol>
+<li>直接处理</li>
+<li><code>Json</code> 解析</li>
+<li><code>正则表达式</code></li>
+<li>有很多好用的第三方库，比如 <code>BeautifulSoup</code> <code>pyquery</code>  <code>scrapy</code> 还有<code>xpath</code>也可以<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>响应的是<code>html</code>文件<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTYyNDczMzM2MGMwODVmMWEucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<p>5.保存数据</p>
+<ul>
+<li>保存数据一般分为以下几种，后续展开来讲<br><code>纯文本</code>， <code>Json</code> <code>Xml</code>，<code>关系形数据库（Mysql）</code>，<code>非关系型数据库（Mongodb）</code>，<code>二进制文件</code>等<h5 id="5-找不到要爬取的数据"><a href="#5-找不到要爬取的数据" class="headerlink" title="5. 找不到要爬取的数据"></a>5. 找不到要爬取的数据</h5>由于一些网站的页面是动态获取的，所以最后你看到的页面可能是通过<code>js渲染</code>出来的，那么怎么来处理呢，简单的可以分为</li>
+</ul>
+<p>1.分析<code>ajax</code>请求，<code>json</code>格式字符串<br>2.<code>selenium</code> <code>webdriver</code> 浏览器驱动<br>3.<code>splash</code><br>4.<code>pyv8</code>，<code>ghost8</code></p>
+<ul>
+<li>这里先简单的介绍下模拟人工浏览器的方式，也就是 <code>WEB自动化测试</code>经常用到的，<code>selenium</code> ，可以翻下伊洛之前介绍<code>selenium</code> <code>webdriver</code>自动化测试的的相关文章</li>
+<li>依旧是访问 <a href="https://yiluotalk.com">https://yiluotalk.com</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIxY2Q3MTFmZTUyODg5MmEucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>输入网址<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU0OTI1YmMzMGUxNzdlNzIucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>这样通过浏览器驱动的方式访问的就会正确的获得响应的所有信息</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200103174004965.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTA5N2JiYmJmNWEyOWY0NzcucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5ODE4OThiZTY1MzYzOTQucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/Wechatpay.png" alt="伊洛 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Zero-to-Hero/" rel="tag"># Zero to Hero</a>
+              <a href="/tags/Python%E7%88%AC%E8%99%AB/" rel="tag"># Python爬虫</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/" rel="prev" title="老司机都知道的Python语法小技巧 (三) 放弃 if-elif">
+      <i class="fa fa-chevron-left"></i> 老司机都知道的Python语法小技巧 (三) 放弃 if-elif
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-什么是爬虫？"><span class="nav-number">1.</span> <span class="nav-text">1.什么是爬虫？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-浏览器获取数据过程"><span class="nav-number">2.</span> <span class="nav-text">2.浏览器获取数据过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Rquest-和-Response"><span class="nav-number">3.</span> <span class="nav-text">3.Rquest 和 Response</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-爬虫的过程"><span class="nav-number">4.</span> <span class="nav-text">4. 爬虫的过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-找不到要爬取的数据"><span class="nav-number">5.</span> <span class="nav-text">5. 找不到要爬取的数据</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">伊洛</p>
+  <div class="site-description" itemprop="description">公号「伊洛的小屋」       伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">伊洛</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
