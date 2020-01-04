@@ -46,26 +46,27 @@
   };
 </script>
 
-  <meta name="description" content="大家新年好呀，今天再来说下Python老司机常用的小技巧，让你告别‘乏味的’if-elif，话不多说直接来看一个输出今天周几的例子  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  123456789101112131415161718192021# 伊洛Yiluo# https:&#x2F;&#x2F;yiluotalk.comimport datetimew">
+  <meta name="description" content="本文是Python requests库 (一)的后续，简单的介绍一下python第三方库 requests的一些简单的高级用法  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  1. 文件上传 通过request 上传一张photo1234&gt;&gt;&gt; import requests&gt;&gt;&gt; files &#x3D; &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="老司机都知道的Python语法小技巧 (三) 放弃 if-elif">
-<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif&#x2F;index.html">
+<meta property="og:title" content="Python requests库(二)">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;01&#x2F;04&#x2F;Python%20requests%E5%BA%93(%E4%BA%8C)&#x2F;index.html">
 <meta property="og:site_name" content="YiluoTalk">
-<meta property="og:description" content="大家新年好呀，今天再来说下Python老司机常用的小技巧，让你告别‘乏味的’if-elif，话不多说直接来看一个输出今天周几的例子  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  123456789101112131415161718192021# 伊洛Yiluo# https:&#x2F;&#x2F;yiluotalk.comimport datetimew">
+<meta property="og:description" content="本文是Python requests库 (一)的后续，简单的介绍一下python第三方库 requests的一些简单的高级用法  本文首发于伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  1. 文件上传 通过request 上传一张photo1234&gt;&gt;&gt; import requests&gt;&gt;&gt; files &#x3D; &amp;#1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU5MDc1MTQyMWJlMDQ0NWIucG5n?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20200102112934439.jpeg">
-<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBmYjk4ZDM3OGIyZmZiZDAucG5n?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNjMzQwMWY0YzkxNTU1YjUucG5n?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="article:published_time" content="2020-01-02T03:32:59.000Z">
-<meta property="article:modified_time" content="2020-01-02T03:32:50.000Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTAzM2Q3MjFmZDllZDRlYTkucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20200104163344340.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJjNTA1ZmY3MzYyYmZmZWUucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTM0NWZlMWYyMDJmMWJmNDAucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="article:published_time" content="2020-01-04T08:36:59.000Z">
+<meta property="article:modified_time" content="2020-01-04T08:36:34.000Z">
 <meta property="article:author" content="伊洛">
 <meta property="article:tag" content="Python基础">
 <meta property="article:tag" content="Zero to Hero">
+<meta property="article:tag" content="第三方库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU5MDc1MTQyMWJlMDQ0NWIucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTAzM2Q3MjFmZDllZDRlYTkucG5n?x-oss-process&#x3D;image&#x2F;format,png">
 
-<link rel="canonical" href="https://yiluotalk.com/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/">
+<link rel="canonical" href="https://yiluotalk.com/2020/01/04/Python%20requests%E5%BA%93(%E4%BA%8C)/">
 
 
 <script id="page-configurations">
@@ -77,7 +78,7 @@
   };
 </script>
 
-  <title>老司机都知道的Python语法小技巧 (三) 放弃 if-elif | YiluoTalk</title>
+  <title>Python requests库(二) | YiluoTalk</title>
   
 
 
@@ -188,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/04/Python%20requests%E5%BA%93(%E4%BA%8C)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          老司机都知道的Python语法小技巧 (三) 放弃 if-elif
+          Python requests库(二)
         </h1>
 
         <div class="post-meta">
@@ -212,7 +213,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-01-02 11:32:59 / 修改时间：11:32:50" itemprop="dateCreated datePublished" datetime="2020-01-02T11:32:59+08:00">2020-01-02</time>
+              <time title="创建时间：2020-01-04 16:36:59 / 修改时间：16:36:34" itemprop="dateCreated datePublished" datetime="2020-01-04T16:36:59+08:00">2020-01-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,8 +221,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
+                  <a href="/categories/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">Python第三方库</span>
                   </a>
                 </span>
             </span>
@@ -237,31 +238,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU5MDc1MTQyMWJlMDQ0NWIucG5n?x-oss-process=image/format,png" alt=""></p>
-<p>大家新年好呀，今天再来说下<code>Python</code>老司机常用的小技巧，让你告别‘乏味的’<code>if-elif</code>，话不多说直接来看一个输出今天周几的例子</p>
+        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTAzM2Q3MjFmZDllZDRlYTkucG5n?x-oss-process=image/format,png" alt=""></p>
+<p>本文是<a href="https://www.jianshu.com/p/384aa8b0f3ab" target="_blank" rel="noopener">Python requests库 (一)</a>的后续，简单的介绍一下<code>python</code>第三方库 <code>requests</code>的一些简单的高级用法</p>
 <blockquote>
 <p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> week_day.weekday() == <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'今天是星期一'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">'今天是星期二'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">2</span>:</span><br><span class="line">    print(<span class="string">'今天是星期三'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">3</span>:</span><br><span class="line">    print(<span class="string">'今天是星期四'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">4</span>:</span><br><span class="line">    print(<span class="string">'今天是星期五'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">5</span>:</span><br><span class="line">    print(<span class="string">'今天是星期六'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">6</span>:</span><br><span class="line">    print(<span class="string">'今天是星期日'</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>weekday()</code>函数返回的是当前日期所在的星期数</li>
-<li>运行看以下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li>没错今天就是周四</li>
-<li>可以看到上面的代码看上去好像很复杂而且码代码的时候也很容易出现错误，比如你入门<code>python</code>的时候肯定会做一些类似于工资计算器的小程序，你计算公积金或者税率工资分段的时候要不断的用到<code>if-elif</code>，这样很容易出现错误</li>
-<li>那么有没有更好的方式避免或者优化呢</li>
-<li>当然作为<code>python</code>老司机的话都会用到调度表</li>
-<li>简单来看一个例子<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">dispatch = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">'今天是星期一'</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">'今天是星期二'</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">'今天是星期三'</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">'今天是星期四'</span>,</span><br><span class="line">  <span class="number">4</span>: <span class="string">'今天是星期五'</span>,</span><br><span class="line">  <span class="number">5</span>: <span class="string">'今天是星期六'</span>,</span><br><span class="line">  <span class="number">6</span>: <span class="string">'今天是星期日'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(dispatch[week_day.weekday()])</span><br></pre></td></tr></table></figure></li>
-<li>这里其实就是一个<code>python</code>的字典</li>
-<li>看上去是不是稍微的简洁简化了呢</li>
-<li>重要的是会避免出错（当你<code>if-elif</code>很多的情况下，就一定会有这种体会了）</li>
-<li>最后来输出看看结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li>结果一致，适当的放弃<code>if-elif</code>吧，让你的代码不仅美观还少出错</li>
+<h5 id="1-文件上传"><a href="#1-文件上传" class="headerlink" title="1. 文件上传"></a>1. 文件上传</h5><ul>
+<li>通过<code>request</code> 上传一张<code>photo</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>files = &#123;<span class="string">'file'</span>:open(<span class="string">'photo.jpg'</span>, <span class="string">'rb'</span>)&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.post(<span class="string">'http://httpbin.org/post'</span>, files=files)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br></pre></td></tr></table></figure>
+<h5 id="2-获取-cookies"><a href="#2-获取-cookies" class="headerlink" title="2. 获取 cookies"></a>2. 获取 cookies</h5></li>
+<li>访问知乎，然后获取<code>cookies</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://www.zhihu.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.cookies)</span><br><span class="line">&lt;RequestsCookieJar[&lt;Cookie _xsrf=kpkc08adzcWJ2IZXxQAh85ujvtFiPArj <span class="keyword">for</span> .zhihu.com/&gt;]&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200102112934439.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBmYjk4ZDM3OGIyZmZiZDAucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNjMzQwMWY0YzkxNTU1YjUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+<h5 id="3-会话维持"><a href="#3-会话维持" class="headerlink" title="3. 会话维持"></a>3. 会话维持</h5><ul>
+<li>如果需要访问的网页是需要登陆之后再使用的话就需要会话维持，一般在做接口自动化测试或者爬虫一些网站的时候，都是需要保持登录态<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests.get(<span class="string">"http://httpbin.org/cookies/set/number/123456789"</span>)</span><br><span class="line">&lt;Response [<span class="number">200</span>]&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">'http://httpbin.org/cookies'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cookies"</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>上面并没有获取到<code>cookies</code> ,因为<code>request</code>设置<code>cookie</code>和后来的获取<code>cookie</code>相当于打开了两个浏览器</li>
+<li>如何解决这个问题，我们需要用到<code>session</code> ，这是在自动化接口测试或者爬虫中经常会被用到，有必要掌握<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = requests.Session()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s.get(<span class="string">'http://httpbin.org/cookies/set/number/123456789'</span>)</span><br><span class="line">&lt;Response [<span class="number">200</span>]&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = s.get(<span class="string">'http://httpbin.org/cookies'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cookies"</span>: &#123;</span><br><span class="line">    <span class="string">"number"</span>: <span class="string">"123456789"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>以上，成功保持会话</li>
+</ul>
+<h5 id="4-SSL证书验证"><a href="#4-SSL证书验证" class="headerlink" title="4. SSL证书验证"></a>4. SSL证书验证</h5><ul>
+<li>你肯定会有过类似的这种经历，当你打开一个网页的时候会提示你访问的地址不安全，这是由于<code>https</code>协议需要证书</li>
+<li>程序访问后一定会报出 <code>SSLError</code>错误</li>
+<li>解决方式</li>
+</ul>
+<p>1.设置<code>verify = False</code><br>2.传入证书 <code>cert=&quot;你的证书&quot;</code></p>
+<h5 id="5-代理设置"><a href="#5-代理设置" class="headerlink" title="5.代理设置"></a>5.代理设置</h5><ul>
+<li>爬虫的时候通常会设置代理</li>
+<li>方式在<code>proxies=输入你的代理</code></li>
+</ul>
+<h5 id="6-超时设置"><a href="#6-超时设置" class="headerlink" title="6. 超时设置"></a>6. 超时设置</h5><ul>
+<li>限制应答时间，比如访问伊洛的个人博客<a href="https://yiluotalk.com">https://yiluotalk.com</a> ,设置超时<code>1s</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://yiluotalk.com"</span>, timeout = <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.status_code)</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="7-身份认证"><a href="#7-身份认证" class="headerlink" title="7.身份认证"></a>7.身份认证</h5><ul>
+<li>一些网站当你访问的时候首先会让你登录做验证</li>
+<li>解决方式，传入<code>auth</code> 参数 <code>auth=HTTPBasicAuth(&#39;user&#39;, &#39;password&#39;)</code></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200104163344340.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJjNTA1ZmY3MzYyYmZmZWUucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTM0NWZlMWYyMDJmMWJmNDAucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -304,6 +318,7 @@
           <div class="post-tags">
               <a href="/tags/Python%E5%9F%BA%E7%A1%80/" rel="tag"># Python基础</a>
               <a href="/tags/Zero-to-Hero/" rel="tag"># Zero to Hero</a>
+              <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag"># 第三方库</a>
           </div>
 
         
@@ -312,13 +327,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/28/%E8%B6%85%E7%BA%A7%E6%97%A0%E6%95%8C%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8A%95%E5%B1%8FAirServer/" rel="prev" title="超级无敌好用的投屏AirServer">
-      <i class="fa fa-chevron-left"></i> 超级无敌好用的投屏AirServer
+    <a href="/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/" rel="prev" title="爬虫基础原理 Zero to Hero (一)">
+      <i class="fa fa-chevron-left"></i> 爬虫基础原理 Zero to Hero (一)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/" rel="next" title="爬虫基础原理 Zero to Hero (一)">
-      爬虫基础原理 Zero to Hero (一) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -378,6 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-文件上传"><span class="nav-number">1.</span> <span class="nav-text">1. 文件上传</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-获取-cookies"><span class="nav-number">2.</span> <span class="nav-text">2. 获取 cookies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-会话维持"><span class="nav-number">3.</span> <span class="nav-text">3. 会话维持</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-SSL证书验证"><span class="nav-number">4.</span> <span class="nav-text">4. SSL证书验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-代理设置"><span class="nav-number">5.</span> <span class="nav-text">5.代理设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-超时设置"><span class="nav-number">6.</span> <span class="nav-text">6. 超时设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-身份认证"><span class="nav-number">7.</span> <span class="nav-text">7.身份认证</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
