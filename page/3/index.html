@@ -179,6 +179,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%20(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」       伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%20(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试性能基础 Zero to Hero 性能测试理论 (一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:15:59 / 修改时间：13:16:27" itemprop="dateCreated datePublished" datetime="2019-12-20T13:15:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">性能测试</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQxMWRjZTJlODhmODBhZTkucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-为什么要做性能测试"><a href="#1-为什么要做性能测试" class="headerlink" title="1. 为什么要做性能测试"></a>1. 为什么要做性能测试</h5><ul>
+<li>客户要求</li>
+<li>领导要求</li>
+<li>技术负责人想知道性能基本的指标</li>
+<li>程序大佬想了解自己的系统在长时间压力下的运行情况<h5 id="2-性能测试的定义"><a href="#2-性能测试的定义" class="headerlink" title="2. 性能测试的定义"></a>2. 性能测试的定义</h5></li>
+<li>性能测试是通过自动化测试工具模拟多种<code>正常</code>、<code>峰值</code>以及<code>异常负载</code>条件来<br>对系统的各项<code>性能指标</code>进行测试<h5 id="3-性能测试范围"><a href="#3-性能测试范围" class="headerlink" title="3. 性能测试范围"></a>3. 性能测试范围</h5></li>
+<li>性能范围：系统的性能是一个很大的概念，覆盖面非常广泛，对一个软件系统而言包括：<code>执行效率、资源占用、系统稳定性、安全性、兼容性、可靠性、可扩展性</code></li>
+<li>负载测试：通过测试系统在资源超负荷情况下的表现，以发现设计上的错误或验证系统的负载能力。<code>负载测试</code>的目标是确定并确保系统在超出最大预期工作量的情况下仍能正常运行</li>
+<li>压力测试：对系统不断施加压力的测试，是通过确定一个系统的瓶颈或者不能接收的性能点，来获得系统能提供的最大服务级别的测试。<code>压力测试</code>是为了发现在什么条件下您的应用程序的<code>性能</code>会变得不可接受<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWViYjYwNTg5NGMzZTE2OTkuanBlZw?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h6 id="4-性能测试的类别"><a href="#4-性能测试的类别" class="headerlink" title="4.性能测试的类别"></a>4.性能测试的类别</h6><ul>
+<li>配置测试：配置测试主要是通过测试找到系统各项资源的最佳分配原则。例如<br>我们 可以不 停的调整<code>oracle</code>的<code>内存</code>来决定<code>cpu</code>和<code>内存</code>的匹配情况。<br>(当前配置-调优-未来业务增长）</li>
+<li>容量测试：测试系统能够处理的最大会话能力。确定系统可处理 同时在线的最大用户数，通常和<code>数据库</code>有关</li>
+<li>可靠性测试：加载一定的<code>业务压力</code>（比如直到<code>Cpu资源</code>在高使用率）的情况下，运行一段时间，检查系统是否稳定</li>
+<li>失败测试：对于有<code>冗余备份</code>和<code>负载均衡</code>的系统，通过这样的测试来检验如果系统局部发生故障用户是否能够继续使用系统，用户受到多大的影响<h5 id="5-性能测试指标"><a href="#5-性能测试指标" class="headerlink" title="5.性能测试指标"></a>5.性能测试指标</h5><blockquote>
+<ul>
+<li>事物</li>
+<li>响应时间</li>
+<li>点击率</li>
+<li>吞吐量</li>
+<li>并发用户</li>
+<li>资源利用率</li>
+</ul>
+</blockquote>
+<h6 id="6-性能测试流程"><a href="#6-性能测试流程" class="headerlink" title="6.性能测试流程"></a>6.性能测试流程</h6></li>
+<li>分析被测系统，理解性能需求</li>
+<li>编写性能计划和测试用例，测试场景</li>
+<li>编写脚本(<code>jmeter, loadrunner, locust</code>)</li>
+<li>执行测试</li>
+<li>分析结果，输出<code>测试报告</code></li>
+<li>性能调优<h6 id="7…-待续（常用性能测试工具介绍，Jmeter-Loadrunner-Python-Locust-）"><a href="#7…-待续（常用性能测试工具介绍，Jmeter-Loadrunner-Python-Locust-）" class="headerlink" title="7…..待续（常用性能测试工具介绍，Jmeter,Loadrunner,Python Locust.....）"></a>7…..待续（常用性能测试工具介绍，<code>Jmeter,Loadrunner,Python Locust.....</code>）</h6><img src="https://img-blog.csdnimg.cn/20191213152239168.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTk0MjFhNmY3MmY1YjFhZmUucG5n?x-oss-process=image/format,png" alt=""><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE2ZjU3ZjgyZWRiYzY0YmIucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%20Zero%20to%20Hero%20%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6unittest%E7%9A%84%E4%BD%BF%E7%94%A8%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1187,117 +1309,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」       伊洛Yiluo：项目经理、高级测试经理、测试架构师 「多年项目管理、测试管理、测试开发、自动化测试、高并发性能测试、业务测试从业经验」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 软件测试方案(一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 11:46:59 / 修改时间：11:47:18" itemprop="dateCreated datePublished" datetime="2019-12-20T11:46:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU2ZTEzNGI0MjE3MjY2MzUucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-测试方案的目的"><a href="#1-测试方案的目的" class="headerlink" title="1.测试方案的目的"></a>1.测试方案的目的</h5><ul>
-<li>所以测试方案目的是: 在方向上明确要测什么、怎么测，以及达到什么样质量标准</li>
-<li>软件测试方案有助于软件项目成员理解和执行测试过程中的各项活动，同时测试方案也有助于测试活动的管理<h5 id="2-测试计划和测试方案的区别"><a href="#2-测试计划和测试方案的区别" class="headerlink" title="2.测试计划和测试方案的区别"></a>2.测试计划和测试方案的区别</h5></li>
-<li>测试方案需要在测试计划的指导下进行，测试计划提出“做什么”，而测试方案明确“怎么做”<h5 id="3-如何编写有效的测试方案"><a href="#3-如何编写有效的测试方案" class="headerlink" title="3.如何编写有效的测试方案"></a>3.如何编写有效的测试方案</h5></li>
-<li>测试需求分析</li>
-<li>测试策略</li>
-<li>测试资源</li>
-<li>测试进度计划</li>
-<li>风险管理</li>
-<li>质量</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU4ODEwZjU2MDBiMjMxYmYuanBlZw?x-oss-process=image/format,png" alt=""></p>
-<h5 id="4-测试需求分析"><a href="#4-测试需求分析" class="headerlink" title="4. 测试需求分析"></a>4. 测试需求分析</h5><ul>
-<li>测试需求分析就是把产品需求和对用户的理解（用户体验）转化、分解成测试功能 点，产品需求是我们测试需求主要输入，但不是全部，我们还需要仔细分析产品设计说明，可以产出更多可测试的功能点（这些功能点往往没有包含在产品需求 中）。还要加入对性能、安全、接口和回归测试范围分析。测试需求是确定测试进度计划和资源的主要依据</li>
-<li>评估风险并确定测试优先级<h5 id="5-测试策略"><a href="#5-测试策略" class="headerlink" title="5.测试策略"></a>5.测试策略</h5></li>
-<li>制定测试策略</li>
-<li>测试进度计划<br>根据测试需求和策略，结合项目优先级和测试资源情况，评估测试进度计划<h5 id="6-测试类型"><a href="#6-测试类型" class="headerlink" title="6.测试类型"></a>6.测试类型</h5><blockquote>
-<p>测试类型<br>功能测试<br>界面测试<br>安全测试<br>数据库测试<br>可靠性测试<br>集成测试<br>兼容性测试<br>自动化测试<br>性能测试<br>回归测试</p>
-</blockquote>
-<h5 id="…-待续"><a href="#…-待续" class="headerlink" title="…..待续"></a>…..待续</h5><img src="https://img-blog.csdnimg.cn/20191211162338871.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE1ODUxYTk2YjhjYzgzYWMucG5n?x-oss-process=image/format,png" alt=""><blockquote>
-<p>享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTkyYzJiYjM5OTM3MmY4YTkucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1368,7 +1379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
