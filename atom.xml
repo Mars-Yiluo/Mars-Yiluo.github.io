@@ -65,9 +65,9 @@
     </summary>
     
     
-      <category term="自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="Python基础" scheme="https://yiluotalk.com/categories/Python%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
       <category term="UI自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
@@ -76,11 +76,11 @@
       <category term="测试开发" scheme="https://yiluotalk.com/categories/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="自动化测试" scheme="https://yiluotalk.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="Python基础" scheme="https://yiluotalk.com/tags/Python%E5%9F%BA%E7%A1%80/"/>
     
       <category term="Zero to Hero" scheme="https://yiluotalk.com/tags/Zero-to-Hero/"/>
+    
+      <category term="自动化测试" scheme="https://yiluotalk.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -163,9 +163,9 @@
     </summary>
     
     
-      <category term="自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="Python第三方库" scheme="https://yiluotalk.com/categories/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    
+      <category term="自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
       <category term="UI自动化测试" scheme="https://yiluotalk.com/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
@@ -174,13 +174,13 @@
       <category term="测试开发" scheme="https://yiluotalk.com/categories/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="自动化测试" scheme="https://yiluotalk.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="Python基础" scheme="https://yiluotalk.com/tags/Python%E5%9F%BA%E7%A1%80/"/>
     
       <category term="Zero to Hero" scheme="https://yiluotalk.com/tags/Zero-to-Hero/"/>
     
       <category term="第三方库" scheme="https://yiluotalk.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    
+      <category term="自动化测试" scheme="https://yiluotalk.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
