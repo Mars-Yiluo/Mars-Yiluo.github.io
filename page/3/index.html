@@ -179,6 +179,594 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/" class="post-title-link" itemprop="url">爬虫基础原理 Zero to Hero (一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-03 17:15:59 / 修改时间：17:45:33" itemprop="dateCreated datePublished" datetime="2020-01-03T17:15:59+08:00">2020-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThkZTk0OWZjZmExNmJkOGQucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-什么是爬虫？"><a href="#1-什么是爬虫？" class="headerlink" title="1.什么是爬虫？"></a>1.什么是爬虫？</h5><p><strong>网络爬虫</strong>（英语：web crawler），也叫<strong>网络蜘蛛</strong>（spider），是一种用来自动浏览<a href="https://zh.wikipedia.org/wiki/%E4%B8%87%E7%BB%B4%E7%BD%91" target="_blank" rel="noopener" title="万维网">万维网</a>的<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank" rel="noopener">网络机器人</a></p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<ul>
+<li>其实通俗的来讲，本质上爬虫就是自动化的程序，自动化模拟人的操作。比如在网站上下载小说，下载图片，下载视频等等。如果让你本人下载<code>1-2</code>张图片可能很容易，但是如果让你下载<code>100</code>张甚至<code>10000</code>张图片的话，就一定会发狂了。所以就交给自动化的爬虫来帮你下载<code>10000</code>张图片！解放你的双手～<h5 id="2-浏览器获取数据过程"><a href="#2-浏览器获取数据过程" class="headerlink" title="2.浏览器获取数据过程"></a>2.浏览器获取数据过程</h5><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWYwODdlZTU2MGJmMTNkZTUucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>浏览器向服务等发送<code>http</code>，<code>request</code>请求</li>
+<li>服务器响应<code>response</code></li>
+<li>浏览器<code>解析数据</code></li>
+<li>展示给用户<h5 id="3-Rquest-和-Response"><a href="#3-Rquest-和-Response" class="headerlink" title="3.Rquest 和 Response"></a>3.Rquest 和 Response</h5></li>
+<li><code>Request</code> 包含内容</li>
+</ul>
+<p>1.请求方式通常有<code>Get</code> <code>Post</code> <code>Put</code> <code>Delete</code><br>2.请求<code>URL</code><br>3.请求头<br>4.请求体</p>
+<ul>
+<li><p>来请求一些伊洛的个人博客 <a href="https://yiluotalk.com">https://yiluotalk.com</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTczMzU3YWQzNjZlNzY2MDcucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>点击<code>Network</code>,查看<code>headers</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTRkNjUwNWQ1ZTkzN2FjZWUucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>注意一般服务器会对请求数据做校验，一般在请求头里面需要加<code>user-agent</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWUwNzFiY2JkY2MyNDFiMTEucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p><code>Response</code> 包含内容</p>
+</li>
+</ul>
+<p>1.响应状态 ，<code>状态码</code><br>2.响应头 <code>response</code> <code>headers</code><br>3.响应体信息</p>
+<ul>
+<li>来看一下伊洛博客的返回<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIyODAyNzJhMWEzOThjZDAucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>返回的是<code>html</code>页面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTllYjNjNTE4Y2ZiYmQwNzUucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="4-爬虫的过程"><a href="#4-爬虫的过程" class="headerlink" title="4. 爬虫的过程"></a>4. 爬虫的过程</h5><ul>
+<li>通过上面我们已经比较清楚了，浏览器请求服务器到服务器响应，浏览器解析展示给用户的简单过程，那么我们爬虫的话大概分几步呢<br>通常来说分为四个步骤</li>
+<li>1.爬取数据 发起<code>http</code>请求 （来用<code>python</code>代码演示下）<br>可能需要爬取的数据是会有 <code>Html文档</code>，<code>Json格式文本</code>，<code>图片</code>，<code>视频</code>，等<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://yiluotalk.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.status_code)</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure></li>
+<li>2.获取响应内容<br>如上获取了响应的状态码为<code>200</code></li>
+<li>3.解析内容<br>解析的方式可能有很多种，后续展开讲述下</li>
+</ul>
+<ol>
+<li>直接处理</li>
+<li><code>Json</code> 解析</li>
+<li><code>正则表达式</code></li>
+<li>有很多好用的第三方库，比如 <code>BeautifulSoup</code> <code>pyquery</code>  <code>scrapy</code> 还有<code>xpath</code>也可以<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>响应的是<code>html</code>文件<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTYyNDczMzM2MGMwODVmMWEucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<p>5.保存数据</p>
+<ul>
+<li>保存数据一般分为以下几种，后续展开来讲<br><code>纯文本</code>， <code>Json</code> <code>Xml</code>，<code>关系形数据库（Mysql）</code>，<code>非关系型数据库（Mongodb）</code>，<code>二进制文件</code>等<h5 id="5-找不到要爬取的数据"><a href="#5-找不到要爬取的数据" class="headerlink" title="5. 找不到要爬取的数据"></a>5. 找不到要爬取的数据</h5>由于一些网站的页面是动态获取的，所以最后你看到的页面可能是通过<code>js渲染</code>出来的，那么怎么来处理呢，简单的可以分为</li>
+</ul>
+<p>1.分析<code>ajax</code>请求，<code>json</code>格式字符串<br>2.<code>selenium</code> <code>webdriver</code> 浏览器驱动<br>3.<code>splash</code><br>4.<code>pyv8</code>，<code>ghost8</code></p>
+<ul>
+<li>这里先简单的介绍下模拟人工浏览器的方式，也就是 <code>WEB自动化测试</code>经常用到的，<code>selenium</code> ，可以翻下伊洛之前介绍<code>selenium</code> <code>webdriver</code>自动化测试的的相关文章</li>
+<li>依旧是访问 <a href="https://yiluotalk.com">https://yiluotalk.com</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIxY2Q3MTFmZTUyODg5MmEucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>输入网址<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU0OTI1YmMzMGUxNzdlNzIucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>这样通过浏览器驱动的方式访问的就会正确的获得响应的所有信息</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200103174004965.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTA5N2JiYmJmNWEyOWY0NzcucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5ODE4OThiZTY1MzYzOTQucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/" class="post-title-link" itemprop="url">老司机都知道的Python语法小技巧 (三) 放弃 if-elif</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-02 11:32:59 / 修改时间：11:32:50" itemprop="dateCreated datePublished" datetime="2020-01-02T11:32:59+08:00">2020-01-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU5MDc1MTQyMWJlMDQ0NWIucG5n?x-oss-process=image/format,png" alt=""></p>
+<p>大家新年好呀，今天再来说下<code>Python</code>老司机常用的小技巧，让你告别‘乏味的’<code>if-elif</code>，话不多说直接来看一个输出今天周几的例子</p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> week_day.weekday() == <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'今天是星期一'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">'今天是星期二'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">2</span>:</span><br><span class="line">    print(<span class="string">'今天是星期三'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">3</span>:</span><br><span class="line">    print(<span class="string">'今天是星期四'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">4</span>:</span><br><span class="line">    print(<span class="string">'今天是星期五'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">5</span>:</span><br><span class="line">    print(<span class="string">'今天是星期六'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">6</span>:</span><br><span class="line">    print(<span class="string">'今天是星期日'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>weekday()</code>函数返回的是当前日期所在的星期数</li>
+<li>运行看以下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>没错今天就是周四</li>
+<li>可以看到上面的代码看上去好像很复杂而且码代码的时候也很容易出现错误，比如你入门<code>python</code>的时候肯定会做一些类似于工资计算器的小程序，你计算公积金或者税率工资分段的时候要不断的用到<code>if-elif</code>，这样很容易出现错误</li>
+<li>那么有没有更好的方式避免或者优化呢</li>
+<li>当然作为<code>python</code>老司机的话都会用到调度表</li>
+<li>简单来看一个例子<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">dispatch = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">'今天是星期一'</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">'今天是星期二'</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">'今天是星期三'</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">'今天是星期四'</span>,</span><br><span class="line">  <span class="number">4</span>: <span class="string">'今天是星期五'</span>,</span><br><span class="line">  <span class="number">5</span>: <span class="string">'今天是星期六'</span>,</span><br><span class="line">  <span class="number">6</span>: <span class="string">'今天是星期日'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(dispatch[week_day.weekday()])</span><br></pre></td></tr></table></figure></li>
+<li>这里其实就是一个<code>python</code>的字典</li>
+<li>看上去是不是稍微的简洁简化了呢</li>
+<li>重要的是会避免出错（当你<code>if-elif</code>很多的情况下，就一定会有这种体会了）</li>
+<li>最后来输出看看结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>结果一致，适当的放弃<code>if-elif</code>吧，让你的代码不仅美观还少出错</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200102112934439.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBmYjk4ZDM3OGIyZmZiZDAucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNjMzQwMWY0YzkxNTU1YjUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/28/%E8%B6%85%E7%BA%A7%E6%97%A0%E6%95%8C%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8A%95%E5%B1%8FAirServer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/28/%E8%B6%85%E7%BA%A7%E6%97%A0%E6%95%8C%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8A%95%E5%B1%8FAirServer/" class="post-title-link" itemprop="url">超级无敌好用的投屏AirServer</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-28 10:16:12 / 修改时间：10:17:18" itemprop="dateCreated datePublished" datetime="2019-12-28T10:16:12+08:00">2019-12-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A5%BD%E7%94%A8%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">好用软件</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc5NDJhMzhiZjIwNjRhODUucG5n?x-oss-process=image/format,png" alt=""></p>
+<ul>
+<li>最近开会打算把手机投屏到自己的<code>Mac</code>上演示用，于是就打算用下听了很久好用但是一值没有使用的<code>AirServer</code></li>
+<li>十分简单的操作就可以完美的投屏到<code>Mac</code>电脑，而且不用像<code>Mac</code>自带的<code>QuickTime</code>用线连接手机</li>
+<li>画外音：自动化测试中有个好用的开源项目，<code>Airtest Project</code>，其实不仅可以在电脑显示手机屏幕，而且还可以对手机进行操作，由于本篇内容是讲投屏<code>AirServer</code>，这里不在赘诉，想了解自动化工具的小伙伴可以自行谷歌或百度<code>Airtest Project</code><blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="1-安装-AirServer"><a href="#1-安装-AirServer" class="headerlink" title="1. 安装 AirServer"></a>1. 安装 AirServer</h5><ul>
+<li><p>打开官网，然后<code>download</code><br><a href="https://www.airserver.com/" target="_blank" rel="noopener">https://www.airserver.com/</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWIyYzVkNTdjMmNmMDYyODQucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="2-Mac电脑将程序拖动到-App"><a href="#2-Mac电脑将程序拖动到-App" class="headerlink" title="2. Mac电脑将程序拖动到 App"></a>2. <code>Mac</code>电脑将程序拖动到 <code>App</code></h5></li>
+<li><p>官网下载的是试用的版本，如果激活的话可以购买正版</p>
+</li>
+<li><p>富裕的小伙伴还是尽量支持正版，不太方便的小伙伴可以考虑万能的谷歌或百度寻求新大陆</p>
+<h5 id="3-启动Air-Server"><a href="#3-启动Air-Server" class="headerlink" title="3. 启动Air Server"></a>3. 启动Air Server</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIzYmQ5MGI5NDRlNGJhMGIucG5n?x-oss-process=image/format,png" alt="启动成功"></p>
+<h5 id="3-配置投屏连接权限"><a href="#3-配置投屏连接权限" class="headerlink" title="3. 配置投屏连接权限"></a>3. 配置投屏连接权限</h5></li>
+<li><p>同一网络下默认是可以直接投屏到服务上的，所以为了安全起见还是设置以下投屏的权限<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWMxYWRkZjljMzAzZWFkYWQucG5n?x-oss-process=image/format,png" alt="设置"></p>
+</li>
+<li><p>四种方式分别是：没有密码，固定密码，屏幕显示code, 询问</p>
+</li>
+<li><p>这里伊洛选择了请求投屏的时候，屏幕显示<code>code</code></p>
+<h5 id="4-手机端下拉（iPhone）选择屏幕镜像，然后选择你的Mac设备"><a href="#4-手机端下拉（iPhone）选择屏幕镜像，然后选择你的Mac设备" class="headerlink" title="4. 手机端下拉（iPhone）选择屏幕镜像，然后选择你的Mac设备"></a>4. 手机端下拉（<code>iPhone</code>）选择屏幕镜像，然后选择你的Mac设备</h5></li>
+<li><p>这样屏幕上就会显示<code>code</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWVmMTZjMTYwNDljMjIzY2EucG5n?x-oss-process=image/format,png" alt="屏幕上显示code"></p>
+</li>
+<li><p>手机端输入屏幕上的<code>code</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY4YmY2OWRkMWZjZjYzMWYucG5n?x-oss-process=image/format,png" alt="成功投屏到Mac"><br><img src="https://img-blog.csdnimg.cn/2019122810121958.jpeg" alt="在这里插入图片描述"></p>
+<h5 id="5-横屏可以看视频或玩游戏都行，可以放大。声音也可以配置-游戏画面还是会有延迟的，看视频效果还不错-（图片来自爱奇艺截图）"><a href="#5-横屏可以看视频或玩游戏都行，可以放大。声音也可以配置-游戏画面还是会有延迟的，看视频效果还不错-（图片来自爱奇艺截图）" class="headerlink" title="5. 横屏可以看视频或玩游戏都行，可以放大。声音也可以配置(游戏画面还是会有延迟的，看视频效果还不错)（图片来自爱奇艺截图）"></a>5. 横屏可以看视频或玩游戏都行，可以放大。声音也可以配置(游戏画面还是会有延迟的，看视频效果还不错)（图片来自爱奇艺截图）</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc4YzE3ZjA5MGEzZDBmYTYucG5n?x-oss-process=image/format,png" alt="截图来自爱奇艺"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ1OWMyMGExYjBhYTQxMjAucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5ODM4YjIzMTBhMDljZTgucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/27/%E4%BD%A0%E7%9A%84Python%E7%A8%8B%E5%BA%8F%E9%9C%80%E8%A6%81%E8%BF%9B%E5%BA%A6%E6%9D%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/27/%E4%BD%A0%E7%9A%84Python%E7%A8%8B%E5%BA%8F%E9%9C%80%E8%A6%81%E8%BF%9B%E5%BA%A6%E6%9D%A1/" class="post-title-link" itemprop="url">你的Python程序需要进度条</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-27 15:27:45 / 修改时间：15:09:49" itemprop="dateCreated datePublished" datetime="2019-12-27T15:27:45+08:00">2019-12-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTEyNTUzNjgzMWNlMjkwZmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<ul>
+<li>生活中很多事情都会有反馈机制，比如考试完，成绩就是对这段时间学习效果的反馈；玩游戏经验值就是对你在游戏中投入精力的反馈等等。那么对于程序来说也需要反馈，比如安装一个软件，如果没有进度条，那么你一定会很抓狂。因为你根本无法确认程序是否在正常工作，还是任务已经被已系统挂起。那么本文就简单的介绍几种<code>python</code>常用到的反馈进度条方式（包括<code>GUI</code>进度条）<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="1-使用-Progress"><a href="#1-使用-Progress" class="headerlink" title="1. 使用 Progress"></a>1. 使用 Progress</h5><ul>
+<li>安装<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  ~ pip install progress</span><br><span class="line">Collecting progress</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">38</span>/ef/<span class="number">2e887</span>b3d2b248916fc2121889ce68af8a16aaddbe82f9ae6533c24ff0d2b/progress<span class="number">-1.5</span>.tar.gz</span><br><span class="line">Installing collected packages: progress</span><br><span class="line">    Running setup.py install <span class="keyword">for</span> progress ... done</span><br><span class="line">Successfully installed progress<span class="number">-1.5</span></span><br></pre></td></tr></table></figure></li>
+<li>创建一个脚本，写入以下代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo </span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> progress.bar <span class="keyword">import</span> IncrementalBar</span><br><span class="line"></span><br><span class="line">bar_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">bar = IncrementalBar(<span class="string">'progress bar'</span>, max=len(bar_list))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> bar_list:</span><br><span class="line">        bar.next()</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    bar.finish()</span><br></pre></td></tr></table></figure></li>
+<li>命令行运行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  AllDemo python demo.py</span><br><span class="line">progress bar |████████████                    | <span class="number">3</span>/<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-使用-Tqdm"><a href="#2-使用-Tqdm" class="headerlink" title="2. 使用 Tqdm"></a>2. 使用 Tqdm</h5></li>
+<li>安装<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">Collecting tqdm</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">8</span>c/c3/d049cf3fb31094ee045ec1ee29fffac218c91e82c8838c49ab4c3e52627b/tqdm<span class="number">-4.41</span><span class="number">.0</span>-py2.py3-none-any.whl (<span class="number">56</span>kB)</span><br><span class="line">     |████████████████████████████████| <span class="number">61</span>kB <span class="number">239</span>kB/s</span><br><span class="line">Installing collected packages: tqdm</span><br><span class="line">Successfully installed tqdm<span class="number">-4.41</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></li>
+<li>写入以下代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line">_bar = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tqdm(_bar):</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+<li>命令行运行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  AllDemo python demo.py</span><br><span class="line"> <span class="number">62</span>%|█████████████████████████████████▊                    | <span class="number">5</span>/<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-使用-Alive-Progress"><a href="#3-使用-Alive-Progress" class="headerlink" title="3. 使用 Alive Progress"></a>3. 使用 Alive Progress</h5></li>
+<li>也是很常用的，和之前例子相差不大，有兴趣的可以看以下具体的使用文档<br><a href="https://github.com/rsalmei/alive-progress" target="_blank" rel="noopener">Alive Progress 传送门</a><h5 id="4-使用-Pysimplegui（GUI）"><a href="#4-使用-Pysimplegui（GUI）" class="headerlink" title="4. 使用 Pysimplegui（GUI）"></a>4. 使用 Pysimplegui（GUI）</h5></li>
+<li>安装<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  ~ pip install pysimplegui</span><br><span class="line">Collecting pysimplegui</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">22</span>/a8/ec06b5ce8997411c542dc0f65848a89b6f852b1b9c0fde8ace89aec6703e/PySimpleGUI<span class="number">-4.14</span><span class="number">.1</span>-py3-none-any.whl (<span class="number">288</span>kB)</span><br><span class="line">     |████████████████████████████████| <span class="number">296</span>kB <span class="number">286</span>kB/s</span><br><span class="line">Installing collected packages: pysimplegui</span><br><span class="line">Successfully installed pysimplegui<span class="number">-4.14</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> PySimpleGUI <span class="keyword">as</span> sg</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">bar_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, item <span class="keyword">in</span> enumerate(bar_list):</span><br><span class="line">    sg.one_line_progress_meter(<span class="string">'我是进度条!'</span>, i+<span class="number">1</span>, len(bar_list), <span class="string">'key'</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+<li>来看看GUI的效果<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTZlMGZjYjIzNjMzYTVjNzUucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://img-blog.csdnimg.cn/20191227150511558.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThmMDY1OGQ1NzhjZmFhMmUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"><blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/26/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%BA%8C)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/26/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%BA%8C)/" class="post-title-link" itemprop="url">老司机都知道的Python语法小技巧 (二)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-26 14:52:59 / 修改时间：14:52:29" itemprop="dateCreated datePublished" datetime="2019-12-26T14:52:59+08:00">2019-12-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTM1MGEzN2IwZWY5NjU2N2QucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="写在前面—Python的优势在于"><a href="#写在前面—Python的优势在于" class="headerlink" title="写在前面—Python的优势在于"></a>写在前面—Python的优势在于</h5><p>1.与主要平台和操作系统兼容<br>2.许多开源框架和工具<br>3.可读且可维护的代码<br>4.强大的标准库<br>5.标准测试驱动的开发</p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<ul>
+<li>话不多说了，本文是第二部分，将讲简单的列出几条日常工作中使用<code>Python</code>可能会用到的语法小技巧，希望会对你的工作有所帮助 just enjoy！<br>第一部分是：<a href="https://www.jianshu.com/p/ae0943ccf0ba" target="_blank" rel="noopener">老司机都知道的Python语法小技巧 (一)</a><h5 id="14-列表中元素出现的个数"><a href="#14-列表中元素出现的个数" class="headerlink" title="14.列表中元素出现的个数"></a>14.列表中元素出现的个数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>count = Counter(list)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>count</span><br><span class="line">Counter(&#123;<span class="number">1</span>: <span class="number">2</span>, <span class="number">2</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">2</span>, <span class="number">4</span>: <span class="number">2</span>, <span class="number">5</span>: <span class="number">2</span>, <span class="number">6</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="15-列表中查找出现最多的元素"><a href="#15-列表中查找出现最多的元素" class="headerlink" title="15.列表中查找出现最多的元素"></a>15.列表中查找出现最多的元素</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">most_frequement</span><span class="params">(list)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> max(set(list), key = list.count)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>most_frequement(number)</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h5 id="16-将角度从度转换为弧度"><a href="#16-将角度从度转换为弧度" class="headerlink" title="16. 将角度从度转换为弧度"></a>16. 将角度从度转换为弧度</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">degrees_to_radians</span><span class="params">(deg)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> (deg * math.pi) / <span class="number">180</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>degrees_to_radians(<span class="number">90</span>)</span><br><span class="line"><span class="number">1.5707963267948966</span></span><br></pre></td></tr></table></figure>
+<h5 id="17-计算执行一段代码所花费的时间-非装饰器"><a href="#17-计算执行一段代码所花费的时间-非装饰器" class="headerlink" title="17. 计算执行一段代码所花费的时间(非装饰器)"></a>17. 计算执行一段代码所花费的时间(非装饰器)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">a, b = <span class="number">10</span>, <span class="number">20</span></span><br><span class="line">c = a + b</span><br><span class="line">end_time = time.time()</span><br><span class="line">time_taken = (end_time- start_time)*(<span class="number">10</span>**<span class="number">6</span>)</span><br><span class="line">print(<span class="string">'耗时'</span>, time_taken)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">output</span><br><span class="line">耗时 <span class="number">2.1457672119140625</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h5 id="18-字符串去重"><a href="#18-字符串去重" class="headerlink" title="18. 字符串去重"></a>18. 字符串去重</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string = <span class="string">"aabbccddeeffgg"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unique = set(string)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unique</span><br><span class="line">&#123;<span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'b'</span>, <span class="string">'g'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'d'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_string = <span class="string">''</span>.join(unique)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>new_string</span><br><span class="line"><span class="string">'afbgced'</span></span><br></pre></td></tr></table></figure>
+<h5 id="19-使用lambda表达式"><a href="#19-使用lambda表达式" class="headerlink" title="19. 使用lambda表达式"></a>19. 使用lambda表达式</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="keyword">lambda</span> a, b, c :a + b + c</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(x(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h5 id="20-使用-filter"><a href="#20-使用-filter" class="headerlink" title="20. 使用 filter"></a>20. 使用 filter</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = list(filter(<span class="keyword">lambda</span> x : x%<span class="number">2</span> == <span class="number">0</span>, arr))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(arr)</span><br><span class="line">[<span class="number">2</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="21-列表"><a href="#21-列表" class="headerlink" title="21. 列表"></a>21. 列表</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>squares = [number**<span class="number">2</span> <span class="keyword">for</span> number <span class="keyword">in</span> number]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(squares)</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="22-切片"><a href="#22-切片" class="headerlink" title="22. 切片"></a>22. 切片</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">rotate</span><span class="params">(arr, d)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> arr[d:] + arr[:d]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = rotate(arr, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(arr)</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="23-链式函数"><a href="#23-链式函数" class="headerlink" title="23. 链式函数"></a>23. 链式函数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">subtract</span><span class="params">(a, b)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> a - b</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> a + b</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">subtract</span><span class="params">(a, b)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> a - b</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = <span class="number">5</span>, <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print((subtract <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> add)(a, b))</span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = <span class="number">10</span>, <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print((subtract <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> add)(a, b))</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20191226144707930.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNkM2Y4MjBmYmY3OTYyNDAucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThlMGMyNjNkYjU3MDAzNDUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/26/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -784,628 +1372,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20--%20OSI%20%E4%B8%8E%20TCP_IP%20%E6%A8%A1%E5%9E%8B(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20--%20OSI%20%E4%B8%8E%20TCP_IP%20%E6%A8%A1%E5%9E%8B(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试网络基础 Zero to Hero -- OSI 与 TCP/IP 模型(一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:25:59 / 修改时间：13:25:06" itemprop="dateCreated datePublished" datetime="2019-12-20T13:25:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTkxMDAyYzBhZDMwN2NlZWIucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="一-OSI-与-TCP／IP-模型"><a href="#一-OSI-与-TCP／IP-模型" class="headerlink" title="(一) OSI 与 TCP／IP 模型"></a>(一) OSI 与 TCP／IP 模型</h5><p>本篇内容比较基础，只面向初级软件测试工程师面试时可能会被问到的关于网络方面的概念</p>
-<h5 id="1-什么是通信，什么是媒体"><a href="#1-什么是通信，什么是媒体" class="headerlink" title="1.什么是通信，什么是媒体"></a>1.什么是通信，什么是媒体</h5><ul>
-<li>通信是通过某种媒体进行的信息传递</li>
-<li>传媒，就是传播各种信息的媒体<h5 id="2-带宽，速率，延迟"><a href="#2-带宽，速率，延迟" class="headerlink" title="2. 带宽，速率，延迟"></a>2. 带宽，速率，延迟</h5></li>
-<li>带宽一般用来描述两种对象：一个是信道（Channel），另一个是信号（signal）。信道的带宽：单位是Hz ，信号的带宽：单位是bps <h5 id="3-协议，标准"><a href="#3-协议，标准" class="headerlink" title="3. 协议，标准"></a>3. 协议，标准</h5>协议包含：<blockquote>
-<p>1、 实现什么功能 、怎么实现<br>2、 定义数据的封装格式标准则多了物理硬件的描述</p>
-</blockquote>
-<h5 id="4-网络的组成"><a href="#4-网络的组成" class="headerlink" title="4.网络的组成"></a>4.网络的组成</h5></li>
-<li>一个简单的网络主要有三部分组成：需要通信或连网的计算机、通信介质、连网设备<h5 id="5-网络的分类"><a href="#5-网络的分类" class="headerlink" title="5.网络的分类"></a>5.网络的分类</h5></li>
-</ul>
-<p>1.局域网<br>2.广域网<br>3.城域网</p>
-<h5 id="6-关于INTERNET"><a href="#6-关于INTERNET" class="headerlink" title="6.关于INTERNET"></a>6.关于INTERNET</h5><ul>
-<li>Internet<br>本质上是一个计算机广域网<h5 id="7-网络通信系统设计中要解决的问题"><a href="#7-网络通信系统设计中要解决的问题" class="headerlink" title="7.网络通信系统设计中要解决的问题"></a>7.网络通信系统设计中要解决的问题</h5></li>
-<li>数字传输</li>
-</ul>
-<p>1.模拟通信<br>2.数字通信</p>
-<ul>
-<li>数据通信方式</li>
-</ul>
-<ol>
-<li>串行通讯，并行通讯</li>
-<li>单工通信(举例：寻呼机)，半双工（举例：对讲机），全双工通讯（举例：电话）</li>
-</ol>
-<ul>
-<li>数据通信类型</li>
-</ul>
-<p>1.基带传输<br>2.频带传输<br>3.宽带传输<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTZmOWQzY2IwZDVkZDE1MmIuanBlZw?x-oss-process=image/format,png" alt="博客素材2.jpeg"></p>
-<h5 id="8-计算机互联参考模型――OSI模型"><a href="#8-计算机互联参考模型――OSI模型" class="headerlink" title="8.计算机互联参考模型――OSI模型"></a>8.计算机互联参考模型――OSI模型</h5><ul>
-<li>OSI概述一个 独立的计算机系统的工作能力是有 限的， 只有将不同地区具有不同功能的计算机互连之 后，人们才  能共享计算机 强大的计算能力和信息资源。<br>ISO（International standard Organization 国际标准化组织）的OSI-RM（Open<br>System Interconnection Reference Model）是计算机网络及其互连的重要理论<br>，虽然目前没有完整的产品支持 该协议，  但它 对80年代后期至今 的电信网络、计算机网络及其互连 都有极深远 的影响，可以说OSI－RM 是各类网络互连设备的协议基础，也是我们 学习网络互连的理论基础 <h5 id="9-OSI-网络分层（非常重要初级测试工程师经常会被问到）"><a href="#9-OSI-网络分层（非常重要初级测试工程师经常会被问到）" class="headerlink" title="9. OSI 网络分层（非常重要初级测试工程师经常会被问到）"></a>9. OSI 网络分层（非常重要初级测试工程师经常会被问到）</h5></li>
-<li>应用层</li>
-<li>表示层</li>
-<li>对话层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>数据链路层</li>
-<li>物理层<h5 id="9-传输协议与应用"><a href="#9-传输协议与应用" class="headerlink" title="9.传输协议与应用"></a>9.传输协议与应用</h5></li>
-<li>TCP协议：可靠的面向链接的协议</li>
-</ul>
-<p>1.三次握手过程</p>
-<blockquote>
-<p>1.TCP SYN, 2.TCP ACK SYN, 3.TCP ACK</p>
-</blockquote>
-<ul>
-<li>UDP协议： 不可靠无链接协议<h5 id="10-TCP-IP-模型（初级面试经常会被问）"><a href="#10-TCP-IP-模型（初级面试经常会被问）" class="headerlink" title="10. TCP/IP 模型（初级面试经常会被问）"></a>10. TCP/IP 模型（初级面试经常会被问）</h5></li>
-<li>网络接口层，网络层，传输层，应用层<h5 id="本文只列出了初级测试面试时可能被问到的网络基础概念，后续有时间每块内容再详细的讲述下"><a href="#本文只列出了初级测试面试时可能被问到的网络基础概念，后续有时间每块内容再详细的讲述下" class="headerlink" title="本文只列出了初级测试面试时可能被问到的网络基础概念，后续有时间每块内容再详细的讲述下"></a>本文只列出了初级测试面试时可能被问到的网络基础概念，后续有时间每块内容再详细的讲述下</h5><img src="https://img-blog.csdnimg.cn/20191217181203182.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWE2ZDJhMGEwMDNlOTE4YmQucG5n?x-oss-process=image/format,png" alt=""><blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>2019年12月17日<br>愿您享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI1ZjMxMjEzZDEzNzJhZDMucG5n?x-oss-process=image/format,png" alt=""></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础 Zero to Hero 异常的处理 (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:22:59 / 修改时间：13:22:52" itemprop="dateCreated datePublished" datetime="2019-12-20T13:22:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWFkMDg2NjVlOWViOGNlMGQucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-异常的定义"><a href="#1-异常的定义" class="headerlink" title="1. 异常的定义"></a>1. 异常的定义</h5><ul>
-<li>异常处理，是<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener" title="编程语言">编程语言</a>或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况（即超出程序正常执行流程的某些特殊条件）</li>
-</ul>
-<h5 id="2-错误和异常"><a href="#2-错误和异常" class="headerlink" title="2. 错误和异常"></a>2. 错误和异常</h5><ul>
-<li>写程序的时候通常会出现错误，目前（至少）有两种可区分的错误：<code>语法错误</code>和 <code>异常</code></li>
-<li>语法错误：又称<code>解析错误</code>，经常容易遇到</li>
-<li>异常：即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误<h5 id="3-简单的例子"><a href="#3-简单的例子" class="headerlink" title="3. 简单的例子"></a>3. 简单的例子</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c = a + b</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure></li>
-<li>上面很简单的代码执行后就会出错，因为并没有定义变量<code>a</code></li>
-<li><code>Python</code>提供的<code>异常处理</code>方法来捕获并处理异常，处理方法为使用 <code>try，except</code>和 <code>finally</code> 三个<code>关键字</code><h5 id="3-try-except-的使用"><a href="#3-try-except-的使用" class="headerlink" title="3. try, except 的使用"></a>3. try, except 的使用</h5></li>
-<li><code>try</code> 代码块中写可能会出现异常的代码</li>
-<li><code>except</code> 代码块中添加处理异常的方法</li>
-<li>来将上面的代码处理一下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    print(c)</span><br><span class="line"><span class="keyword">except</span> NameError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err))</span><br></pre></td></tr></table></figure></li>
-<li>依旧没有赋值<code>a</code>变量</li>
-<li>然后执行一下</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：name <span class="string">'a'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>错误提示变量<code>a</code>没有被定义</li>
-<li><code>NameError</code>的指的是访问了一个<code>未定义的变量</code></li>
-<li>常见的还有<code>SyntaxError ，IndexError ，KeyError ，ValueError ，AttributeError</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI0OWM2MDk5OTI0MmQ5MzIuanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="4-多个except"><a href="#4-多个except" class="headerlink" title="4.多个except"></a>4.多个except</h5><ul>
-<li><code>except</code>可以有多个，每个处理不同类型的异常，也可以不写任何异常类型名称，则会处理所有<code>捕获</code>的<code>异常</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    print(c)</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> NameError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> FileNotFoundError <span class="keyword">as</span> err2:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err2))</span><br></pre></td></tr></table></figure></li>
-<li>打开一个不存在的文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line">错误：[Errno <span class="number">2</span>] No such file <span class="keyword">or</span> directory: <span class="string">'/yiluo/bin/activate.txt'</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li>系统抛出了<code>异常</code>，没有这个文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>不写任何<code>异常</code>的<code>类型</code></li>
-<li>运行一下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h5 id="5-finally的使用"><a href="#5-finally的使用" class="headerlink" title="5.finally的使用"></a>5.finally的使用</h5></li>
-<li>使用 <code>finally</code> 可以保证无论 <code>try</code>代码块中的代码是否<code>抛出异常</code>，都能够执行 <code>finally</code> 代码块里的内容<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'结束异常'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>执行代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li><code>finally</code>成功的运行了<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'结束异常'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>没有任何的异常执行下，看下<code>finally</code>会不会被运行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li><code>finally</code>成功运行<h5 id="6-抛出异常"><a href="#6-抛出异常" class="headerlink" title="6.抛出异常"></a>6.抛出异常</h5></li>
-<li>如果希望程序执行过程中抛出异常，可以使用 <code>raise</code>语句<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">raise</span> NameError(<span class="string">'Error ERROR'</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">NameError: Error ERROR</span><br></pre></td></tr></table></figure></li>
-<li>如上抛出了<code>&#39;Error ERROR&#39;</code>的异常<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><img src="https://img-blog.csdnimg.cn/20191216160508205.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJhZDM0OTJlYjM0ZjA1MzAucG5n?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>2019年12月16日<br>愿您享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRjOGFiMjlhNThjMjU0YWUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E7%A0%94%E5%8F%91%E6%B5%81%E7%A8%8B%20%E7%90%86%E8%AE%BA%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%20Zero%20to%20Hero%20%E8%BD%AF%E4%BB%B6%E7%A0%94%E5%8F%91%E6%B5%81%E7%A8%8B%20%E7%90%86%E8%AE%BA%20(%E4%B8%80)/" class="post-title-link" itemprop="url">项目管理 Zero to Hero 软件研发流程 理论 (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:20:59 / 修改时间：13:20:39" itemprop="dateCreated datePublished" datetime="2019-12-20T13:20:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" itemprop="url" rel="index">
-                    <span itemprop="name">项目管理</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIxOTk4MzMwZDUxOWJhMTQucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="序（一点儿碎碎念）"><a href="#序（一点儿碎碎念）" class="headerlink" title="序（一点儿碎碎念）"></a>序（一点儿碎碎念）</h5><ul>
-<li>互联网公司研发自己的<code>软件产品</code>，会有属于自己公司的一套整体<code>产研流程</code>。关于<code>项目流程</code>方面，太多的方式。但其实并没有最好的，只要是适合自己公司<code>产品迭代</code>的流程就是正确的</li>
-<li>关于<code>产品质量</code>：一点小感悟，<code>产品质量</code>并不只能靠公司的测试人员来提升，要知道产品的质量不是测出来的而是<code>项目整体协作</code>一起艰难的<code>构建</code>出来的<h5 id="一-软件研发流程"><a href="#一-软件研发流程" class="headerlink" title="(一) 软件研发流程"></a>(一) 软件研发流程</h5><h5 id="1-软件产品"><a href="#1-软件产品" class="headerlink" title="1.软件产品"></a>1.软件产品</h5></li>
-<li>大多数人认为，<code>软件产品</code>仅仅是从互联网上下载或者从光盘上安装到计算机上的程序</li>
-<li>软件产品:是指向用户提供的<code>计算机软件</code>、<code>信息系统</code>或<code>设备</code>中嵌入的软件或在提供计算机<code>信息系统集成</code>、<code>应用服务</code>等技术服务时提供的计算机软件</li>
-<li>软件是<code>计算机程序</code>、<code>程序</code>所用的<code>数据</code>以及有关<code>文档资料</code>的集合<h5 id="2-项目流程中经常可能会出现的文档"><a href="#2-项目流程中经常可能会出现的文档" class="headerlink" title="2.项目流程中经常可能会出现的文档"></a>2.项目流程中经常可能会出现的文档</h5></li>
-<li>客户需求文档</li>
-<li>产品需求文档</li>
-<li>需求规格文档</li>
-<li>项目计划文档</li>
-<li>版本迭代计划文档</li>
-<li>技术选型文档</li>
-<li>竞争调研文档</li>
-<li>产品设计文档</li>
-<li>交互设计文档</li>
-<li>项目进度文档</li>
-<li>测试计划文档</li>
-<li>测试方案文档</li>
-<li>测试用例文档</li>
-<li>研发接口文档</li>
-<li>缺陷跟踪单（通常会使用bug管理工具 eg. JIRA）</li>
-<li>测试报告文档</li>
-<li>迭代复盘文档</li>
-<li>迭代遗留问题<h5 id="3-软件工程"><a href="#3-软件工程" class="headerlink" title="3.软件工程"></a>3.软件工程</h5></li>
-<li>1983年<code>IEEE</code>给软件工程下的定义是：“<code>软件工程</code>是<code>开发、运行、维护和修复</code>软件的系统方法。”这个定义相当概括，它主要强调软件工程是系统方法<br>而不是某种神秘的个人技巧</li>
-<li><code>软件工程</code>是为了经济地获得可靠的且能在实际机器上有效地运行的软件，而建立和使用的<code>完善的工程化原则</code>。”这个定义不仅指出软件工程的目标是经济地开发出<code>高质量</code>的软件，而且强调了<code>软件工程</code>是一门工程学科，它应该建立并使用完善的工程化原则</li>
-<li>1993年<code>IEEE</code>进一步给出了一个更全面的定义<br>简而言之：<code>系统化，规范化，可管理，</code>讲软件开发变成一项工程<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNlMWVjMzAyODIzNmQ3NjIuanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="4-软件项目流程中可能出现的成员"><a href="#4-软件项目流程中可能出现的成员" class="headerlink" title="4.软件项目流程中可能出现的成员"></a>4.软件项目流程中可能出现的成员</h5><ul>
-<li>项目经理</li>
-<li>技术总监／架构师／系统工程师</li>
-<li>研发工程师／开发人员</li>
-<li>产品总监／产品经理</li>
-<li>设计总监／设计师</li>
-<li>测试经理／测试组长／测试工程师</li>
-<li>配置管理员</li>
-<li>QA 质量管理人员</li>
-<li>市场人员</li>
-<li>其它人员<h5 id="5-软件通常开发的过程"><a href="#5-软件通常开发的过程" class="headerlink" title="5.软件通常开发的过程"></a>5.软件通常开发的过程</h5></li>
-<li>软件产品从最初构思到公开发行的过程，称为软件开发过程</li>
-<li>最常见的开发模型（<code>后续具体叙述</code>）</li>
-</ul>
-<p>1.瀑布模型<br>2.V模型<br>3.W模型<br>4.H模型<br>5.螺旋模型<br>6.快速原型</p>
-<h5 id="6-软件研发流程模型的目的"><a href="#6-软件研发流程模型的目的" class="headerlink" title="6.软件研发流程模型的目的"></a>6.软件研发流程模型的目的</h5><ul>
-<li>保证最终产品满足用户需求</li>
-<li>提高产品质量，降低产品开发成本</li>
-<li>保证项目可管理，进度可控制<h5 id="7-软件生命周期"><a href="#7-软件生命周期" class="headerlink" title="7.软件生命周期"></a>7.软件生命周期</h5>需求，设计，编码，测试，维护，升级，废弃<h5 id="待续（详细软件研发流程梳理）"><a href="#待续（详细软件研发流程梳理）" class="headerlink" title="待续（详细软件研发流程梳理）"></a>待续（详细软件研发流程梳理）</h5><img src="https://img-blog.csdnimg.cn/20191216102824448.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTYyYmMxOTRkMTE4Y2RlYmMucG5n?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>2019年12月16日<br>愿您享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI2OGE3OWQ3NGY2NWE0M2MucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20lambda%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20lambda%20(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero 表达式 lambda (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:18:59 / 修改时间：13:18:34" itemprop="dateCreated datePublished" datetime="2019-12-20T13:18:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTY2ODQ5ZWYzNjU3N2RjMGEucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-lambda-表达式"><a href="#1-lambda-表达式" class="headerlink" title="1.lambda 表达式"></a>1.lambda 表达式</h5><ul>
-<li>当你在编程中想使用一个  <code>函数</code>，但是你又没想好名字。或者干脆这个<code>函数</code>你只是想使用一次，就没有必要费心去命名了。你可以写一个<code>匿名函数</code>，那么<code>lambda</code>无疑是最好的选择<h5 id="2-lambda简单的使用"><a href="#2-lambda简单的使用" class="headerlink" title="2.lambda简单的使用"></a>2.lambda简单的使用</h5></li>
-<li>英雄释放<code>2次一骑当千</code>的技能<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = <span class="keyword">lambda</span> skill: print(skill*<span class="number">2</span> + <span class="string">' '</span>+ <span class="string">'技能已经释放2次'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills(<span class="string">'一骑当千'</span>)</span><br><span class="line">一骑当千一骑当千 技能已经释放<span class="number">2</span>次</span><br></pre></td></tr></table></figure></li>
-<li>显然<code>skills</code>就是一个<code>匿名函数</code>， <code>lambda</code> 返回值时不需要 <code>return</code> </li>
-<li>该匿名函数等同于<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">skills</span><span class="params">(skill)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> print(skill*<span class="number">2</span> + <span class="string">' '</span>+ <span class="string">'技能已成功释放2次'</span>)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skill = <span class="string">'一骑当先'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills(skill)</span><br><span class="line">一骑当先一骑当先 技能已成功释放<span class="number">2</span>次</span><br></pre></td></tr></table></figure>
-<h5 id="3-lambda赋值给变量使用"><a href="#3-lambda赋值给变量使用" class="headerlink" title="3. lambda赋值给变量使用"></a>3. lambda赋值给变量使用</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number = <span class="keyword">lambda</span> i: i<span class="number">-2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number(<span class="number">1</span>)</span><br><span class="line"><span class="number">-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>abs(number(<span class="number">1</span>))</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure></li>
-<li><code>abs</code>是内置的<code>绝对值函数</code></li>
-</ul>
-<h5 id="4-lambda表达式来返回函数"><a href="#4-lambda表达式来返回函数" class="headerlink" title="4.lambda表达式来返回函数"></a>4.lambda表达式来返回函数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(i)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> <span class="keyword">lambda</span> x: x + i</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = add(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">1</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">2</span>)</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">100</span>)</span><br><span class="line"><span class="number">110</span></span><br></pre></td></tr></table></figure>
-<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://img-blog.csdnimg.cn/20191214124145387.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ5ZDY4OWI0MDA4YTk0ZTIucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2NmQyZjcyYzQzNWViM2UucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%20(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试性能基础 Zero to Hero 性能测试理论 (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:15:59 / 修改时间：13:16:27" itemprop="dateCreated datePublished" datetime="2019-12-20T13:15:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">性能测试</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQxMWRjZTJlODhmODBhZTkucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-为什么要做性能测试"><a href="#1-为什么要做性能测试" class="headerlink" title="1. 为什么要做性能测试"></a>1. 为什么要做性能测试</h5><ul>
-<li>客户要求</li>
-<li>领导要求</li>
-<li>技术负责人想知道性能基本的指标</li>
-<li>程序大佬想了解自己的系统在长时间压力下的运行情况<h5 id="2-性能测试的定义"><a href="#2-性能测试的定义" class="headerlink" title="2. 性能测试的定义"></a>2. 性能测试的定义</h5></li>
-<li>性能测试是通过自动化测试工具模拟多种<code>正常</code>、<code>峰值</code>以及<code>异常负载</code>条件来<br>对系统的各项<code>性能指标</code>进行测试<h5 id="3-性能测试范围"><a href="#3-性能测试范围" class="headerlink" title="3. 性能测试范围"></a>3. 性能测试范围</h5></li>
-<li>性能范围：系统的性能是一个很大的概念，覆盖面非常广泛，对一个软件系统而言包括：<code>执行效率、资源占用、系统稳定性、安全性、兼容性、可靠性、可扩展性</code></li>
-<li>负载测试：通过测试系统在资源超负荷情况下的表现，以发现设计上的错误或验证系统的负载能力。<code>负载测试</code>的目标是确定并确保系统在超出最大预期工作量的情况下仍能正常运行</li>
-<li>压力测试：对系统不断施加压力的测试，是通过确定一个系统的瓶颈或者不能接收的性能点，来获得系统能提供的最大服务级别的测试。<code>压力测试</code>是为了发现在什么条件下您的应用程序的<code>性能</code>会变得不可接受<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWViYjYwNTg5NGMzZTE2OTkuanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h6 id="4-性能测试的类别"><a href="#4-性能测试的类别" class="headerlink" title="4.性能测试的类别"></a>4.性能测试的类别</h6><ul>
-<li>配置测试：配置测试主要是通过测试找到系统各项资源的最佳分配原则。例如<br>我们 可以不 停的调整<code>oracle</code>的<code>内存</code>来决定<code>cpu</code>和<code>内存</code>的匹配情况。<br>(当前配置-调优-未来业务增长）</li>
-<li>容量测试：测试系统能够处理的最大会话能力。确定系统可处理 同时在线的最大用户数，通常和<code>数据库</code>有关</li>
-<li>可靠性测试：加载一定的<code>业务压力</code>（比如直到<code>Cpu资源</code>在高使用率）的情况下，运行一段时间，检查系统是否稳定</li>
-<li>失败测试：对于有<code>冗余备份</code>和<code>负载均衡</code>的系统，通过这样的测试来检验如果系统局部发生故障用户是否能够继续使用系统，用户受到多大的影响<h5 id="5-性能测试指标"><a href="#5-性能测试指标" class="headerlink" title="5.性能测试指标"></a>5.性能测试指标</h5><blockquote>
-<ul>
-<li>事物</li>
-<li>响应时间</li>
-<li>点击率</li>
-<li>吞吐量</li>
-<li>并发用户</li>
-<li>资源利用率</li>
-</ul>
-</blockquote>
-<h6 id="6-性能测试流程"><a href="#6-性能测试流程" class="headerlink" title="6.性能测试流程"></a>6.性能测试流程</h6></li>
-<li>分析被测系统，理解性能需求</li>
-<li>编写性能计划和测试用例，测试场景</li>
-<li>编写脚本(<code>jmeter, loadrunner, locust</code>)</li>
-<li>执行测试</li>
-<li>分析结果，输出<code>测试报告</code></li>
-<li>性能调优<h6 id="7…-待续（常用性能测试工具介绍，Jmeter-Loadrunner-Python-Locust-）"><a href="#7…-待续（常用性能测试工具介绍，Jmeter-Loadrunner-Python-Locust-）" class="headerlink" title="7…..待续（常用性能测试工具介绍，Jmeter,Loadrunner,Python Locust.....）"></a>7…..待续（常用性能测试工具介绍，<code>Jmeter,Loadrunner,Python Locust.....</code>）</h6><img src="https://img-blog.csdnimg.cn/20191213152239168.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTk0MjFhNmY3MmY1YjFhZmUucG5n?x-oss-process=image/format,png" alt=""><blockquote>
-<p>享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE2ZjU3ZjgyZWRiYzY0YmIucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1476,20 +1442,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
