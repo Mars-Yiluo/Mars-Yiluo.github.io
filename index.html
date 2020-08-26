@@ -179,6 +179,266 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/26/Django%E5%9F%BA%E7%A1%804--Shell%E5%8F%8A%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/26/Django%E5%9F%BA%E7%A1%804--Shell%E5%8F%8A%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2/" class="post-title-link" itemprop="url">Django基础4--Shell及管理页面</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-26 14:17:59 / 修改时间：14:18:37" itemprop="dateCreated datePublished" datetime="2020-08-26T14:17:59+08:00">2020-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Django基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-Django-Shell"><a href="#1-Django-Shell" class="headerlink" title="1.Django Shell"></a>1.Django Shell</h5><ul>
+<li>打开Django的命令交互模式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py shell</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.5</span> (default, Nov <span class="number">29</span> <span class="number">2019</span>, <span class="number">14</span>:<span class="number">32</span>:<span class="number">46</span>) </span><br><span class="line">[Clang <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.39</span><span class="number">.2</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">(InteractiveConsole)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>还记得之前模型嘛</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span></span><br><span class="line"><span class="comment"># 个人主页：https://yiluotalk.com/</span></span><br><span class="line"><span class="comment"># 博客园：https://www.cnblogs.com/yiluotalk/</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProjectInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">""" 项目信息模型 """</span></span><br><span class="line">    project_name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    dev = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    tester = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    add_data = models.DateTimeField(auto_now_add=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 返回项目名称</span></span><br><span class="line">        <span class="keyword">return</span> self.project_name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>尝试用Shell操作一下</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> autoapi.models <span class="keyword">import</span> ProjectInfo</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ProjectInfo.objects.all()</span><br><span class="line">&lt;QuerySet []&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-Django管理页面"><a href="#2-Django管理页面" class="headerlink" title="2.Django管理页面"></a>2.Django管理页面</h5><p>Django提供的管理网站（admin site）让你能够轻松地处理模型。网站的管理员可使用管理网站，但普通用户不能使用</p>
+<ul>
+<li>首先需要创建一个超级管理的账户</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+<p>这里的username设置为admin， 密码也设置为admin</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bypass password validation and create user anyway? [y/N]: y</span><br><span class="line">Superuser created successfully.</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-查看Django管理页面"><a href="#3-查看Django管理页面" class="headerlink" title="3.查看Django管理页面"></a>3.查看Django管理页面</h5><ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py runserver </span><br><span class="line">Watching <span class="keyword">for</span> file changes <span class="keyword">with</span> StatReloader</span><br><span class="line">Performing system checks...</span><br><span class="line"></span><br><span class="line">System check identified no issues (<span class="number">0</span> silenced).</span><br><span class="line">August <span class="number">25</span>, <span class="number">2020</span> - <span class="number">15</span>:<span class="number">12</span>:<span class="number">38</span></span><br><span class="line">Django version <span class="number">3.1</span>, using settings <span class="string">'AutoPlatform.settings'</span></span><br><span class="line">Starting development server at http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8000</span>/</span><br><span class="line">Quit the server <span class="keyword">with</span> CONTROL-C.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打开浏览器，然后输入网址： ‘<a href="https://127.0.0.1/admin/’,会出现如下的页面" target="_blank" rel="noopener">https://127.0.0.1/admin/’,会出现如下的页面</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTJmOTY5YzQxYmJkMTRkMjAucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="4-进入到管理站点页面"><a href="#4-进入到管理站点页面" class="headerlink" title="4. 进入到管理站点页面"></a>4. 进入到管理站点页面</h5><ul>
+<li>输入用户名和密码，进入到管理后台<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY3MzVkMGQ0MGJhODUxYTEucG5n?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="5-管理后台页面加入应用"><a href="#5-管理后台页面加入应用" class="headerlink" title="5.管理后台页面加入应用"></a>5.管理后台页面加入应用</h5><p>我们创建的模型，必须手工进行注册</p>
+<ul>
+<li>打开admin.py文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> ProjectInfo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Register your models here.</span></span><br><span class="line"></span><br><span class="line">admin.site.register(ProjectInfo)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>再打开管理后台页面可见<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTRmNDA3ZGQ3ODllN2M1OTMucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>来尝试着添加一条项目数据</p>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc2MzVmNDI0NzIyNDgzNzkucG5n?x-oss-process=image/format,png" alt=""></p>
+<ul>
+<li>点击保存</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE1YmFkMmM0NDUyMDlkZjUucG5n?x-oss-process=image/format,png" alt=""></p>
+<ul>
+<li>再进入到Django shell中查看</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py shell</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.5</span> (default, Nov <span class="number">29</span> <span class="number">2019</span>, <span class="number">14</span>:<span class="number">32</span>:<span class="number">46</span>) </span><br><span class="line">[Clang <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.39</span><span class="number">.2</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">(InteractiveConsole)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> autoapi.models <span class="keyword">import</span> ProjectInfo</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ProjectInfo.objects.all()</span><br><span class="line">&lt;QuerySet [&lt;ProjectInfo: 接口自动化&gt;]&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<p>和上面最开始相比，已经有了数据</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/26/Django%E5%9F%BA%E7%A1%803--%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/26/Django%E5%9F%BA%E7%A1%803--%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">Django基础3--数据库配置及创建模型</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-26 14:16:59 / 修改时间：14:17:45" itemprop="dateCreated datePublished" datetime="2020-08-26T14:16:59+08:00">2020-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Django基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-数据库配置"><a href="#1-数据库配置" class="headerlink" title="1.数据库配置"></a>1.数据库配置</h5><ul>
+<li>打开 settings.py 。这是个包含了 Django 项目设置的 Python 模块，配置文件使用 SQLite 作为默认数据库，后面实际开发项目中也可以换成其他的数据库（MySQL，MongoDB….）</li>
+<li><a href="https://docs.djangoproject.com/zh-hans/3.1/ref/settings/#std:setting-DATABASE-ENGINE" target="_blank" rel="noopener"><code>ENGINE</code></a> – 可选值有 <code>&#39;django.db.backends.sqlite3&#39;</code>，<code>&#39;django.db.backends.postgresql&#39;</code>，<code>&#39;django.db.backends.mysql&#39;</code>，或 <code>&#39;django.db.backends.oracle&#39;</code><h5 id="2-注册APP"><a href="#2-注册APP" class="headerlink" title="2.注册APP"></a>2.注册APP</h5></li>
+<li>settings.py 下INSTALLED_APPS都是注册的应用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Application definition</span><br><span class="line"></span><br><span class="line">INSTALLED_APPS &#x3D; [</span><br><span class="line">    &#39;django.contrib.admin&#39;,</span><br><span class="line">    &#39;django.contrib.auth&#39;,</span><br><span class="line">    &#39;django.contrib.contenttypes&#39;,</span><br><span class="line">    &#39;django.contrib.sessions&#39;,</span><br><span class="line">    &#39;django.contrib.messages&#39;,</span><br><span class="line">    &#39;django.contrib.staticfiles&#39;,</span><br></pre></td></tr></table></figure>
+‘django.contrib.admin’, 管理员站点<br>‘django.contrib.auth’, 认证系统<br>‘django.contrib.contenttypes’, 内容类型框架<br>‘django.contrib.sessions’, 会话框架<br>‘django.contrib.messages’, 消息框架<br>‘django.contrib.staticfiles’, 管理静态文件框架<h5 id="3-数据库迁移"><a href="#3-数据库迁移" class="headerlink" title="3.数据库迁移"></a>3.数据库迁移</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure></li>
+<li><code>migrate</code>命令只会为在 <code>INSTALLED_APPS</code> 里声明了的应用进行数据库迁移<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py migrate </span><br><span class="line">Operations to perform:</span><br><span class="line">  Apply all migrations: admin, auth, contenttypes, sessions</span><br><span class="line">Running migrations:</span><br><span class="line">  Applying contenttypes.0001_initial... OK</span><br><span class="line">  Applying auth.0001_initial... OK</span><br><span class="line">  Applying admin.0001_initial... OK</span><br><span class="line">  Applying admin.0002_logentry_remove_auto_add... OK</span><br><span class="line">  Applying admin.0003_logentry_add_action_flag_choices... OK</span><br><span class="line">  Applying contenttypes.0002_remove_content_type_name... OK</span><br><span class="line">  Applying auth.0002_alter_permission_name_max_length... OK</span><br><span class="line">  Applying auth.0003_alter_user_email_max_length... OK</span><br><span class="line">  Applying auth.0004_alter_user_username_opts... OK</span><br><span class="line">  Applying auth.0005_alter_user_last_login_null... OK</span><br><span class="line">  Applying auth.0006_require_contenttypes_0002... OK</span><br><span class="line">  Applying auth.0007_alter_validators_add_error_messages... OK</span><br><span class="line">  Applying auth.0008_alter_user_username_max_length... OK</span><br><span class="line">  Applying auth.0009_alter_user_last_name_max_length... OK</span><br><span class="line">  Applying auth.0010_alter_group_name_max_length... OK</span><br><span class="line">  Applying auth.0011_update_proxy_permissions... OK</span><br><span class="line">  Applying auth.0012_alter_user_first_name_max_length... OK</span><br><span class="line">  Applying sessions.0001_initial... OK</span><br></pre></td></tr></table></figure></li>
+<li>如上迁移完成</li>
+<li>数据库里已经生成对应的表<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWYyZWZlNmRjM2VjZmZkN2UucG5n?x-oss-process=image/format,png" alt=""><h5 id="4-创建模型"><a href="#4-创建模型" class="headerlink" title="4.创建模型"></a>4.创建模型</h5></li>
+<li>定义模型 - 也就是数据库结构设计和附加的其它元数据</li>
+<li>设计自己的模型，首先看看需要哪些数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line"># 博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line"># Create your models here.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class ProjectInfo(models.Model):</span><br><span class="line">    &quot;&quot;&quot; 项目信息模型 &quot;&quot;&quot;</span><br><span class="line">    project_name &#x3D; models.CharField(max_length&#x3D;30)</span><br><span class="line">    dev &#x3D; models.CharField(max_length&#x3D;20)</span><br><span class="line">    tester &#x3D; models.CharField(max_length&#x3D;20)</span><br><span class="line">    add_data &#x3D; models.DateTimeField(auto_now_add&#x3D;True)</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        # 返回项目名称</span><br><span class="line">        return self.project_name</span><br></pre></td></tr></table></figure></li>
+<li>创建一个项目信息的类继承<code>model</code>，其中属性分别为项目名称，开发人员，测试人员，添加日期</li>
+<li>DateTimeField记录日期和时间的数据，<code>auto_now_add=True</code>指的是每当用户创建新主题时，这都让Django将这个属性自动设置成当前日期和时间</li>
+<li>Django调用方法<code>__str__()</code>来显示模型的简单表示<h5 id="5-激活模型"><a href="#5-激活模型" class="headerlink" title="5.激活模型"></a>5.激活模型</h5></li>
+<li>要使用模型，必须让Django将应用程序包含到项目中，来打开settings.py，找到下面这段代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS &#x3D; [</span><br><span class="line">    &#39;django.contrib.admin&#39;,</span><br><span class="line">    &#39;django.contrib.auth&#39;,</span><br><span class="line">    &#39;django.contrib.contenttypes&#39;,</span><br><span class="line">    &#39;django.contrib.sessions&#39;,</span><br><span class="line">    &#39;django.contrib.messages&#39;,</span><br><span class="line">    &#39;django.contrib.staticfiles&#39;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li>将自己的应用添加到<code>INSTALLED_APPS</code>中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS &#x3D; [</span><br><span class="line">    &#39;django.contrib.admin&#39;,</span><br><span class="line">    &#39;django.contrib.auth&#39;,</span><br><span class="line">    &#39;django.contrib.contenttypes&#39;,</span><br><span class="line">    &#39;django.contrib.sessions&#39;,</span><br><span class="line">    &#39;django.contrib.messages&#39;,</span><br><span class="line">    &#39;django.contrib.staticfiles&#39;,</span><br><span class="line">    # My app</span><br><span class="line">    &#39;autoapi&#39;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li>让Django修改数据库，使其能够存储模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatformpython manage.py makemigrations autoapi</span><br><span class="line">Migrations for &#39;autoapi&#39;:</span><br><span class="line">  autoapi&#x2F;migrations&#x2F;0001_initial.py</span><br><span class="line">    - Create model ProjectInfo</span><br></pre></td></tr></table></figure></li>
+<li>命令makemigrations让Django确定该如何修改数据库，使其能够存储与我们定义的新模型相关联的数据。输出表明Django创建了一个名为0001_initial.py的迁移文件</li>
+<li>再次migrate一下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py migrate </span><br><span class="line">Operations to perform:</span><br><span class="line">  Apply all migrations: admin, auth, autoapi, contenttypes, sessions</span><br><span class="line">Running migrations:</span><br><span class="line">  Applying autoapi.0001_initial... OK</span><br></pre></td></tr></table></figure></li>
+<li>迁移OK <h5 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h5>模型需要这三步</li>
+</ul>
+<ul>
+<li>编辑 <code>models.py</code> 文件，改变模型。</li>
+<li>运行 [<code>python manage.py makemigrations</code>] 为模型的改变生成迁移文件。</li>
+<li>运行 [<code>python manage.py migrate</code>] 来应用数据库迁移。</li>
+</ul>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Django%E5%9F%BA%E7%A1%802--%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1203,270 +1463,6 @@ i 等于3 的时候被忽略</li>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python2--%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/24/Python2--%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">Python2--字符串及运算符</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-24 10:53:59 / 修改时间：10:53:38" itemprop="dateCreated datePublished" datetime="2020-08-24T10:53:59+08:00">2020-08-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""><br>人生苦短，我用 Python</p>
-<h5 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1. 字符串"></a>1. 字符串</h5><ul>
-<li>双引号或单引号标示<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; account &#x3D; &#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; my_web &#x3D; &#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br></pre></td></tr></table></figure></li>
-<li>字符串拼接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; account + &#39; &#39; + my_web</span><br><span class="line">&#39;Yiluo https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br></pre></td></tr></table></figure></li>
-<li><code>\</code>来去除引号标示字符串的特殊作用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&#39;I &#39;m fine&#39;)</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1</span><br><span class="line">    print(&#39;I &#39;m fine&#39;)</span><br><span class="line">              ^</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line">&gt;&gt;&gt; print(&#39;I \&#39;m fine&#39;)</span><br><span class="line">I &#39;m fine</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="2-字符串索引"><a href="#2-字符串索引" class="headerlink" title="2.字符串索引"></a>2.字符串索引</h5></li>
-<li>从左向右，索引从0开始</li>
-<li>从右向左，索引从-1开始<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; my_web &#x3D; &#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br><span class="line">&gt;&gt;&gt; my_web[0]</span><br><span class="line">&#39;h&#39;</span><br><span class="line">&gt;&gt;&gt; my_web[1]</span><br><span class="line">&#39;t&#39;</span><br><span class="line">&gt;&gt;&gt; my_web[-1]</span><br><span class="line">&#39;&#x2F;&#39;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> +---+---+---+---+---+---+</span><br><span class="line"> | P | y | t | h | o | n |</span><br><span class="line"> +---+---+---+---+---+---+</span><br><span class="line"> 0   1   2   3   4   5   6</span><br><span class="line">-6  -5  -4  -3  -2  -1</span><br></pre></td></tr></table></figure>
-<h5 id="3-字符串切片"><a href="#3-字符串切片" class="headerlink" title="3.字符串切片"></a>3.字符串切片</h5></li>
-<li>[头索:尾索:步长]<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 我的公众号&#x3D; &#39;伊洛的小屋&#39;</span><br><span class="line">&gt;&gt;&gt; 我的公众号[0:1]</span><br><span class="line">&#39;伊&#39;</span><br><span class="line">&gt;&gt;&gt; 我的公众号[0:2]</span><br><span class="line">&#39;伊洛&#39;</span><br><span class="line">&gt;&gt;&gt; 我的公众号[0:5]</span><br><span class="line">&#39;伊洛的小屋&#39;</span><br><span class="line">&gt;&gt;&gt; 我的公众号[0:5:2]</span><br><span class="line">&#39;伊的屋&#39;</span><br><span class="line"># 反取</span><br><span class="line">&gt;&gt;&gt; 我的公众号[::-1]</span><br><span class="line">&#39;屋小的洛伊&#39;</span><br></pre></td></tr></table></figure>
-<h5 id="4-字符串常用方法"><a href="#4-字符串常用方法" class="headerlink" title="4. 字符串常用方法"></a>4. 字符串常用方法</h5></li>
-<li>split  默认空格切，也可传参数切分<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; my_web &#x3D; &#39;Yiluo,https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br><span class="line">&gt;&gt;&gt; my_web.split(&#39;,&#39;)</span><br><span class="line">[&#39;Yiluo&#39;, &#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;]</span><br><span class="line">&gt;&gt;&gt; my_web.split(&#39;,&#39;)[0]</span><br><span class="line">&#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; my_web.split(&#39;,&#39;)[1]</span><br><span class="line">&#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br></pre></td></tr></table></figure></li>
-<li>strip 默认删除字符串首尾空格及换行，传参会删除参数中的字符（限于首尾）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; my_web &#x3D; &#39;   https:&#x2F;&#x2F;yiluotalk.com&#x2F;   &#39;</span><br><span class="line">&gt;&gt;&gt; my_web</span><br><span class="line">&#39;   https:&#x2F;&#x2F;yiluotalk.com&#x2F;   &#39;</span><br><span class="line">&gt;&gt;&gt; my_web.strip()</span><br><span class="line">&#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br><span class="line">&gt;&gt;&gt; my_web &#x3D; &#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;</span><br><span class="line">&gt;&gt;&gt; my_web.strip(&#39;https:&#x2F;&#x2F;&#x2F;&#39;)</span><br><span class="line">&#39;yiluotalk.com&#39;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h5 id="5-注释"><a href="#5-注释" class="headerlink" title="5. 注释"></a>5. 注释</h5><ul>
-<li>执行程序的时候注释内容会被忽略<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 我是注释</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line"></span><br><span class="line">单引号注释</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">print(&#39;hello, Yiluo&#39;)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">双引号注释</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="6-format-格式化字符串"><a href="#6-format-格式化字符串" class="headerlink" title="6.format 格式化字符串"></a>6.format 格式化字符串</h5></li>
-<li>str.format()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; &#39;&#123;&#125;,&#123;&#125;&#39;.format(&#39;Hello&#39;, &#39;Yiluo&#39;)</span><br><span class="line">&#39;Hello,Yiluo&#39;</span><br></pre></td></tr></table></figure>
-<h5 id="6-运算符"><a href="#6-运算符" class="headerlink" title="6.运算符"></a>6.运算符</h5></li>
-<li><code>+</code> 两个对象相加</li>
-<li><code>-</code> 得到负数或是一个数减去另一个数</li>
-<li><code>*</code> 两个数相乘或是返回一个被重复若干次的字符串</li>
-<li><code>/</code>  x 除以 y</li>
-<li><code>%</code> 返回除法的余数</li>
-<li><code>**</code> 返回 x 的 y 次幂</li>
-<li><code>//</code>  返回商的整数部分（向下取整）<h5 id="7-比较运算符"><a href="#7-比较运算符" class="headerlink" title="7.比较运算符"></a>7.比较运算符</h5></li>
-<li><code>==</code> 等于：比较对象是否相等</li>
-<li><code>!=</code> 不等于：比较两个对象是否不相等</li>
-<li><code>&gt;</code> 大于：返回 x 是否大于 y</li>
-<li><code>&lt;</code> 小于：返回 x 是否小于 y</li>
-<li><code>&gt;=</code> 大于等于：返回 x 是否大于等于 y</li>
-<li><code>&lt;=</code> 小于等于：返回 x 是否小于等于 y<h5 id="8-赋值运算符"><a href="#8-赋值运算符" class="headerlink" title="8.赋值运算符"></a>8.赋值运算符</h5></li>
-<li><code>=</code> c = a + b 将 a + b 的运算结果赋值为 c</li>
-<li><code>+=</code> c += a 等效于 c = c + a</li>
-<li><code>-=</code>  c -= a 等效于 c = c - a</li>
-<li><code>*=</code> c *= a 等效于 c = c * a</li>
-<li><code>/=</code> c /= a 等效于 c = c / a</li>
-<li><code>%=</code> c %= a 等效于 c = c % a</li>
-<li><code>**=</code> c *<em>= a 等效于 c = c *</em> a</li>
-<li><code>//=</code>  c //= a 等效于 c = c // a<h5 id="9-逻辑运算符"><a href="#9-逻辑运算符" class="headerlink" title="9.逻辑运算符"></a>9.逻辑运算符</h5></li>
-<li><code>and</code> 布尔 “与” </li>
-<li><code>or</code> 布尔 “或” </li>
-<li><code>not</code> 布尔 “非”<h5 id="10-成员运算符"><a href="#10-成员运算符" class="headerlink" title="10.成员运算符"></a>10.成员运算符</h5></li>
-<li><code>in</code> 如果在指定的序列中找到值返回 True，否则返回 False</li>
-<li><code>not in</code> 如果在指定的序列中没有找到值返回 True，否则返回 False<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list &#x3D; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; 1 in list</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; 5 in list</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; 5 not in list</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
-<h5 id="11-身份运算符"><a href="#11-身份运算符" class="headerlink" title="11.身份运算符"></a>11.身份运算符</h5></li>
-<li><code>is</code> is 是判断两个标识符是不是引用自一个对象</li>
-<li><code>is not</code>  is not 是判断两个标识符是不是引用自不同对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name &#x3D; &#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; id(name)</span><br><span class="line">4408381744</span><br><span class="line">&gt;&gt;&gt; name2 &#x3D; &#39;Tom&#39;</span><br><span class="line">&gt;&gt;&gt; id(name2)</span><br><span class="line">4410061168</span><br><span class="line">&gt;&gt;&gt; name is name2</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; name is not name2</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; name3 &#x3D; &#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; id(name3)</span><br><span class="line">4408381744</span><br><span class="line">&gt;&gt;&gt; name is name3</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></li>
-</ul>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python1--%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/24/Python1--%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Python1--简介及基础语法</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-24 10:52:59 / 修改时间：10:52:45" itemprop="dateCreated datePublished" datetime="2020-08-24T10:52:59+08:00">2020-08-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h5><p>Python易于学习的编程语言，有很多现成的第三方库可以调用，不用重复造轮子，老话说：“人生苦短，我用 Python”</p>
-<h5 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1. 安装Python"></a>1. 安装Python</h5><p><code>Mac</code>：brew install python3<br><code>Window</code>： 官网下载–图形页面一步步点，也可以直接在<a href="https://docs.python.org/3/using/windows.html#windows-store" target="_blank" rel="noopener">Microsoft Store</a>下载安装</p>
-<h5 id="2-启动Python"><a href="#2-启动Python" class="headerlink" title="2. 启动Python"></a>2. 启动Python</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以上启动的是Python的交互模式，前期学习更推荐使用ipython交互，可以直接用pip 安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure></li>
-<li>字符编码<br>默认情况下，Python文件采用utf-8编码，通过这样可以讲世界上大多数语言的字符同时用于字符串文字，标识符和注释中，尽管标准库讲ASCII字符用作标识符，这是任何可移植代码都遵循的约定<br>如果需要声明默认编码以外的其他编码，应该在文件的第一行添加一个特殊的注释<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># -*- coding: cp1252 -*-</span><br></pre></td></tr></table></figure>
-#####3. Hello World<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; print(&#39;Hello World&#39;)</span><br><span class="line">Hello World</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-#####4. 数据类型</li>
-<li>int(整数) /float(浮点数)、字符串、布尔值、None、列表、元组、字典、集合…</li>
-</ul>
-<ol>
-<li>None 代表的是空、编程的世界里空并不就是<code>0</code>的意思<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># type是 Python内置函数</span><br><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; type(None)</span><br><span class="line">&lt;class &#39;NoneType&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; type(0)</span><br><span class="line">&lt;class &#39;int&#39;&gt;</span><br></pre></td></tr></table></figure></li>
-<li>布尔值 代表 “真”、“假”<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># bool 是 Python内置函数</span><br><span class="line">&gt;&gt;&gt; bool(1)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(0)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(False)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(True)</span><br><span class="line">True</span><br></pre></td></tr></table></figure></li>
-<li>int整数 如1、2、5</li>
-<li>float浮点数 如3.1415926、 1.2</li>
-<li>str 字符串 如‘Tom’、‘Hello World’</li>
-</ol>
-<ul>
-<li>经常被用到，Python还可以操纵字符串，该字符串可以通过多种方式表示<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#39;spam eggs&#39;</span><br><span class="line">&gt;&gt;&gt; &#39;doesn\&#39;t&#39;  # 通过&#39;\&#39;  转义单引号</span><br><span class="line">&quot;doesn&#39;t&quot;</span><br><span class="line">&gt;&gt;&gt; &quot;doesn&#39;t&quot;  # 通过双引号替代</span><br><span class="line">&quot;doesn&#39;t&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="6">
-<li>list列表 如[1, 2, 3, 4, 5]</li>
-<li>tuple元组 如（6，7，8，9，10）</li>
-<li>dic 字典 如 dict_score = {‘Tom’: 98, ‘Joe’: 88, ‘Wade’: ‘99’}</li>
-<li>set 集合 stock = {‘Apple’,  ‘Tencent’,  ‘Alibaba’,  ‘Amazon’,  ‘Google’,  ‘Tesla’}</li>
-</ol>
-<ul>
-<li>尝试一些数据运算<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 2+ 2</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; 50 - 2*5</span><br><span class="line">40</span><br><span class="line">&gt;&gt;&gt; (50 - 10*3) &#x2F;2</span><br><span class="line">10.0</span><br><span class="line">&gt;&gt;&gt; 4 &#x2F; 2 # 除法总是返回浮点数</span><br><span class="line">2.0</span><br><span class="line">&gt;&gt;&gt; 17 &#x2F;&#x2F; 3 # 地板除舍弃了小数</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; 17 % 3 # % 返回余数</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<h5 id="5-变量"><a href="#5-变量" class="headerlink" title="5. 变量"></a>5. 变量</h5></li>
-<li>每个变量在内存中创建通过 <code>=</code> 赋值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># format 格式化输出</span><br><span class="line">&gt;&gt;&gt; stock &#x3D; &#39;Apple&#39;  # Apple 赋值给股票 stock </span><br><span class="line">&gt;&gt;&gt; print(&#39;I buy &#123;&#125;&#39;.format(stock))</span><br><span class="line">I buy Apple</span><br></pre></td></tr></table></figure></li>
-<li>变量是有命名规则的，要做到命名有意义</li>
-<li>等号（=）用于为变量分配值<h5 id="6-缩进"><a href="#6-缩进" class="headerlink" title="6. 缩进"></a>6. 缩进</h5>官方代码规范<br><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1537,7 +1533,7 @@ i 等于3 的时候被忽略</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
