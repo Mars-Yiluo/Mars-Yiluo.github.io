@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://yiluotalk.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="1.类中的特殊方法（魔法方法） 在 Python 中有一些特殊的方法，它们是 Python 内置的方法，通常以双下划线来命名，比如__init__、__repr__ 等等，在类中使用它们时往往较少的代码就可以发挥很大的作用，提高开发效率，因此在 Python 中称这些方法为“魔法方法” 在 Python 中最常使用的是__init__方法，它可以用于新建实例对象的时候给对象绑定属性，但是在新建对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python10--类中的魔法方法">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;08&#x2F;29&#x2F;Python10--%E7%B1%BB%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95&#x2F;index.html">
+<meta property="og:site_name" content="YiluoTalk">
+<meta property="og:description" content="1.类中的特殊方法（魔法方法） 在 Python 中有一些特殊的方法，它们是 Python 内置的方法，通常以双下划线来命名，比如__init__、__repr__ 等等，在类中使用它们时往往较少的代码就可以发挥很大的作用，提高开发效率，因此在 Python 中称这些方法为“魔法方法” 在 Python 中最常使用的是__init__方法，它可以用于新建实例对象的时候给对象绑定属性，但是在新建对">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="article:published_time" content="2020-08-29T09:38:59.000Z">
+<meta property="article:modified_time" content="2020-08-29T09:39:11.000Z">
+<meta property="article:author" content="伊洛">
+<meta property="article:tag" content="Zero to Hero">
+<meta property="article:tag" content="Python基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+
+<link rel="canonical" href="https://yiluotalk.com/2020/08/29/Python10--%E7%B1%BB%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Python10--类中的魔法方法 | YiluoTalk</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="YiluoTalk" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YiluoTalk</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">享受每一天，Just Enjoy !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+            <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/29/Python10--%E7%B1%BB%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python10--类中的魔法方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-29 17:38:59 / 修改时间：17:39:11" itemprop="dateCreated datePublished" datetime="2020-08-29T17:38:59+08:00">2020-08-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-类中的特殊方法（魔法方法）"><a href="#1-类中的特殊方法（魔法方法）" class="headerlink" title="1.类中的特殊方法（魔法方法）"></a>1.类中的特殊方法（魔法方法）</h5><ul>
+<li>在 Python 中有一些特殊的方法，它们是 Python 内置的方法，通常以双下划线来命名，比如<code>__init__</code>、<code>__repr__</code> 等等，在类中使用它们时往往较少的代码就可以发挥很大的作用，提高开发效率，因此在 Python 中称这些方法为<code>“魔法方法”</code></li>
+<li>在 Python 中最常使用的是<code>__init__</code>方法，它可以用于新建实例对象的时候给对象绑定属性，但是在新建对象的时候第一个调用的不是<code>__init__</code>方法，而是 <code>__new__(cls, [...])</code>方法，这两个方法的区别在于</li>
+</ul>
+<p>1.<code>__init__</code>方法是在实例对象创建完成后调用的，主要用于设置实例对象的初始值，它的第一个参数为 <code>self</code>，可以不需要返回值<br>2. <code>__new__</code>方法是在实例对象被创建之前调用的，主要用于创建实例对象并返回实例对象，它的第一个参数为<code>cls</code> ，它只会取 <code>cls</code>参数，其余参数都传给了 <code>__init__</code>方法，必须要有返回值可以是 <code>super().__new__(cls)</code> 或是 <code>object.__new__(cls)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line"># 博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">In [1]: class People:</span><br><span class="line">   ...:     def __new__(cls, name):</span><br><span class="line">   ...:         print(&#39;__new__&#39;)</span><br><span class="line">   ...:         return super(People, cls).__new__(cls)</span><br><span class="line">   ...:     def __init__(self, name):</span><br><span class="line">   ...:         print(&#39;__init__&#39;)</span><br><span class="line">   ...:         self.name &#x3D; name</span><br><span class="line">   ...:     def __del__(self):</span><br><span class="line">   ...:         print(&#39;__del__&#39;)</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [2]: man &#x3D; People(&#39;Yiluo&#39;)</span><br><span class="line">__new__</span><br><span class="line">__init__</span><br><span class="line"></span><br><span class="line">In [3]: man.name</span><br><span class="line">Out[3]: &#39;Yiluo&#39;</span><br><span class="line"></span><br><span class="line">In [4]: del man</span><br><span class="line">__del__</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于 Python 是动态语言，因此定义一个实例对象后可以绑定任意的属性，如果需要限制绑定属性类别，可以使用<code>__slots__</code> 变量，可以绑定的属性值以元组的形式赋予给它。需要注意的是：<code>__slots__</code>的作用只在定义的类中有效，在继承该类的子类中是无效的。如果想要在子类中限制属性则需要重新定义，重新定以后，父类中的<code>__slots__</code>则会被子类继承</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; class People:</span><br><span class="line">...     __slots__ &#x3D; (&#39;name&#39;, &#39;age&#39;)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; somebody &#x3D; People()</span><br><span class="line">&gt;&gt;&gt; somebody.name &#x3D; &#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; somebody.age &#x3D; 18</span><br><span class="line">&gt;&gt;&gt; somebody.name</span><br><span class="line">&#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; somebody.age</span><br><span class="line">18</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; class Man(People):</span><br><span class="line">...     __slots__ &#x3D; (&#39;city&#39;)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; person &#x3D; Man()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; person.name &#x3D; &#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; person.age &#x3D; 18</span><br><span class="line">&gt;&gt;&gt; person.address &#x3D; &#39;shenzhen&#39;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &#39;Man&#39; object has no attribute &#39;address&#39;</span><br><span class="line">&gt;&gt;&gt; person.city &#x3D; &#39;shenzhen&#39;</span><br><span class="line">&gt;&gt;&gt; person.name</span><br><span class="line">&#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; person.age</span><br><span class="line">18</span><br><span class="line">&gt;&gt;&gt; person.city</span><br><span class="line">&#39;shenzhen&#39;</span><br></pre></td></tr></table></figure>
+<h5 id="2-getattribute-和-getattr"><a href="#2-getattribute-和-getattr" class="headerlink" title="2. __getattribute__ 和 __getattr__"></a>2. <code>__getattribute__</code> 和 <code>__getattr__</code></h5><ul>
+<li>在 Python 类中，当访问实例对象属性的时候，其实默认会调用<code>__getattribute__</code>方法，如果没有该属性就会报 <code>AttributeErro</code>r 错误，这个时候可以考虑使用 <code>__getattr__</code>方法进行自定义</li>
+</ul>
+<h5 id="3-call"><a href="#3-call" class="headerlink" title="3.__call__"></a>3.<code>__call__</code></h5><ul>
+<li>在 Python 中一切皆对象，对象分为可调用的和不可调用的，凡是可以通过一对括号 () 来调用的都是可调用对象，比如函数、类等，可以通过 <code>callable()</code> 函数来判断一个对象是否是可调用对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; class People:</span><br><span class="line">...     pass</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; person &#x3D; People()</span><br><span class="line">&gt;&gt;&gt; callable(person)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; callable(People())</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; callable(People)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>通常情况下实例对象都是不可调用对象，但是如果在类中使用了 <strong>call</strong> 方法就可以将实例对象转换为可调用对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; class People:</span><br><span class="line">...     def __call__(self):</span><br><span class="line">...         print(&#39;__call__&#39;)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; person &#x3D; People()</span><br><span class="line">&gt;&gt;&gt; person()</span><br><span class="line">__call__</span><br><span class="line">&gt;&gt;&gt; callable(person)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<h5 id="4-iter-和-next"><a href="#4-iter-和-next" class="headerlink" title="4.__iter__和 __next__"></a>4.<code>__iter__</code>和 <code>__next__</code></h5></li>
+<li>使用 <code>__iter__</code>方法就可以让类成为一个可迭代对象，如果使用 for 循环遍历类对象还需要在类中定义<code>__next__</code>方法，在<code>__next__</code>方法中可以定义取值的规则，当超出取值规则会抛出 <code>StopIteration</code> 异常从而退出当前循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"></span><br><span class="line">class Test:</span><br><span class="line">    def __init__(self, data&#x3D;0):</span><br><span class="line">        self.data &#x3D; data</span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line">    def __next__(self):</span><br><span class="line">        if self.data &gt; 5:</span><br><span class="line">            raise StopIteration</span><br><span class="line">        else:</span><br><span class="line">            self.data +&#x3D; 1</span><br><span class="line">            return self.data</span><br><span class="line"></span><br><span class="line">for i in Test():</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></li>
+<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  code python3 demo.py</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/Wechatpay.png" alt="伊洛 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Zero-to-Hero/" rel="tag"># Zero to Hero</a>
+              <a href="/tags/Python%E5%9F%BA%E7%A1%80/" rel="tag"># Python基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/28/Django%E5%9F%BA%E7%A1%806--%E6%8A%9B%E5%87%BA404%E5%BC%82%E5%B8%B8/" rel="prev" title="Django基础6--抛出404异常">
+      <i class="fa fa-chevron-left"></i> Django基础6--抛出404异常
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-类中的特殊方法（魔法方法）"><span class="nav-number">1.</span> <span class="nav-text">1.类中的特殊方法（魔法方法）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-getattribute-和-getattr"><span class="nav-number">2.</span> <span class="nav-text">2. __getattribute__ 和 __getattr__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-call"><span class="nav-number">3.</span> <span class="nav-text">3.__call__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-iter-和-next"><span class="nav-number">4.</span> <span class="nav-text">4.__iter__和 __next__</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">伊洛</p>
+  <div class="site-description" itemprop="description">公号「伊洛的小屋」</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">伊洛</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
