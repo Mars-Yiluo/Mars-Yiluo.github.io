@@ -179,6 +179,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20lambda%20(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20lambda%20(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero 表达式 lambda (一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:18:59 / 修改时间：13:18:34" itemprop="dateCreated datePublished" datetime="2019-12-20T13:18:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTY2ODQ5ZWYzNjU3N2RjMGEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-lambda-表达式"><a href="#1-lambda-表达式" class="headerlink" title="1.lambda 表达式"></a>1.lambda 表达式</h5><ul>
+<li>当你在编程中想使用一个  <code>函数</code>，但是你又没想好名字。或者干脆这个<code>函数</code>你只是想使用一次，就没有必要费心去命名了。你可以写一个<code>匿名函数</code>，那么<code>lambda</code>无疑是最好的选择<h5 id="2-lambda简单的使用"><a href="#2-lambda简单的使用" class="headerlink" title="2.lambda简单的使用"></a>2.lambda简单的使用</h5></li>
+<li>英雄释放<code>2次一骑当千</code>的技能<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = <span class="keyword">lambda</span> skill: print(skill*<span class="number">2</span> + <span class="string">' '</span>+ <span class="string">'技能已经释放2次'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills(<span class="string">'一骑当千'</span>)</span><br><span class="line">一骑当千一骑当千 技能已经释放<span class="number">2</span>次</span><br></pre></td></tr></table></figure></li>
+<li>显然<code>skills</code>就是一个<code>匿名函数</code>， <code>lambda</code> 返回值时不需要 <code>return</code> </li>
+<li>该匿名函数等同于<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">skills</span><span class="params">(skill)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> print(skill*<span class="number">2</span> + <span class="string">' '</span>+ <span class="string">'技能已成功释放2次'</span>)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skill = <span class="string">'一骑当先'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills(skill)</span><br><span class="line">一骑当先一骑当先 技能已成功释放<span class="number">2</span>次</span><br></pre></td></tr></table></figure>
+<h5 id="3-lambda赋值给变量使用"><a href="#3-lambda赋值给变量使用" class="headerlink" title="3. lambda赋值给变量使用"></a>3. lambda赋值给变量使用</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number = <span class="keyword">lambda</span> i: i<span class="number">-2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number(<span class="number">1</span>)</span><br><span class="line"><span class="number">-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>abs(number(<span class="number">1</span>))</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li><code>abs</code>是内置的<code>绝对值函数</code></li>
+</ul>
+<h5 id="4-lambda表达式来返回函数"><a href="#4-lambda表达式来返回函数" class="headerlink" title="4.lambda表达式来返回函数"></a>4.lambda表达式来返回函数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(i)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> <span class="keyword">lambda</span> x: x + i</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = add(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">1</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">2</span>)</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">100</span>)</span><br><span class="line"><span class="number">110</span></span><br></pre></td></tr></table></figure>
+<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://img-blog.csdnimg.cn/20191214124145387.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ5ZDY4OWI0MDA4YTk0ZTIucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2NmQyZjcyYzQzNWViM2UucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1191,124 +1291,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%20UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%20Zero%20to%20Hero%20Selenium%E5%9F%BA%E7%A1%80(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/Python%20UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%20Zero%20to%20Hero%20Selenium%E5%9F%BA%E7%A1%80(%E4%B8%80)/" class="post-title-link" itemprop="url">Python UI自动化测试实战 Zero to Hero Selenium基础(一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 11:48:59 / 修改时间：11:53:11" itemprop="dateCreated datePublished" datetime="2019-12-20T11:48:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">自动化测试</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">UI自动化测试</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRiMWE2MzdhZTAyZjY2ODEucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-Selenium介绍"><a href="#1-Selenium介绍" class="headerlink" title="1.Selenium介绍"></a>1.Selenium介绍</h5><ul>
-<li><strong>Selenium</strong>是用于<a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener" title="软件测试">测试</a><a href="https://en.wikipedia.org/wiki/Web_application" target="_blank" rel="noopener" title="Web应用程序">Web应用程序</a>的可移植<a href="https://en.wikipedia.org/wiki/Software_framework" target="_blank" rel="noopener" title="软件架构">框架</a>。Selenium提供了一种回放工具，用于编写<a href="https://en.wikipedia.org/wiki/Functional_testing" target="_blank" rel="noopener" title="功能测试">功能测试，</a>而无需学习测试<a href="https://en.wikipedia.org/wiki/Scripting_language" target="_blank" rel="noopener" title="脚本语言">脚本语言</a>（Selenium IDE）。它还提供了一种<a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言">特定</a>于测试<a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言">领域的语言</a>（Selenese），可以用多种流行的编程语言编写测试，包括<a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank" rel="noopener" title="C Sharp（编程语言）">C＃</a>，<a href="https://en.wikipedia.org/wiki/Groovy_(programming_language)" target="_blank" rel="noopener" title="Groovy（编程语言）">Groovy</a>，<a href="https://en.wikipedia.org/wiki/Java_(software_platform)" target="_blank" rel="noopener" title="Java（软件平台）">Java</a>，<a href="https://en.wikipedia.org/wiki/Perl" target="_blank" rel="noopener" title="佩尔">Perl</a>，<a href="https://en.wikipedia.org/wiki/PHP" target="_blank" rel="noopener" title="的PHP">PHP</a>，<a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener" title="Python（编程语言）">Python</a>，<a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)" target="_blank" rel="noopener" title="Ruby（编程语言）">Ruby</a>和<a href="https://en.wikipedia.org/wiki/Scala_(programming_language)" target="_blank" rel="noopener" title="Scala（编程语言）">Scala</a>。然后可以在大多数现代<a href="https://en.wikipedia.org/wiki/Web_browser" target="_blank" rel="noopener" title="网页浏览器">Web浏览器上</a>运行测试。Selenium继续<a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener" title="软件测试"></a> <a href="https://en.wikipedia.org/wiki/Web_application" target="_blank" rel="noopener" title="Web应用程序"></a><a href="https://en.wikipedia.org/wiki/Functional_testing" target="_blank" rel="noopener" title="功能测试"></a><a href="https://en.wikipedia.org/wiki/Scripting_language" target="_blank" rel="noopener" title="脚本语言"></a><a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener" title="特定领域的语言"></a><a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank" rel="noopener" title="C Sharp（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Groovy_(programming_language)" target="_blank" rel="noopener" title="Groovy（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Java_(software_platform)" target="_blank" rel="noopener" title="Java（软件平台）"></a><a href="https://en.wikipedia.org/wiki/Perl" target="_blank" rel="noopener" title="佩尔"></a><a href="https://en.wikipedia.org/wiki/PHP" target="_blank" rel="noopener" title="的PHP"></a><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener" title="Python（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)" target="_blank" rel="noopener" title="Ruby（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Scala_(programming_language)" target="_blank" rel="noopener" title="Scala（编程语言）"></a><a href="https://en.wikipedia.org/wiki/Web_browser" target="_blank" rel="noopener" title="网页浏览器"></a><a href="https://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener" title="微软Windows">Windows</a>，<a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener" title="的Linux">Linux</a>和<a href="https://en.wikipedia.org/wiki/MacOS" target="_blank" rel="noopener" title="苹果系统">macOS</a>。它是根据<a href="https://en.wikipedia.org/wiki/Apache_License_2.0" target="_blank" rel="noopener" title="Apache License 2.0">Apache License 2.0</a>发布<a href="https://en.wikipedia.org/wiki/Open-source_software" target="_blank" rel="noopener" title="开源软件">的开源软件</a>(引自维基百科)</li>
-</ul>
-<h5 id="2-Selenium的安装"><a href="#2-Selenium的安装" class="headerlink" title="2.Selenium的安装"></a>2.Selenium的安装</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  ~ pip install selenium</span><br><span class="line">Collecting selenium</span><br><span class="line">  Using cached https://files.pythonhosted.org/packages/<span class="number">80</span>/d6/<span class="number">4294</span>f0b4bce4de0abf13e17190289f9d0613b0a44e5dd6a7f5ca98459853/selenium<span class="number">-3.141</span><span class="number">.0</span>-py2.py3-none-any.whl</span><br><span class="line">Requirement already satisfied: urllib3 <span class="keyword">in</span> ./yiluo/lib/python3<span class="number">.7</span>/site-packages (<span class="keyword">from</span> selenium) (<span class="number">1.25</span><span class="number">.7</span>)</span><br><span class="line">Installing collected packages: selenium</span><br><span class="line">Successfully installed selenium<span class="number">-3.141</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<h5 id="3-安装谷歌浏览器驱动"><a href="#3-安装谷歌浏览器驱动" class="headerlink" title="3.安装谷歌浏览器驱动"></a>3.安装谷歌浏览器驱动</h5><ul>
-<li><p>下载驱动： <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></p>
-</li>
-<li><p>解压后，将<code>chromedriver</code>移动到<code>/usr/local/bin</code>目录下</p>
-</li>
-</ul>
-<h5 id="4-简单的尝试打开简书"><a href="#4-简单的尝试打开简书" class="headerlink" title="4.简单的尝试打开简书"></a>4.简单的尝试打开简书</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">'https://www.jianshu.com/u/3c9531339206'</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python web.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI5NTlmNTY5NDExNmM4YjIucG5n?x-oss-process=image/format,png" alt="自动打开的网页"></p>
-<h5 id="6-定位元素的一些方式"><a href="#6-定位元素的一些方式" class="headerlink" title="6.定位元素的一些方式"></a>6.定位元素的一些方式</h5><blockquote>
-<p>id<br>    name<br>    class name<br>    tag name<br>    link text<br>    partial link text<br>    xpath<br>    css selector<br>######7. Python webdriver 中的使用方法</p>
-</blockquote>
-<blockquote>
-<p>find_element_by_id()<br>    find_element_by_name()<br>    find_element_by_class_name()<br>    find_element_by_tag_name()<br>    find_element_by_link_text()<br>    find_element_by_partial_link_text()<br>    find_element_by_xpath()<br>    find_element_by_css_selector()</p>
-</blockquote>
-<h5 id="8-实例软件测试网站Testerhome的登陆脚本"><a href="#8-实例软件测试网站Testerhome的登陆脚本" class="headerlink" title="8.实例软件测试网站Testerhome的登陆脚本"></a>8.实例软件测试网站Testerhome的登陆脚本</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">"https://testerhome.com/"</span>)</span><br><span class="line"><span class="comment"># 放大窗口</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入登陆页面</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="main-page"]/div[1]/nav/div/ul[1]/li[2]/a'</span>).click()</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入账号</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'user_login'</span>).send_keys(<span class="string">'你的账户'</span>)</span><br><span class="line"><span class="comment"># 输入密码</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'user_password'</span>).send_keys(<span class="string">'你的密码'</span>)</span><br><span class="line"><span class="comment"># 点击登陆按钮</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="new_user"]/div[4]/input'</span>).click()</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 关闭窗口</span></span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTFmMTM0NTIxMTkxYWQ5MTcucG5n?x-oss-process=image/format,png" alt="登陆成功"></p>
-<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTNjN2RmY2U3MzNjYjNjNjkucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://img-blog.csdnimg.cn/20191211175851493.jpeg" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>享受每一天，Just Enjoy ! </p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJhYmIyZDExYWMwZTI5ODUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1379,7 +1361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
