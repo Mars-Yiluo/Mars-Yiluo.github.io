@@ -179,6 +179,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/01/Python12--%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/01/Python12--%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="post-title-link" itemprop="url">Python12--迭代器</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-01 15:13:59 / 修改时间：15:14:51" itemprop="dateCreated datePublished" datetime="2020-09-01T15:13:59+08:00">2020-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-迭代器"><a href="#1-迭代器" class="headerlink" title="1.迭代器"></a>1.迭代器</h5><p>要理解迭代器，首先需要明白迭代器和可迭代对象的区别。一个一个读取、操作对象称为迭代，Python 中，可迭代<code>（Iterable）</code>对象就是你能用<code>for</code>循环迭代它的元素，比如列表是可迭代的</p>
+<ul>
+<li><p>大多数容器对象都可以使用 <a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句，承接上文装饰器的例子，还是拿英雄的技能举例子</p>
+</li>
+<li><p>王者荣耀中英雄关羽的技能有<code>一骑当千</code> <code>单刀赴会</code> <code>青龙偃月</code> <code>刀锋铁骑</code>   用  <code>for</code>语句分别迭代出<code>1-4</code>技能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; skills &#x3D; [&#39;一骑当千&#39;,&#39;单刀赴会&#39;,&#39;青龙偃月&#39;,&#39;刀锋铁骑&#39;]</span><br><span class="line">&gt;&gt;&gt; for skill in skills:</span><br><span class="line">...     print(skill)</span><br><span class="line">...</span><br><span class="line">一骑当千</span><br><span class="line">单刀赴会</span><br><span class="line">青龙偃月</span><br><span class="line">刀锋铁骑</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在幕后，<a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句会调用容器对象中的 <a href="https://docs.python.org/zh-cn/3/library/functions.html#iter" target="_blank" rel="noopener" title="iter"><code>iter()</code></a>。 该函数返回一个定义了 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__" target="_blank" rel="noopener" title="iterator.__next__"><code>__next__()</code></a> 方法的迭代器对象，该方法将逐一访问容器中的元素</p>
+</li>
+<li><p>我们现在利用一下  <code>iter()</code>函数 和 <code>next()</code>函数</p>
+</li>
+</ul>
+<p>你能用 next 函数不断的去获取它的下一个值，直到迭代器返回 <code>StopIteration</code>异常。所有的可迭代对象都可以通过 iter 函数去获取它的迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line"># 博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&gt;&gt;&gt; skills &#x3D; [&#39;一骑当千&#39;,&#39;单刀赴会&#39;,&#39;青龙偃月&#39;,&#39;刀锋铁骑&#39;]</span><br><span class="line">&gt;&gt;&gt; skill &#x3D; iter(skills)</span><br><span class="line">&gt;&gt;&gt; print(skill)</span><br><span class="line">&lt;list_iterator object at 0x1037ea5d0&gt;</span><br><span class="line">&gt;&gt;&gt; next(skill)</span><br><span class="line">&#39;一骑当千&#39;</span><br><span class="line">&gt;&gt;&gt; next(skill)</span><br><span class="line">&#39;单刀赴会&#39;</span><br><span class="line">&gt;&gt;&gt; next(skill)</span><br><span class="line">&#39;青龙偃月&#39;</span><br><span class="line">&gt;&gt;&gt; next(skill)</span><br><span class="line">&#39;刀锋铁骑&#39;</span><br><span class="line">&gt;&gt;&gt; next(skill)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>skill</code>就是迭代器</li>
+<li><code>next</code>迭代到没有值的时候就会报错</li>
+<li>所有的迭代器其实都实现了<code>__iter__</code> 和 <code>__next__</code> 这俩个魔法方法，<code>iter</code>与 <code>next</code> 函数实际上调用的是这两个魔法方法，上面的例子背后其实是这样的</li>
+</ul>
+<h5 id="2-另一种实现方式"><a href="#2-另一种实现方式" class="headerlink" title="2.另一种实现方式"></a>2.另一种实现方式</h5><ul>
+<li>迭代器的另一种实现方式，<code>__iter__</code> + <code>__next__：</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; class Test:</span><br><span class="line">...     def __init__(self, a, b):</span><br><span class="line">...         self.a &#x3D; a</span><br><span class="line">...         self.b &#x3D; b</span><br><span class="line">...     def __iter__(self):</span><br><span class="line">...         return self</span><br><span class="line">...     def __next__(self):</span><br><span class="line">...         self.a +&#x3D; 1</span><br><span class="line">...         if self.a &gt; self.b:</span><br><span class="line">...             raise StopIteration()</span><br><span class="line">...         return self.a</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; test &#x3D; Test(0, 5)</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; next(test)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 10, in __next__</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></li>
+<li>能被 for 循环访问的都是可迭代对象，能被 next 函数获取下一个值的是迭代器</li>
+</ul>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/31/Python11--%E8%A3%85%E9%A5%B0%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1303,147 +1415,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Django%E5%9F%BA%E7%A1%801--%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/Django%E5%9F%BA%E7%A1%801--%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Django基础1--安装及启动</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-25 13:34:59 / 修改时间：13:34:37" itemprop="dateCreated datePublished" datetime="2020-08-25T13:34:59+08:00">2020-08-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Django基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="1-Web框架"><a href="#1-Web框架" class="headerlink" title="1.Web框架"></a>1.Web框架</h5><ul>
-<li><p>提到Python就一定会听过Python出名的web框架–Django和Flask，Django是比较重量级的框架，Flask就会轻量些</p>
-</li>
-<li><p>Django 是一套用于帮助开发交互式网站的工具。Django能够响应网页请求，还能让你更轻松地读写数据库、管理用户</p>
-</li>
-<li><p>Django 最初被设计用于具有快速开发需求的新闻类站点，目的是要实现简单快捷的网站开发。以下内容简要介绍了如何使用 Django 实现一个数据库驱动的 Web 应用</p>
-<h5 id="2-开始Django"><a href="#2-开始Django" class="headerlink" title="2.开始Django"></a>2.开始Django</h5></li>
-<li><p>首先先安装个Django项目的虚拟环境,虚拟环境是系统的一个位置，你可以在其中安装包，并将其与其他Python包隔离</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Learn: python3 -m venv django</span><br></pre></td></tr></table></figure></li>
-<li><p>激活虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  Learn source django&#x2F;bin&#x2F;activate</span><br><span class="line">(django) ➜  Learn</span><br></pre></td></tr></table></figure>
-<h5 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h5></li>
-<li><p>首先当然是有装好Python的前提了</p>
-</li>
-<li><p>数据库的话Django包含了一个名为 <a href="https://sqlite.org/" target="_blank" rel="noopener">SQLite</a> 的轻量级数据库<br>后期开发的时候也可以换成<code>MySQL</code>，<code>MongoDB</code>等适合项目开发的数据库</p>
-</li>
-<li><p>安装Django</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install django</span><br></pre></td></tr></table></figure></li>
-<li><p>查看版本号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  Learn python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import django</span><br><span class="line">&gt;&gt;&gt; print(django.get_version())</span><br><span class="line">3.1</span><br></pre></td></tr></table></figure>
-<h5 id="4-创建Django项目"><a href="#4-创建Django项目" class="headerlink" title="4.创建Django项目"></a>4.创建Django项目</h5></li>
-<li><p>打开命令行，cd 到一个想放置代码的目录，然后运行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  PycharmProjects django-admin startproject AutoPlatform</span><br></pre></td></tr></table></figure></li>
-<li><p>来查看一下目录的结构<br>如果你是Mac 电脑，可以先安装一下tree</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br><span class="line">➜  ~ tree --help</span><br><span class="line">usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]</span><br><span class="line">	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]</span><br><span class="line">	[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]</span><br><span class="line">	[--charset charset] [--filelimit[&#x3D;]#] [--si] [--timefmt[&#x3D;]&lt;f&gt;]</span><br><span class="line">	[--sort[&#x3D;]&lt;name&gt;] [--matchdirs] [--ignore-case] [--fromfile] [--]</span><br><span class="line">	[&lt;directory list&gt;]</span><br><span class="line">  ------- Listing options -------</span><br><span class="line">  -a            All files are listed.</span><br><span class="line">  -d            List directories only.</span><br><span class="line">  -l            Follow symbolic links like directories.</span><br><span class="line">  -f            Print the full path prefix for each file.</span><br><span class="line">  -x            Stay on current filesystem only.</span><br><span class="line">  -L level      Descend only level directories deep.</span><br></pre></td></tr></table></figure></li>
-<li><p>这回来看一下Django的目录结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform tree</span><br><span class="line">.</span><br><span class="line">├── AutoPlatform</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── asgi.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   └── wsgi.py</span><br><span class="line">└── manage.py</span><br><span class="line"></span><br><span class="line">1 directory, 6 files</span><br></pre></td></tr></table></figure></li>
-<li><p>最外层的 <code>AutoPlatform/</code>根目录是项目的容器， 根目录名称对Django没有影响，可以将它重命名为任何喜欢的名称</p>
-</li>
-<li><p><code>manage.py</code>: 各种方式管理 Django 项目的命令行工具<br>里面一层的 AutoPlatform/ 目录包含你的项目，一个纯 Python 包。它的名字就是当你引用它内部任何东西时需要用到的 Python 包名。 (AutoPlatform.urls)</p>
-</li>
-<li><p><code>AutoPlatform/__init__.py</code>：一个空文件，告诉 Python 这个目录应该被认为是一个 Python 包</p>
-</li>
-<li><p><code>AutoPlatform/settings.py</code>：Django 项目的配置文件</p>
-</li>
-<li><p><code>AutoPlatform/urls.py</code>：Django 项目的 URL 声明，就像网站的“目录”,文件urls.py告诉Django应创建哪些网页来响应浏览器请求</p>
-</li>
-<li><p><code>AutoPlatform/asgi.py</code>：作为项目的运行在 ASGI 兼容的Web服务器上的入口</p>
-</li>
-<li><p><code>AutoPlatform/wsgi.py</code>：作为你的项目的运行在 WSGI 兼容的Web服务器上的入口,文件名是web server gateway interface（Web服务器网关接口）的首字母缩写</p>
-<h5 id="5-启动项目"><a href="#5-启动项目" class="headerlink" title="5.启动项目"></a>5.启动项目</h5></li>
-<li><p>来确认一下Django 项目是否真的创建成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py runserver</span><br><span class="line">Watching for file changes with StatReloader</span><br><span class="line">Performing system checks...</span><br><span class="line"></span><br><span class="line">System check identified no issues (0 silenced).</span><br><span class="line"></span><br><span class="line">You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.</span><br><span class="line">Run &#39;python manage.py migrate&#39; to apply them.</span><br><span class="line">August 24, 2020 - 10:14:06</span><br><span class="line">Django version 3.1, using settings &#39;AutoPlatform.settings&#39;</span><br><span class="line">Starting development server at http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;</span><br><span class="line">Quit the server with CONTROL-C.</span><br></pre></td></tr></table></figure></li>
-<li><p>忽略有关未应用最新数据库迁移的警告,刚刚启动的是 Django 自带的用于开发的简易服务器，它是一个用纯 Python 写的轻量级的 Web 服务器</p>
-</li>
-<li><p>现在，服务器正在运行，浏览器访问 <a href="https://127.0.0.1:8000/" target="_blank" rel="noopener">https://127.0.0.1:8000/</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTgxM2Y0NGIxODNmOTE0NzYucG5n?x-oss-process=image/format,png" alt=""></p>
-</li>
-<li><p>小火箭正在飞，一切正常，这就启动了Django</p>
-</li>
-</ul>
-<p>NOTE： 用于开发的服务器在需要的情况下会对每一次的访问请求重新载入一遍 Python 代码。所以不需要为了让修改的代码生效而频繁的重新启动服务器。然而，一些动作，比如添加新文件，将不会触发自动重新加载，这时得自己手动重启服务器</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1514,7 +1485,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

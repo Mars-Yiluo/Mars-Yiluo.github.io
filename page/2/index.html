@@ -179,6 +179,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Django%E5%9F%BA%E7%A1%801--%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/25/Django%E5%9F%BA%E7%A1%801--%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Django基础1--安装及启动</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-25 13:34:59 / 修改时间：13:34:37" itemprop="dateCreated datePublished" datetime="2020-08-25T13:34:59+08:00">2020-08-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Django基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-Web框架"><a href="#1-Web框架" class="headerlink" title="1.Web框架"></a>1.Web框架</h5><ul>
+<li><p>提到Python就一定会听过Python出名的web框架–Django和Flask，Django是比较重量级的框架，Flask就会轻量些</p>
+</li>
+<li><p>Django 是一套用于帮助开发交互式网站的工具。Django能够响应网页请求，还能让你更轻松地读写数据库、管理用户</p>
+</li>
+<li><p>Django 最初被设计用于具有快速开发需求的新闻类站点，目的是要实现简单快捷的网站开发。以下内容简要介绍了如何使用 Django 实现一个数据库驱动的 Web 应用</p>
+<h5 id="2-开始Django"><a href="#2-开始Django" class="headerlink" title="2.开始Django"></a>2.开始Django</h5></li>
+<li><p>首先先安装个Django项目的虚拟环境,虚拟环境是系统的一个位置，你可以在其中安装包，并将其与其他Python包隔离</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Learn: python3 -m venv django</span><br></pre></td></tr></table></figure></li>
+<li><p>激活虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  Learn source django&#x2F;bin&#x2F;activate</span><br><span class="line">(django) ➜  Learn</span><br></pre></td></tr></table></figure>
+<h5 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h5></li>
+<li><p>首先当然是有装好Python的前提了</p>
+</li>
+<li><p>数据库的话Django包含了一个名为 <a href="https://sqlite.org/" target="_blank" rel="noopener">SQLite</a> 的轻量级数据库<br>后期开发的时候也可以换成<code>MySQL</code>，<code>MongoDB</code>等适合项目开发的数据库</p>
+</li>
+<li><p>安装Django</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install django</span><br></pre></td></tr></table></figure></li>
+<li><p>查看版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  Learn python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import django</span><br><span class="line">&gt;&gt;&gt; print(django.get_version())</span><br><span class="line">3.1</span><br></pre></td></tr></table></figure>
+<h5 id="4-创建Django项目"><a href="#4-创建Django项目" class="headerlink" title="4.创建Django项目"></a>4.创建Django项目</h5></li>
+<li><p>打开命令行，cd 到一个想放置代码的目录，然后运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  PycharmProjects django-admin startproject AutoPlatform</span><br></pre></td></tr></table></figure></li>
+<li><p>来查看一下目录的结构<br>如果你是Mac 电脑，可以先安装一下tree</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br><span class="line">➜  ~ tree --help</span><br><span class="line">usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]</span><br><span class="line">	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]</span><br><span class="line">	[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]</span><br><span class="line">	[--charset charset] [--filelimit[&#x3D;]#] [--si] [--timefmt[&#x3D;]&lt;f&gt;]</span><br><span class="line">	[--sort[&#x3D;]&lt;name&gt;] [--matchdirs] [--ignore-case] [--fromfile] [--]</span><br><span class="line">	[&lt;directory list&gt;]</span><br><span class="line">  ------- Listing options -------</span><br><span class="line">  -a            All files are listed.</span><br><span class="line">  -d            List directories only.</span><br><span class="line">  -l            Follow symbolic links like directories.</span><br><span class="line">  -f            Print the full path prefix for each file.</span><br><span class="line">  -x            Stay on current filesystem only.</span><br><span class="line">  -L level      Descend only level directories deep.</span><br></pre></td></tr></table></figure></li>
+<li><p>这回来看一下Django的目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform tree</span><br><span class="line">.</span><br><span class="line">├── AutoPlatform</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── asgi.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   └── wsgi.py</span><br><span class="line">└── manage.py</span><br><span class="line"></span><br><span class="line">1 directory, 6 files</span><br></pre></td></tr></table></figure></li>
+<li><p>最外层的 <code>AutoPlatform/</code>根目录是项目的容器， 根目录名称对Django没有影响，可以将它重命名为任何喜欢的名称</p>
+</li>
+<li><p><code>manage.py</code>: 各种方式管理 Django 项目的命令行工具<br>里面一层的 AutoPlatform/ 目录包含你的项目，一个纯 Python 包。它的名字就是当你引用它内部任何东西时需要用到的 Python 包名。 (AutoPlatform.urls)</p>
+</li>
+<li><p><code>AutoPlatform/__init__.py</code>：一个空文件，告诉 Python 这个目录应该被认为是一个 Python 包</p>
+</li>
+<li><p><code>AutoPlatform/settings.py</code>：Django 项目的配置文件</p>
+</li>
+<li><p><code>AutoPlatform/urls.py</code>：Django 项目的 URL 声明，就像网站的“目录”,文件urls.py告诉Django应创建哪些网页来响应浏览器请求</p>
+</li>
+<li><p><code>AutoPlatform/asgi.py</code>：作为项目的运行在 ASGI 兼容的Web服务器上的入口</p>
+</li>
+<li><p><code>AutoPlatform/wsgi.py</code>：作为你的项目的运行在 WSGI 兼容的Web服务器上的入口,文件名是web server gateway interface（Web服务器网关接口）的首字母缩写</p>
+<h5 id="5-启动项目"><a href="#5-启动项目" class="headerlink" title="5.启动项目"></a>5.启动项目</h5></li>
+<li><p>来确认一下Django 项目是否真的创建成功了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py runserver</span><br><span class="line">Watching for file changes with StatReloader</span><br><span class="line">Performing system checks...</span><br><span class="line"></span><br><span class="line">System check identified no issues (0 silenced).</span><br><span class="line"></span><br><span class="line">You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.</span><br><span class="line">Run &#39;python manage.py migrate&#39; to apply them.</span><br><span class="line">August 24, 2020 - 10:14:06</span><br><span class="line">Django version 3.1, using settings &#39;AutoPlatform.settings&#39;</span><br><span class="line">Starting development server at http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;</span><br><span class="line">Quit the server with CONTROL-C.</span><br></pre></td></tr></table></figure></li>
+<li><p>忽略有关未应用最新数据库迁移的警告,刚刚启动的是 Django 自带的用于开发的简易服务器，它是一个用纯 Python 写的轻量级的 Web 服务器</p>
+</li>
+<li><p>现在，服务器正在运行，浏览器访问 <a href="https://127.0.0.1:8000/" target="_blank" rel="noopener">https://127.0.0.1:8000/</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTgxM2Y0NGIxODNmOTE0NzYucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>小火箭正在飞，一切正常，这就启动了Django</p>
+</li>
+</ul>
+<p>NOTE： 用于开发的服务器在需要的情况下会对每一次的访问请求重新载入一遍 Python 代码。所以不需要为了让修改的代码生效而频繁的重新启动服务器。然而，一些动作，比如添加新文件，将不会触发自动重新加载，这时得自己手动重启服务器</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Python8--%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1339,101 +1480,6 @@ i 等于3 的时候被忽略</li>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%952--%E7%99%BB%E5%BD%95%E7%A4%BA%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%952--%E7%99%BB%E5%BD%95%E7%A4%BA%E4%BE%8B/" class="post-title-link" itemprop="url">Locust性能测试2--登录示例</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-21 11:48:59 / 修改时间：11:49:19" itemprop="dateCreated datePublished" datetime="2020-08-21T11:48:59+08:00">2020-08-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">Locust性能测试</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<ul>
-<li>无论是做接口自动化还是做压测，解决了登录就离成功进步了一大半，下面做个简单的登录案例，后续再说下数据依赖及参数化等问题<h5 id="1-登录"><a href="#1-登录" class="headerlink" title="1. 登录"></a>1. 登录</h5></li>
-<li>登录示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">from locust import HttpUser, task, between</span><br><span class="line"></span><br><span class="line">USER_CREDENTIALS &#x3D; [</span><br><span class="line">    (&quot;login1&quot;, &quot;pwd1&quot;),</span><br><span class="line">    (&quot;login2&quot;, &quot;pwd2&quot;),</span><br><span class="line">    (&quot;login3&quot;, &quot;pwd3&quot;),</span><br><span class="line">]  # 登录账户</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LoginDemo(HttpUser):</span><br><span class="line">    wait_time &#x3D; between(2, 5)  # 模拟用户等待2到5s然后执行</span><br><span class="line"></span><br><span class="line">    @task(1)</span><br><span class="line">    def on_start(self):  # 任务开始时准备（开始肯定是要登录了）</span><br><span class="line">        header &#x3D; &#123;</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) &quot;</span><br><span class="line">                          &quot;Chrome&#x2F;83.0.4103.61 Safari&#x2F;537.36 &quot;</span><br><span class="line">        &#125;  # 请求头</span><br><span class="line"></span><br><span class="line">        if len(USER_CREDENTIALS) &gt; 0:</span><br><span class="line">            user, pwd &#x3D; USER_CREDENTIALS.pop()  # 取出账户名密码</span><br><span class="line"></span><br><span class="line">            r_post &#x3D; self.client.post(&quot;user&#x2F;login&#x2F;&quot;, &#123;</span><br><span class="line">                &quot;token&quot;: &#39;TOKEN&#39;,  # TOKEN</span><br><span class="line">                &quot;username&quot;: user,  # 用户名</span><br><span class="line">                &quot;password&quot;: pwd,  # 密码</span><br><span class="line">                &quot;next&quot;: &quot;&quot;</span><br><span class="line">            &#125;, header&#x3D;header</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            assert r_post.status_code &#x3D;&#x3D; 200  # 断言请求返回200</span><br><span class="line"></span><br><span class="line">            print(r_post.status_code, r_post.text[:1000])  # 打印状态码及返回text</span><br><span class="line"></span><br><span class="line">    @task(2)</span><br><span class="line">    def view_index(self):</span><br><span class="line">        print(&#39;访问首页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;index&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line">    @task(6)</span><br><span class="line">    def view_tag(self):</span><br><span class="line">        print(&#39;访问标签页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;tag&#x2F;&quot;)</span><br><span class="line">        </span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py --host&#x3D;URL&quot;)  # 需要测试的地址</span><br></pre></td></tr></table></figure></li>
-<li><code>task</code>后面的意思可以理解为权重，在上面的示例中，<code>view_tag</code>被选择为<code>view_index</code>的几率是两倍<h5 id="2-Task的另外使用方式"><a href="#2-Task的另外使用方式" class="headerlink" title="2.Task的另外使用方式"></a>2.Task的另外使用方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from locust import User, constant</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def task_one(l):</span><br><span class="line">    print(&#39;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyUser(User):</span><br><span class="line">    tasks &#x3D; [task_one]</span><br><span class="line">    wait_time &#x3D; constant(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py &quot;)</span><br></pre></td></tr></table></figure></li>
-<li>执行脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br></pre></td></tr></table></figure></li>
-<li>如果是多个任务的话<br><code>task = [my_task, my_task, my_task, another_task]</code></li>
-</ul>
-<h5 id="3-小结"><a href="#3-小结" class="headerlink" title="3. 小结"></a>3. 小结</h5><p>如果很熟悉<code>request库</code>的话，基本没有上手的难度<br><a href="https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/">https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/</a></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1504,7 +1550,7 @@ i 等于3 的时候被忽略</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

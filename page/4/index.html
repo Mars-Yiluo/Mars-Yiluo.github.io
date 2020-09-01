@@ -179,6 +179,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/02/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%89)%20%E6%94%BE%E5%BC%83%20if-elif/" class="post-title-link" itemprop="url">老司机都知道的Python语法小技巧 (三) 放弃 if-elif</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-02 11:32:59 / 修改时间：11:32:50" itemprop="dateCreated datePublished" datetime="2020-01-02T11:32:59+08:00">2020-01-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTU5MDc1MTQyMWJlMDQ0NWIucG5n?x-oss-process=image/format,png" alt=""></p>
+<p>大家新年好呀，今天再来说下<code>Python</code>老司机常用的小技巧，让你告别‘乏味的’<code>if-elif</code>，话不多说直接来看一个输出今天周几的例子</p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> week_day.weekday() == <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'今天是星期一'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">'今天是星期二'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">2</span>:</span><br><span class="line">    print(<span class="string">'今天是星期三'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">3</span>:</span><br><span class="line">    print(<span class="string">'今天是星期四'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">4</span>:</span><br><span class="line">    print(<span class="string">'今天是星期五'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">5</span>:</span><br><span class="line">    print(<span class="string">'今天是星期六'</span>)</span><br><span class="line"><span class="keyword">elif</span> week_day.weekday() == <span class="number">6</span>:</span><br><span class="line">    print(<span class="string">'今天是星期日'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>weekday()</code>函数返回的是当前日期所在的星期数</li>
+<li>运行看以下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>没错今天就是周四</li>
+<li>可以看到上面的代码看上去好像很复杂而且码代码的时候也很容易出现错误，比如你入门<code>python</code>的时候肯定会做一些类似于工资计算器的小程序，你计算公积金或者税率工资分段的时候要不断的用到<code>if-elif</code>，这样很容易出现错误</li>
+<li>那么有没有更好的方式避免或者优化呢</li>
+<li>当然作为<code>python</code>老司机的话都会用到调度表</li>
+<li>简单来看一个例子<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">dispatch = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">'今天是星期一'</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">'今天是星期二'</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">'今天是星期三'</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">'今天是星期四'</span>,</span><br><span class="line">  <span class="number">4</span>: <span class="string">'今天是星期五'</span>,</span><br><span class="line">  <span class="number">5</span>: <span class="string">'今天是星期六'</span>,</span><br><span class="line">  <span class="number">6</span>: <span class="string">'今天是星期日'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">week_day = datetime.date(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(dispatch[week_day.weekday()])</span><br></pre></td></tr></table></figure></li>
+<li>这里其实就是一个<code>python</code>的字典</li>
+<li>看上去是不是稍微的简洁简化了呢</li>
+<li>重要的是会避免出错（当你<code>if-elif</code>很多的情况下，就一定会有这种体会了）</li>
+<li>最后来输出看看结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">今天是星期四</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>结果一致，适当的放弃<code>if-elif</code>吧，让你的代码不仅美观还少出错</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200102112934439.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBmYjk4ZDM3OGIyZmZiZDAucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNjMzQwMWY0YzkxNTU1YjUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/28/%E8%B6%85%E7%BA%A7%E6%97%A0%E6%95%8C%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8A%95%E5%B1%8FAirServer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1253,132 +1363,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%20(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础 Zero to Hero 异常的处理 (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:22:59 / 修改时间：13:22:52" itemprop="dateCreated datePublished" datetime="2019-12-20T13:22:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWFkMDg2NjVlOWViOGNlMGQucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-异常的定义"><a href="#1-异常的定义" class="headerlink" title="1. 异常的定义"></a>1. 异常的定义</h5><ul>
-<li>异常处理，是<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener" title="编程语言">编程语言</a>或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况（即超出程序正常执行流程的某些特殊条件）</li>
-</ul>
-<h5 id="2-错误和异常"><a href="#2-错误和异常" class="headerlink" title="2. 错误和异常"></a>2. 错误和异常</h5><ul>
-<li>写程序的时候通常会出现错误，目前（至少）有两种可区分的错误：<code>语法错误</code>和 <code>异常</code></li>
-<li>语法错误：又称<code>解析错误</code>，经常容易遇到</li>
-<li>异常：即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误<h5 id="3-简单的例子"><a href="#3-简单的例子" class="headerlink" title="3. 简单的例子"></a>3. 简单的例子</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c = a + b</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure></li>
-<li>上面很简单的代码执行后就会出错，因为并没有定义变量<code>a</code></li>
-<li><code>Python</code>提供的<code>异常处理</code>方法来捕获并处理异常，处理方法为使用 <code>try，except</code>和 <code>finally</code> 三个<code>关键字</code><h5 id="3-try-except-的使用"><a href="#3-try-except-的使用" class="headerlink" title="3. try, except 的使用"></a>3. try, except 的使用</h5></li>
-<li><code>try</code> 代码块中写可能会出现异常的代码</li>
-<li><code>except</code> 代码块中添加处理异常的方法</li>
-<li>来将上面的代码处理一下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    print(c)</span><br><span class="line"><span class="keyword">except</span> NameError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err))</span><br></pre></td></tr></table></figure></li>
-<li>依旧没有赋值<code>a</code>变量</li>
-<li>然后执行一下</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：name <span class="string">'a'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>错误提示变量<code>a</code>没有被定义</li>
-<li><code>NameError</code>的指的是访问了一个<code>未定义的变量</code></li>
-<li>常见的还有<code>SyntaxError ，IndexError ，KeyError ，ValueError ，AttributeError</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI0OWM2MDk5OTI0MmQ5MzIuanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="4-多个except"><a href="#4-多个except" class="headerlink" title="4.多个except"></a>4.多个except</h5><ul>
-<li><code>except</code>可以有多个，每个处理不同类型的异常，也可以不写任何异常类型名称，则会处理所有<code>捕获</code>的<code>异常</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    print(c)</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> NameError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> FileNotFoundError <span class="keyword">as</span> err2:</span><br><span class="line">    print(<span class="string">'错误：&#123;&#125;'</span>.format(err2))</span><br></pre></td></tr></table></figure></li>
-<li>打开一个不存在的文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line">错误：[Errno <span class="number">2</span>] No such file <span class="keyword">or</span> directory: <span class="string">'/yiluo/bin/activate.txt'</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li>系统抛出了<code>异常</code>，没有这个文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>不写任何<code>异常</code>的<code>类型</code></li>
-<li>运行一下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h5 id="5-finally的使用"><a href="#5-finally的使用" class="headerlink" title="5.finally的使用"></a>5.finally的使用</h5></li>
-<li>使用 <code>finally</code> 可以保证无论 <code>try</code>代码块中的代码是否<code>抛出异常</code>，都能够执行 <code>finally</code> 代码块里的内容<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line">    f = open(<span class="string">'/yiluo/bin/activate.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'结束异常'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>执行代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li><code>finally</code>成功的运行了<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c = a + b</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'总之就是有错误'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'结束异常'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>没有任何的异常执行下，看下<code>finally</code>会不会被运行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-<li><code>finally</code>成功运行<h5 id="6-抛出异常"><a href="#6-抛出异常" class="headerlink" title="6.抛出异常"></a>6.抛出异常</h5></li>
-<li>如果希望程序执行过程中抛出异常，可以使用 <code>raise</code>语句<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">raise</span> NameError(<span class="string">'Error ERROR'</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">NameError: Error ERROR</span><br></pre></td></tr></table></figure></li>
-<li>如上抛出了<code>&#39;Error ERROR&#39;</code>的异常<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><img src="https://img-blog.csdnimg.cn/20191216160508205.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJhZDM0OTJlYjM0ZjA1MzAucG5n?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>2019年12月16日<br>愿您享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRjOGFiMjlhNThjMjU0YWUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1449,7 +1433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
