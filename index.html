@@ -179,6 +179,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/02/Python13--%E7%94%9F%E6%88%90%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/02/Python13--%E7%94%9F%E6%88%90%E5%99%A8/" class="post-title-link" itemprop="url">Python13--生成器</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-02 14:19:59 / 修改时间：14:20:49" itemprop="dateCreated datePublished" datetime="2020-09-02T14:19:59+08:00">2020-09-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-生成器"><a href="#1-生成器" class="headerlink" title="1.生成器"></a>1.生成器</h5><ul>
+<li><code>Generator</code>是一个用于创建迭代器的简单而强大的工具。 它们的写法类似标准的函数</li>
+<li>生成器首先它是一个迭代器，和迭代器一样，生成器只能被遍历迭代一次，因为每次迭代的元素不是像列表元素一样，已经在内存中，每迭代一次，生成一个元素</li>
+<li>生成器和迭代器的主要区别在于：<br>1、它们的创建方式不同<br>2、生成器有一些特殊方法是迭代器不具有的<h5 id="2-创建生成器的两中方法"><a href="#2-创建生成器的两中方法" class="headerlink" title="2.创建生成器的两中方法"></a>2.创建生成器的两中方法</h5><h6 id="（一）yield-编写生成器函数，函数的返回值就是生成器"><a href="#（一）yield-编写生成器函数，函数的返回值就是生成器" class="headerlink" title="（一）yield 编写生成器函数，函数的返回值就是生成器"></a>（一）yield 编写生成器函数，函数的返回值就是生成器</h6></li>
+<li><code>yield</code> 的使用方法和<code>return</code> 类似。不同的是，<code>return</code>可以返回有效的 Python 对象，而 <code>yield</code>返回的是一个生成器，函数碰到 <code>return</code> 就直接返回了，而使用了 <code>yield</code>的函数，到<code>yield</code> 返回一个元素，当再次迭代生成器时，会从 <code>yield</code> 后面继续执行，直到遇到下一个<code>yield</code>或者函数结束退出</li>
+<li>承接上文迭代器，还是用游戏中的英雄技能举例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line"></span><br><span class="line">def hero(*skills):</span><br><span class="line">    print(&#39;英雄的释放技能分别如下&#39;)</span><br><span class="line">    for release_skill in skills:</span><br><span class="line">         yield release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">skill &#x3D; hero(&#39;一骑当千&#39;,&#39;单刀赴会&#39;,&#39;青龙偃月&#39;,&#39;刀锋铁骑&#39;)</span><br><span class="line">for s in skill:</span><br><span class="line">    print(s)</span><br></pre></td></tr></table></figure></li>
+<li><code>hero</code>函数中传入英雄的<code>1-4</code>技能</li>
+<li>来看一下运行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 微信搜索：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line">英雄的释放技能分别如下</span><br><span class="line">一骑当千</span><br><span class="line">单刀赴会</span><br><span class="line">青龙偃月</span><br><span class="line">刀锋铁骑</span><br></pre></td></tr></table></figure></li>
+<li>这样使用比迭代器的好处是，生成器不会像迭代器放在内存中，是用户传入数值动态生成的<h6 id="（二）生成器表达式"><a href="#（二）生成器表达式" class="headerlink" title="（二）生成器表达式"></a>（二）生成器表达式</h6></li>
+<li>另一种创建生成器的方式就是通过表达式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; s &#x3D; (x+x for x in range(0,4))</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&lt;generator object &lt;genexpr&gt; at 0x1058537d0&gt;</span><br><span class="line">&gt;&gt;&gt; for x in s:</span><br><span class="line">...     print(x)</span><br><span class="line">...</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">6</span><br></pre></td></tr></table></figure></li>
+<li><code>s</code> 就是生成器，然后遍历查看结果</li>
+<li>迭代完一次之后再迭代这个生成器，它不会打印元素，也不会报错</li>
+<li>使用生成器有什么好处呢？因为生成器不是把所有元素存在内存，而是动态生成的，所以当你要迭代的对象有非常多的元素时，使用生成器能为你节约很多内存，这是一个内存友好的特性</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/01/Python12--%E8%BF%AD%E4%BB%A3%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1310,111 +1414,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Django%E5%9F%BA%E7%A1%802--%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/Django%E5%9F%BA%E7%A1%802--%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">Django基础2--创建应用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-25 13:35:59 / 修改时间：13:35:44" itemprop="dateCreated datePublished" datetime="2020-08-25T13:35:59+08:00">2020-08-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Django基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="1-创建应用"><a href="#1-创建应用" class="headerlink" title="1.创建应用"></a>1.创建应用</h5><ul>
-<li>“项目”  已经配置好了，现在来创建一个应用</li>
-<li>在 Django 中，每一个应用都是一个 Python 包，并且遵循着相同的约定。Django 自带一个工具，可以帮你生成应用的基础目录结构，这样你就能专心写代码，而不是创建目录了</li>
-<li>Django项目由一系列应用程序组成，它们协同工作，让项目成为一个整体。我们暂时只创建一个应用程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  AutoPlatform python manage.py startapp autoapi</span><br></pre></td></tr></table></figure></li>
-<li>命令startapp appname让Django建立创建应用程序所需的基础设施</li>
-<li>这将会创建一个 autoapi 目录，它的目录结构大致如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  autoapi tree</span><br><span class="line">.</span><br><span class="line">├── __init__.py</span><br><span class="line">├── admin.py</span><br><span class="line">├── apps.py</span><br><span class="line">├── migrations</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── models.py</span><br><span class="line">├── tests.py</span><br><span class="line">└── views.py</span><br><span class="line"></span><br><span class="line">1 directory, 7 files</span><br></pre></td></tr></table></figure>
-<h5 id="2-编写一个视图"><a href="#2-编写一个视图" class="headerlink" title="2.编写一个视图"></a>2.编写一个视图</h5></li>
-<li>打开 views.py<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.http import HttpResponse</span><br><span class="line"></span><br><span class="line"># Create your views here.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">    return HttpResponse(&quot;Hello, Welcome to Auto Api Platform !!!&quot;)</span><br></pre></td></tr></table></figure></li>
-<li>需要将一个 URL 映射到它——需要 URLconf ， 在 autoapi 目录里新建一个 urls.py 文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(django) ➜  autoapi tree</span><br><span class="line">.</span><br><span class="line">├── __init__.py</span><br><span class="line">├── admin.py</span><br><span class="line">├── apps.py</span><br><span class="line">├── migrations</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── models.py</span><br><span class="line">├── tests.py</span><br><span class="line">├── urls.py</span><br><span class="line">└── views.py</span><br><span class="line"></span><br><span class="line">1 directory, 8 files</span><br></pre></td></tr></table></figure></li>
-<li>在 urls.py 中，输入代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.urls import path</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">urlpatterns &#x3D; [</span><br><span class="line">    path(&#39;&#39;, views.index, name&#x3D;&#39;index&#39;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-下一步是要在根 URLconf 文件中指定我们创建的 autoapi.urls 模块。在 AutoPlatform/urls.py 文件的 urlpatterns 列表里插入一个 include()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.contrib import admin</span><br><span class="line">from django.urls import include, path</span><br><span class="line"></span><br><span class="line">urlpatterns &#x3D; [</span><br><span class="line">    path(&#39;autoapi&#x2F;&#39;, include(&#39;autoapi.urls&#39;)),</span><br><span class="line">    path(&#39;admin&#x2F;&#39;, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h5 id="3-查看结果"><a href="#3-查看结果" class="headerlink" title="3.查看结果"></a>3.查看结果</h5>现在把 index 视图添加进了 URLconf。通过以下命令验证是否正常工作：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure></li>
-<li>浏览器访问 <a href="http://127.0.0.1:8000/autoapi/" target="_blank" rel="noopener">http://127.0.0.1:8000/autoapi/</a></li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTczN2U1ZGNlNWU1NjkzMmIucG5n?x-oss-process=image/format,png" alt=""></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1485,7 +1484,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
