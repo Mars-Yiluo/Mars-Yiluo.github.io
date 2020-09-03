@@ -179,6 +179,129 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/04/Python%20requests%E5%BA%93(%E4%BA%8C)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/04/Python%20requests%E5%BA%93(%E4%BA%8C)/" class="post-title-link" itemprop="url">Python requests库(二)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-04 16:36:59 / 修改时间：16:36:34" itemprop="dateCreated datePublished" datetime="2020-01-04T16:36:59+08:00">2020-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">Python第三方库</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTAzM2Q3MjFmZDllZDRlYTkucG5n?x-oss-process=image/format,png" alt=""></p>
+<p>本文是<a href="https://www.jianshu.com/p/384aa8b0f3ab" target="_blank" rel="noopener">Python requests库 (一)</a>的后续，简单的介绍一下<code>python</code>第三方库 <code>requests</code>的一些简单的高级用法</p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-文件上传"><a href="#1-文件上传" class="headerlink" title="1. 文件上传"></a>1. 文件上传</h5><ul>
+<li>通过<code>request</code> 上传一张<code>photo</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>files = &#123;<span class="string">'file'</span>:open(<span class="string">'photo.jpg'</span>, <span class="string">'rb'</span>)&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.post(<span class="string">'http://httpbin.org/post'</span>, files=files)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br></pre></td></tr></table></figure>
+<h5 id="2-获取-cookies"><a href="#2-获取-cookies" class="headerlink" title="2. 获取 cookies"></a>2. 获取 cookies</h5></li>
+<li>访问知乎，然后获取<code>cookies</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://www.zhihu.com"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.cookies)</span><br><span class="line">&lt;RequestsCookieJar[&lt;Cookie _xsrf=kpkc08adzcWJ2IZXxQAh85ujvtFiPArj <span class="keyword">for</span> .zhihu.com/&gt;]&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="3-会话维持"><a href="#3-会话维持" class="headerlink" title="3. 会话维持"></a>3. 会话维持</h5><ul>
+<li>如果需要访问的网页是需要登陆之后再使用的话就需要会话维持，一般在做接口自动化测试或者爬虫一些网站的时候，都是需要保持登录态<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests.get(<span class="string">"http://httpbin.org/cookies/set/number/123456789"</span>)</span><br><span class="line">&lt;Response [<span class="number">200</span>]&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">'http://httpbin.org/cookies'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cookies"</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>上面并没有获取到<code>cookies</code> ,因为<code>request</code>设置<code>cookie</code>和后来的获取<code>cookie</code>相当于打开了两个浏览器</li>
+<li>如何解决这个问题，我们需要用到<code>session</code> ，这是在自动化接口测试或者爬虫中经常会被用到，有必要掌握<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = requests.Session()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s.get(<span class="string">'http://httpbin.org/cookies/set/number/123456789'</span>)</span><br><span class="line">&lt;Response [<span class="number">200</span>]&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = s.get(<span class="string">'http://httpbin.org/cookies'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.text)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cookies"</span>: &#123;</span><br><span class="line">    <span class="string">"number"</span>: <span class="string">"123456789"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>以上，成功保持会话</li>
+</ul>
+<h5 id="4-SSL证书验证"><a href="#4-SSL证书验证" class="headerlink" title="4. SSL证书验证"></a>4. SSL证书验证</h5><ul>
+<li>你肯定会有过类似的这种经历，当你打开一个网页的时候会提示你访问的地址不安全，这是由于<code>https</code>协议需要证书</li>
+<li>程序访问后一定会报出 <code>SSLError</code>错误</li>
+<li>解决方式</li>
+</ul>
+<p>1.设置<code>verify = False</code><br>2.传入证书 <code>cert=&quot;你的证书&quot;</code></p>
+<h5 id="5-代理设置"><a href="#5-代理设置" class="headerlink" title="5.代理设置"></a>5.代理设置</h5><ul>
+<li>爬虫的时候通常会设置代理</li>
+<li>方式在<code>proxies=输入你的代理</code></li>
+</ul>
+<h5 id="6-超时设置"><a href="#6-超时设置" class="headerlink" title="6. 超时设置"></a>6. 超时设置</h5><ul>
+<li>限制应答时间，比如访问伊洛的个人博客<a href="https://yiluotalk.com">https://yiluotalk.com</a> ,设置超时<code>1s</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">"https://yiluotalk.com"</span>, timeout = <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r.status_code)</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="7-身份认证"><a href="#7-身份认证" class="headerlink" title="7.身份认证"></a>7.身份认证</h5><ul>
+<li>一些网站当你访问的时候首先会让你登录做验证</li>
+<li>解决方式，传入<code>auth</code> 参数 <code>auth=HTTPBasicAuth(&#39;user&#39;, &#39;password&#39;)</code></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200104163344340.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJjNTA1ZmY3MzYyYmZmZWUucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTM0NWZlMWYyMDJmMWJmNDAucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/01/03/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%20Zero%20to%20Hero%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1227,151 +1350,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20--%20OSI%20%E4%B8%8E%20TCP_IP%20%E6%A8%A1%E5%9E%8B(%E4%BA%8C)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20--%20OSI%20%E4%B8%8E%20TCP_IP%20%E6%A8%A1%E5%9E%8B(%E4%BA%8C)/" class="post-title-link" itemprop="url">软件测试网络基础 Zero to Hero -- OSI 与 TCP/IP 模型(二)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 13:27:59 / 修改时间：13:27:22" itemprop="dateCreated datePublished" datetime="2019-12-20T13:27:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWVkMDMzZTY2ZDQ3MmJmMWUucG5n?x-oss-process=image/format,png" alt=""></p>
-<p><a href="https://www.jianshu.com/p/ef4ec8ae5fa4" target="_blank" rel="noopener">软件测试网络基础 Zero to Hero – OSI 与 TCP/IP 模型(一)</a></p>
-<ul>
-<li>接上文继续概念（内容是比较基础的概念，干货为主，适用初级测试工程师面试中可能会被问到的网络知识）<h5 id="1-物理层"><a href="#1-物理层" class="headerlink" title="1.物理层"></a>1.物理层</h5>物理层的作用：保证原始数据比特流的无误传输<br>任务：物理层定义电压，接口，线缆标准，传输距离。理层协议定义接口的四个基本功能特性:<blockquote>
-<p>机械特性：说明了接口所用接线器的形状和尺寸、引线数目和排列等。<br>电气特性：说明在接口电缆的哪根线上出现的电压应为什么范围。<br>功能特性：说明某根线上出现的某一电平的电压表示何种意义。<br>规程特性：说明对不同功能的各种可能事件的出现顺序</p>
-</blockquote>
-</li>
-<li>传输介质<br>传输媒体通常有：双绞线:UTP/STP，同轴电缆:RG58 A/U 细缆RG11粗缆，光纤，无线</li>
-<li>双绞线分2种：</li>
-</ul>
-<p>1.屏蔽双绞线 STP<br>2.非屏蔽双绞线UTP(8根线两两相绞，成本低，有干扰)<br>注：100M只用1-2、3-6；1000M8根线都用。理论距离100米</p>
-<ul>
-<li>同轴电缆<br>同轴电缆由内导体铜制芯线（单股实心线或多股绞合线）、绝缘层、网状编织的外导体屏蔽层以及保护塑料外层组成</li>
-</ul>
-<p>1.基带同轴电缆一条电缆只用于一个信道，50Ω，用于数字传输<br>2.宽带同轴电缆   一条电缆同时传输不同频率的多路模拟信号，75 Ω，用于模拟传输，300—450MHz，100km，需要放大器</p>
-<ul>
-<li>光纤介质<blockquote>
-<p>1.使用光波携带信息，不受电磁、电子干扰</p>
-</blockquote>
-</li>
-</ul>
-<p>2.速度快、衰减小，传输距离远<br>3.对外没有辐射，理论上无法窃听，安全性好<br>4.成本高，热熔接要求精密，不易民用</p>
-<ul>
-<li>光纤传送模式：MMF、SMF</li>
-<li>无线<blockquote>
-<p>1.使用电磁波或光波携带信息</p>
-</blockquote>
-</li>
-</ul>
-<p>2.无需物理连接，节省成本、安装时间<br>3.适用于短距离或不便布线的场合（高温、高毒……）<br>4.易受干扰、安全性差</p>
-<ul>
-<li>无线电</li>
-<li>卫星通讯<h5 id="2-数据链路层与交换机"><a href="#2-数据链路层与交换机" class="headerlink" title="2.数据链路层与交换机"></a>2.数据链路层与交换机</h5></li>
-<li>数据链路层功能<blockquote>
-<p>数据链路的建立、维护与拆除<br>帧包装、帧传输、帧同步<br>物理地址定义<br>网络拓扑结构（以太网帧、令牌环帧）<br>差错控制（帧的差错恢复）、流量控制<br>采用透明传输的方法将帧中的数据和控制信息分开</p>
-</blockquote>
-</li>
-<li>以太网<br>以太网(Ethernet)指的是由Xerox公司创建并由Xerox、Intel和DEC公司联合开发的基带局域网规范，施乐公司（Xerox）用“以太”命名，使用了CSMA/CD这种争用方式的网络就叫以太网。包括标准的以太网（10Mbit/s)、快速以太网（100Mbit/s）和10G（10Gbit/s）以太网。它们都符合IEEE802.3</li>
-<li>CSMA/CD<br>CSMA/CD—带冲突检测的载波监听多路访问以太网采用CSMA/CD避免信号的冲突<br>口诀：<blockquote>
-<p>先听后发<br>边听边发<br>冲突停止<br>延迟后发</p>
-</blockquote>
-</li>
-<li>以太网的命名方法<br>N－信号－物理介质<br>N：以兆位为单位的数据速率，如10、100、1000<br>信号：基带还是宽带<br>物理介质：标识介质类型</li>
-<li>交换机数据转发原理（后续介绍）<h5 id="3-虚拟局域网（VLAN）"><a href="#3-虚拟局域网（VLAN）" class="headerlink" title="3.虚拟局域网（VLAN）"></a>3.虚拟局域网（VLAN）</h5>VLAN：Virtual LAN（虚拟局域网）是物理设备上连接的不受物理位置限制的用户的一个逻辑组<br>VLAN作用：广播控制<br>安全性<br>带宽利用<br>VLAN的种类</li>
-</ul>
-<p>1.基于端口划分的静态VLAN<br>2.基于MAC地址划分的动态VLAN</p>
-<h5 id="4-计算机网络协议"><a href="#4-计算机网络协议" class="headerlink" title="4.计算机网络协议"></a>4.计算机网络协议</h5><ul>
-<li>基本概念和词汇<blockquote>
-<p>子网 (subnet)<br>网络地址 (network address) 及分类<br>子网掩码 (subnet mask)<br>路由器 (router)<br>跳 (hop)</p>
-</blockquote>
-</li>
-<li>IP地址<br>大家一定都很熟悉的概念了，IP地址的作用是：用来标识一个节点的网络地址</li>
-<li>IP包头的格式（后续展开讲述）</li>
-<li>IP地址的组成（后续展开讲述）</li>
-<li>子网掩码的适用 （后续展开讲述）<h5 id="5-静态路由与配置（……待续）"><a href="#5-静态路由与配置（……待续）" class="headerlink" title="5.静态路由与配置（……待续）"></a>5.静态路由与配置（……待续）</h5><img src="https://img-blog.csdnimg.cn/20191219135714467.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWIxOTlmMzEyODZiMjc1MTMucG5n?x-oss-process=image/format,png" alt=""><blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿您享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWMzMjg3ZGE5ODZkNDFhZTkucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1442,20 +1420,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
