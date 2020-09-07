@@ -179,6 +179,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/02/15/Python%20configparser%20%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/15/Python%20configparser%20%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">Python configparser 的基础使用（一）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-15 12:45:59 / 修改时间：12:46:13" itemprop="dateCreated datePublished" datetime="2020-02-15T12:45:59+08:00">2020-02-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1. 配置文件"></a>1. 配置文件</h5><p>在编写程序时，会用到一些配置。一般配置都会写入<code>.ini</code>的文件。如果要使用<code>python</code>读取配置，就可以使用<code>python</code>自带的<code>configparser</code>模块</p>
+<blockquote>
+<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="2-ini文件结构"><a href="#2-ini文件结构" class="headerlink" title="2. ini文件结构"></a>2. ini文件结构</h5><ul>
+<li>键值对可以使用<code>&#39; = &#39;</code>、 <code>&#39; : &#39;</code> 分隔</li>
+<li><code>section</code>区分大小写</li>
+<li><code>key</code>的名字不区分大小写</li>
+<li>键值对中头部、尾部的空白符被去掉</li>
+<li>配置文件注释以 <code>#</code>或者<code>;</code>为开头<h5 id="3-简单的使用"><a href="#3-简单的使用" class="headerlink" title="3. 简单的使用"></a>3. 简单的使用</h5></li>
+<li>手写一个段代码生成<code>ini文件</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> configparser</span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config[<span class="string">'DEFAULT'</span>] = &#123;</span><br><span class="line">    <span class="string">'ServerAliveInterval'</span>: <span class="string">'45'</span>,</span><br><span class="line">    <span class="string">'Compression'</span>: <span class="string">'yes'</span>,</span><br><span class="line">    <span class="string">'CompressionLevel'</span>: <span class="string">'9'</span></span><br><span class="line">&#125;</span><br><span class="line">config[<span class="string">'bitbucket.org'</span>] = &#123;&#125;</span><br><span class="line">config[<span class="string">'bitbucket.org'</span>][<span class="string">'User'</span>] = <span class="string">'hg'</span></span><br><span class="line">config[<span class="string">'topsectet.server.com'</span>] = &#123;&#125;</span><br><span class="line">topsecret = config[<span class="string">'topsectet.server.com'</span>]</span><br><span class="line">topsecret[<span class="string">'Port'</span>] = <span class="string">'50022'</span></span><br><span class="line">topsecret[<span class="string">'ForwardX11'</span>] = <span class="string">'no'</span></span><br><span class="line">config[<span class="string">'DEFAULT'</span>][<span class="string">'ForwardX11'</span>] = <span class="string">'yes'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'example.ini'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> configfile:</span><br><span class="line">    config.write(configfile)</span><br></pre></td></tr></table></figure></li>
+<li>查看生成的<code>ini文件</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">serveraliveinterval = <span class="number">45</span></span><br><span class="line">compression = yes</span><br><span class="line">compressionlevel = <span class="number">9</span></span><br><span class="line">forwardx11 = yes</span><br><span class="line"></span><br><span class="line">[bitbucket.org]</span><br><span class="line">user = hg</span><br><span class="line"></span><br><span class="line">[topsectet.server.com]</span><br><span class="line">port = <span class="number">50022</span></span><br><span class="line">forwardx11 = no</span><br></pre></td></tr></table></figure>
+<h5 id="4-读取配置文件"><a href="#4-读取配置文件" class="headerlink" title="4. 读取配置文件"></a>4. 读取配置文件</h5></li>
+<li>现在读取配置文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> configparser</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config = configparser.ConfigParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.sections()</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></li>
+<li>由于没有读配置文件<code>example.ini</code> ，所以<code>sections</code>为空，现在读取下配置文件再查看下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.read(<span class="string">'example.ini'</span>)</span><br><span class="line">[<span class="string">'example.ini'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.sections()</span><br><span class="line">[<span class="string">'bitbucket.org'</span>, <span class="string">'topsectet.server.com'</span>]</span><br></pre></td></tr></table></figure></li>
+<li>看到可以正常的读取到配置，再来单独的读取一条配置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>config[<span class="string">'bitbucket.org'</span>][<span class="string">'user'</span>]</span><br><span class="line"><span class="string">'hg'</span></span><br></pre></td></tr></table></figure></li>
+<li>读取多条配置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> config[<span class="string">'DEFAULT'</span>]:</span><br><span class="line"><span class="meta">... </span>    print(i)</span><br><span class="line"><span class="meta">... </span></span><br><span class="line">serveraliveinterval</span><br><span class="line">compression</span><br><span class="line">compressionlevel</span><br><span class="line">forwardx11</span><br></pre></td></tr></table></figure>
+<h5 id="5-一般使用"><a href="#5-一般使用" class="headerlink" title="5. 一般使用"></a>5. 一般使用</h5>通常来讲一般公司都会有几套环境：<code>开发环境、测试环境、灰度环境、生产环境</code><br>在做接口自动化时就需要针对不同的环境跑对应的用例或是测试集，不同环境的配置就可以写入<code>ini</code>的配置文件方便后续调用<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line">[test_env]</span><br><span class="line"><span class="comment"># 测试服配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = test</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[grey_env]</span><br><span class="line"><span class="comment"># 灰度服配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = grey</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[release_env]</span><br><span class="line"><span class="comment"># 正式配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = release</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[mail]</span><br><span class="line"><span class="comment"># 邮件报告配置</span></span><br><span class="line">smtpserver =</span><br><span class="line">sender =</span><br><span class="line">receiver =</span><br><span class="line">username =</span><br><span class="line">password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[dingding]</span><br><span class="line"><span class="comment"># dinging报告配置</span></span><br><span class="line">robot_url =</span><br><span class="line">messageUrl =</span><br></pre></td></tr></table></figure>
+<h5 id="待续……"><a href="#待续……" class="headerlink" title="待续……"></a>待续……</h5><img src="https://img-blog.csdnimg.cn/20200215123514969.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"><blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/02/13/Python%E5%9F%BA%E7%A1%80%20logging%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1344,115 +1453,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/26/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/26/%E8%80%81%E5%8F%B8%E6%9C%BA%E9%83%BD%E7%9F%A5%E9%81%93%E7%9A%84Python%E8%AF%AD%E6%B3%95%E5%B0%8F%E6%8A%80%E5%B7%A7%20(%E4%B8%80)/" class="post-title-link" itemprop="url">老司机都知道的Python语法小技巧 (一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-26 11:34:59 / 修改时间：11:37:10" itemprop="dateCreated datePublished" datetime="2019-12-26T11:34:59+08:00">2019-12-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTFiNmMwMjczMzhlY2JmMTkucG5n?x-oss-process=image/format,png" alt=""></p>
-<ul>
-<li>话不多说，本文是第一部分，将讲简单的列出几条日常工作中使用<code>Python</code>可能会用到的语法小技巧，希望会对你的工作有所帮助 just enjoy！<blockquote>
-<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="1-两个变量直接做交换"><a href="#1-两个变量直接做交换" class="headerlink" title="1. 两个变量直接做交换"></a>1. 两个变量直接做交换</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num1 = <span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num2 = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num1, num2 = num2, num1</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num1</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num2</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h5 id="2-检查数字是否为偶数"><a href="#2-检查数字是否为偶数" class="headerlink" title="2. 检查数字是否为偶数"></a>2. 检查数字是否为偶数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">is_even</span><span class="params">(num)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> num %<span class="number">2</span> == <span class="number">0</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_even(<span class="number">100</span>)</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_even(<span class="number">99</span>)</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<h5 id="3-字符串拆为列表"><a href="#3-字符串拆为列表" class="headerlink" title="3. 字符串拆为列表"></a>3. 字符串拆为列表</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_lines</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> s.split(<span class="string">'/n'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">talk = <span class="string">'The Zen of Python, by Tim Peters Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.'</span></span><br><span class="line"></span><br><span class="line">print(split_lines(talk))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">output</span><br><span class="line">[<span class="string">'The Zen of Python, by Tim Peters Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.'</span>]</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h5 id="4-查找对象内存"><a href="#4-查找对象内存" class="headerlink" title="4. 查找对象内存"></a>4. 查找对象内存</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getsizeof(<span class="number">5</span>)</span><br><span class="line"><span class="number">28</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(sys.getsizeof(<span class="string">"Python"</span>))</span><br><span class="line"><span class="number">55</span></span><br></pre></td></tr></table></figure>
-<h5 id="5-反转字符串"><a href="#5-反转字符串" class="headerlink" title="5. 反转字符串"></a>5. 反转字符串</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string = <span class="string">"python"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reversed_string = string[::<span class="number">-1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reversed_string</span><br><span class="line"><span class="string">'nohtyp'</span></span><br></pre></td></tr></table></figure>
-<h5 id="6-打印一个字符串n次（不用循环）"><a href="#6-打印一个字符串n次（不用循环）" class="headerlink" title="6. 打印一个字符串n次（不用循环）"></a>6. 打印一个字符串n次（不用循环）</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">repeat</span><span class="params">(string, n)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> (string * n)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>repeat(<span class="string">'hello'</span>, <span class="number">8</span>)</span><br><span class="line"><span class="string">'hellohellohellohellohellohellohellohello'</span></span><br></pre></td></tr></table></figure>
-<h5 id="7-判断字符串是否回文"><a href="#7-判断字符串是否回文" class="headerlink" title="7.判断字符串是否回文"></a>7.判断字符串是否回文</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">palindrome</span><span class="params">(string)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> string == string[::<span class="number">-1</span>]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>palindrome(<span class="string">'python'</span>)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>palindrome(<span class="string">'abba'</span>)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
-<h5 id="8-将字符串列表合并为一个字符串"><a href="#8-将字符串列表合并为一个字符串" class="headerlink" title="8. 将字符串列表合并为一个字符串"></a>8. 将字符串列表合并为一个字符串</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>strings = [<span class="string">'yiluo'</span>, <span class="string">'hello'</span>, <span class="string">'18'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">','</span>.join(strings))</span><br><span class="line">yiluo,hello,<span class="number">18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = (<span class="string">','</span>.join(strings))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="string">'yiluo,hello,18'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt;</span></span><br></pre></td></tr></table></figure>
-<h6 id="9-查找列表的第一个元素"><a href="#9-查找列表的第一个元素" class="headerlink" title="9. 查找列表的第一个元素"></a>9. 查找列表的第一个元素</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">head</span><span class="params">(list)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> list[<span class="number">0</span>]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>head([<span class="string">'yiluo'</span>,<span class="string">'tom'</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"><span class="string">'yiluo'</span></span><br></pre></td></tr></table></figure>
-<h5 id="10-合并两个列表中共有的元素"><a href="#10-合并两个列表中共有的元素" class="headerlink" title="10.合并两个列表中共有的元素"></a>10.合并两个列表中共有的元素</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">union</span><span class="params">(a, b)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> list(set(a + b))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>union([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>union([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
-<h5 id="11-给定列表中所有唯一元素"><a href="#11-给定列表中所有唯一元素" class="headerlink" title="11. 给定列表中所有唯一元素"></a>11. 给定列表中所有唯一元素</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">unique_element</span><span class="params">(numbers)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> list(set(numbers))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unique_element([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-<h5 id="12-多参数平均值"><a href="#12-多参数平均值" class="headerlink" title="12. 多参数平均值"></a>12. 多参数平均值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">average</span><span class="params">(*args)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> sum(args, <span class="number">0.0</span>) / len(args)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>average(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="number">3.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>average(<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>)</span><br><span class="line"><span class="number">5.0</span></span><br></pre></td></tr></table></figure>
-<h5 id="13-检查列表元素是否唯一"><a href="#13-检查列表元素是否唯一" class="headerlink" title="13. 检查列表元素是否唯一"></a>13. 检查列表元素是否唯一</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">unique</span><span class="params">(list)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> len(list)==len(set(list)):</span><br><span class="line"><span class="meta">... </span>        print(<span class="string">'都是唯一的'</span>)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">else</span>:</span><br><span class="line"><span class="meta">... </span>        print(<span class="string">'很不幸，有重复的'</span>)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unique([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">都是唯一的</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>unique([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>])</span><br><span class="line">很不幸，有重复的</span><br></pre></td></tr></table></figure>
-<h5 id="待续-gt-gt-gt"><a href="#待续-gt-gt-gt" class="headerlink" title="待续&gt;&gt;&gt;"></a>待续&gt;&gt;&gt;</h5><img src="https://img-blog.csdnimg.cn/20191226113419977.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTAyNDI0MDQwOGRhOGYxNTAucG5n?x-oss-process=image/format,png" alt=""><blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTgxYTk0MDFjZjg0ZGEwNTkucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1523,7 +1523,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

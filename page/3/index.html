@@ -179,6 +179,153 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python5--%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/Python5--%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">Python5--异常处理</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-24 10:56:59 / 修改时间：10:54:57" itemprop="dateCreated datePublished" datetime="2020-08-24T10:56:59+08:00">2020-08-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1.异常处理"></a>1.异常处理</h5><ul>
+<li>对于不符合预期的用户操作或数据输入，程序总会出现异常情况<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; file_path &#x3D; &#39;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;error.py&#39;</span><br><span class="line">&gt;&gt;&gt; f &#x3D; open(file_path)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">FileNotFoundError: [Errno 2] No such file or directory: &#39;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;error.py&#39;</span><br></pre></td></tr></table></figure>
+<h5 id="2-Python-常用的异常类"><a href="#2-Python-常用的异常类" class="headerlink" title="2.Python 常用的异常类"></a>2.Python 常用的异常类</h5></li>
+<li><code>NameError</code>访问一个未定义的变量</li>
+<li><code>SyntaxError</code>语法错误，这个严格讲算是程序的错误</li>
+<li><code>IndexError</code> 对于一个序列，访问的索引超过了序列的范围</li>
+<li><code>KeyError</code> 访问一个不存在的字典 Key</li>
+<li><code>ValueError</code> 传入无效的参数</li>
+<li><code>AttributeErrr</code> 访问类对象中不存在的属性<h5 id="3-异常处理方式"><a href="#3-异常处理方式" class="headerlink" title="3.异常处理方式"></a>3.异常处理方式</h5></li>
+<li>处理方法为使用 try，except 和 finally 三个关键字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; file_path &#x3D; &#39;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;error.py&#39;</span><br><span class="line">&gt;&gt;&gt; try:</span><br><span class="line">...     f &#x3D; open(file_path)</span><br><span class="line">... except FileNotFoundError as err:</span><br><span class="line">...     print(err)</span><br><span class="line">...</span><br><span class="line">[Errno 2] No such file or directory: &#39;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;error.py&#39;</span><br></pre></td></tr></table></figure></li>
+<li>当 try 代码块中一旦出现异常，这个代码块后续的代码不会继续执行，会直接进入到 except 异常处理代码块中</li>
+<li>finally 关键字是用来进行清理工作，经常和 except 一起使用，即无论是正常还是异常，这段代码都会执行</li>
+<li>except: 这个语句后不写任何参数，表示将处理所有 try 代码块中抛出的异常<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; file_path &#x3D; &#39;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;error.py&#39;</span><br><span class="line">&gt;&gt;&gt; try:</span><br><span class="line">...     f &#x3D; open(file_path)</span><br><span class="line">... except FileNotFoundError:</span><br><span class="line">...     print(&#39;FileNotFoundError&#39;)</span><br><span class="line">... finally:</span><br><span class="line">...     print(&#39;Finally&#39;)</span><br><span class="line">...</span><br><span class="line">FileNotFoundError</span><br><span class="line">Finally</span><br></pre></td></tr></table></figure>
+<h5 id="4-抛出异常"><a href="#4-抛出异常" class="headerlink" title="4.抛出异常"></a>4.抛出异常</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise ValueError()</span><br></pre></td></tr></table></figure>
+<h5 id="5-Python-包管理工具"><a href="#5-Python-包管理工具" class="headerlink" title="5.Python 包管理工具"></a>5.Python 包管理工具</h5></li>
+<li>Python 提供了包管理工具 pip, <code>pip</code> 的官方网站是 <a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">PyPi</a><h5 id="6-pip-的常见命令"><a href="#6-pip-的常见命令" class="headerlink" title="6.pip 的常见命令"></a>6.pip 的常见命令</h5></li>
+<li>显示版本和路径：<code>pip3 --version</code></li>
+<li>升级 pip：<code>sudo pip3 install --upgrade pip</code></li>
+<li>安装包：(sudo) pip3 install package，如果需要指定版本就是：pip3 install package==6.6.6 (写具体的版本号)</li>
+<li>卸载包：<code>pip3 uninstall package</code></li>
+<li>升级包：<code>pip3 install --upgrade package</code>，可以使用 ==,&gt;=,&lt;=,&lt;,&gt; 来指定版本号</li>
+<li>查看安装已安装的包：<code>pip3 freeze</code></li>
+<li>把需要安装的一系列包写入<code>requirements.txt</code> 文件中，然后执行：<code>pip3 install -r requirements.txt</code><h5 id="7-错误和异常"><a href="#7-错误和异常" class="headerlink" title="7.错误和异常"></a>7.错误和异常</h5></li>
+<li>写程序的时候通常会出现错误，目前（至少）有两种可区分的错误：<code>语法错误</code>和 <code>异常</code></li>
+<li>语法错误：又称<code>解析错误</code>，经常容易遇到</li>
+<li>异常：即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误<h5 id="8-简单的例子"><a href="#8-简单的例子" class="headerlink" title="8. 简单的例子"></a>8. 简单的例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">b &#x3D; 1</span><br><span class="line"></span><br><span class="line">c &#x3D; a + b</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure></li>
+<li>上面很简单的代码执行后就会出错，因为并没有定义变量<code>a</code></li>
+<li><code>Python</code>提供的<code>异常处理</code>方法来捕获并处理异常，处理方法为使用 <code>try，except</code>和 <code>finally</code> 三个<code>关键字</code><h5 id="9-try-except-的使用"><a href="#9-try-except-的使用" class="headerlink" title="9. try, except 的使用"></a>9. try, except 的使用</h5></li>
+<li><code>try</code> 代码块中写可能会出现异常的代码</li>
+<li><code>except</code> 代码块中添加处理异常的方法</li>
+<li>来将上面的代码处理一下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">b &#x3D; 1</span><br><span class="line">try:</span><br><span class="line">    c &#x3D; a + b</span><br><span class="line">    print(c)</span><br><span class="line">except NameError as err:</span><br><span class="line">    print(&#39;错误：&#123;&#125;&#39;.format(err))</span><br></pre></td></tr></table></figure></li>
+<li>依旧没有赋值<code>a</code>变量</li>
+<li>然后执行一下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：name &#39;a&#39; is not defined</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>错误提示变量<code>a</code>没有被定义</li>
+<li><code>NameError</code>的指的是访问了一个<code>未定义的变量</code></li>
+<li>常见的还有<code>SyntaxError ，IndexError ，KeyError ，ValueError ，AttributeError</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI0OWM2MDk5OTI0MmQ5MzIuanBlZw?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="10-多个except"><a href="#10-多个except" class="headerlink" title="10.多个except"></a>10.多个except</h5><ul>
+<li><code>except</code>可以有多个，每个处理不同类型的异常，也可以不写任何异常类型名称，则会处理所有<code>捕获</code>的<code>异常</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">a &#x3D; 2</span><br><span class="line">b &#x3D; 1</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    c &#x3D; a + b</span><br><span class="line">    print(c)</span><br><span class="line">    f &#x3D; open(&#39;&#x2F;yiluo&#x2F;bin&#x2F;activate.txt&#39;)</span><br><span class="line"></span><br><span class="line">except NameError as err:</span><br><span class="line">    print(&#39;错误：&#123;&#125;&#39;.format(err))</span><br><span class="line"></span><br><span class="line">except FileNotFoundError as err2:</span><br><span class="line">    print(&#39;错误：&#123;&#125;&#39;.format(err2))</span><br></pre></td></tr></table></figure></li>
+<li>打开一个不存在的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">错误：[Errno 2] No such file or directory: &#39;&#x2F;yiluo&#x2F;bin&#x2F;activate.txt&#39;</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></li>
+<li>系统抛出了<code>异常</code>，没有这个文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">b &#x3D; 1</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    c &#x3D; a + b</span><br><span class="line">    f &#x3D; open(&#39;&#x2F;yiluo&#x2F;bin&#x2F;activate.txt&#39;)</span><br><span class="line"></span><br><span class="line">except:</span><br><span class="line">    print(&#39;总之就是有错误&#39;)</span><br></pre></td></tr></table></figure></li>
+<li>不写任何<code>异常</code>的<code>类型</code></li>
+<li>运行一下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h5 id="11-finally的使用"><a href="#11-finally的使用" class="headerlink" title="11.finally的使用"></a>11.finally的使用</h5></li>
+<li>使用 <code>finally</code> 可以保证无论 <code>try</code>代码块中的代码是否<code>抛出异常</code>，都能够执行 <code>finally</code> 代码块里的内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">a &#x3D; 2</span><br><span class="line">b &#x3D; 1</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    c &#x3D; a + b</span><br><span class="line">    f &#x3D; open(&#39;&#x2F;yiluo&#x2F;bin&#x2F;activate.txt&#39;)</span><br><span class="line"></span><br><span class="line">except:</span><br><span class="line">    print(&#39;总之就是有错误&#39;)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line">    print(&#39;结束异常&#39;)</span><br></pre></td></tr></table></figure></li>
+<li>执行代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">总之就是有错误</span><br><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></li>
+<li><code>finally</code>成功的运行了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line">a &#x3D; 2</span><br><span class="line">b &#x3D; 1</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    c &#x3D; a + b</span><br><span class="line">except:</span><br><span class="line">    print(&#39;总之就是有错误&#39;)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line">    print(&#39;结束异常&#39;)</span><br></pre></td></tr></table></figure></li>
+<li>没有任何的异常执行下，看下<code>finally</code>会不会被运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">结束异常</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></li>
+<li><code>finally</code>成功运行<h5 id="12-抛出异常"><a href="#12-抛出异常" class="headerlink" title="12.抛出异常"></a>12.抛出异常</h5></li>
+<li>如果希望程序执行过程中抛出异常，可以使用 <code>raise</code>语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; raise NameError(&#39;Error ERROR&#39;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">NameError: Error ERROR</span><br></pre></td></tr></table></figure></li>
+<li>如上抛出了<code>&#39;Error ERROR&#39;</code>的异常<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></li>
+</ul>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python4--%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1154,14 +1301,14 @@ i 等于3 的时候被忽略</li>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化测试</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">自动化测试</span>
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
                   </a>
                 </span>
                   ，
@@ -1227,115 +1374,6 @@ i 等于3 的时候被忽略</li>
 </li>
 <li><p>运行脚本在如下会成功看到推送的内容<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU1MzJjZTQ4OGJhZDI5NjMucG5n?x-oss-process=image/format,png" alt="截图来自亚马逊"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
 <blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/02/15/Python%20configparser%20%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/15/Python%20configparser%20%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">Python configparser 的基础使用（一）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-15 12:45:59 / 修改时间：12:46:13" itemprop="dateCreated datePublished" datetime="2020-02-15T12:45:59+08:00">2020-02-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1. 配置文件"></a>1. 配置文件</h5><p>在编写程序时，会用到一些配置。一般配置都会写入<code>.ini</code>的文件。如果要使用<code>python</code>读取配置，就可以使用<code>python</code>自带的<code>configparser</code>模块</p>
-<blockquote>
-<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="2-ini文件结构"><a href="#2-ini文件结构" class="headerlink" title="2. ini文件结构"></a>2. ini文件结构</h5><ul>
-<li>键值对可以使用<code>&#39; = &#39;</code>、 <code>&#39; : &#39;</code> 分隔</li>
-<li><code>section</code>区分大小写</li>
-<li><code>key</code>的名字不区分大小写</li>
-<li>键值对中头部、尾部的空白符被去掉</li>
-<li>配置文件注释以 <code>#</code>或者<code>;</code>为开头<h5 id="3-简单的使用"><a href="#3-简单的使用" class="headerlink" title="3. 简单的使用"></a>3. 简单的使用</h5></li>
-<li>手写一个段代码生成<code>ini文件</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> configparser</span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config[<span class="string">'DEFAULT'</span>] = &#123;</span><br><span class="line">    <span class="string">'ServerAliveInterval'</span>: <span class="string">'45'</span>,</span><br><span class="line">    <span class="string">'Compression'</span>: <span class="string">'yes'</span>,</span><br><span class="line">    <span class="string">'CompressionLevel'</span>: <span class="string">'9'</span></span><br><span class="line">&#125;</span><br><span class="line">config[<span class="string">'bitbucket.org'</span>] = &#123;&#125;</span><br><span class="line">config[<span class="string">'bitbucket.org'</span>][<span class="string">'User'</span>] = <span class="string">'hg'</span></span><br><span class="line">config[<span class="string">'topsectet.server.com'</span>] = &#123;&#125;</span><br><span class="line">topsecret = config[<span class="string">'topsectet.server.com'</span>]</span><br><span class="line">topsecret[<span class="string">'Port'</span>] = <span class="string">'50022'</span></span><br><span class="line">topsecret[<span class="string">'ForwardX11'</span>] = <span class="string">'no'</span></span><br><span class="line">config[<span class="string">'DEFAULT'</span>][<span class="string">'ForwardX11'</span>] = <span class="string">'yes'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'example.ini'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> configfile:</span><br><span class="line">    config.write(configfile)</span><br></pre></td></tr></table></figure></li>
-<li>查看生成的<code>ini文件</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">serveraliveinterval = <span class="number">45</span></span><br><span class="line">compression = yes</span><br><span class="line">compressionlevel = <span class="number">9</span></span><br><span class="line">forwardx11 = yes</span><br><span class="line"></span><br><span class="line">[bitbucket.org]</span><br><span class="line">user = hg</span><br><span class="line"></span><br><span class="line">[topsectet.server.com]</span><br><span class="line">port = <span class="number">50022</span></span><br><span class="line">forwardx11 = no</span><br></pre></td></tr></table></figure>
-<h5 id="4-读取配置文件"><a href="#4-读取配置文件" class="headerlink" title="4. 读取配置文件"></a>4. 读取配置文件</h5></li>
-<li>现在读取配置文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> configparser</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config = configparser.ConfigParser()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.sections()</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></li>
-<li>由于没有读配置文件<code>example.ini</code> ，所以<code>sections</code>为空，现在读取下配置文件再查看下结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.read(<span class="string">'example.ini'</span>)</span><br><span class="line">[<span class="string">'example.ini'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>config.sections()</span><br><span class="line">[<span class="string">'bitbucket.org'</span>, <span class="string">'topsectet.server.com'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>看到可以正常的读取到配置，再来单独的读取一条配置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>config[<span class="string">'bitbucket.org'</span>][<span class="string">'user'</span>]</span><br><span class="line"><span class="string">'hg'</span></span><br></pre></td></tr></table></figure></li>
-<li>读取多条配置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> config[<span class="string">'DEFAULT'</span>]:</span><br><span class="line"><span class="meta">... </span>    print(i)</span><br><span class="line"><span class="meta">... </span></span><br><span class="line">serveraliveinterval</span><br><span class="line">compression</span><br><span class="line">compressionlevel</span><br><span class="line">forwardx11</span><br></pre></td></tr></table></figure>
-<h5 id="5-一般使用"><a href="#5-一般使用" class="headerlink" title="5. 一般使用"></a>5. 一般使用</h5>通常来讲一般公司都会有几套环境：<code>开发环境、测试环境、灰度环境、生产环境</code><br>在做接口自动化时就需要针对不同的环境跑对应的用例或是测试集，不同环境的配置就可以写入<code>ini</code>的配置文件方便后续调用<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line">[test_env]</span><br><span class="line"><span class="comment"># 测试服配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = test</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[grey_env]</span><br><span class="line"><span class="comment"># 灰度服配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = grey</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[release_env]</span><br><span class="line"><span class="comment"># 正式配置</span></span><br><span class="line">tester = 伊洛yiluo</span><br><span class="line">environment = release</span><br><span class="line">host =</span><br><span class="line">login_name =</span><br><span class="line">login_password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[mail]</span><br><span class="line"><span class="comment"># 邮件报告配置</span></span><br><span class="line">smtpserver =</span><br><span class="line">sender =</span><br><span class="line">receiver =</span><br><span class="line">username =</span><br><span class="line">password =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[dingding]</span><br><span class="line"><span class="comment"># dinging报告配置</span></span><br><span class="line">robot_url =</span><br><span class="line">messageUrl =</span><br></pre></td></tr></table></figure>
-<h5 id="待续……"><a href="#待续……" class="headerlink" title="待续……"></a>待续……</h5><img src="https://img-blog.csdnimg.cn/20200215123514969.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"><blockquote>
 <p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
 </blockquote>
 </li>
@@ -1441,7 +1479,7 @@ i 等于3 的时候被忽略</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
