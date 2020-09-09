@@ -46,24 +46,26 @@
   };
 </script>
 
-  <meta name="description" content="本文首发自伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  1.数据结构 Python 3 中非常常用的四种数据结构：列表、元组、集合与字典2.列表 list（列表）是一种有序的数据集合1234&gt;&gt;&gt; city &#x3D; [&#39;shenzhen&#39;,&#39;beijing&#39;,&#39;tianjin&#39;">
+  <meta name="description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  文档的基本组成一个页面通常由一下几个部分组成：页眉、导航栏、主内容、侧边栏、页脚例如：下面的页面布局 构建内容的在HTML中  &lt;header&gt;：页眉。 &lt;nav&gt;：导航栏。 &lt;main&gt;：主内容。主内容中还可以有各种子内容区段，可用&lt;article&gt;、&lt;section&gt;和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python6--数据结构列表">
-<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;08&#x2F;25&#x2F;Python6--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8&#x2F;index.html">
+<meta property="og:title" content="HTML基础7--文档与网站架构">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;09&#x2F;09&#x2F;HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84&#x2F;index.html">
 <meta property="og:site_name" content="YiluoTalk">
-<meta property="og:description" content="本文首发自伊洛的个人博客：https:&#x2F;&#x2F;yiluotalk.com，欢迎关注并查看更多内容！！！  1.数据结构 Python 3 中非常常用的四种数据结构：列表、元组、集合与字典2.列表 list（列表）是一种有序的数据集合1234&gt;&gt;&gt; city &#x3D; [&#39;shenzhen&#39;,&#39;beijing&#39;,&#39;tianjin&#39;">
+<meta property="og:description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  文档的基本组成一个页面通常由一下几个部分组成：页眉、导航栏、主内容、侧边栏、页脚例如：下面的页面布局 构建内容的在HTML中  &lt;header&gt;：页眉。 &lt;nav&gt;：导航栏。 &lt;main&gt;：主内容。主内容中还可以有各种子内容区段，可用&lt;article&gt;、&lt;section&gt;和">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-service.csdnimg.cn&#x2F;img_convert&#x2F;d19437c2313cf68d8b6ffddfe93f9295.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-service.csdnimg.cn&#x2F;img_convert&#x2F;e2cbe4e41f5a37359eb4bd4730baf6a3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="article:published_time" content="2020-08-25T05:31:59.000Z">
-<meta property="article:modified_time" content="2020-08-25T05:31:56.000Z">
+<meta property="article:published_time" content="2020-09-09T03:49:59.000Z">
+<meta property="article:modified_time" content="2020-09-09T03:49:20.000Z">
 <meta property="article:author" content="伊洛">
 <meta property="article:tag" content="Zero to Hero">
-<meta property="article:tag" content="Python基础">
+<meta property="article:tag" content="HTML基础">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
 
-<link rel="canonical" href="https://yiluotalk.com/2020/08/25/Python6--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8/">
+<link rel="canonical" href="https://yiluotalk.com/2020/09/09/HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/">
 
 
 <script id="page-configurations">
@@ -75,7 +77,7 @@
   };
 </script>
 
-  <title>Python6--数据结构列表 | YiluoTalk</title>
+  <title>HTML基础7--文档与网站架构 | YiluoTalk</title>
   
 
 
@@ -186,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Python6--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/09/HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python6--数据结构列表
+          HTML基础7--文档与网站架构
         </h1>
 
         <div class="post-meta">
@@ -210,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-25 13:31:59 / 修改时间：13:31:56" itemprop="dateCreated datePublished" datetime="2020-08-25T13:31:59+08:00">2020-08-25</time>
+              <time title="创建时间：2020-09-09 11:49:59 / 修改时间：11:49:20" itemprop="dateCreated datePublished" datetime="2020-09-09T11:49:59+08:00">2020-09-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,8 +220,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
+                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML基础</span>
                   </a>
                 </span>
             </span>
@@ -237,27 +239,23 @@
       
         <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
 <blockquote>
-<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
 </blockquote>
-<h5 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1.数据结构"></a>1.数据结构</h5><ul>
-<li>Python 3 中非常常用的四种数据结构：列表、元组、集合与字典<h5 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h5></li>
-<li>list（列表）是一种有序的数据集合<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; city &#x3D; [&#39;shenzhen&#39;,&#39;beijing&#39;,&#39;tianjin&#39;,&#39;guangzhou&#39;]</span><br><span class="line">&gt;&gt;&gt; city.append(&#39;hongkong&#39;)</span><br><span class="line">&gt;&gt;&gt; city</span><br><span class="line">[&#39;shenzhen&#39;, &#39;beijing&#39;, &#39;tianjin&#39;, &#39;guangzhou&#39;, &#39;hongkong&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>append 添加元素到末尾</li>
-<li>通过索引访问到每一个列表的元素，第一个元素的索引为 0，最后一个元素的索引可以使用 -1 进行标示<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; city[0]</span><br><span class="line">&#39;shenzhen&#39;</span><br><span class="line">&gt;&gt;&gt; city[0:2]</span><br><span class="line">[&#39;shenzhen&#39;, &#39;beijing&#39;]</span><br><span class="line">&gt;&gt;&gt; city[-1]</span><br><span class="line">&#39;hongkong&#39;</span><br><span class="line">&gt;&gt;&gt; city[-2]</span><br><span class="line">&#39;guangzhou&#39;</span><br></pre></td></tr></table></figure></li>
-<li>len() 查看列表中元素的数量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; len(city)</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<h5 id="3-列表操作"><a href="#3-列表操作" class="headerlink" title="3.列表操作"></a>3.列表操作</h5></li>
-<li>列表是有序的</li>
-<li>append() 就是在列表的末尾添加新的元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin &#x3D; [&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.append(&#39;ETC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>数据插入到列表的任何位置，这时我们可以使用列表的 insert() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.insert(0, &#39;BTC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>列表方法 count(s) 会返回列表元素中 s 的数量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.count(&#39;BTC&#39;)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
-<li>列表中移除任意指定值，使用 remove() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.remove(&#39;ETC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>另外一种删除元素的方法是使用 del 关键字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; del coin[0]</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>有序的列表可以进行反转<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.reverse()</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>两个列表，想合并到一起，一种方法是将其中一个列表合并到另外一个列表的末尾位置，可以使用 extend()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin_new &#x3D; [&#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin + coin_new</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;, &#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin_new</span><br><span class="line">[&#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.extend(coin_new)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
-<li>给列表排序，使用列表的 sort() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.sort()</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;, &#39;ETH&#39;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
-<li>列表也可以使用 pop() 函数返回最后的一个元素，pop() 在返回元素的同时也会删除这个元素，传入一个参数 i 即 pop(i) 会将第 i 个元素弹出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;, &#39;ETH&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.pop()</span><br><span class="line">&#39;ETH&#39;</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.pop(0)</span><br><span class="line">&#39;BTC&#39;</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure>
-
-</li>
+<h5 id="文档的基本组成"><a href="#文档的基本组成" class="headerlink" title="文档的基本组成"></a>文档的基本组成</h5><p>一个页面通常由一下几个部分组成：页眉、导航栏、主内容、侧边栏、页脚<br>例如：下面的页面布局<br><img src="https://img-service.csdnimg.cn/img_convert/d19437c2313cf68d8b6ffddfe93f9295.png" alt=""><br><img src="https://img-service.csdnimg.cn/img_convert/e2cbe4e41f5a37359eb4bd4730baf6a3.png" alt=""></p>
+<h5 id="构建内容的"><a href="#构建内容的" class="headerlink" title="构建内容的"></a>构建内容的</h5><p>在HTML中</p>
+<ul>
+<li><code>&lt;header&gt;</code>：页眉。</li>
+<li><code>&lt;nav&gt;</code>：导航栏。</li>
+<li><code>&lt;main&gt;</code>：主内容。主内容中还可以有各种子内容区段，可用<code>&lt;article&gt;</code>、<code>&lt;section&gt;</code>和 <code>&lt;div&gt;</code>等元素表示。</li>
+<li><code>&lt;aside&gt;</code>：侧边栏，经常嵌套在 <code>&lt;main&gt;</code>中。</li>
+<li><code>&lt;footer&gt;</code>：页脚。<h5 id="元素细节"><a href="#元素细节" class="headerlink" title="元素细节"></a>元素细节</h5></li>
+<li>[<code>&lt;main&gt;</code>]存放每个页面独有的内容。每个页面上只能用一次 <code>&lt;main&gt;</code>，且直接位于 [<code>&lt;body&gt;</code>]中。最好不要把它嵌套进其它元素。</li>
+<li>[<code>&lt;article&gt;</code>] 包围的内容即一篇文章，与页面其它部分无关（比如一篇博文）。</li>
+<li>[<code>&lt;section&gt;</code>] 与 <code>&lt;article&gt;</code> 类似，但 <code>&lt;section&gt;</code> 更适用于组织页面使其按功能（比如迷你地图、一组文章标题和摘要）分块。一般的最佳用法是：以 [标题]、作为开头；也可以把一篇 <code>&lt;article&gt;</code> 分成若干部分并分别置于不同的 <code>&lt;section&gt;</code> 中，也可以把一个区段 <code>&lt;section&gt;</code> 分成若干部分并分别置于不同的 <code>&lt;article&gt;</code> 中，取决于上下文。</li>
+<li>[<code>&lt;aside&gt;</code>] 包含一些间接信息（术语条目、作者简介、相关链接，等等）。</li>
+<li>[<code>&lt;header&gt;</code>] 是简介形式的内容。如果它是 [<code>&lt;body&gt;</code>] 的子元素，那么就是网站的全局页眉。如果它是 [<code>&lt;article&gt;</code>] 或[<code>&lt;section&gt;</code>] 的子元素，那么它是这些部分特有的页眉（此 <code>&lt;header&gt;</code> 非彼 [标题]。</li>
+<li>[<code>&lt;nav&gt;</code>]包含页面主导航功能。其中不应包含二级链接等内容。</li>
+<li>[<code>&lt;footer&gt;</code>] 包含了页面的页脚部分。<h5 id="无语义元素"><a href="#无语义元素" class="headerlink" title="无语义元素"></a>无语义元素</h5>对于一些要组织的项目或要包装的内容，现有的语义元素均不能很好对应，HTML提供了 <code>&lt;div&gt;</code>和 <code>&lt;span&gt;</code> 元素<br><code>div</code> 是一个块级无语义元素，应仅用于找不到更好的块级元素时，或者不想增加特定的意义时<h5 id="换行与水平分割线"><a href="#换行与水平分割线" class="headerlink" title="换行与水平分割线"></a>换行与水平分割线</h5><code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>两个元素, 一个作用是换行，一个作用是加分割线</li>
 </ul>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
 </div>
@@ -301,7 +299,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Zero-to-Hero/" rel="tag"># Zero to Hero</a>
-              <a href="/tags/Python%E5%9F%BA%E7%A1%80/" rel="tag"># Python基础</a>
+              <a href="/tags/HTML%E5%9F%BA%E7%A1%80/" rel="tag"># HTML基础</a>
           </div>
 
         
@@ -310,13 +308,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/24/Python5--%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="prev" title="Python5--异常处理">
-      <i class="fa fa-chevron-left"></i> Python5--异常处理
+    <a href="/2020/09/08/HTML%E5%9F%BA%E7%A1%806--%E6%8F%8F%E8%BF%B0%E5%88%97%E8%A1%A8%E5%8F%8A%E6%A0%87%E8%AE%B0/" rel="prev" title="HTML基础6--描述列表及标记">
+      <i class="fa fa-chevron-left"></i> HTML基础6--描述列表及标记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/25/Python7--%E5%85%83%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8/" rel="next" title="Python7--元组、集合、字典">
-      Python7--元组、集合、字典 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -376,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数据结构"><span class="nav-number">1.</span> <span class="nav-text">1.数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-列表"><span class="nav-number">2.</span> <span class="nav-text">2.列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-列表操作"><span class="nav-number">3.</span> <span class="nav-text">3.列表操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#文档的基本组成"><span class="nav-number">1.</span> <span class="nav-text">文档的基本组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构建内容的"><span class="nav-number">2.</span> <span class="nav-text">构建内容的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#元素细节"><span class="nav-number">3.</span> <span class="nav-text">元素细节</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无语义元素"><span class="nav-number">4.</span> <span class="nav-text">无语义元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#换行与水平分割线"><span class="nav-number">5.</span> <span class="nav-text">换行与水平分割线</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
