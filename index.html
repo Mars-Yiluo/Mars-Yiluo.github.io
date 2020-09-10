@@ -179,6 +179,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/10/HTML%E5%9F%BA%E7%A1%808--%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%8F%8A%E5%B5%8C%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/HTML%E5%9F%BA%E7%A1%808--%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%8F%8A%E5%B5%8C%E5%85%A5/" class="post-title-link" itemprop="url">HTML基础8--插入图片及嵌入</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-10 11:34:59 / 修改时间：11:34:52" itemprop="dateCreated datePublished" datetime="2020-09-10T11:34:59+08:00">2020-09-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="图片放到网页上"><a href="#图片放到网页上" class="headerlink" title="图片放到网页上"></a>图片放到网页上</h5><p>用<code>&lt;img&gt;</code> 元素来把图片放到网页上，需要一个<code>src</code>（一般读作其全称 source）来使其生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/9563080f8647daae184b1a02a60ae49b.png" alt=""><br>通常都会把图片和 HTML 放在同一个服务器上</p>
+<h5 id="备选文本"><a href="#备选文本" class="headerlink" title="备选文本"></a>备选文本</h5><p>属性<code>alt</code>对图片的文字描述，用于在图片无法显示或不能被看到的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demoo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器（这里故意的把图片的名称写错）<br><img src="https://img-service.csdnimg.cn/img_convert/9659f870aa358c7e7dbabb8d8cec1ea6.png" alt=""></p>
+<h5 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h5><p>调节图片在浏览器中的宽度和高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/99cf7c58d7fe22a664d1bdafac4319a9.png" alt=""></p>
+<h5 id="图片标题"><a href="#图片标题" class="headerlink" title="图片标题"></a>图片标题</h5><p>title属性来提供标题，鼠标悬停的时候就会有对应的内容显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">公号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;</span><br><span class="line">title&#x3D;&quot;很美的风景图&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-service.csdnimg.cn/img_convert/7b233ee1fdb4ba901e92ed1c50c03b3e.png" alt=""></p>
+<h5 id="搭配说明文字"><a href="#搭配说明文字" class="headerlink" title="搭配说明文字"></a>搭配说明文字</h5><p>添加一段说明文字来搭配图片，用<code>&lt;p&gt;</code>标签或者<code>&lt;figcaption&gt;，&lt;figcaption&gt;</code>可以是几张图片、一段代码、音视频、方程、表格或别的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;</span><br><span class="line">title&#x3D;&quot;很美的风景图&quot;&gt;</span><br><span class="line">&lt;p&gt;荷兰风车图片&lt;&#x2F;p&gt;</span><br><span class="line">&lt;figcaption&gt;荷兰风车景色图片&lt;&#x2F;figcaption&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-service.csdnimg.cn/img_convert/184bd5dbc3a62762e9f87a2e7d3d6211.png" alt=""></p>
+<h5 id="嵌入"><a href="#嵌入" class="headerlink" title="嵌入"></a>嵌入</h5><p><code>&lt;iframe&gt;,&lt;embed&gt;,&lt;object&gt;；&lt;iframe&gt;</code>用于嵌入其他网页，<code>&lt;embed&gt;,&lt;object&gt;</code>分别允许嵌入PDF,SVG</p>
+<iframe>允许讲其他的web文档嵌入到当前的文档中。方便引入第三方的网站内容
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;嵌入地图&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src&#x3D;&quot;地图资源&quot;</span><br><span class="line">        width&#x3D;&quot;600&quot; height&#x3D;&quot;450&quot; frameborder&#x3D;&quot;0&quot; style&#x3D;&quot;border:0;&quot; allowfullscreen&#x3D;&quot;&quot; aria-hidden&#x3D;&quot;false&quot; tabindex&#x3D;&quot;0&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;p&gt;深圳地图&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-service.csdnimg.cn/img_convert/52e2370bd447066b74a28648811f979d.png" alt=""></p>
+<h5 id="基本要素"><a href="#基本要素" class="headerlink" title="基本要素"></a><iframe>基本要素</h5><p>allowfullscreen：全屏模式<br>frameborder：如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。0删除边框<br>src：嵌入文档URL路径<br>width<code>和</code>height ，想要iframe的宽度和高度<br>sandbox：提高安全性，会尽可能的减少攻击者在网站搞事情的机会</p>
+<h5 id="和元素"><a href="#和元素" class="headerlink" title="和元素"></a><embed>和<object>元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;PDF&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;object data&#x3D;&quot;pdf.pdf&quot; type&#x3D;&quot;application&#x2F;pdf&quot;</span><br><span class="line">        width&#x3D;&quot;800&quot; height&#x3D;&quot;1200&quot; typemustmatch&gt;</span><br><span class="line">&lt;&#x2F;object&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>打开网页<br><img src="https://img-service.csdnimg.cn/img_convert/7b9afe80afd07f748f68150140d204c6.png" alt=""></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/09/HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1166,117 +1279,6 @@ HTML元素的内容中使用多少空格，当渲染这些代码的时候，HTML
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/31/Python11--%E8%A3%85%E9%A5%B0%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/31/Python11--%E8%A3%85%E9%A5%B0%E5%99%A8/" class="post-title-link" itemprop="url">Python11--装饰器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-31 14:33:59 / 修改时间：14:34:22" itemprop="dateCreated datePublished" datetime="2020-08-31T14:33:59+08:00">2020-08-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWQwNzRhZjUzM2I5MWMwZWIucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-装饰器定义"><a href="#1-装饰器定义" class="headerlink" title="1.装饰器定义"></a>1.装饰器定义</h5><ul>
-<li><code>装饰器</code>本质上是一个<code>函数</code>，可以接受一个<code>函数</code>作为<code>参数</code><h5 id="2-装饰器简单的例子"><a href="#2-装饰器简单的例子" class="headerlink" title="2.装饰器简单的例子"></a>2.装饰器简单的例子</h5></li>
-<li>承接之前的内容，英雄释放火焰技能。打印出英雄释放技能的时间<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">def release_skills(hero):</span><br><span class="line">    def release_skill(*skill, **skills):</span><br><span class="line">        print(datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;))</span><br><span class="line">        return hero(*skill, **skills)</span><br><span class="line">    return release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@release_skills</span><br><span class="line">def hero(name, skill):</span><br><span class="line">    return (name + &#39;--&gt;&#39;+&#39;释放技能：&#39;+ skill)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(hero(&#39;关羽&#39;, &#39;fire&#39;))</span><br><span class="line">print(hero.__name__)</span><br></pre></td></tr></table></figure></li>
-<li>如上，<code>release_skills</code>装饰器负责打印释放技能的时间<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line">2019-12-12 11:11:49</span><br><span class="line">关羽--&gt;释放技能：fire</span><br><span class="line">release_skill</span><br></pre></td></tr></table></figure></li>
-<li>我们运行<code>hero</code>函数的时候，同时打印出了英雄释放火焰技能的时间</li>
-<li>可是我们发现了一个比较严重的问题，<code>hero</code> 函数应变成了<code>release_skill</code>函数了，看上面的代码，确实<code>hero</code>已经被<code>release_skill</code>改变了</li>
-<li>那如何解决这个被改变的问题呢？ 总不能用完装饰器，被装饰的函数已经不是之前的函数吧，还好<code>Python</code> 提供了方法解决这个问题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line"># 博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">from datetime import datetime</span><br><span class="line">from functools import wraps</span><br><span class="line"></span><br><span class="line">def release_skills(hero):</span><br><span class="line">    @wraps(hero)</span><br><span class="line">    def release_skill(*skill, **skills):</span><br><span class="line">        print(datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;))</span><br><span class="line">        return hero(*skill, **skills)</span><br><span class="line">    return release_skill</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@release_skills</span><br><span class="line">def hero(name, skill):</span><br><span class="line">    return (name + &#39;--&gt;&#39;+&#39;释放技能：&#39;+ skill)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(hero(&#39;关羽&#39;, &#39;fire&#39;))</span><br><span class="line">print(hero.__name__)</span><br></pre></td></tr></table></figure></li>
-<li>上面的代码用到了<code>wraps()</code>，然后我们运行一下看下结果函数是否被改变<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python hero.py</span><br><span class="line">2019-12-12 11:25:38</span><br><span class="line">关羽--&gt;释放技能：fire</span><br><span class="line">hero</span><br></pre></td></tr></table></figure></li>
-<li>函数依旧是<code>hero</code>，看来是完美解决了这个问题</li>
-<li><code>@</code>是 <code>Python</code> 提供的语法糖，语法糖指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用<h5 id="3-property-装饰器"><a href="#3-property-装饰器" class="headerlink" title="3.property 装饰器"></a>3.property 装饰器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"></span><br><span class="line">class Animal:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.age &#x3D; 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    cat &#x3D; Animal()</span><br><span class="line">    print(cat.age)</span><br><span class="line">    cat.age &#x3D; &#39;age&#39;</span><br><span class="line">    print(cat.age)</span><br></pre></td></tr></table></figure></li>
-<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  code python3 demo.py</span><br><span class="line">3</span><br><span class="line">age</span><br></pre></td></tr></table></figure></li>
-<li>以看到如果 age 属性值可以被公开访问，用户赋值为字符串，很明显这不符合实际情况<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"></span><br><span class="line">class Animal:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__age &#x3D; 3</span><br><span class="line">    def get_age(self):</span><br><span class="line">        return self.__age</span><br><span class="line">    def set_age(self, value):</span><br><span class="line">        if isinstance(value, int):</span><br><span class="line">            self.__age &#x3D; value</span><br><span class="line">        else:</span><br><span class="line">            raise ValueError</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    cat &#x3D; Animal()</span><br><span class="line">    print(cat.get_age)</span><br><span class="line">    cat.set_age(&#39;age&#39;)</span><br></pre></td></tr></table></figure></li>
-<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;demo.py&quot;, line 18, in &lt;module&gt;</span><br><span class="line">    cat.set_age(&#39;age&#39;)</span><br><span class="line">  File &quot;demo.py&quot;, line 12, in set_age</span><br><span class="line">    raise ValueError</span><br><span class="line">ValueError</span><br></pre></td></tr></table></figure></li>
-<li>@property 装饰器可以将一个方法变成一个属性来使用，通过 @property 装饰器可以获得和修改对象的某一个属性。</li>
-<li>使用 @property 装饰器的方法如下：</li>
-</ul>
-<p>1.只有 @property 表示只读<br>2.同时有 @property 和 @<em>.setter 表示可读可写<br>3.同时有 @property、@</em>.setter、和 @<em>.deleter 表示可读可写可删除<br>4.@property 必须定义在 @</em>.setter 的前面<br>5.类必须继承 object 父类，否则 @property 不会生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"></span><br><span class="line">class Animal:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__age &#x3D; 3</span><br><span class="line">    @property</span><br><span class="line">    def age(self):</span><br><span class="line">        return self.__age</span><br><span class="line">    @age.setter</span><br><span class="line">    def age(self, value):</span><br><span class="line">        if isinstance(value, int):</span><br><span class="line">            self.__age &#x3D; value</span><br><span class="line">        else:</span><br><span class="line">            raise ValueaError</span><br><span class="line">    @age.deleter</span><br><span class="line">    def age(self):</span><br><span class="line">        print(&#39;delete age&#39;)</span><br><span class="line">        del self.__age</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    cat &#x3D; Animal()</span><br><span class="line">    print(cat.age)</span><br><span class="line">    cat.age &#x3D; 6</span><br><span class="line">    print(cat.age)</span><br><span class="line">    del cat.age</span><br><span class="line">    print(cat.age)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  code python3 demo.py</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">delete age</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;demo.py&quot;, line 26, in &lt;module&gt;</span><br><span class="line">    print(cat.age)</span><br><span class="line">  File &quot;demo.py&quot;, line 8, in age</span><br><span class="line">    return self.__age</span><br><span class="line">AttributeError: &#39;Animal&#39; object has no attribute &#39;_Animal__age&#39;</span><br></pre></td></tr></table></figure></li>
-<li>从这个简单的例子中我们可以发现 age 由一个函数转变为一个属性，并且通过增加一个 setter 函数的方式来支持 age 的设置。通过 property 和 setter ，可以有效地实现 get_age（获取对象的属性） 和 set_age（设置对象的属性）这两个操作，而不需要直接将内部的 __age 属性暴露出来，同时可以在 setter 函数中对设置的参数进行检查，避免了直接对 __age 内部属性进行赋值的潜在风险</li>
-</ul>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1347,7 +1349,7 @@ HTML元素的内容中使用多少空格，当渲染这些代码的时候，HTML
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
