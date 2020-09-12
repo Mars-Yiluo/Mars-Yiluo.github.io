@@ -179,6 +179,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%BF%AD%E4%BB%A3%E5%99%A8(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%BF%AD%E4%BB%A3%E5%99%A8(%E4%B8%80)/" class="post-title-link" itemprop="url">Python基础进阶 Zero to Hero装饰器(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-20 13:04:59 / 修改时间：13:04:16" itemprop="dateCreated datePublished" datetime="2019-12-20T13:04:59+08:00">2019-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY5YThlNzE4MTI0ODc0YmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-迭代器"><a href="#1-迭代器" class="headerlink" title="1.迭代器"></a>1.迭代器</h5><ul>
+<li>大多数容器对象都可以使用 <a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句，承接上文装饰器的例子，还是拿英雄的技能举例子</li>
+<li>王者荣耀中英雄关羽的技能有<code>一骑当千</code> <code>单刀赴会</code> <code>青龙偃月</code> <code>刀锋铁骑</code>   用  <code>for</code>语句分别迭代出<code>1-4</code>技能<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.5</span> (default, Nov <span class="number">29</span> <span class="number">2019</span>, <span class="number">14</span>:<span class="number">32</span>:<span class="number">46</span>)</span><br><span class="line">[Clang <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.39</span><span class="number">.2</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = [<span class="string">'一骑当千'</span>,<span class="string">'单刀赴会'</span>,<span class="string">'青龙偃月'</span>,<span class="string">'刀锋铁骑'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> skill <span class="keyword">in</span> skills:</span><br><span class="line"><span class="meta">... </span>    print(skill)</span><br><span class="line">...</span><br><span class="line">一骑当千</span><br><span class="line">单刀赴会</span><br><span class="line">青龙偃月</span><br><span class="line">刀锋铁骑</span><br></pre></td></tr></table></figure></li>
+<li>在幕后，<a href="https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for" target="_blank" rel="noopener"><code>for</code></a> 语句会调用容器对象中的 <a href="https://docs.python.org/zh-cn/3/library/functions.html#iter" target="_blank" rel="noopener" title="iter"><code>iter()</code></a>。 该函数返回一个定义了 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__" target="_blank" rel="noopener" title="iterator.__next__"><code>__next__()</code></a> 方法的迭代器对象，该方法将逐一访问容器中的元素</li>
+<li>我们现在利用一下  <code>iter()</code>函数 和 <code>next()</code>函数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>skills = [<span class="string">'一骑当千'</span>,<span class="string">'单刀赴会'</span>,<span class="string">'青龙偃月'</span>,<span class="string">'刀锋铁骑'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>skill = iter(skills)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(skill)</span><br><span class="line">&lt;list_iterator object at <span class="number">0x1037ea5d0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'一骑当千'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'单刀赴会'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'青龙偃月'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line"><span class="string">'刀锋铁骑'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next(skill)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></li>
+<li><code>skill</code>就是迭代器</li>
+<li><code>next</code>迭代到没有值的时候就会报错<br><img src="https://img-blog.csdnimg.cn/20191212132344939.jpeg" alt="在这里插入图片描述"><blockquote>
+<p>享受每一天，Just Enjoy !</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWNiYjFhOTUwMzJjMTc3YjAucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/Python%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%20Zero%20to%20Hero%E8%A3%85%E9%A5%B0%E5%99%A8(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1241,126 +1339,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%B4%A8%E9%87%8F(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/20/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%20Zero%20to%20Hero%20%E8%B4%A8%E9%87%8F(%E4%B8%80)/" class="post-title-link" itemprop="url">软件测试理论基础 Zero to Hero 质量(一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-20 11:31:59 / 修改时间：11:31:24" itemprop="dateCreated datePublished" datetime="2019-12-20T11:31:59+08:00">2019-12-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWQzNjZhY2RlMzA1NmRmNmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<h4 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h4><h5 id="1-什么是质量"><a href="#1-什么是质量" class="headerlink" title="1.什么是质量"></a>1.什么是质量</h5><ul>
-<li><code>质量（quality）</code>定义为“ 事物、产品或工作的优劣程度”或者“事物的优劣程度和数量</li>
-<li>日常生活中，质量好意味着<br><code>“好吃”，“好用”，“耐用”，“省电”，“用着顺手”，“摔不坏”，“速度快”</code><h5 id="2-什么是软件质量"><a href="#2-什么是软件质量" class="headerlink" title="2.什么是软件质量"></a>2.什么是软件质量</h5></li>
-<li><code>软件质量</code>的定义：软件特性的总和，软件满足规定或潜在用户需求的能力</li>
-<li>一般对<code>“质量”</code>的理解是一个实体的<code>“属性”</code>，<code>“属性”</code>好就是质量好的。但这不够全面，<code>“属性”</code>是内在特性，内在特性好，不一定能胜任和完成好用户的任务</li>
-<li><code>国际标准ISO 9126</code>定义的软件质量包括<code>“内部质量”、“外部质量”和“使用质量”</code>三部分<h5 id="3-软件质量模型"><a href="#3-软件质量模型" class="headerlink" title="3.软件质量模型"></a>3.软件质量模型</h5></li>
-<li><code>内部质量</code>：它是从内部观点出发的软件产品特性的总体。内部<br>质量是针对内部质量需求被测量和评价的质量</li>
-<li><code>外部质量</code>：外部质量是从外部观点出发的软件产品特性的总体。它是当软件执行时，更典型地是使用外部度量在模拟环境中，用模拟数据测试时，所被测量和评价的质量</li>
-<li><code>使用质量</code>：是从用户观点出发，来看待软件产品用于特定环境和条件下的质量。它测量用户在特定环境中达到其任务目标的程度，而不是测量软件自身的性质<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTk5MTljNTJkM2ViZDY4MzguanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="4-外部质量和内部质量"><a href="#4-外部质量和内部质量" class="headerlink" title="4.外部质量和内部质量"></a>4.外部质量和内部质量</h5><ul>
-<li><blockquote>
-<p>功能行，可靠性，易用性，效率，维护性，可移植性</p>
-</blockquote>
-<h5 id="5-使用质量"><a href="#5-使用质量" class="headerlink" title="5.使用质量"></a>5.使用质量</h5></li>
-<li><blockquote>
-<p>有效性，生产率，安全性，满意度</p>
-</blockquote>
-<h5 id="6-什么是质量保障"><a href="#6-什么是质量保障" class="headerlink" title="6.什么是质量保障"></a>6.什么是质量保障</h5></li>
-<li>为保证产品和服务充分满足消费者要求的质量而进行的有计划、有组织的活动</li>
-<li>当前的软件研发过程中，通常定义了2个软件质量相关的角色</li>
-<li><code>QA</code>即英文<code>QUALITY  ASSUR ANCE</code>的简称 ，中文意思是<code>质量保证</code></li>
-<li><code>QC</code>即英文<code>QUALITY  CO  NTR  OL</code>的简称 ，中文意义是<code>质量控制</code><h5 id="7-CMMI-等级"><a href="#7-CMMI-等级" class="headerlink" title="7.CMMI 等级"></a>7.CMMI 等级</h5></li>
-<li>在模型中，所有软件组织的软件能力成熟度划分为5个等级—<code>第1到第5级</code>。数<br>字越大，成熟度越高。高成熟度等级代表比较强的综合软件能力</li>
-<li>5个成熟度等级分别为：<blockquote>
-<p>第1级：初始级<br>第2级：受管理级<br>第3级：已定义级<br>第4级：定量管理级<br>第5级：持续优化级</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="……待续"><a href="#……待续" class="headerlink" title="……待续"></a>……待续</h5><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRkNDIzYzJkODE4MTg5ZjMucG5n?x-oss-process=image/format,png" alt="">)<img src="https://img-blog.csdnimg.cn/20191210104807314.jpeg" alt=""></p>
-<blockquote>
-<p>享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY4MmY2ODFkYzgzMzQ4ODYucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容.png"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1431,7 +1409,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

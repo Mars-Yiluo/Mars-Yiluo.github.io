@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://yiluotalk.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  HTML表格在HTML中构建表格数据可以让web显示数据变得更容易，表格在实际的生活中是极其常见的直观的表达方式 创建一个表格123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;hea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML基础10--表格的使用">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;09&#x2F;12&#x2F;HTML%E5%9F%BA%E7%A1%8010--%E8%A1%A8%E6%A0%BC%E7%9A%84%E4%BD%BF%E7%94%A8&#x2F;index.html">
+<meta property="og:site_name" content="YiluoTalk">
+<meta property="og:description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  HTML表格在HTML中构建表格数据可以让web显示数据变得更容易，表格在实际的生活中是极其常见的直观的表达方式 创建一个表格123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;hea">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-service.csdnimg.cn&#x2F;img_convert&#x2F;1e709c746f171d1ac9eb1455d8bb8aca.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-service.csdnimg.cn&#x2F;img_convert&#x2F;749309dea5e2af4d6868f5f960711d52.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-service.csdnimg.cn&#x2F;img_convert&#x2F;fdb3d4cbe1fea2020b7d73aee0101ec3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process&#x3D;image&#x2F;format,png">
+<meta property="article:published_time" content="2020-09-12T07:25:59.000Z">
+<meta property="article:modified_time" content="2020-09-12T07:26:23.000Z">
+<meta property="article:author" content="伊洛">
+<meta property="article:tag" content="Zero to Hero">
+<meta property="article:tag" content="HTML基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
+
+<link rel="canonical" href="https://yiluotalk.com/2020/09/12/HTML%E5%9F%BA%E7%A1%8010--%E8%A1%A8%E6%A0%BC%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>HTML基础10--表格的使用 | YiluoTalk</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="YiluoTalk" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YiluoTalk</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">享受每一天，Just Enjoy !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+            <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/12/HTML%E5%9F%BA%E7%A1%8010--%E8%A1%A8%E6%A0%BC%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML基础10--表格的使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-12 15:25:59 / 修改时间：15:26:23" itemprop="dateCreated datePublished" datetime="2020-09-12T15:25:59+08:00">2020-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="HTML表格"><a href="#HTML表格" class="headerlink" title="HTML表格"></a>HTML表格</h5><p>在HTML中构建表格数据可以让web显示数据变得更容易，表格在实际的生活中是极其常见的直观的表达方式</p>
+<h5 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;link href&#x3D;&quot;table.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">    &lt;title&gt;TABLE&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;td&gt;表格1&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;表格2&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;表格3&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;表格4&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;td&gt;1&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;2&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;3&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td&gt;4&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>设置CSS表格样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">  font-family: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table &#123;</span><br><span class="line">  border-collapse: collapse;</span><br><span class="line">  border: 2px solid rgb(200,200,200);</span><br><span class="line">  letter-spacing: 1px;</span><br><span class="line">  font-size: 0.8rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td, th &#123;</span><br><span class="line">  border: 1px solid rgb(190,190,190);</span><br><span class="line">  padding: 10px 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">th &#123;</span><br><span class="line">  background-color: rgb(235,235,235);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td &#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tr:nth-child(even) td &#123;</span><br><span class="line">  background-color: rgb(250,250,250);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tr:nth-child(odd) td &#123;</span><br><span class="line">  background-color: rgb(245,245,245);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">caption &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/1e709c746f171d1ac9eb1455d8bb8aca.png" alt=""></p>
+<h5 id="单元格跨越多行和列"><a href="#单元格跨越多行和列" class="headerlink" title="单元格跨越多行和列"></a>单元格跨越多行和列</h5><p>需要用到colspan和rowspan两个属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">公众号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;表格TITLE&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link href&#x3D;&quot;table.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;城市表格&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;北京&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;上海&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;广东&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;广州&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;深圳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;天津&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;辽宁&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;沈阳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;大连&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/749309dea5e2af4d6868f5f960711d52.png" alt=""></p>
+<h5 id="共同的样式"><a href="#共同的样式" class="headerlink" title="共同的样式"></a>共同的样式</h5><p>HTML有一种方法可以定义整列数据的样式信息<col>,<colgroup></p>
+<h5 id="为表格增加标题"><a href="#为表格增加标题" class="headerlink" title="为表格增加标题"></a>为表格增加标题</h5><p>通过<caption></caption>元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;表格TITLE&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link href&#x3D;&quot;table.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;城市表格&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">        &lt;caption&gt;中国城市&lt;&#x2F;caption&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;北京&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;上海&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;广东&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;广州&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;深圳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;天津&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;辽宁&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;沈阳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;大连&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>标题放在<table>下面，打开浏览器查看效果<br><img src="https://img-service.csdnimg.cn/img_convert/fdb3d4cbe1fea2020b7d73aee0101ec3.png" alt=""></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/Wechatpay.png" alt="伊洛 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Zero-to-Hero/" rel="tag"># Zero to Hero</a>
+              <a href="/tags/HTML%E5%9F%BA%E7%A1%80/" rel="tag"># HTML基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/11/HTML%E5%9F%BA%E7%A1%809--%E8%A7%86%E9%A2%91%E9%9F%B3%E9%A2%91%E5%8F%8A%E7%9F%A2%E9%87%8F%E5%9B%BE/" rel="prev" title="HTML基础9--视频音频及矢量图">
+      <i class="fa fa-chevron-left"></i> HTML基础9--视频音频及矢量图
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML表格"><span class="nav-number">1.</span> <span class="nav-text">HTML表格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个表格"><span class="nav-number">2.</span> <span class="nav-text">创建一个表格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单元格跨越多行和列"><span class="nav-number">3.</span> <span class="nav-text">单元格跨越多行和列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#共同的样式"><span class="nav-number">4.</span> <span class="nav-text">共同的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为表格增加标题"><span class="nav-number">5.</span> <span class="nav-text">为表格增加标题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">伊洛</p>
+  <div class="site-description" itemprop="description">公号「伊洛的小屋」</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">伊洛</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
