@@ -179,6 +179,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/15/CSS%E5%9F%BA%E7%A1%802--%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/15/CSS%E5%9F%BA%E7%A1%802--%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">CSS基础2--简单应用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-15 11:23:59 / 修改时间：11:23:41" itemprop="dateCreated datePublished" datetime="2020-09-15T11:23:59+08:00">2020-09-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="应用CSS"><a href="#应用CSS" class="headerlink" title="应用CSS"></a>应用CSS</h5><p>CSS编写在扩展名为.css的单独文件中，并利用HTML 的<link>元素引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;CSS DEMO&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;微信搜索：伊洛的小屋&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p&gt;凡是过去，皆为序章&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>标记CSS文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  color: blue;</span><br><span class="line">  background-color: cornflowerblue;</span><br><span class="line">  border: 1px solid black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p &#123;</span><br><span class="line">  color: darkviolet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器查看效果<br><img src="https://img-service.csdnimg.cn/img_convert/655b4de004816e5bc95ac8f4b8afaf37.png" alt=""></p>
+<link>元素的href指向css文件的地址
+
+<h5 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;CSS DEMO&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">          h1 &#123;</span><br><span class="line">             color: blue;</span><br><span class="line">              background-color: cornflowerblue;</span><br><span class="line">             border: 1px solid black;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">          p &#123;</span><br><span class="line">             color: darkviolet;</span><br><span class="line">           &#125;</span><br><span class="line">      &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;微信搜索：伊洛的小屋&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p&gt;凡是过去，皆为序章&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>不使用外部CSS文件，而是将CSS放在HTML文件放在<style>标签中</p>
+<h5 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h5><p>内联样式表存在于HTML元素的style属性之中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;CSS DEMO&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1 style&#x3D;&quot;color: blue;background: cornflowerblue; border: 1px solid black&quot;&gt;微信搜索：伊洛的小屋&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p style&#x3D;&quot;color:red;&quot;&gt;凡是过去，皆为序章&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><p>每个CSS规则都以一个选择器或一组选择器为开始，选择器具有专一性且稍后的样式将覆盖以前的样式</p>
+<h5 id="属性和值"><a href="#属性和值" class="headerlink" title="属性和值"></a>属性和值</h5><p>CSS由两部分组成：1.属性 2.值<br>与值配对的属性称为CSS声明，CSS声明放在CSS声明块中，属性和值都是区分大小写的，每对中的属性和值由冒号(：)分隔</p>
+<h5 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h5><p>@rules</p>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><p>CSS中的注释以<code>/*</code>开头，以<code>*/</code>结尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 公众号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F; *&#x2F;</span><br><span class="line">h1 &#123;</span><br><span class="line">  color: blue;</span><br><span class="line">  background-color: cornflowerblue;</span><br><span class="line">  border: 1px solid black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p &#123;</span><br><span class="line">  color: darkviolet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/14/CSS%E5%9F%BA%E7%A1%801--%E5%9F%BA%E7%A1%80%E5%8F%8A%E8%AF%AD%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1124,125 +1232,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/05/HTML%E5%9F%BA%E7%A1%803--%E7%BB%93%E6%9E%84%E5%8F%8A%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/05/HTML%E5%9F%BA%E7%A1%803--%E7%BB%93%E6%9E%84%E5%8F%8A%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">HTML基础3--结构及语法元素</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-05 16:45:59 / 修改时间：16:45:18" itemprop="dateCreated datePublished" datetime="2020-09-05T16:45:59+08:00">2020-09-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="HTML-头部"><a href="#HTML-头部" class="headerlink" title="HTML 头部"></a>HTML 头部</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;伊洛Yiluo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;公众号：伊洛的小屋&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>头部是包含在 <code>&lt;head&gt;</code>元素里面的内容，head 里面的内容不会在浏览器中显示，它的作用是包含一些页面的元数据</p>
-<h5 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h5><p>元素 <code>&lt;h1&gt;</code> 的内容会出现在页面中</p>
-<h5 id="元素"><a href="#元素" class="headerlink" title="元素"></a><meta>元素</h5><p>元数据就是描述数据的数据，HTML中用到的就是<code>&lt;meta&gt;</code>，比如指定文档中字符的编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="添加作者和描述"><a href="#添加作者和描述" class="headerlink" title="添加作者和描述"></a>添加作者和描述</h5><meta> 元素包含了name 和 content 特性
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;author&quot; content&#x3D;&quot;伊洛Yiluo&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;</span><br><span class="line">公众号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&quot;&gt;</span><br></pre></td></tr></table></figure>
-关于页面内容的关键字的页面内容的描述是很有用的，可能让你的页面在搜索引擎的相关的搜索出现得更多(SEO)
-NOTE: SEO(搜索引擎优化) 是一种让网站在搜索引擎结果中更加清晰, 帮助将搜索结果更靠前搜索引擎网页，跟随页面之间的链接，并索引找到的内容
-
-<p><img src="https://img-blog.csdnimg.cn/20200905164220661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM4NjIzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h5 id="设定主语言"><a href="#设定主语言" class="headerlink" title="设定主语言"></a>设定主语言</h5><p>通过添加lang属性到HTML开始标签中来实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang&#x3D;&quot;en-US&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h5 id="结构元素"><a href="#结构元素" class="headerlink" title="结构元素"></a>结构元素</h5><p>HTML5定义了一组新的语义化结构标记来描述网页内容。虽然语义化结构标记也可以使用HTML4标记进行替换。但是它可以简化HTML页面设计，明确语义化更适合搜索引擎检索和抓取。在目前主流的浏览器中已经可以用这些元素了，新增语义化标记元素如<br>header：表示页面中一个内容区块或整个页面的标题<br>footer：表示整个页面或页面中一个内容区块的脚注。一般来说，它会包含创作者的姓名、创作日期以及创作者联系信息<br>section: 表示页面中的一个内容区块，入章节、页眉、页脚、页面中其他的部分。它可以与h1/h2/h3/h4/h5/h6等元素结合使用，标记文档结构<br>article: 表示页面中一块与上下文不相关的独立内容，如博客中的一篇文章或报纸中的一篇文章<br>aside： 表示article元素内容之外的，与article元素的内容相关的辅助信息<br>nav: 表示页面中导航链接部分<br>main： 表示网页中主要内容。主要内容区域指与网页标题或应用程序中本网页只要功能直接相关或进行扩展的内容<br>figure： 表示一段独立的流内容。一般表示文档主体流内容中的一个独立单元。可以使用figcaption元素为figure元素组添加标题</p>
-<h5 id="功能元素"><a href="#功能元素" class="headerlink" title="功能元素"></a>功能元素</h5><p>video： 定义视频，比如电影片段和其他视频流</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src&#x3D;&quot;movie.ogg&quot; controls&#x3D;&quot;controls&quot;&gt;video 元素&lt;&#x2F;video&gt;</span><br></pre></td></tr></table></figure>
-<p>audio: 定义音频，比如音乐或其他音乐流</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src&#x3D;&quot;audio.wav&quot;&gt;audio元素&lt;&#x2F;audio&gt;</span><br></pre></td></tr></table></figure>
-<p>embed：用来插入各种多媒体，格式可以是midi,wav,aiff,au,mp3等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src&#x3D;&quot;hello.wav&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<p>mark: 只要用来在视觉上向用户呈现那些需要突出显示或者高亮显示的文字。mark元素的一个比较典型的应用就是在搜索结果中向用户高亮显示搜索关键词</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark&gt;高亮&lt;&#x2F;mark&gt;</span><br></pre></td></tr></table></figure>
-<p>dialog： 定义对话框或窗口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dialog open&gt;打开对话窗口&lt;&#x2F;dialog&gt;</span><br></pre></td></tr></table></figure>
-<p>bdi: 定义文本的文本方向，使其脱离其周围的文本方向设置<br>figcaption：定义figure元素标题<br>time： 表示日期或时间，也可以同时表示两者<br>canvas：表示图形，如图表和其他图像。这个元素本身没有行为，仅提供一块画布，但是可以把一个api展现给客户端JavaScript，以使脚本能够把想绘制到这块画布上<br>output：表示不同类型的输出<br>source: 为媒介元素定义媒介资源<br>menu：表示菜单列表，当希望列出表单控件时使用该标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;menu&gt;</span><br><span class="line">    &lt;li&gt;&lt;input type&#x3D;&quot;checkbox&quot;  &#x2F;&gt;光明&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;&lt;input type&#x3D;&quot;checkbox&quot;  &#x2F;&gt;黑暗&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;menu&gt;</span><br></pre></td></tr></table></figure>
-<p>ruby: 表示ruby注释（中文注音或字符）<br>rt： 表示字符（中文注音或字符）的解释或发音<br>rp: 在ruby注释中使用，以定义不支持ruby元素的浏览器所显示内容<br>wbr: 表示转换行。wbr元素和br元素的区别，br元素表示此处必须换行；而wbr元素的意思是浏览器窗口或父级元素的宽度足够宽时，不进行换行，而当宽度不够时，主动在此进行换行<br>command: 表示命令按钮，如单选按钮，复选框按钮<br>detail: 表示用户要求得到并且可以得到得到细节信息。它可以与summary元素配合使用。summary元素提供标题和图例。标题是可见的。用户单击标题时，会显示出细节信息。summary元素应该是detail元素的一个子元素<br>summary：为detail元素表示可选数据的列表，与input元素配合使用，可以制作出输入值的下拉列表<br>datagrid：datalist元素表示可选数据的列表，与input元素配合使用，可以制作出输入值的下拉列表<br>keygen：表示生成密钥<br>progress： 表示运行中的进程，可以使用process元素来显示JavaScript中耗费的时间的函数进程<br>meter： 度量给定范围内的数据<br>track：定义用在媒体播放器中的文本轨道</p>
-<h5 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h5><p>通过type属性，HTML5为input元素增添了很多类型<br>tel： 表示必须输入电话号码的文本框<br>search ： 表示搜索文本框<br>url: 表示输入URL地址的文本框<br>email： 表示必须输入电子邮箱地址的文本框<br>datetime： 表示日期和时间的文本框<br>date：表示日期文本框<br>mouth: 表示月份文本框<br>week: 表示周几文本框<br>time: 表示时间文本框<br>datetime-local: 表示本地日期和时间文本框<br>number:  表示输入数字的文本框<br>range：表示范围文本框<br>color：表示颜色文本框<br>在发送服务器之前，进行输入类型的检查，意味着有更少的时间等待反馈</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1313,7 +1302,7 @@ NOTE: SEO(搜索引擎优化) 是一种让网站在搜索引擎结果中更加�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
