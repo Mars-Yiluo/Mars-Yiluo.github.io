@@ -179,6 +179,149 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python4--%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/Python4--%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" class="post-title-link" itemprop="url">Python4--模块和包</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-24 10:55:59 / 修改时间：10:54:27" itemprop="dateCreated datePublished" datetime="2020-08-24T10:55:59+08:00">2020-08-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-name-与-main"><a href="#1-name-与-main" class="headerlink" title="1. __name__与 __main__"></a>1. <code>__name__</code>与 <code>__main__</code></h5><ul>
+<li>如果你经常看<code>python</code>的代码，很多脚本后面都会用到 <code>if __name__ == &#39;__main__&#39;:</code>，对于刚接触<code>python</code>的小伙伴开始肯定会不大理解这是什么意思，为何这么使用。会纠结的理不清头绪，今天就这个痛点来简单的分解讲述下</li>
+<li><code>__name__</code>其实是<code>python</code>内置的系统变量，我们来首先来看看<code>系统变量</code>中有哪些内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;, &#39;BlockingIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;, &#39;ChildProcessError&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;, &#39;ConnectionRefusedError&#39;, &#39;ConnectionResetError&#39;, &#39;DeprecationWarning&#39;, &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentError&#39;, &#39;Exception&#39;, &#39;False&#39;, &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPointError&#39;, &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;, &#39;ImportWarning&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;, &#39;IsADirectoryError&#39;, &#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;, &#39;MemoryError&#39;, &#39;ModuleNotFoundError&#39;, &#39;NameError&#39;, &#39;None&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;, &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;OverflowError&#39;, &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupError&#39;, &#39;RecursionError&#39;, &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;RuntimeWarning&#39;, &#39;StopAsyncIteration&#39;, &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarning&#39;, &#39;SystemError&#39;, &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError&#39;, &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;, &#39;UnicodeError&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;, &#39;ValueError&#39;, &#39;Warning&#39;, &#39;ZeroDivisionError&#39;, &#39;__build_class__&#39;, &#39;__debug__&#39;, &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;abs&#39;, &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;breakpoint&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;, &#39;chr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;, &#39;delattr&#39;, &#39;dict&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;, &#39;filter&#39;, &#39;float&#39;, &#39;format&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;, &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;, &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;, &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;, &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;, &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;, &#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;, &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tuple&#39;, &#39;type&#39;, &#39;vars&#39;, &#39;zip&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>很多内容直接找到<code>__name__</code> 吧<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTgxYzIzNzVhMDQxMDg3NjIucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>可见<code>__name__</code>就是<code>内置的系统变量</code>而已<h5 id="2-举个栗子"><a href="#2-举个栗子" class="headerlink" title="2. 举个栗子"></a>2. 举个栗子</h5></li>
+<li>来建个新的脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 伊洛Yiluo</span><br><span class="line"># https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">(yiluo) ➜  Code touch build.py</span><br><span class="line">(yiluo) ➜  Code vim build.py</span><br></pre></td></tr></table></figure></li>
+<li>脚本中写入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># 伊洛Yiluo</span><br><span class="line"></span><br><span class="line">print(&#39;__name__究竟是什么? &#39;)</span><br><span class="line">print(&#39;该脚本的 __name__值是：&#123;&#125;&#39;.format(__name__))</span><br></pre></td></tr></table></figure></li>
+<li>运行一下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python build.py</span><br><span class="line">__name__究竟是什么?</span><br><span class="line">该脚本的 __name__值是：__main__</span><br></pre></td></tr></table></figure></li>
+<li>打印出的内容很清晰的说明当下脚本的<code>__name__</code>值是 <code>__main__</code></li>
+<li>这就说明单独运行脚本的时候，<code>__name__</code>值就是是 <code>__main__</code><h5 id="3-作为模块导入时"><a href="#3-作为模块导入时" class="headerlink" title="3.作为模块导入时"></a>3.作为模块导入时</h5></li>
+<li>在 <code>Python</code> 中一个<code>.py 文件</code>就是一个<code>模块</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import build</span><br><span class="line">__name__究竟是什么?</span><br><span class="line">该脚本的 __name__值是：build</span><br></pre></td></tr></table></figure></li>
+<li><code>__name__</code> 的值变成了 <code>build</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTdiYTRkNDllMjQ4MzFiNzIuanBlZw?x-oss-process=image/format,png" alt=""></li>
+</ul>
+<h5 id="4-实际应用"><a href="#4-实际应用" class="headerlink" title="4.实际应用"></a>4.实际应用</h5><ul>
+<li><p>那么利用这点，我们如何实际应用，使导入代码的时候不被执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># 伊洛Yiluo</span><br><span class="line"></span><br><span class="line">print(&#39;__name__究竟是什么? &#39;)</span><br><span class="line">print(&#39;该脚本的 __name__值是：&#123;&#125;&#39;.format(__name__))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    print(&#39;我很倔强，我被导入的时候不会被打印！&#39;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来单独运行下<code>build</code>脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python build.py</span><br><span class="line">__name__究竟是什么?</span><br><span class="line">该脚本的 __name__值是：__main__</span><br><span class="line">我很倔强，我被导入的时候不会被打印！</span><br></pre></td></tr></table></figure></li>
+<li><p>看到最后的<code>print</code>打印了出来</p>
+</li>
+<li><p>如果被导入呢？ </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python3</span><br><span class="line">Python 3.7.5 (default, Nov 29 2019, 14:32:46)</span><br><span class="line">[Clang 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import build</span><br><span class="line">__name__究竟是什么?</span><br><span class="line">该脚本的 __name__值是：build</span><br></pre></td></tr></table></figure></li>
+<li><p>当<code>__name__</code>的值不是<code>__main__</code>的时候就不会打印出来了</p>
+</li>
+<li><p>再新建一个其它的文件最后验证下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code touch test.py</span><br><span class="line">(yiluo) ➜  Code vim test.py</span><br></pre></td></tr></table></figure></li>
+<li><p>键入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># 伊洛Yiluo</span><br><span class="line"></span><br><span class="line">import build</span><br><span class="line">print(&#39;test脚本自己打印&#39;)</span><br><span class="line">&#96;&#96;</span><br></pre></td></tr></table></figure></li>
+<li><p>命令行运行下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(yiluo) ➜  Code python test.py</span><br><span class="line">__name__究竟是什么?</span><br><span class="line">该脚本的 __name__值是：build</span><br><span class="line">test脚本自己打印</span><br></pre></td></tr></table></figure></li>
+<li><p>可见并没有打印出<code>“我很倔强，我被导入的时候不会被打印！”</code></p>
+<h5 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h5></li>
+<li><p>当脚本下面<code>if __name__ == &quot;__main__&quot;:</code>码入代码时，被导入到其它脚本中的时候不会被执行</p>
+<h5 id="6-模块"><a href="#6-模块" class="headerlink" title="6. 模块"></a>6. 模块</h5></li>
+<li><p>Python 的一个优势就是拥有丰富的库，库是具有相关功能模块的集合，也就是常提到的标准库、第三方库以及自定义模块，在写代码的过程中会经常被引用到</p>
+<h5 id="7-引入模块"><a href="#7-引入模块" class="headerlink" title="7. 引入模块"></a>7. 引入模块</h5></li>
+<li><p>一个 .py 文件就被称为一个模块(Module)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import module</span><br><span class="line">from module import *</span><br></pre></td></tr></table></figure>
+<h5 id="8-推荐引入顺序"><a href="#8-推荐引入顺序" class="headerlink" title="8. 推荐引入顺序"></a>8. 推荐引入顺序</h5><p>标准库 &gt; 第三方 &gt; 自定义</p>
+<h5 id="9-模块搜索路径"><a href="#9-模块搜索路径" class="headerlink" title="9. 模块搜索路径"></a>9. 模块搜索路径</h5></li>
+<li><p>Python 解释器先在当前包中查找模块，如果找不到就会在内置模块中查找，如果依然找不到就会按 sys.path 给定的路径查找对应的模块文件</p>
+<h5 id="10-模块与包"><a href="#10-模块与包" class="headerlink" title="10. 模块与包"></a>10. 模块与包</h5></li>
+<li><p>包是一个文件夹，在其中可以定义多个模块或是多个子包。通常 Python 的第三方工具或是应用都是以包的形式发布的</p>
+</li>
+<li><p>在 Python 中文件夹可以被识别成一个包，前提是这个文件夹中有一个 <code>__init__.py</code> 文件</p>
+</li>
+<li><p>Python 的 <code>-m</code>参数用于将一个模块或包当作一个脚本运行</p>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+<blockquote>
+<p>欢迎下方【戳一下】【点赞】<br>  Author：伊洛Yiluo<br>  愿你享受每一天，Just Enjoy !</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python3--%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -550,7 +693,7 @@ i 等于3 的时候被忽略</li>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%953--%E5%8F%82%E6%95%B0%E5%8C%96%E3%80%81%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%951--%E7%AE%80%E4%BB%8B%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -564,7 +707,7 @@ i 等于3 的时候被忽略</li>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%953--%E5%8F%82%E6%95%B0%E5%8C%96%E3%80%81%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">Locust性能测试3--参数化、数据依赖</a>
+            <a href="/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%951--%E7%AE%80%E4%BB%8B%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Locust性能测试1--简介安装及基本使用</a>
         </h1>
 
         <div class="post-meta">
@@ -575,7 +718,7 @@ i 等于3 的时候被忽略</li>
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-21 11:48:59 / 修改时间：11:49:52" itemprop="dateCreated datePublished" datetime="2020-08-21T11:48:59+08:00">2020-08-21</time>
+              <time title="创建时间：2020-08-21 11:48:59 / 修改时间：11:48:45" itemprop="dateCreated datePublished" datetime="2020-08-21T11:48:59+08:00">2020-08-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -601,16 +744,38 @@ i 等于3 的时候被忽略</li>
 
       
           <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<ul>
-<li>场景链路压测的时候通常都是按照用户实际使用流程进行压测，同接口自动化一样，一定会涉及到数据依赖的问题<h5 id="1-举例"><a href="#1-举例" class="headerlink" title="1.举例"></a>1.举例</h5></li>
-<li><code>Django</code>后台通常需要<code>csrf</code>验证，而一般<code>csrftoken</code>需要通过get接口获得<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from locust import HttpUser, task, between</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">USER_CREDENTIALS &#x3D; [</span><br><span class="line">    (&quot;login1&quot;, &quot;pwd1&quot;),</span><br><span class="line">    (&quot;login2&quot;, &quot;pwd2&quot;),</span><br><span class="line">    (&quot;login3&quot;, &quot;pwd3&quot;),</span><br><span class="line">]  # 登录账户</span><br><span class="line"></span><br><span class="line">csrf_token &#x3D; []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LoginDemo(HttpUser):</span><br><span class="line">    wait_time &#x3D; between(2, 5)  # 模拟用户等待2到5s然后执行</span><br><span class="line"></span><br><span class="line">    @task(1)</span><br><span class="line">    def on_start(self):  # 任务开始时准备</span><br><span class="line">        header &#x3D; &#123;</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) &quot;</span><br><span class="line">                          &quot;Chrome&#x2F;83.0.4103.61 Safari&#x2F;537.36 &quot;</span><br><span class="line">        &#125;  # 请求头</span><br><span class="line"></span><br><span class="line">        # 获取csrf</span><br><span class="line">        r_get &#x3D; self.client.get(&quot;user&#x2F;login&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        # 从返回的html页面中，解析出 csrfmiddlewaretoken</span><br><span class="line">        dom &#x3D; etree.HTML(r_get.content.decode(&quot;utf-8&quot;))</span><br><span class="line">        try:</span><br><span class="line">            csrf_token[&#39;csrfmiddlewaretoken&#39;] &#x3D; dom.xpath(&#39;&#x2F;&#x2F;input[@name&#x3D;&quot;csrfmiddlewaretoken&quot;]&#39;)[0].get(&quot;value&quot;)</span><br><span class="line">            print(csrf_token)</span><br><span class="line">        except:</span><br><span class="line">            print(&#39;参数csrfmiddlewaretoken获取失败！&#39;)</span><br><span class="line"></span><br><span class="line">        if len(USER_CREDENTIALS) &gt; 0:</span><br><span class="line">            user, pwd &#x3D; USER_CREDENTIALS.pop()  # 取出账户名密码</span><br><span class="line"></span><br><span class="line">            r_post &#x3D; self.client.post(&quot;user&#x2F;login&#x2F;&quot;, &#123;</span><br><span class="line">                &quot;token&quot;: &#39;TOKEN&#39;,  # TOKEN</span><br><span class="line">                &quot;username&quot;: user,  # 用户名</span><br><span class="line">                &quot;password&quot;: pwd,  # 密码</span><br><span class="line">                &quot;next&quot;: &quot;&quot;</span><br><span class="line">            &#125;, header&#x3D;header</span><br><span class="line">                                      )</span><br><span class="line"></span><br><span class="line">            assert r_post.status_code &#x3D;&#x3D; 200  # 断言请求返回200</span><br><span class="line"></span><br><span class="line">            print(r_post.status_code, r_post.text[:1000])  # 打印状态码及返回text</span><br><span class="line"></span><br><span class="line">    @task(2)</span><br><span class="line">    def view_index(self):</span><br><span class="line">        print(&#39;访问首页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;index&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line">    @task(6)</span><br><span class="line">    def view_tag(self):</span><br><span class="line">        print(&#39;访问标签页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;tag&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py --host&#x3D;URL&quot;)  # 需要测试的地址</span><br></pre></td></tr></table></figure></li>
-<li>这里我们使用了<code>etree</code> 来获取<code>get</code>接口返回的数据<h5 id="2-更新请求头"><a href="#2-更新请求头" class="headerlink" title="2.更新请求头"></a>2.更新请求头</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.client.headers.update(header)</span><br></pre></td></tr></table></figure>
-<h5 id="3-数据依赖"><a href="#3-数据依赖" class="headerlink" title="3. 数据依赖"></a>3. 数据依赖</h5></li>
-<li>转化接口返回数据，然后获得<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">@task(2)</span><br><span class="line">def view_index(self):</span><br><span class="line">      r &#x3D; self.client.get(&quot;&#x2F;index&#x2F;&quot;)</span><br><span class="line">      response &#x3D; json.loads(r.text)</span><br><span class="line">      demo &#x3D; response[&#39;取值&#39;]  # 假如取demo</span><br><span class="line">      print(&quot;&#x3D;&#x3D;&#x3D;&gt;&quot;, response[&#39;取值&#39;], type(response))  # 取值</span><br><span class="line">      </span><br><span class="line">      self.client.get(&#39;index&#x2F;url&#x2F;&#123;&#125;&#x2F;&#39;.format(demo))</span><br></pre></td></tr></table></figure>
-<h5 id="4-小结"><a href="#4-小结" class="headerlink" title="4. 小结"></a>4. 小结</h5></li>
-<li>可以先看一下request库 ，涉及到数据依赖的问题更好学习<br><a href="https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/">https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc0MzNjOWRhM2MyMzI1OGYucG5n?x-oss-process=image/format,png" alt=""></li>
+<h5 id="1-Locust简介"><a href="#1-Locust简介" class="headerlink" title="1. Locust简介"></a>1. Locust简介</h5><ul>
+<li><p><code>Locust</code>是易于使用的分布式用户负载测试工具，旨在对网站（或其他系统）进行负载测试，并弄清一个系统可以处理多少个并发用户，<code>Locust</code>翻译过来是蝗虫的意思，在测试期间，意在一群蝗虫用户会攻击您的网站系统。您可以使用<code>Python</code>代码定义每个用户的行为，并且通过<code>web UI</code>实现监控集群的过程，<code>Locust</code>完全基于事件，因此可以再一台计算机支持数千个并发用户。</p>
+</li>
+<li><p>不同于常用的测试工具，<code>LR</code> ，<code>Jmeter</code> ，<code>Locust</code>使用的不是线程，而是<code>gevent</code></p>
+<h5 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2. 环境安装"></a>2. 环境安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install locust</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Mac</code>也可以直接通过<code>Homebrew</code>安装</p>
+</li>
+<li><p>查看安装结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust --help</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Usage: locust [OPTIONS] [UserClass ...]</span><br><span class="line"></span><br><span class="line">Common options:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -f LOCUSTFILE, --locustfile LOCUSTFILE</span><br><span class="line">                        Python module file to import, e.g. &#39;..&#x2F;other.py&#39;.</span><br><span class="line">                        Default: locustfile</span><br><span class="line">  --config CONFIG       Config file path</span><br><span class="line">  -H HOST, --host HOST  Host to load test in the following format:</span><br><span class="line">                        http:&#x2F;&#x2F;10.21.32.33</span><br><span class="line">  -u NUM_USERS, --users NUM_USERS</span><br><span class="line">                        Number of concurrent Locust users. Only used together</span><br><span class="line">                        with --headless</span><br><span class="line">  -r HATCH_RATE, --hatch-rate HATCH_RATE</span><br><span class="line">                        The rate per second in which users are spawned. Only</span><br><span class="line">                        used together with --headless</span><br><span class="line">  -t RUN_TIME, --run-time RUN_TIME</span><br><span class="line">                        Stop after the specified amount of time, e.g. (300s,</span><br><span class="line">                        20m, 3h, 1h30m, etc.). Only used together with</span><br><span class="line">                        --headless</span><br><span class="line">  -l, --list            Show list of possible User classes and exit</span><br><span class="line"></span><br><span class="line">........</span><br></pre></td></tr></table></figure>
+<h5 id="3-简单使用"><a href="#3-简单使用" class="headerlink" title="3. 简单使用"></a>3. 简单使用</h5></li>
+<li><p>访问伊洛个人博客主页 <a href="https://yiluotalk.com/">https://yiluotalk.com/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from locust import HttpUser, task, between</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LocustDemo(HttpUser):</span><br><span class="line">    wait_time &#x3D; between(2, 5)  # 模拟用户等待2到5s然后执行</span><br><span class="line"></span><br><span class="line">    @task</span><br><span class="line">    def index_blog(self):  # 定义函数博客首页</span><br><span class="line">        header &#x3D; &#123;</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) &quot;</span><br><span class="line">                          &quot;Chrome&#x2F;83.0.4103.61 Safari&#x2F;537.36 &quot;</span><br><span class="line">        &#125;  # 请求头</span><br><span class="line"></span><br><span class="line">        response &#x3D; self.client.get(&#39;&#39;, headers&#x3D;header)  # 同request用法基本一致</span><br><span class="line">        assert response.status_code &#x3D;&#x3D; 200  # 断言请求返回200</span><br><span class="line"></span><br><span class="line">        print(response.status_code, response.text[:1000])  # 打印状态码及返回text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py --host&#x3D;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&quot;)  # 执行脚本访问伊洛的博客主页 https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Locust</code>也是用的<code>request</code>库，所以基本请求方式与<code>request</code>库相同</p>
+</li>
 </ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+<h5 id="4-启动测试"><a href="#4-启动测试" class="headerlink" title="4. 启动测试"></a>4. 启动测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f demo.py --host&#x3D;https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>GUI模式，浏览器输入 <a href="http://127.0.0.1:8089/" target="_blank" rel="noopener">http://127.0.0.1:8089/</a>显示如下页面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ5MzI0NDc4OTc4ZTdhNjYucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>Number of users to simulate 设置虚拟用户总数</li>
+<li>Hatch rate (users spawned/second) 每秒启动虚拟用户数</li>
+<li>Host 压测地址</li>
+<li>Start swarming ‘蝗虫入境’</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTdmNWNlNWIzZDA4MDVkYWMucG5n?x-oss-process=image/format,png" alt=""></p>
+<ul>
+<li>接口返回<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">200 &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;zh-CN&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, maximum-scale&#x3D;2&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;theme-color&quot; content&#x3D;&quot;#222&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;generator&quot; content&#x3D;&quot;Hexo 4.1.1&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;apple-touch-icon&quot; sizes&#x3D;&quot;180x180&quot; href&#x3D;&quot;&#x2F;images&#x2F;apple-touch-icon-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;icon&quot; type&#x3D;&quot;image&#x2F;png&quot; sizes&#x3D;&quot;32x32&quot; href&#x3D;&quot;&#x2F;images&#x2F;favicon-32x32-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;icon&quot; type&#x3D;&quot;image&#x2F;png&quot; sizes&#x3D;&quot;16x16&quot; href&#x3D;&quot;&#x2F;images&#x2F;favicon-16x16-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;mask-icon&quot; href&#x3D;&quot;&#x2F;images&#x2F;logo.svg&quot; color&#x3D;&quot;#222&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;css&#x2F;main.css&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;lib&#x2F;font-awesome&#x2F;css&#x2F;font-awesome.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script id&#x3D;&quot;hexo-configurations&quot;&gt;</span><br><span class="line">  var NexT &#x3D; window.NexT || &#123;&#125;;</span><br><span class="line">  var CONFIG &#x3D; &#123;</span><br><span class="line">    hostname: new URL(&#39;https:&#x2F;&#x2F;yiluotalk.com&#39;).hostname,</span><br><span class="line">    root: &#39;&#x2F;&#39;,</span><br><span class="line">    scheme: &#39;Pisces&#39;,</span><br><span class="line">    version: &#39;7.6.0&#39;,</span><br><span class="line">    exturl: false,</span><br><span class="line">    sidebar: &#123;&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:fals ....</span><br></pre></td></tr></table></figure>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWQzYjgxY2U0NDk5OWZiNzEucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>压测过程中可以随时通过edit来提高用户并发数<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE1OThiYTMxZWNhOTllZDYucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>表格charts 可以监控rps、平均响应时间、虚拟用户并发数<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRkOTc3NDQ1NGUzZjcwMjIucG5n?x-oss-process=image/format,png" alt=""></li>
+<li>报告结果也可以下载成<code>CSV格式</code><h5 id="5-简单的总结"><a href="#5-简单的总结" class="headerlink" title="5. 简单的总结"></a>5. 简单的总结</h5>实际工作中确实常用到的还是<code>Jmeter</code>会比较多一些，但是有句老话叫：“用尽天下工具，不如心中有码”， 如果你喜欢更“随性的定制化”，那么就可以试试<code>Locust</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></li>
+</ul>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -741,7 +906,7 @@ i 等于3 的时候被忽略</li>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%951--%E7%AE%80%E4%BB%8B%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%953--%E5%8F%82%E6%95%B0%E5%8C%96%E3%80%81%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -755,7 +920,7 @@ i 等于3 的时候被忽略</li>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%951--%E7%AE%80%E4%BB%8B%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Locust性能测试1--简介安装及基本使用</a>
+            <a href="/2020/08/21/Locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%953--%E5%8F%82%E6%95%B0%E5%8C%96%E3%80%81%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">Locust性能测试3--参数化、数据依赖</a>
         </h1>
 
         <div class="post-meta">
@@ -766,7 +931,7 @@ i 等于3 的时候被忽略</li>
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-21 11:48:59 / 修改时间：11:48:45" itemprop="dateCreated datePublished" datetime="2020-08-21T11:48:59+08:00">2020-08-21</time>
+              <time title="创建时间：2020-08-21 11:48:59 / 修改时间：11:49:52" itemprop="dateCreated datePublished" datetime="2020-08-21T11:48:59+08:00">2020-08-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -792,38 +957,16 @@ i 等于3 的时候被忽略</li>
 
       
           <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-Locust简介"><a href="#1-Locust简介" class="headerlink" title="1. Locust简介"></a>1. Locust简介</h5><ul>
-<li><p><code>Locust</code>是易于使用的分布式用户负载测试工具，旨在对网站（或其他系统）进行负载测试，并弄清一个系统可以处理多少个并发用户，<code>Locust</code>翻译过来是蝗虫的意思，在测试期间，意在一群蝗虫用户会攻击您的网站系统。您可以使用<code>Python</code>代码定义每个用户的行为，并且通过<code>web UI</code>实现监控集群的过程，<code>Locust</code>完全基于事件，因此可以再一台计算机支持数千个并发用户。</p>
-</li>
-<li><p>不同于常用的测试工具，<code>LR</code> ，<code>Jmeter</code> ，<code>Locust</code>使用的不是线程，而是<code>gevent</code></p>
-<h5 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2. 环境安装"></a>2. 环境安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install locust</span><br></pre></td></tr></table></figure></li>
-<li><p><code>Mac</code>也可以直接通过<code>Homebrew</code>安装</p>
-</li>
-<li><p>查看安装结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust --help</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Usage: locust [OPTIONS] [UserClass ...]</span><br><span class="line"></span><br><span class="line">Common options:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -f LOCUSTFILE, --locustfile LOCUSTFILE</span><br><span class="line">                        Python module file to import, e.g. &#39;..&#x2F;other.py&#39;.</span><br><span class="line">                        Default: locustfile</span><br><span class="line">  --config CONFIG       Config file path</span><br><span class="line">  -H HOST, --host HOST  Host to load test in the following format:</span><br><span class="line">                        http:&#x2F;&#x2F;10.21.32.33</span><br><span class="line">  -u NUM_USERS, --users NUM_USERS</span><br><span class="line">                        Number of concurrent Locust users. Only used together</span><br><span class="line">                        with --headless</span><br><span class="line">  -r HATCH_RATE, --hatch-rate HATCH_RATE</span><br><span class="line">                        The rate per second in which users are spawned. Only</span><br><span class="line">                        used together with --headless</span><br><span class="line">  -t RUN_TIME, --run-time RUN_TIME</span><br><span class="line">                        Stop after the specified amount of time, e.g. (300s,</span><br><span class="line">                        20m, 3h, 1h30m, etc.). Only used together with</span><br><span class="line">                        --headless</span><br><span class="line">  -l, --list            Show list of possible User classes and exit</span><br><span class="line"></span><br><span class="line">........</span><br></pre></td></tr></table></figure>
-<h5 id="3-简单使用"><a href="#3-简单使用" class="headerlink" title="3. 简单使用"></a>3. 简单使用</h5></li>
-<li><p>访问伊洛个人博客主页 <a href="https://yiluotalk.com/">https://yiluotalk.com/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from locust import HttpUser, task, between</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LocustDemo(HttpUser):</span><br><span class="line">    wait_time &#x3D; between(2, 5)  # 模拟用户等待2到5s然后执行</span><br><span class="line"></span><br><span class="line">    @task</span><br><span class="line">    def index_blog(self):  # 定义函数博客首页</span><br><span class="line">        header &#x3D; &#123;</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) &quot;</span><br><span class="line">                          &quot;Chrome&#x2F;83.0.4103.61 Safari&#x2F;537.36 &quot;</span><br><span class="line">        &#125;  # 请求头</span><br><span class="line"></span><br><span class="line">        response &#x3D; self.client.get(&#39;&#39;, headers&#x3D;header)  # 同request用法基本一致</span><br><span class="line">        assert response.status_code &#x3D;&#x3D; 200  # 断言请求返回200</span><br><span class="line"></span><br><span class="line">        print(response.status_code, response.text[:1000])  # 打印状态码及返回text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py --host&#x3D;https:&#x2F;&#x2F;yiluotalk.com&#x2F;&quot;)  # 执行脚本访问伊洛的博客主页 https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>Locust</code>也是用的<code>request</code>库，所以基本请求方式与<code>request</code>库相同</p>
-</li>
-</ul>
-<h5 id="4-启动测试"><a href="#4-启动测试" class="headerlink" title="4. 启动测试"></a>4. 启动测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f demo.py --host&#x3D;https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>GUI模式，浏览器输入 <a href="http://127.0.0.1:8089/" target="_blank" rel="noopener">http://127.0.0.1:8089/</a>显示如下页面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ5MzI0NDc4OTc4ZTdhNjYucG5n?x-oss-process=image/format,png" alt=""></li>
-<li>Number of users to simulate 设置虚拟用户总数</li>
-<li>Hatch rate (users spawned/second) 每秒启动虚拟用户数</li>
-<li>Host 压测地址</li>
-<li>Start swarming ‘蝗虫入境’</li>
+<li>场景链路压测的时候通常都是按照用户实际使用流程进行压测，同接口自动化一样，一定会涉及到数据依赖的问题<h5 id="1-举例"><a href="#1-举例" class="headerlink" title="1.举例"></a>1.举例</h5></li>
+<li><code>Django</code>后台通常需要<code>csrf</code>验证，而一般<code>csrftoken</code>需要通过get接口获得<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from locust import HttpUser, task, between</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">USER_CREDENTIALS &#x3D; [</span><br><span class="line">    (&quot;login1&quot;, &quot;pwd1&quot;),</span><br><span class="line">    (&quot;login2&quot;, &quot;pwd2&quot;),</span><br><span class="line">    (&quot;login3&quot;, &quot;pwd3&quot;),</span><br><span class="line">]  # 登录账户</span><br><span class="line"></span><br><span class="line">csrf_token &#x3D; []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LoginDemo(HttpUser):</span><br><span class="line">    wait_time &#x3D; between(2, 5)  # 模拟用户等待2到5s然后执行</span><br><span class="line"></span><br><span class="line">    @task(1)</span><br><span class="line">    def on_start(self):  # 任务开始时准备</span><br><span class="line">        header &#x3D; &#123;</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) &quot;</span><br><span class="line">                          &quot;Chrome&#x2F;83.0.4103.61 Safari&#x2F;537.36 &quot;</span><br><span class="line">        &#125;  # 请求头</span><br><span class="line"></span><br><span class="line">        # 获取csrf</span><br><span class="line">        r_get &#x3D; self.client.get(&quot;user&#x2F;login&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        # 从返回的html页面中，解析出 csrfmiddlewaretoken</span><br><span class="line">        dom &#x3D; etree.HTML(r_get.content.decode(&quot;utf-8&quot;))</span><br><span class="line">        try:</span><br><span class="line">            csrf_token[&#39;csrfmiddlewaretoken&#39;] &#x3D; dom.xpath(&#39;&#x2F;&#x2F;input[@name&#x3D;&quot;csrfmiddlewaretoken&quot;]&#39;)[0].get(&quot;value&quot;)</span><br><span class="line">            print(csrf_token)</span><br><span class="line">        except:</span><br><span class="line">            print(&#39;参数csrfmiddlewaretoken获取失败！&#39;)</span><br><span class="line"></span><br><span class="line">        if len(USER_CREDENTIALS) &gt; 0:</span><br><span class="line">            user, pwd &#x3D; USER_CREDENTIALS.pop()  # 取出账户名密码</span><br><span class="line"></span><br><span class="line">            r_post &#x3D; self.client.post(&quot;user&#x2F;login&#x2F;&quot;, &#123;</span><br><span class="line">                &quot;token&quot;: &#39;TOKEN&#39;,  # TOKEN</span><br><span class="line">                &quot;username&quot;: user,  # 用户名</span><br><span class="line">                &quot;password&quot;: pwd,  # 密码</span><br><span class="line">                &quot;next&quot;: &quot;&quot;</span><br><span class="line">            &#125;, header&#x3D;header</span><br><span class="line">                                      )</span><br><span class="line"></span><br><span class="line">            assert r_post.status_code &#x3D;&#x3D; 200  # 断言请求返回200</span><br><span class="line"></span><br><span class="line">            print(r_post.status_code, r_post.text[:1000])  # 打印状态码及返回text</span><br><span class="line"></span><br><span class="line">    @task(2)</span><br><span class="line">    def view_index(self):</span><br><span class="line">        print(&#39;访问首页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;index&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line">    @task(6)</span><br><span class="line">    def view_tag(self):</span><br><span class="line">        print(&#39;访问标签页&#39;)</span><br><span class="line">        r &#x3D; self.client.get(&quot;&#x2F;tag&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">        print(r.status_code)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    import os</span><br><span class="line"></span><br><span class="line">    os.system(&quot;locust -f demo.py --host&#x3D;URL&quot;)  # 需要测试的地址</span><br></pre></td></tr></table></figure></li>
+<li>这里我们使用了<code>etree</code> 来获取<code>get</code>接口返回的数据<h5 id="2-更新请求头"><a href="#2-更新请求头" class="headerlink" title="2.更新请求头"></a>2.更新请求头</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.client.headers.update(header)</span><br></pre></td></tr></table></figure>
+<h5 id="3-数据依赖"><a href="#3-数据依赖" class="headerlink" title="3. 数据依赖"></a>3. 数据依赖</h5></li>
+<li>转化接口返回数据，然后获得<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">@task(2)</span><br><span class="line">def view_index(self):</span><br><span class="line">      r &#x3D; self.client.get(&quot;&#x2F;index&#x2F;&quot;)</span><br><span class="line">      response &#x3D; json.loads(r.text)</span><br><span class="line">      demo &#x3D; response[&#39;取值&#39;]  # 假如取demo</span><br><span class="line">      print(&quot;&#x3D;&#x3D;&#x3D;&gt;&quot;, response[&#39;取值&#39;], type(response))  # 取值</span><br><span class="line">      </span><br><span class="line">      self.client.get(&#39;index&#x2F;url&#x2F;&#123;&#125;&#x2F;&#39;.format(demo))</span><br></pre></td></tr></table></figure>
+<h5 id="4-小结"><a href="#4-小结" class="headerlink" title="4. 小结"></a>4. 小结</h5></li>
+<li>可以先看一下request库 ，涉及到数据依赖的问题更好学习<br><a href="https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/">https://yiluotalk.com/2019/12/19/Python%20requests%E5%BA%93(%E4%B8%80)/</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc0MzNjOWRhM2MyMzI1OGYucG5n?x-oss-process=image/format,png" alt=""></li>
 </ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTdmNWNlNWIzZDA4MDVkYWMucG5n?x-oss-process=image/format,png" alt=""></p>
-<ul>
-<li>接口返回<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">200 &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;zh-CN&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, maximum-scale&#x3D;2&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;theme-color&quot; content&#x3D;&quot;#222&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;generator&quot; content&#x3D;&quot;Hexo 4.1.1&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;apple-touch-icon&quot; sizes&#x3D;&quot;180x180&quot; href&#x3D;&quot;&#x2F;images&#x2F;apple-touch-icon-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;icon&quot; type&#x3D;&quot;image&#x2F;png&quot; sizes&#x3D;&quot;32x32&quot; href&#x3D;&quot;&#x2F;images&#x2F;favicon-32x32-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;icon&quot; type&#x3D;&quot;image&#x2F;png&quot; sizes&#x3D;&quot;16x16&quot; href&#x3D;&quot;&#x2F;images&#x2F;favicon-16x16-next.png&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;mask-icon&quot; href&#x3D;&quot;&#x2F;images&#x2F;logo.svg&quot; color&#x3D;&quot;#222&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;css&#x2F;main.css&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;lib&#x2F;font-awesome&#x2F;css&#x2F;font-awesome.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script id&#x3D;&quot;hexo-configurations&quot;&gt;</span><br><span class="line">  var NexT &#x3D; window.NexT || &#123;&#125;;</span><br><span class="line">  var CONFIG &#x3D; &#123;</span><br><span class="line">    hostname: new URL(&#39;https:&#x2F;&#x2F;yiluotalk.com&#39;).hostname,</span><br><span class="line">    root: &#39;&#x2F;&#39;,</span><br><span class="line">    scheme: &#39;Pisces&#39;,</span><br><span class="line">    version: &#39;7.6.0&#39;,</span><br><span class="line">    exturl: false,</span><br><span class="line">    sidebar: &#123;&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:fals ....</span><br></pre></td></tr></table></figure>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWQzYjgxY2U0NDk5OWZiNzEucG5n?x-oss-process=image/format,png" alt=""></li>
-<li>压测过程中可以随时通过edit来提高用户并发数<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE1OThiYTMxZWNhOTllZDYucG5n?x-oss-process=image/format,png" alt=""></li>
-<li>表格charts 可以监控rps、平均响应时间、虚拟用户并发数<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRkOTc3NDQ1NGUzZjcwMjIucG5n?x-oss-process=image/format,png" alt=""></li>
-<li>报告结果也可以下载成<code>CSV格式</code><h5 id="5-简单的总结"><a href="#5-简单的总结" class="headerlink" title="5. 简单的总结"></a>5. 简单的总结</h5>实际工作中确实常用到的还是<code>Jmeter</code>会比较多一些，但是有句老话叫：“用尽天下工具，不如心中有码”， 如果你喜欢更“随性的定制化”，那么就可以试试<code>Locust</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></li>
-</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -1011,14 +1154,14 @@ i 等于3 的时候被忽略</li>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化测试</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">自动化测试</span>
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
                   </a>
                 </span>
                   ，
@@ -1228,151 +1371,11 @@ i 等于3 的时候被忽略</li>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/02/13/Python%E5%9F%BA%E7%A1%80%20logging%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/13/Python%E5%9F%BA%E7%A1%80%20logging%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">Python基础 logging模块使用（一）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-13 11:40:59 / 修改时间：12:19:17" itemprop="dateCreated datePublished" datetime="2020-02-13T11:40:59+08:00">2020-02-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTc4ZDBlZDNhNDJlOGFkZGIucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="一-日志的作用"><a href="#一-日志的作用" class="headerlink" title="一. 日志的作用"></a>一. 日志的作用</h5><ul>
-<li>日志是对软件执行时所发生事件的一种追踪方式，无论是开发人员还是测试人员，日志的重要的作用应该是不言而喻的；不但可以帮助开发定位缺陷解决问题，也可以辅助在测试过程中的测试工程师定位缺陷。<br>作为测试人员更应该重视日志，无论是单元测试去捕获<code>Traceback</code>，还是做<code>接口／UI自动化</code>都应当输出有必要的日志<blockquote>
-<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-</li>
-<li>那么<code>python</code>中，怎么可以做到一个算是标准的日志记录呢？ 很多人会使用<code>print</code>直接输出的方式，但是其实这事极为不规范的做法，来看看官网上怎么说<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTE4YzExNGYxZTVhMTE2MDQucG5n?x-oss-process=image/format,png" alt="截图来自官网"></li>
-<li>今天就来简单的介绍下<code>python logging</code>模块的基本使用方法<h5 id="二-日志的级别"><a href="#二-日志的级别" class="headerlink" title="二. 日志的级别"></a>二. 日志的级别</h5></li>
-<li>5个级别分别是，可以注意到源码中，<code>WARN = WARNING</code>，后续使用中两者是一个意思<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ5ZGVhZmNhMjg3MjI4ZjgucG5n?x-oss-process=image/format,png" alt="截图来自官网"></li>
-<li>每个级别都有对应的一个值<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY0ZDQwOTI4ODQzYmRhNWIucG5n?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="三-logging的工作流程"><a href="#三-logging的工作流程" class="headerlink" title="三. logging的工作流程"></a>三. logging的工作流程</h5><ul>
-<li>还是先来看看官网上的流程图<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM1NDY2ZjEwNjA3NTNmNjMucG5n?x-oss-process=image/format,png" alt="截图来自官网"></li>
-<li>可以看到以下几种类型，<code>Logger、LogRecord、Filter、Handler、Formatter</code></li>
-</ul>
-<ol>
-<li><code>Logger</code>：是进行日志记录时创建的对象</li>
-<li><code>LogRecord</code>：日志记录器，将日志传到相应的处理器处理</li>
-<li><code>Handler</code>：即用来处理日志记录的类</li>
-<li><code>Filter</code> ：过滤器</li>
-<li><code>Formatter</code>：格式化器, 指明了最终输出中日志记录的布局<h5 id="四-简单的例子"><a href="#四-简单的例子" class="headerlink" title="四. 简单的例子"></a>四. 简单的例子</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">'调试信息'</span>)</span><br><span class="line">logging.info(<span class="string">'信息消息'</span>)</span><br><span class="line">logging.warning(<span class="string">'错误：config file %s not found'</span>, <span class="string">'server.conf'</span>)</span><br><span class="line">logging.error(<span class="string">'发生错误'</span>)</span><br><span class="line">logging.critical(<span class="string">'关键错误'</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>看以下输出结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">WARNING:root:错误：config file server.conf <span class="keyword">not</span> found</span><br><span class="line">ERROR:root:发生错误</span><br><span class="line">CRITICAL:root:关键错误</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h5 id="五-basicConfig-使用方法"><a href="#五-basicConfig-使用方法" class="headerlink" title="五. basicConfig() 使用方法"></a>五. basicConfig() 使用方法</h5></li>
-<li><code>basicConfig()</code>主要做一些基础的配置</li>
-<li>我们将日志的结果输出到一个名为<code>&quot;test.log&quot;</code>的文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=<span class="string">"test.log"</span>, filemode=<span class="string">"w"</span>, level=logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">'This is a debug message'</span>)</span><br><span class="line">logging.info(<span class="string">'This is an info message'</span>)</span><br><span class="line">logging.warning(<span class="string">'This is a warning message'</span>)</span><br><span class="line">logging.error(<span class="string">'This is an error message'</span>)</span><br><span class="line">logging.critical(<span class="string">'This is a critical message'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>打开<code>&quot;test.log&quot;</code>文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DEBUG:root:This <span class="keyword">is</span> a debug message</span><br><span class="line">INFO:root:This <span class="keyword">is</span> an info message</span><br><span class="line">WARNING:root:This <span class="keyword">is</span> a warning message</span><br><span class="line">ERROR:root:This <span class="keyword">is</span> an error message</span><br><span class="line">CRITICAL:root:This <span class="keyword">is</span> a critical message</span><br></pre></td></tr></table></figure></li>
-<li><code>filename</code>：即日志输出的文件名</li>
-<li><code>filemode</code>：这个是指定日志文件的写入方式</li>
-<li><code>format</code>：指定日志信息的输出格式</li>
-<li><code>datefmt</code>：指定时间的输出格式</li>
-<li><code>level</code>：指定日志输出的类别<h5 id="六-自定义-Logger"><a href="#六-自定义-Logger" class="headerlink" title="六. 自定义 Logger"></a>六. 自定义 Logger</h5></li>
-<li>定义一个<code>Logger</code>，名字为<code>test_log</code>, 通常默认为 <code>__name__</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO, format=<span class="string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>)</span><br><span class="line">logger = logging.getLogger(<span class="string">'test_log'</span>)</span><br><span class="line"></span><br><span class="line">logger.info(<span class="string">'info log1'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug log'</span>)</span><br><span class="line">logger.warning(<span class="string">'warning log'</span>)</span><br><span class="line">logger.info(<span class="string">'info log2'</span>)</span><br><span class="line">logger.info(<span class="string">'info log3'</span>)</span><br><span class="line">logger.critical(<span class="string">'critical log'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>查看文件的日志结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">51</span>,<span class="number">040</span> - test_log - INFO - info log1</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">51</span>,<span class="number">040</span> - test_log - WARNING - warning log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">51</span>,<span class="number">040</span> - test_log - INFO - info log2</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">51</span>,<span class="number">040</span> - test_log - INFO - info log3</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">09</span>:<span class="number">49</span>:<span class="number">51</span>,<span class="number">040</span> - test_log - CRITICAL - critical log</span><br></pre></td></tr></table></figure>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTI5YzVlMGNlN2JmMmJjMjguanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="七-设置等级"><a href="#七-设置等级" class="headerlink" title="七. 设置等级"></a>七. 设置等级</h5><ul>
-<li>设置等级为<code>WARNING</code>，打印出包括这个等级及这个等级之上级别的日志<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO, format=<span class="string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>)</span><br><span class="line">logger = logging.getLogger(<span class="string">'test_log'</span>)</span><br><span class="line">logger.setLevel(level=logging.WARNING)</span><br><span class="line"></span><br><span class="line">logger.info(<span class="string">'info log1'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug log'</span>)</span><br><span class="line">logger.warning(<span class="string">'warning log'</span>)</span><br><span class="line">logger.info(<span class="string">'info log2'</span>)</span><br><span class="line">logger.info(<span class="string">'info log3'</span>)</span><br><span class="line">logger.critical(<span class="string">'critical log'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>如下按照等级打印出了日志的信息<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">04</span>:<span class="number">57</span>,<span class="number">325</span> - test_log - WARNING - warning log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">04</span>:<span class="number">57</span>,<span class="number">325</span> - test_log - CRITICAL - critical log</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h5 id="八-Handler-的使用"><a href="#八-Handler-的使用" class="headerlink" title="八. Handler 的使用"></a>八. Handler 的使用</h5></li>
-<li>重新记录一个日志的文件名为<code>&#39;test_log.log&#39;</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(<span class="string">'test_log'</span>)</span><br><span class="line">logger.setLevel(level=logging.DEBUG)</span><br><span class="line">handler = logging.FileHandler(<span class="string">'test_log.log'</span>)</span><br><span class="line">formatter = logging.Formatter(<span class="string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>)</span><br><span class="line">handler.setFormatter(formatter)</span><br><span class="line">logger.addHandler(handler)</span><br><span class="line"></span><br><span class="line">logger.info(<span class="string">'info log1'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug log'</span>)</span><br><span class="line">logger.warning(<span class="string">'warning log'</span>)</span><br><span class="line">logger.info(<span class="string">'info log2'</span>)</span><br><span class="line">logger.info(<span class="string">'info log3'</span>)</span><br><span class="line">logger.critical(<span class="string">'critical log'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>查看日志文件的结果为<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">888</span> - test_log - INFO - info log1</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">888</span> - test_log - DEBUG - debug log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">889</span> - test_log - WARNING - warning log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">889</span> - test_log - INFO - info log2</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">889</span> - test_log - INFO - info log3</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">55</span>,<span class="number">889</span> - test_log - CRITICAL - critical log</span><br></pre></td></tr></table></figure>
-<h5 id="九-多个handler"><a href="#九-多个handler" class="headerlink" title="九. 多个handler"></a>九. 多个handler</h5></li>
-<li>一个<code>handler</code>输出到<code>控制台</code>，一个<code>handler</code>输出到日志文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伊洛Yiluo</span></span><br><span class="line"><span class="comment"># https://yiluotalk.com</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(<span class="string">'test_log'</span>)</span><br><span class="line">logger.setLevel(level=logging.INFO)</span><br><span class="line"></span><br><span class="line">formatter = logging.Formatter(<span class="string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出到控制台的handler</span></span><br><span class="line">console_handler = logging.StreamHandler(sys.stdout)</span><br><span class="line">console_handler.setLevel(level=logging.INFO)</span><br><span class="line">console_handler.setFormatter(formatter)</span><br><span class="line">logger.addHandler(console_handler)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出到文件的handler</span></span><br><span class="line">file_handler = logging.FileHandler(<span class="string">'test_log.log'</span>)</span><br><span class="line">file_handler.setLevel(level=logging.DEBUG)</span><br><span class="line">file_handler.setFormatter(formatter)</span><br><span class="line">logger.addHandler(file_handler)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">logger.info(<span class="string">'info log1'</span>)</span><br><span class="line">logger.debug(<span class="string">'debug log'</span>)</span><br><span class="line">logger.warning(<span class="string">'warning log'</span>)</span><br><span class="line">logger.info(<span class="string">'info log2'</span>)</span><br><span class="line">logger.info(<span class="string">'info log3'</span>)</span><br><span class="line">logger.critical(<span class="string">'critical log'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>输出都控制台<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">49</span>,<span class="number">000</span> - test_log - INFO - info log1</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">49</span>,<span class="number">001</span> - test_log - WARNING - warning log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">49</span>,<span class="number">001</span> - test_log - INFO - info log2</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">49</span>,<span class="number">001</span> - test_log - INFO - info log3</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">49</span>,<span class="number">001</span> - test_log - CRITICAL - critical log</span><br></pre></td></tr></table></figure></li>
-<li>输出到日志<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">06</span>:<span class="number">54</span>,<span class="number">721</span> - test_log - INFO - info log1</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">06</span>:<span class="number">54</span>,<span class="number">722</span> - test_log - WARNING - warning log</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">06</span>:<span class="number">54</span>,<span class="number">722</span> - test_log - INFO - info log2</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">06</span>:<span class="number">54</span>,<span class="number">722</span> - test_log - INFO - info log3</span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-13</span> <span class="number">11</span>:<span class="number">06</span>:<span class="number">54</span>,<span class="number">722</span> - test_log - CRITICAL - critical log</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h5 id="待续文件配置，配置共享等……"><a href="#待续文件配置，配置共享等……" class="headerlink" title="待续文件配置，配置共享等……"></a>待续文件配置，配置共享等……</h5><p><img src="https://img-blog.csdnimg.cn/20200112210733483.jpeg" alt="在这里插入图片描述"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTEwOGI2MjEwODkyZTk4ZDIucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWE1YWIwZTk4OTA0NjZhNWUucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1438,7 +1441,7 @@ i 等于3 的时候被忽略</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
