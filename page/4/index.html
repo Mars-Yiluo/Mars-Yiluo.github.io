@@ -179,6 +179,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Python6--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/25/Python6--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Python6--数据结构列表</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-25 13:31:59 / 修改时间：13:31:56" itemprop="dateCreated datePublished" datetime="2020-08-25T13:31:59+08:00">2020-08-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1.数据结构"></a>1.数据结构</h5><ul>
+<li>Python 3 中非常常用的四种数据结构：列表、元组、集合与字典<h5 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h5></li>
+<li>list（列表）是一种有序的数据集合<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; city &#x3D; [&#39;shenzhen&#39;,&#39;beijing&#39;,&#39;tianjin&#39;,&#39;guangzhou&#39;]</span><br><span class="line">&gt;&gt;&gt; city.append(&#39;hongkong&#39;)</span><br><span class="line">&gt;&gt;&gt; city</span><br><span class="line">[&#39;shenzhen&#39;, &#39;beijing&#39;, &#39;tianjin&#39;, &#39;guangzhou&#39;, &#39;hongkong&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>append 添加元素到末尾</li>
+<li>通过索引访问到每一个列表的元素，第一个元素的索引为 0，最后一个元素的索引可以使用 -1 进行标示<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; city[0]</span><br><span class="line">&#39;shenzhen&#39;</span><br><span class="line">&gt;&gt;&gt; city[0:2]</span><br><span class="line">[&#39;shenzhen&#39;, &#39;beijing&#39;]</span><br><span class="line">&gt;&gt;&gt; city[-1]</span><br><span class="line">&#39;hongkong&#39;</span><br><span class="line">&gt;&gt;&gt; city[-2]</span><br><span class="line">&#39;guangzhou&#39;</span><br></pre></td></tr></table></figure></li>
+<li>len() 查看列表中元素的数量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; len(city)</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<h5 id="3-列表操作"><a href="#3-列表操作" class="headerlink" title="3.列表操作"></a>3.列表操作</h5></li>
+<li>列表是有序的</li>
+<li>append() 就是在列表的末尾添加新的元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin &#x3D; [&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.append(&#39;ETC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>数据插入到列表的任何位置，这时我们可以使用列表的 insert() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.insert(0, &#39;BTC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>列表方法 count(s) 会返回列表元素中 s 的数量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.count(&#39;BTC&#39;)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>列表中移除任意指定值，使用 remove() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.remove(&#39;ETC&#39;)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>另外一种删除元素的方法是使用 del 关键字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; del coin[0]</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>有序的列表可以进行反转<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;ETH&#39;, &#39;EOS&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.reverse()</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>两个列表，想合并到一起，一种方法是将其中一个列表合并到另外一个列表的末尾位置，可以使用 extend()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin_new &#x3D; [&#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin + coin_new</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;, &#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin_new</span><br><span class="line">[&#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.extend(coin_new)</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETH&#39;, &#39;BTC&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>给列表排序，使用列表的 sort() 方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin.sort()</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;, &#39;ETH&#39;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>列表也可以使用 pop() 函数返回最后的一个元素，pop() 在返回元素的同时也会删除这个元素，传入一个参数 i 即 pop(i) 会将第 i 个元素弹出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;, &#39;ETH&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.pop()</span><br><span class="line">&#39;ETH&#39;</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;BTC&#39;, &#39;EOS&#39;, &#39;ETC&#39;]</span><br><span class="line">&gt;&gt;&gt; coin.pop(0)</span><br><span class="line">&#39;BTC&#39;</span><br><span class="line">&gt;&gt;&gt; coin</span><br><span class="line">[&#39;EOS&#39;, &#39;ETC&#39;]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/24/Python5--%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1264,151 +1374,6 @@ i 等于3 的时候被忽略</li>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/03/09/Python%20%E9%80%9A%E8%BF%87%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/09/Python%20%E9%80%9A%E8%BF%87%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" class="post-title-link" itemprop="url">Python 通过邮件发送测试报告</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-09 22:06:59 / 修改时间：22:08:29" itemprop="dateCreated datePublished" datetime="2020-03-09T22:06:59+08:00">2020-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">自动化测试</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">UI自动化测试</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">接口自动化测试</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">测试开发</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWZjZjY0OGNjZDhhZjVlNTgucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="1-自动化测试报告"><a href="#1-自动化测试报告" class="headerlink" title="1. 自动化测试报告"></a>1. 自动化测试报告</h5><ul>
-<li>自动化的测试报告一般会通过邮件或钉钉机器人发送，或是直接显示在质量管理平台上来输出数据供大家查看。今天先来简单的说下Python发送邮件<blockquote>
-<p>本文首发于伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="2-Python-SMTP发送邮件"><a href="#2-Python-SMTP发送邮件" class="headerlink" title="2. Python SMTP发送邮件"></a>2. Python SMTP发送邮件</h5></li>
-<li><code>SMTP</code>（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。<h5 id="3-使用其他邮件服务商的-SMTP-访问"><a href="#3-使用其他邮件服务商的-SMTP-访问" class="headerlink" title="3. 使用其他邮件服务商的 SMTP 访问"></a>3. 使用其他邮件服务商的 <code>SMTP</code> 访问</h5></li>
-<li>这里来用网易的<code>163邮箱</code>举例子</li>
-<li>登陆邮箱然后进入下图的页面，该<code>勾的勾上</code><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTk0ZTM4ZWUwYTkxM2Q4ZGUucG5n?x-oss-process=image/format,png" alt="截图来自网易邮箱"></li>
-<li>然后设置一下<code>客户端授权码</code><br>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-m95zub9T-1583762176638)(<a href="https://upload-images.jianshu.io/upload_images/5959551-5c3cdbfd8cc4ecad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)]" target="_blank" rel="noopener">https://upload-images.jianshu.io/upload_images/5959551-5c3cdbfd8cc4ecad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)]</a></li>
-<li>发短信开启<h5 id="4-简单的实例"><a href="#4-简单的实例" class="headerlink" title="4.简单的实例"></a>4.简单的实例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 伊洛Yiluo https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMail</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.mail_host = <span class="string">"smtp.163.com"</span></span><br><span class="line">        self.mail_user = <span class="string">"@163.com"</span></span><br><span class="line">        self.mail_pass = <span class="string">""</span> <span class="comment"># 163客户端授权密码</span></span><br><span class="line"></span><br><span class="line">        self.sender = <span class="string">'@163.com'</span></span><br><span class="line">        self.receivers = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_mail</span><span class="params">(self)</span>:</span></span><br><span class="line">        body = <span class="string">'Dear all:\n接口自动化测试报告如下：\n   测试用例集合：&#123;&#125;\n   运行结果：&#123;&#125;'</span>.format(<span class="string">'xxxx'</span>, <span class="string">'xxxx'</span>)</span><br><span class="line">        tm = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime(time.time()))</span><br><span class="line">        message = MIMEText(body, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">        message[<span class="string">'From'</span>] = self.mail_user</span><br><span class="line">        message[<span class="string">'To'</span>] = self.receivers</span><br><span class="line"></span><br><span class="line">        subject = <span class="string">'接口自动化报告测试'</span></span><br><span class="line">        message[<span class="string">'Subject'</span>] = Header(subject + <span class="string">'_'</span> + tm, <span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            smtpObj = smtplib.SMTP()</span><br><span class="line">            smtpObj = smtplib.SMTP_SSL(self.mail_host, <span class="number">465</span>)</span><br><span class="line">            smtpObj.login(self.mail_user, self.mail_pass)</span><br><span class="line">            smtpObj.sendmail(self.sender, self.receivers, message.as_string())</span><br><span class="line">            print(<span class="string">'send mail ok'</span>)</span><br><span class="line">        <span class="keyword">except</span> smtplib.SMTPException:</span><br><span class="line">            print(<span class="string">'send mail fail'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    send = TestMail()</span><br><span class="line">    send.send_mail()</span><br></pre></td></tr></table></figure>
-<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ1OGYyZDIwZTEzMjEzOGUuanBlZw?x-oss-process=image/format,png" alt=""></li>
-</ul>
-<h5 id="5-读取配置"><a href="#5-读取配置" class="headerlink" title="5.读取配置"></a>5.读取配置</h5><ul>
-<li>通常来讲一般发送邮件只是自动化框架的一个模块。封装发送邮件的时候，配置都是读取的</li>
-<li>来简单的创建一个<code>&#39;config.ini&#39;</code>的配置文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 伊洛Yiluo https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line">[mail]</span><br><span class="line"><span class="comment">#发送邮件信息</span></span><br><span class="line">mail_host = smtp<span class="number">.163</span>.com</span><br><span class="line">mail_user = @<span class="number">163.</span>com</span><br><span class="line">mail_pass =                <span class="comment"># 163客户端授权密码</span></span><br><span class="line"></span><br><span class="line">sender = @<span class="number">163.</span>com</span><br><span class="line">receivers =</span><br></pre></td></tr></table></figure></li>
-<li>来读取一下配置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 伊洛Yiluo https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> configparser <span class="keyword">import</span> ConfigParser</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMail</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.config = ConfigParser()</span><br><span class="line">        self.conf_path = str(Path(<span class="string">'config.ini'</span>).absolute())  <span class="comment"># 读取绝对路径</span></span><br><span class="line"></span><br><span class="line">        self.config.read(self.conf_path, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_mail</span><span class="params">(self)</span>:</span></span><br><span class="line">        body = <span class="string">'Dear all:\nDEMO 接口自动化测试报告：\n   测试用例集合：&#123;&#125;\n   运行结果：&#123;&#125;'</span>.format(<span class="string">'xxxx'</span>, <span class="string">'xxxx'</span>)</span><br><span class="line">        tm = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime(time.time()))</span><br><span class="line">        message = MIMEText(body, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">        message[<span class="string">'From'</span>] = self.config.get(<span class="string">'mail'</span>, <span class="string">'sender'</span>)</span><br><span class="line">        message[<span class="string">'To'</span>] = self.config.get(<span class="string">'mail'</span>, <span class="string">'receivers'</span>)</span><br><span class="line"></span><br><span class="line">        subject = <span class="string">'接口自动化测试报告'</span></span><br><span class="line">        message[<span class="string">'Subject'</span>] = Header(subject + <span class="string">'_'</span> + tm, <span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            smtpObj = smtplib.SMTP()</span><br><span class="line">            smtpObj = smtplib.SMTP_SSL(self.config.get(<span class="string">'mail'</span>, <span class="string">'mail_host'</span>), <span class="number">465</span>)</span><br><span class="line">            smtpObj.login(self.config.get(<span class="string">'mail'</span>, <span class="string">'mail_user'</span>), self.config.get(<span class="string">'mail'</span>, <span class="string">'mail_pass'</span>))</span><br><span class="line">            smtpObj.sendmail(self.config.get(<span class="string">'mail'</span>, <span class="string">'sender'</span>), self.config.get(<span class="string">'mail'</span>, <span class="string">'receivers'</span>), message.as_string())</span><br><span class="line">            print(<span class="string">'send mail ok'</span>)</span><br><span class="line">        <span class="keyword">except</span> smtplib.SMTPException:</span><br><span class="line">            print(<span class="string">'send mail fail'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    send = TestMail()</span><br><span class="line">    send.send_mail()</span><br></pre></td></tr></table></figure></li>
-<li>打开邮箱来看看邮件<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTk3OTJhODE3NmNhOGY1YjQucG5n?x-oss-process=image/format,png" alt="截图来自QQ邮箱"></li>
-</ul>
-<h5 id="6-发送邮件带附件"><a href="#6-发送邮件带附件" class="headerlink" title="6. 发送邮件带附件"></a>6. 发送邮件带附件</h5><ul>
-<li><p>发邮件有时会需要发送附件</p>
-</li>
-<li><p>由于平时看到一些好的文章或者书会喜欢发送到<code>kindle</code>上面查看，其实推到<code>kindle</code>就是相当于给自己的<code>kindle设备</code>发了带有书籍文件附件的邮件，通常是<code>mobi</code>格式</p>
-</li>
-<li><p>登录亚马逊官方，如下图查看自己设备对应的邮箱<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTJkMDVmNzU0Mjg0YWFkZDQucG5n?x-oss-process=image/format,png" alt="截图来自亚马逊"></p>
-</li>
-<li><p>去掉其他多余功能，简化下完，剩邮件部分代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 伊洛Yiluo https://yiluotalk.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_kindle</span><span class="params">()</span>:</span></span><br><span class="line">    mail_host = <span class="string">"smtp.163.com"</span></span><br><span class="line">    mail_user = <span class="string">"@163.com"</span></span><br><span class="line">    mail_pass = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">    sender = <span class="string">'@163.com'</span></span><br><span class="line">    receivers = <span class="string">'@kindle.cn'</span></span><br><span class="line"></span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    message[<span class="string">'From'</span>] = mail_user</span><br><span class="line">    message[<span class="string">'To'</span>] = receivers</span><br><span class="line">    subject = <span class="string">'&#123;&#125;'</span>.format(filename)</span><br><span class="line">    message[<span class="string">'Subject'</span>] = Header(subject, <span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">    message.attach(MIMEText(<span class="string">'&#123;&#125;'</span>.format(filename), <span class="string">'plain'</span>, <span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">    att1 = MIMEText(open(<span class="string">'/Users/Documents/book/&#123;&#125;'</span>.format(filename), <span class="string">'rb'</span>).read(), <span class="string">'base64'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    att1[<span class="string">"Content-Type"</span>] = <span class="string">'application/octet-stream'</span></span><br><span class="line">    att1[<span class="string">"Content-Disposition"</span>] = <span class="string">'attachment; filename="book.mobi"'</span></span><br><span class="line">    message.attach(att1)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        smtpObj = smtplib.SMTP_SSL(mail_host, <span class="number">465</span>)</span><br><span class="line">        smtpObj.login(mail_user, mail_pass)</span><br><span class="line">        smtpObj.sendmail(sender, receivers, message.as_string())</span><br><span class="line">        print(<span class="string">"书籍已成功推送到您的kindle设备"</span>)</span><br><span class="line">    <span class="keyword">except</span> smtplib.SMTPException:</span><br><span class="line">        print(<span class="string">"Error: 无法推送书籍"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    filename = input(<span class="string">"请输入您要推动到Kindle的书籍，请带Mobi后缀："</span>)</span><br><span class="line">    os.path.split(filename)</span><br><span class="line">    send_kindle()</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200215123514969.jpeg" alt="在这里插入图片描述"></p>
-</li>
-<li><p>运行脚本在如下会成功看到推送的内容<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWU1MzJjZTQ4OGJhZDI5NjMucG5n?x-oss-process=image/format,png" alt="截图来自亚马逊"><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWRlNGJmNmY3ODVjYzdmZDMucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTQ3MTc4NGI5YTgwODY4YjcucG5n?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-<blockquote>
-<p>欢迎下方【戳一下】【点赞】<br>Author：伊洛Yiluo<br>愿你享受每一天，Just Enjoy !</p>
-</blockquote>
-</li>
-</ul>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1479,7 +1444,7 @@ i 等于3 的时候被忽略</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -179,6 +179,146 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">CSS基础5--选择器和盒子模型</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-18 11:09:59 / 修改时间：11:09:49" itemprop="dateCreated datePublished" datetime="2020-09-18T11:09:59+08:00">2020-09-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><p>选择器用来指定网页上我们想要样式化的HTML元素，比如H1元素和类元素.special</p>
+<h5 id="选择器列表"><a href="#选择器列表" class="headerlink" title="选择器列表"></a>选择器列表</h5><p>分开规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123; </span><br><span class="line">  color: red; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">.special &#123; </span><br><span class="line">  color: blue; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>组合规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1, .special &#123; </span><br><span class="line">  color: red; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>任何一个选择器无效,整条规则就会被忽略</p>
+<h5 id="选择器的种类"><a href="#选择器的种类" class="headerlink" title="选择器的种类"></a>选择器的种类</h5><p>类型、类和ID选择器：标签名选择器”或者是”元素选择器“，选择了一个HTML标签/元素<br>ID选择器：ID选择器开头为#而非句点<br>全局选择器：是由一个星号<code>*</code>代指的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类选择器：类选择器以一个句点<code>.</code>开头</p>
+<h5 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h5><p>所有的元素都被一个个的“盒子（box）”包围着</p>
+<h5 id="块级盒子"><a href="#块级盒子" class="headerlink" title="块级盒子"></a>块级盒子</h5><p>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽<br>每个盒子都会换行<br>width和height属性可以发挥作用<br>内边距（padding）, 外边距（margin） 和 边框（border） 会将其他元素从当前盒子周围“推开”<br>除非特殊指定，诸如标题<code>&lt;h1&gt;</code>和段落<code>&lt;p&gt;</code>默认情况下都是块级的盒子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;p&gt;这是一段优美的文字&lt;&#x2F;p&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;文字1&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;文字2&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;文字3&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;p&gt;这是另外的一段 &lt;span class&#x3D;&quot;block&quot;&gt;非常&lt;&#x2F;span&gt; 优美的 &lt;span&gt;文字&lt;&#x2F;span&gt;啊&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">p,</span><br><span class="line">ul &#123;</span><br><span class="line">  border: 2px solid rebeccapurple;</span><br><span class="line">  padding: .5em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.block,</span><br><span class="line">li &#123;</span><br><span class="line">  border: 2px solid blue;</span><br><span class="line">  padding: .5em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.block &#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个是一个段落，在 CSS 中加了边框。浏览器把它渲染成一个块级盒子，所以段落从新的一行开始，而且宽度占满一行<br>第二个是一个列表，布局属性是 display: flex。 将在容器中建立一个flex布局</p>
+<h5 id="CSS-盒模型"><a href="#CSS-盒模型" class="headerlink" title="CSS 盒模型"></a>CSS 盒模型</h5><p>盒子模型结构</p>
+<ul>
+<li>Content box: 这个区域是用来显示内容</li>
+<li>Padding box: 包围在内容区域外部的空白区域</li>
+<li>Border box: 边框盒包裹内容和内边距</li>
+<li>Margin box: 这是最外面的区域，是盒子和其他元素之间的空白区域</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/15440cde511e69d80790577885abb7f4.png" alt="图片来源于百度"></p>
+<h5 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h5><p>通过margin控制元素的所有边距<br>margin-top, margin-right, margin-bottom, margin-left</p>
+<h5 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h5><p>使用border属性可以设置四个边框的宽度，颜色，样式<br>设置每边的宽度、颜色和样式</p>
+<ul>
+<li>border-top</li>
+<li>border-right</li>
+<li>border-bottom</li>
+<li>border-left<br>设置所有边的颜色、样式或宽度</li>
+<li>border-width</li>
+<li>border-style</li>
+<li>border-color<br>设置单边的颜色、样式或宽度</li>
+<li>border-top-width</li>
+<li>border-top-style</li>
+<li>border-top-color</li>
+<li>border-right-width</li>
+<li>border-right-style</li>
+<li>border-right-color</li>
+<li>border-bottom-width</li>
+<li>border-bottom-style</li>
+<li>border-bottom-color</li>
+<li>border-left-width</li>
+<li>border-left-style</li>
+<li>border-left-color<h5 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h5>用padding性控制元素所有边，或者每边单独使用等价的普通属性</li>
+<li>padding-top</li>
+<li>padding-right</li>
+<li>padding-bottom</li>
+<li>padding-left</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/17/CSS%E5%9F%BA%E7%A1%804--%E5%86%B2%E7%AA%81%E5%92%8C%E7%BB%A7%E6%89%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1121,105 +1261,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/08/HTML%E5%9F%BA%E7%A1%806--%E6%8F%8F%E8%BF%B0%E5%88%97%E8%A1%A8%E5%8F%8A%E6%A0%87%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/08/HTML%E5%9F%BA%E7%A1%806--%E6%8F%8F%E8%BF%B0%E5%88%97%E8%A1%A8%E5%8F%8A%E6%A0%87%E8%AE%B0/" class="post-title-link" itemprop="url">HTML基础6--描述列表及标记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-08 11:49:59 / 修改时间：11:49:16" itemprop="dateCreated datePublished" datetime="2020-09-08T11:49:59+08:00">2020-09-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="描述列表"><a href="#描述列表" class="headerlink" title="描述列表"></a>描述列表</h5><p>目的是标记一组项目及其相关描述，例如术语和定义，或者是问题和答案<br>描述列表使用与其他列表类型不同的闭合标签— <code>&lt;dl&gt;</code>，每一项都用 <code>&lt;dt&gt;</code> 元素闭合每个描述都用 <code>&lt;dd&gt;</code></p>
-<h5 id="缩略语"><a href="#缩略语" class="headerlink" title="缩略语"></a>缩略语</h5><p><code>&lt;abbr&gt;</code>——它常被用来包裹一个缩略语或缩写,当光标移动到项目上时会出现提示</p>
-<h5 id="标记联系方式"><a href="#标记联系方式" class="headerlink" title="标记联系方式"></a>标记联系方式</h5><p>用于标记联系方式的元素——<code>&lt;address&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;</span><br><span class="line">  &lt;p&gt;这是一个地址&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;address&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="上标和下标"><a href="#上标和下标" class="headerlink" title="上标和下标"></a>上标和下标</h5><p>使用日期、化学方程式、和数学方程式时会偶尔使用上标和下标，可通过 <code>&lt;sup&gt;</code>和<code>&lt;sub&gt;</code>来解决这个问题例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;TITLE&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt; 水的化学式： H&lt;sub&gt;2&lt;&#x2F;sub&gt;O&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTY5NWEzYmIzOTRjZjY2MjkucG5n?x-oss-process=image/format,png" alt=""></p>
-<h5 id="标记时间和日期"><a href="#标记时间和日期" class="headerlink" title="标记时间和日期"></a>标记时间和日期</h5><p>微信搜索：伊洛的小屋获得更多系列文章<br> <code>&lt;time&gt;</code> 元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;time datetime&#x3D;&quot;2020-09-03&quot;&gt;2020年9月03日&lt;&#x2F;time&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1290,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
