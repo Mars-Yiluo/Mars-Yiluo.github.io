@@ -179,6 +179,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">CSS基础6--背景样式及书写模式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-19 10:05:59 / 修改时间：11:05:57" itemprop="dateCreated datePublished" datetime="2020-09-19T10:05:59+08:00">2020-09-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="背景样式"><a href="#背景样式" class="headerlink" title="背景样式"></a>背景样式</h5><p>background-color属性定义了CSS中任何元素的背景颜色，属性接受任何效果的color值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">    &lt;h2&gt;背景颜色&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;p&gt;变化背景的颜色 &lt;span&gt;颜色&lt;&#x2F;span&gt;。&lt;&#x2F;p&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>编辑CSS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  background-color: cornflowerblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h2 &#123;</span><br><span class="line">  background-color: darkviolet;</span><br><span class="line">  color: white;</span><br><span class="line">&#125;</span><br><span class="line">span &#123;</span><br><span class="line">  background-color: rgba(255,255,255,.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-blog.csdnimg.cn/img_convert/a1eeab54b8dbb14c3f75291fea778cb4.png" alt=""></p>
+<h5 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h5><p>background-image 在元素的背景中显示图像</p>
+<ul>
+<li>no-repeat — 不重复</li>
+<li>repeat-x —水平重复</li>
+<li>repeat-y —垂直重复</li>
+<li>repeat — 在两个方向重复<h5 id="调整背景图像大小"><a href="#调整背景图像大小" class="headerlink" title="调整背景图像大小"></a>调整背景图像大小</h5>background-size设置长度或百分比值来调整图片的大小<br>cover 浏览器将使图像足够大，使它完全覆盖了盒子区，同时仍然保持其高宽比<br>contain 浏览器将使图像的大小适合盒子内<h5 id="背景附加"><a href="#背景附加" class="headerlink" title="背景附加"></a>背景附加</h5>background-attachment： 内容滚动</li>
+<li>scroll: 使元素的背景在页面滚动时滚动。</li>
+<li>fixed: 使元素的背景固定在视图端口上，这样当页面或元素内容滚动时，它就不会滚动。</li>
+<li>local: 局部值将背景固定在设置的元素上，因此当您滚动元素时，背景也随之滚动。<h5 id="书写模式"><a href="#书写模式" class="headerlink" title="书写模式"></a>书写模式</h5>指的是文本的排列方向是横向还是纵向的，需要使用writing-mode属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;h1&gt;微信搜索 伊洛的小屋&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+编写CSS样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  writing-mode: vertical-rl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+horizontal-tb: 块流向从上至下。对应的文本方向是横向的<br>vertical-rl: 块流向从右向左。对应的文本方向是纵向的<br>vertical-lr: 块流向从左向右。对应的文本方向是纵向的<h5 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h5>溢出是在你往盒子里面塞太多东西的时候发生的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;div class&#x3D;&quot;word&quot;&gt;微信搜索：伊洛的小屋 &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+CSS<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.word &#123;</span><br><span class="line">  border: 1px solid #333333;</span><br><span class="line">  width: 10px;</span><br><span class="line">  font-size: 250%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h5 id="控制溢出"><a href="#控制溢出" class="headerlink" title="控制溢出"></a>控制溢出</h5>需要使用overflow属性，overflow: hidden意思就是可以隐藏掉溢出<h5 id="CSS的值"><a href="#CSS的值" class="headerlink" title="CSS的值"></a>CSS的值</h5><h5 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h5>cm    厘米<br>mm    毫米<br>Q    四分之一毫米<br>in    英寸<br>pc    十二点活字<br>pt    点<br>px    像素<h5 id="相对长度单位"><a href="#相对长度单位" class="headerlink" title="相对长度单位"></a>相对长度单位</h5>em    font-size 中使用是相对于父元素的字体大小，在其他属性中使用是相对于自身的字体大小，如 width<br>ex    字符“x”的高度<br>ch    数字“0”的宽度<br>rem    根元素的字体大小<br>lh    元素的line-height<br>vw    视窗宽度的1%<br>vh    视窗高度的1%<br>vmin    视窗较小尺寸的1%<br>vmax    视图大尺寸的1%</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1155,112 +1264,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/09/HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/09/HTML%E5%9F%BA%E7%A1%807--%E6%96%87%E6%A1%A3%E4%B8%8E%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">HTML基础7--文档与网站架构</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-09 11:49:59 / 修改时间：11:49:20" itemprop="dateCreated datePublished" datetime="2020-09-09T11:49:59+08:00">2020-09-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="文档的基本组成"><a href="#文档的基本组成" class="headerlink" title="文档的基本组成"></a>文档的基本组成</h5><p>一个页面通常由一下几个部分组成：页眉、导航栏、主内容、侧边栏、页脚<br>例如：下面的页面布局<br><img src="https://img-service.csdnimg.cn/img_convert/d19437c2313cf68d8b6ffddfe93f9295.png" alt=""><br><img src="https://img-service.csdnimg.cn/img_convert/e2cbe4e41f5a37359eb4bd4730baf6a3.png" alt=""></p>
-<h5 id="构建内容的"><a href="#构建内容的" class="headerlink" title="构建内容的"></a>构建内容的</h5><p>在HTML中</p>
-<ul>
-<li><code>&lt;header&gt;</code>：页眉。</li>
-<li><code>&lt;nav&gt;</code>：导航栏。</li>
-<li><code>&lt;main&gt;</code>：主内容。主内容中还可以有各种子内容区段，可用<code>&lt;article&gt;</code>、<code>&lt;section&gt;</code>和 <code>&lt;div&gt;</code>等元素表示。</li>
-<li><code>&lt;aside&gt;</code>：侧边栏，经常嵌套在 <code>&lt;main&gt;</code>中。</li>
-<li><code>&lt;footer&gt;</code>：页脚。<h5 id="元素细节"><a href="#元素细节" class="headerlink" title="元素细节"></a>元素细节</h5></li>
-<li>[<code>&lt;main&gt;</code>]存放每个页面独有的内容。每个页面上只能用一次 <code>&lt;main&gt;</code>，且直接位于 [<code>&lt;body&gt;</code>]中。最好不要把它嵌套进其它元素。</li>
-<li>[<code>&lt;article&gt;</code>] 包围的内容即一篇文章，与页面其它部分无关（比如一篇博文）。</li>
-<li>[<code>&lt;section&gt;</code>] 与 <code>&lt;article&gt;</code> 类似，但 <code>&lt;section&gt;</code> 更适用于组织页面使其按功能（比如迷你地图、一组文章标题和摘要）分块。一般的最佳用法是：以 [标题]、作为开头；也可以把一篇 <code>&lt;article&gt;</code> 分成若干部分并分别置于不同的 <code>&lt;section&gt;</code> 中，也可以把一个区段 <code>&lt;section&gt;</code> 分成若干部分并分别置于不同的 <code>&lt;article&gt;</code> 中，取决于上下文。</li>
-<li>[<code>&lt;aside&gt;</code>] 包含一些间接信息（术语条目、作者简介、相关链接，等等）。</li>
-<li>[<code>&lt;header&gt;</code>] 是简介形式的内容。如果它是 [<code>&lt;body&gt;</code>] 的子元素，那么就是网站的全局页眉。如果它是 [<code>&lt;article&gt;</code>] 或[<code>&lt;section&gt;</code>] 的子元素，那么它是这些部分特有的页眉（此 <code>&lt;header&gt;</code> 非彼 [标题]。</li>
-<li>[<code>&lt;nav&gt;</code>]包含页面主导航功能。其中不应包含二级链接等内容。</li>
-<li>[<code>&lt;footer&gt;</code>] 包含了页面的页脚部分。<h5 id="无语义元素"><a href="#无语义元素" class="headerlink" title="无语义元素"></a>无语义元素</h5>对于一些要组织的项目或要包装的内容，现有的语义元素均不能很好对应，HTML提供了 <code>&lt;div&gt;</code>和 <code>&lt;span&gt;</code> 元素<br><code>div</code> 是一个块级无语义元素，应仅用于找不到更好的块级元素时，或者不想增加特定的意义时<h5 id="换行与水平分割线"><a href="#换行与水平分割线" class="headerlink" title="换行与水平分割线"></a>换行与水平分割线</h5><code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>两个元素, 一个作用是换行，一个作用是加分割线</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1331,7 +1334,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

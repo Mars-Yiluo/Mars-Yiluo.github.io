@@ -179,6 +179,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/30/Django%E5%9F%BA%E7%A1%807--%E6%A8%A1%E6%9D%BF%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/30/Django%E5%9F%BA%E7%A1%807--%E6%A8%A1%E6%9D%BF%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">Django基础7--模板系统</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-30 10:08:59 / 修改时间：10:14:08" itemprop="dateCreated datePublished" datetime="2020-08-30T10:08:59+08:00">2020-08-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Django基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<h5 id="1-使用模板系统"><a href="#1-使用模板系统" class="headerlink" title="1.使用模板系统"></a>1.使用模板系统</h5><ul>
+<li><p>在之前的<code>model.py</code>文件中新增加<code>Detail</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line"># Create your models here.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class ProjectInfo(models.Model):</span><br><span class="line">    &quot;&quot;&quot; 项目信息模型 &quot;&quot;&quot;</span><br><span class="line">    project_name &#x3D; models.CharField(max_length&#x3D;30)</span><br><span class="line">    dev &#x3D; models.CharField(max_length&#x3D;20)</span><br><span class="line">    tester &#x3D; models.CharField(max_length&#x3D;20)</span><br><span class="line">    add_data &#x3D; models.DateTimeField(auto_now_add&#x3D;True)</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        # 返回项目名称</span><br><span class="line">        return self.project_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Detail(models.Model):</span><br><span class="line">    project &#x3D; models.ForeignKey(ProjectInfo, on_delete&#x3D;models.CASCADE)</span><br><span class="line">    detail_text &#x3D; models.CharField(max_length&#x3D;200)</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.detail_text</span><br></pre></td></tr></table></figure>
+<p>使用 <code>ForeignKey</code>定义了一个关系。这将告诉 Django，每个 <code>detail</code> 对象都关联到一个 <code>ProjectInfo</code> 对象。Django 支持所有常用的数据库关系：多对一、多对多和一对一</p>
+</li>
+<li><p>在管了后台添加数据<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWI1YmRkZWM0NGQyYjAzZjQucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>对应项目添加详情<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTIxZDk3Y2JkMTQ4OGQ4ZjUucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>重新改写一下<code>project.html</code>的模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;AutoPlarform Home&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;&#123;&#123; project.project_name &#125;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">&#123;% for detail in project.detail_set.all %&#125;</span><br><span class="line">    &lt;li&gt;&#123;&#123; detail.detail_text &#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>模板系统统一使用点符号来访问变量的属性</p>
+</li>
+<li><p>现在我们来访问下每个项目对应的url，来看一下项目的信息详情有没有正确的显示出来<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY3YzdlYzRlNTRhNjcyNGIucG5n?x-oss-process=image/format,png" alt=""><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWUwODNjNWU2ZDJiZTc3MjgucG5n?x-oss-process=image/format,png" alt=""><br>显示内容正确</p>
+<h5 id="2-去除模板中的硬编码URL"><a href="#2-去除模板中的硬编码URL" class="headerlink" title="2. 去除模板中的硬编码URL"></a>2. 去除模板中的硬编码URL</h5></li>
+<li><p>我们修改一下之前<code>home</code>的页面，让对应内容可以跳转</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;AutoPlarform Home&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&#123;% if project_list %&#125;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &#123;% for project in project_list %&#125;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;&#x2F;autoapi&#x2F;&#123;&#123; project.id &#125;&#125;&#x2F;&quot;&gt;&#123;&#123; project.project_name &#125;&#125;&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>打开<code>home</code>页面<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTY4Mjg2M2ViNjBkZGU0YTgucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+<li><p>然后点击接口自动化<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTVjM2JmNGM2Nzc0N2ExZjkucG5n?x-oss-process=image/format,png" alt=""><br>成功跳转到接口自动化的介绍页面</p>
+</li>
+<li><p>但是以上内容你会发现一个问题，我们的挑战链接是硬编码的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#x2F;autoapi&#x2F;&#123;&#123; project.id &#125;&#125;&#x2F;&quot;&gt;&#123;&#123; project.project_name &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<p>硬编码和强耦合的链接，对于一个包含很多应用的项目来说，修改起来是十分困难的<br>不过的还记得之前在<code>url</code>配置页面的内容嘛</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 作者：伊洛Yiluo 公众号：伊洛的小屋</span><br><span class="line"># 个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line"># 博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">from django.urls import path</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">urlpatterns &#x3D; [</span><br><span class="line">    path(&#39;home&#x2F;&#39;, views.home, name&#x3D;&#39;index&#39;),</span><br><span class="line">    path(&#39;&lt;int:project_id&gt;&#x2F;&#39;, views.project_list, name&#x3D;&#39;project list&#39;),</span><br><span class="line">    path(&#39;register&#x2F;&#39;, views.register, name&#x3D;&#39;register&#39;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>之前我们通过<code>name</code>参数为<code>url</code>定义了名字，现在我们可以通过% url %代替它</p>
+</li>
+<li><p>来改一下<code>home.html</code>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;AutoPlarform Home&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&#123;% if project_list %&#125;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &#123;% for project in project_list %&#125;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;&#123;% url &#39;project list&#39; project.id %&#125;&quot;&gt;&#123;&#123; project.project_name &#125;&#125;&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>再次打开一个页面验证下跳转<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWJhMmQ2ZDdhNTA1ODM2ZWYucG5n?x-oss-process=image/format,png" alt=""><br>成功的跳转</p>
+</li>
+<li><p>这样做的好处也可以不动模板的内容改URL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from django.urls import path</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">urlpatterns &#x3D; [</span><br><span class="line">    path(&#39;home&#x2F;&#39;, views.home, name&#x3D;&#39;index&#39;),</span><br><span class="line">    path(&#39;detail&#x2F;&lt;int:project_id&gt;&#x2F;&#39;, views.project_list, name&#x3D;&#39;project list&#39;),</span><br><span class="line">    path(&#39;register&#x2F;&#39;, views.register, name&#x3D;&#39;register&#39;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>打开home首页点击跳转<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLThmYzE2Y2I0NGI1ZDM4YmYucG5n?x-oss-process=image/format,png" alt=""><br>URL已经按预设置发生了变化</p>
+<h5 id="3-为URL名称添加命名空间"><a href="#3-为URL名称添加命名空间" class="headerlink" title="3.为URL名称添加命名空间"></a>3.为<code>URL</code>名称添加命名空间</h5><p>现在再Django项目中，只有一个APP，但是实际开发过程中会有很多。Django如何分辨重名的URL<br>答案就是：在<code>URLconf</code>中添加命名空，加上app_name 设置命名空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from django.urls import path</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app_name &#x3D; &#39;autoapi&#39;</span><br><span class="line">urlpatterns &#x3D; [</span><br><span class="line">    path(&#39;home&#x2F;&#39;, views.home, name&#x3D;&#39;index&#39;),</span><br><span class="line">    path(&#39;detail&#x2F;&lt;int:project_id&gt;&#x2F;&#39;, views.project_list, name&#x3D;&#39;project list&#39;),</span><br><span class="line">    path(&#39;register&#x2F;&#39;, views.register, name&#x3D;&#39;register&#39;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>HTML页面再改动下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;AutoPlarform Home&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&#123;% if project_list %&#125;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &#123;% for project in project_list %&#125;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;&#123;% url &#39;autoapi:project list&#39; project.id %&#125;&quot;&gt;&#123;&#123; project.project_name &#125;&#125;&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>打开网页查看效果<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWY4NTk2Njc2MmIwYTM2N2YucG5n?x-oss-process=image/format,png" alt=""></p>
+</li>
+</ul>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/29/Python10--%E7%B1%BB%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1352,134 +1480,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/08/25/Python7--%E5%85%83%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/Python7--%E5%85%83%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8/" class="post-title-link" itemprop="url">Python7--元组、集合、字典</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-25 13:32:59 / 修改时间：13:32:39" itemprop="dateCreated datePublished" datetime="2020-08-25T13:32:59+08:00">2020-08-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发自伊洛的个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiluotalk.com" target="_blank" rel="noopener">https://yiluotalk.com</a>，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="1-元组"><a href="#1-元组" class="headerlink" title="1.元组"></a>1.元组</h5><ul>
-<li>tuple（元组）是一种特殊的列表，不同点是元组一旦创建就不能修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list &#x3D; (&#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;Joe&#39;)</span><br><span class="line">&gt;&gt;&gt; name_list.pop()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &#39;tuple&#39; object has no attribute &#39;pop&#39;</span><br><span class="line">&gt;&gt;&gt; name_list.remove(&#39;Tom&#39;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &#39;tuple&#39; object has no attribute &#39;remove&#39;</span><br></pre></td></tr></table></figure></li>
-<li>如果是只读的数据，尽可能使用元组</li>
-<li>元组中如果包含可变的数据元素，这些数据元素是可以修改的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list &#x3D; (&#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, [&#39;Joe&#39;])</span><br><span class="line">&gt;&gt;&gt; name_list[3].append(&#39;Morgan&#39;)</span><br><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">(&#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, [&#39;Joe&#39;, &#39;Morgan&#39;])</span><br></pre></td></tr></table></figure></li>
-<li>如果要创建只有一个元素的元组，是不可以直接使用括号中一个元素的，需要在元素值后面跟一个逗号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list &#x3D; (&#39;Yiluo&#39;)</span><br><span class="line">&gt;&gt;&gt; type(name_list)</span><br><span class="line">&lt;class &#39;str&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; name_list &#x3D; (&#39;Yiluo&#39;, )</span><br><span class="line">&gt;&gt;&gt; type(name_list)</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="2-集合"><a href="#2-集合" class="headerlink" title="2.集合"></a>2.集合</h5></li>
-<li>set（集合）是一个无序不重复元素的数据集，对比列表的区别首先是无序的，不可以使用索引进行顺序的访问，另外一个特点是不能够有重复的数据</li>
-<li>使用大括号或者 set 函数，需要注意空的集合不能够使用 {} 创建，只能使用 set 函数，因为{} 创建的是一个空的字典<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list &#x3D; (&#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;Joe&#39;, &#39;Joe&#39;)</span><br><span class="line">&gt;&gt;&gt; type(name_list)</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; name_list &#x3D; set(name_list)</span><br><span class="line">&gt;&gt;&gt; type(name_list)</span><br><span class="line">&lt;class &#39;set&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">&#123;&#39;Lucy&#39;, &#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Joe&#39;&#125;</span><br></pre></td></tr></table></figure></li>
-<li>多余的字符串已经被自动去除</li>
-<li>集合还可以直接由字符串与 set 函数进行创建，会将字符串拆散为不同的字符，并去除重复的字符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; nameset &#x3D; set(&#39;Yiluol&#39;)</span><br><span class="line">&gt;&gt;&gt; nameset</span><br><span class="line">&#123;&#39;l&#39;, &#39;Y&#39;, &#39;i&#39;, &#39;u&#39;, &#39;o&#39;&#125;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="3-集合操作"><a href="#3-集合操作" class="headerlink" title="3.集合操作"></a>3.集合操作</h5></li>
-<li>in<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">&#123;&#39;Lucy&#39;, &#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Joe&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; type(name_list)</span><br><span class="line">&lt;class &#39;set&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; &#39;Lucy&#39; in name_list</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; &#39;haha&#39; in name_list</span><br><span class="line">False</span><br></pre></td></tr></table></figure></li>
-<li>使用 add() 向集合中增加元素，使用 remove() 从集合中删除元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">&#123;&#39;Lucy&#39;, &#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Joe&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; name_list.add(&#39;Rachel&#39;)</span><br><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">&#123;&#39;Rachel&#39;, &#39;Lucy&#39;, &#39;Joe&#39;, &#39;Tom&#39;, &#39;Yiluo&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; name_list.remove(&#39;Joe&#39;)</span><br><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">&#123;&#39;Rachel&#39;, &#39;Lucy&#39;, &#39;Tom&#39;, &#39;Yiluo&#39;&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-字典"><a href="#4-字典" class="headerlink" title="4. 字典"></a>4. 字典</h5></li>
-<li>dict（字典）是无序的键值对集合。字典中的每一个元素都是一个key 和 一个 value 的组合，key 值在字典中必须是唯一的，因此可以很方便的从字典中使用 key 获得其对应的 value 的值</li>
-<li>创建字典的时候使用大括号，这一点与集合相同<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; student_list &#x3D; &#123;1:&#39;Yiluo&#39;, 2:&#39;Tom&#39;, 3:&#39;Lucy&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; student_list[1]</span><br><span class="line">&#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; student_list[3]</span><br><span class="line">&#39;Lucy&#39;</span><br></pre></td></tr></table></figure></li>
-<li>如果 key 不存在 dict[key] 则会抛出 KeyError<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; student_list[6]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">KeyError: 6</span><br></pre></td></tr></table></figure></li>
-<li>我们会使用 get() 函数获取 key 对应的 value，如果此时 key 不存在则默认返回 None，也可以在 get() 函数中给定一个默认值，如果 key 不存在则返回默认值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; student_list.get(6)</span><br><span class="line">&gt;&gt;&gt; student_list.get(6, &#39;None&#39;)</span><br><span class="line">&#39;None&#39;</span><br></pre></td></tr></table></figure></li>
-<li>字典也可以使用 dict 函数进行创建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; new_dict &#x3D; dict(((1, &#39;Yiluo&#39;), (2, &#39;Tom&#39;)))</span><br><span class="line">&gt;&gt;&gt; type(new_dict)</span><br><span class="line">&lt;class &#39;dict&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; new_dict</span><br><span class="line">&#123;1: &#39;Yiluo&#39;, 2: &#39;Tom&#39;&#125;</span><br></pre></td></tr></table></figure></li>
-<li>字典是无序的，不能够通过索引进行访问</li>
-<li>注意字典的 key 必须为不可变的类型，列表是不能够当作 key 的</li>
-<li>从字典中删除一个元素，只需要使用 del 删除，如果 key 不存在则抛出 KeyError<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; new_dict</span><br><span class="line">&#123;1: &#39;Yiluo&#39;, 2: &#39;Tom&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; del new_dict[2]</span><br><span class="line">&gt;&gt;&gt; new_dict</span><br><span class="line">&#123;1: &#39;Yiluo&#39;&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="5-items-函数获取所有的字典元素"><a href="#5-items-函数获取所有的字典元素" class="headerlink" title="5.items() 函数获取所有的字典元素"></a>5.items() 函数获取所有的字典元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_dict &#x3D; &#123;1: &#39;Yiluo&#39;, 2: &#39;Tom&#39;, 3: &#39;Joe&#39;, 4: &#39;Lucy&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; type(name_dict)</span><br><span class="line">&lt;class &#39;dict&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; for key, value in name_dict.items():</span><br><span class="line">...     print(key, value)</span><br><span class="line">...</span><br><span class="line">1 Yiluo</span><br><span class="line">2 Tom</span><br><span class="line">3 Joe</span><br><span class="line">4 Lucy</span><br></pre></td></tr></table></figure></li>
-<li>使用 keys() 和 values() 分别只获取字典中的所有 key 或 value 的列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_dict.keys()</span><br><span class="line">dict_keys([1, 2, 3, 4])</span><br><span class="line">&gt;&gt;&gt; name_dict.values()</span><br><span class="line">dict_values([&#39;Yiluo&#39;, &#39;Tom&#39;, &#39;Joe&#39;, &#39;Lucy&#39;])</span><br></pre></td></tr></table></figure></li>
-<li>pop(key) 函数，可以返回 key 对应的 value，并将该 key:value 键值对删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_dict</span><br><span class="line">&#123;1: &#39;Yiluo&#39;, 2: &#39;Tom&#39;, 3: &#39;Joe&#39;, 4: &#39;Lucy&#39;&#125;</span><br><span class="line">&gt;&gt;&gt; name_dict.pop(1)</span><br><span class="line">&#39;Yiluo&#39;</span><br><span class="line">&gt;&gt;&gt; name_dict</span><br><span class="line">&#123;2: &#39;Tom&#39;, 3: &#39;Joe&#39;, 4: &#39;Lucy&#39;&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h5></li>
-<li>int(x, base) 将 x 转换为一个整数</li>
-<li>float(x) 将 x 转换为一个浮点数</li>
-<li>str(x) 将对象 x 转换为字符串</li>
-<li>list(s) 将序列 s 转换为一个列表</li>
-<li>tuple(s) 将序列 s 转换为一个元组</li>
-<li>set(s) 将序列 s 转换为可变集合</li>
-<li>dict(d) 创建一个字典，d 必须是一个序列 (key,value) 元组<h6 id="7-简单总结"><a href="#7-简单总结" class="headerlink" title="7.简单总结"></a>7.简单总结</h6></li>
-<li>列表：可修改有序的数据集合</li>
-<li>元组：不可修改的有序的数据集合</li>
-<li>集合：无序的不重复的数据集合</li>
-<li>字典：无序的存储 key:value 键值对的数据集合</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1550,7 +1550,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

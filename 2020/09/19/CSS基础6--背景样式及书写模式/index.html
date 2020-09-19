@@ -46,25 +46,25 @@
   };
 </script>
 
-  <meta name="description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  选择器选择器用来指定网页上我们想要样式化的HTML元素，比如H1元素和类元素.special 选择器列表分开规则 1234567h1 &amp;#123;   color: red; &amp;#125; .special &amp;#123;   color: blue; &amp;#125; 组合规则 123h1, .special &amp;#123;   colo">
+  <meta name="description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  背景样式background-color属性定义了CSS中任何元素的背景颜色，属性接受任何效果的color值 1234567891011121314&lt;!DOCTYPE html&gt;&lt;html&gt;  &lt;head&gt;    &lt;meta charset&#x3D;&quot;utf-8&quot;&amp;gt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS基础5--选择器和盒子模型">
-<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;09&#x2F;18&#x2F;CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B&#x2F;index.html">
+<meta property="og:title" content="CSS基础6--背景样式及书写模式">
+<meta property="og:url" content="https:&#x2F;&#x2F;yiluotalk.com&#x2F;2020&#x2F;09&#x2F;19&#x2F;CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="YiluoTalk">
-<meta property="og:description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  选择器选择器用来指定网页上我们想要样式化的HTML元素，比如H1元素和类元素.special 选择器列表分开规则 1234567h1 &amp;#123;   color: red; &amp;#125; .special &amp;#123;   color: blue; &amp;#125; 组合规则 123h1, .special &amp;#123;   colo">
+<meta property="og:description" content="本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！  背景样式background-color属性定义了CSS中任何元素的背景颜色，属性接受任何效果的color值 1234567891011121314&lt;!DOCTYPE html&gt;&lt;html&gt;  &lt;head&gt;    &lt;meta charset&#x3D;&quot;utf-8&quot;&amp;gt">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;img_convert&#x2F;15440cde511e69d80790577885abb7f4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;img_convert&#x2F;a1eeab54b8dbb14c3f75291fea778cb4.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process&#x3D;image&#x2F;format,png">
-<meta property="article:published_time" content="2020-09-18T03:09:59.000Z">
-<meta property="article:modified_time" content="2020-09-18T03:09:49.000Z">
+<meta property="article:published_time" content="2020-09-19T02:05:59.000Z">
+<meta property="article:modified_time" content="2020-09-19T03:05:57.000Z">
 <meta property="article:author" content="伊洛">
 <meta property="article:tag" content="CSS基础">
 <meta property="article:tag" content="Zero to Hero">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;imgconvert.csdnimg.cn&#x2F;aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process&#x3D;image&#x2F;format,png">
 
-<link rel="canonical" href="https://yiluotalk.com/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+<link rel="canonical" href="https://yiluotalk.com/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>CSS基础5--选择器和盒子模型 | YiluoTalk</title>
+  <title>CSS基础6--背景样式及书写模式 | YiluoTalk</title>
   
 
 
@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CSS基础5--选择器和盒子模型
+          CSS基础6--背景样式及书写模式
         </h1>
 
         <div class="post-meta">
@@ -211,7 +211,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-09-18 11:09:59 / 修改时间：11:09:49" itemprop="dateCreated datePublished" datetime="2020-09-18T11:09:59+08:00">2020-09-18</time>
+              <time title="创建时间：2020-09-19 10:05:59 / 修改时间：11:05:57" itemprop="dateCreated datePublished" datetime="2020-09-19T10:05:59+08:00">2020-09-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,55 +240,24 @@
 <blockquote>
 <p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
 </blockquote>
-<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><p>选择器用来指定网页上我们想要样式化的HTML元素，比如H1元素和类元素.special</p>
-<h5 id="选择器列表"><a href="#选择器列表" class="headerlink" title="选择器列表"></a>选择器列表</h5><p>分开规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123; </span><br><span class="line">  color: red; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">.special &#123; </span><br><span class="line">  color: blue; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>组合规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1, .special &#123; </span><br><span class="line">  color: red; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>任何一个选择器无效,整条规则就会被忽略</p>
-<h5 id="选择器的种类"><a href="#选择器的种类" class="headerlink" title="选择器的种类"></a>选择器的种类</h5><p>类型、类和ID选择器：标签名选择器”或者是”元素选择器“，选择了一个HTML标签/元素<br>ID选择器：ID选择器开头为#而非句点<br>全局选择器：是由一个星号<code>*</code>代指的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>类选择器：类选择器以一个句点<code>.</code>开头</p>
-<h5 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h5><p>所有的元素都被一个个的“盒子（box）”包围着</p>
-<h5 id="块级盒子"><a href="#块级盒子" class="headerlink" title="块级盒子"></a>块级盒子</h5><p>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽<br>每个盒子都会换行<br>width和height属性可以发挥作用<br>内边距（padding）, 外边距（margin） 和 边框（border） 会将其他元素从当前盒子周围“推开”<br>除非特殊指定，诸如标题<code>&lt;h1&gt;</code>和段落<code>&lt;p&gt;</code>默认情况下都是块级的盒子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;p&gt;这是一段优美的文字&lt;&#x2F;p&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;文字1&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;文字2&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;文字3&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;p&gt;这是另外的一段 &lt;span class&#x3D;&quot;block&quot;&gt;非常&lt;&#x2F;span&gt; 优美的 &lt;span&gt;文字&lt;&#x2F;span&gt;啊&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>css渲染</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">p,</span><br><span class="line">ul &#123;</span><br><span class="line">  border: 2px solid rebeccapurple;</span><br><span class="line">  padding: .5em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.block,</span><br><span class="line">li &#123;</span><br><span class="line">  border: 2px solid blue;</span><br><span class="line">  padding: .5em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.block &#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第一个是一个段落，在 CSS 中加了边框。浏览器把它渲染成一个块级盒子，所以段落从新的一行开始，而且宽度占满一行<br>第二个是一个列表，布局属性是 display: flex。 将在容器中建立一个flex布局</p>
-<h5 id="CSS-盒模型"><a href="#CSS-盒模型" class="headerlink" title="CSS 盒模型"></a>CSS 盒模型</h5><p>盒子模型结构</p>
+<h5 id="背景样式"><a href="#背景样式" class="headerlink" title="背景样式"></a>背景样式</h5><p>background-color属性定义了CSS中任何元素的背景颜色，属性接受任何效果的color值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">    &lt;h2&gt;背景颜色&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;p&gt;变化背景的颜色 &lt;span&gt;颜色&lt;&#x2F;span&gt;。&lt;&#x2F;p&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>编辑CSS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  background-color: cornflowerblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h2 &#123;</span><br><span class="line">  background-color: darkviolet;</span><br><span class="line">  color: white;</span><br><span class="line">&#125;</span><br><span class="line">span &#123;</span><br><span class="line">  background-color: rgba(255,255,255,.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开浏览器<br><img src="https://img-blog.csdnimg.cn/img_convert/a1eeab54b8dbb14c3f75291fea778cb4.png" alt=""></p>
+<h5 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h5><p>background-image 在元素的背景中显示图像</p>
 <ul>
-<li>Content box: 这个区域是用来显示内容</li>
-<li>Padding box: 包围在内容区域外部的空白区域</li>
-<li>Border box: 边框盒包裹内容和内边距</li>
-<li>Margin box: 这是最外面的区域，是盒子和其他元素之间的空白区域</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/15440cde511e69d80790577885abb7f4.png" alt="图片来源于百度"></p>
-<h5 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h5><p>通过margin控制元素的所有边距<br>margin-top, margin-right, margin-bottom, margin-left</p>
-<h5 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h5><p>使用border属性可以设置四个边框的宽度，颜色，样式<br>设置每边的宽度、颜色和样式</p>
-<ul>
-<li>border-top</li>
-<li>border-right</li>
-<li>border-bottom</li>
-<li>border-left<br>设置所有边的颜色、样式或宽度</li>
-<li>border-width</li>
-<li>border-style</li>
-<li>border-color<br>设置单边的颜色、样式或宽度</li>
-<li>border-top-width</li>
-<li>border-top-style</li>
-<li>border-top-color</li>
-<li>border-right-width</li>
-<li>border-right-style</li>
-<li>border-right-color</li>
-<li>border-bottom-width</li>
-<li>border-bottom-style</li>
-<li>border-bottom-color</li>
-<li>border-left-width</li>
-<li>border-left-style</li>
-<li>border-left-color<h5 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h5>用padding性控制元素所有边，或者每边单独使用等价的普通属性</li>
-<li>padding-top</li>
-<li>padding-right</li>
-<li>padding-bottom</li>
-<li>padding-left</li>
+<li>no-repeat — 不重复</li>
+<li>repeat-x —水平重复</li>
+<li>repeat-y —垂直重复</li>
+<li>repeat — 在两个方向重复<h5 id="调整背景图像大小"><a href="#调整背景图像大小" class="headerlink" title="调整背景图像大小"></a>调整背景图像大小</h5>background-size设置长度或百分比值来调整图片的大小<br>cover 浏览器将使图像足够大，使它完全覆盖了盒子区，同时仍然保持其高宽比<br>contain 浏览器将使图像的大小适合盒子内<h5 id="背景附加"><a href="#背景附加" class="headerlink" title="背景附加"></a>背景附加</h5>background-attachment： 内容滚动</li>
+<li>scroll: 使元素的背景在页面滚动时滚动。</li>
+<li>fixed: 使元素的背景固定在视图端口上，这样当页面或元素内容滚动时，它就不会滚动。</li>
+<li>local: 局部值将背景固定在设置的元素上，因此当您滚动元素时，背景也随之滚动。<h5 id="书写模式"><a href="#书写模式" class="headerlink" title="书写模式"></a>书写模式</h5>指的是文本的排列方向是横向还是纵向的，需要使用writing-mode属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;h1&gt;微信搜索 伊洛的小屋&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+编写CSS样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  writing-mode: vertical-rl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+horizontal-tb: 块流向从上至下。对应的文本方向是横向的<br>vertical-rl: 块流向从右向左。对应的文本方向是纵向的<br>vertical-lr: 块流向从左向右。对应的文本方向是纵向的<h5 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h5>溢出是在你往盒子里面塞太多东西的时候发生的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">   &lt;div class&#x3D;&quot;word&quot;&gt;微信搜索：伊洛的小屋 &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+CSS<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.word &#123;</span><br><span class="line">  border: 1px solid #333333;</span><br><span class="line">  width: 10px;</span><br><span class="line">  font-size: 250%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h5 id="控制溢出"><a href="#控制溢出" class="headerlink" title="控制溢出"></a>控制溢出</h5>需要使用overflow属性，overflow: hidden意思就是可以隐藏掉溢出<h5 id="CSS的值"><a href="#CSS的值" class="headerlink" title="CSS的值"></a>CSS的值</h5><h5 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h5>cm    厘米<br>mm    毫米<br>Q    四分之一毫米<br>in    英寸<br>pc    十二点活字<br>pt    点<br>px    像素<h5 id="相对长度单位"><a href="#相对长度单位" class="headerlink" title="相对长度单位"></a>相对长度单位</h5>em    font-size 中使用是相对于父元素的字体大小，在其他属性中使用是相对于自身的字体大小，如 width<br>ex    字符“x”的高度<br>ch    数字“0”的宽度<br>rem    根元素的字体大小<br>lh    元素的line-height<br>vw    视窗宽度的1%<br>vh    视窗高度的1%<br>vmin    视窗较小尺寸的1%<br>vmax    视图大尺寸的1%</li>
 </ul>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
 </div>
@@ -341,13 +310,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/17/CSS%E5%9F%BA%E7%A1%804--%E5%86%B2%E7%AA%81%E5%92%8C%E7%BB%A7%E6%89%BF/" rel="prev" title="CSS基础4--冲突和继承">
-      <i class="fa fa-chevron-left"></i> CSS基础4--冲突和继承
+    <a href="/2020/09/18/CSS%E5%9F%BA%E7%A1%805--%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" rel="prev" title="CSS基础5--选择器和盒子模型">
+      <i class="fa fa-chevron-left"></i> CSS基础5--选择器和盒子模型
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/" rel="next" title="CSS基础6--背景样式及书写模式">
-      CSS基础6--背景样式及书写模式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -407,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#选择器"><span class="nav-number">1.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择器列表"><span class="nav-number">2.</span> <span class="nav-text">选择器列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择器的种类"><span class="nav-number">3.</span> <span class="nav-text">选择器的种类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#盒子模型"><span class="nav-number">4.</span> <span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#块级盒子"><span class="nav-number">5.</span> <span class="nav-text">块级盒子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS-盒模型"><span class="nav-number">6.</span> <span class="nav-text">CSS 盒模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#外边距"><span class="nav-number">7.</span> <span class="nav-text">外边距</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#边框"><span class="nav-number">8.</span> <span class="nav-text">边框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内边距"><span class="nav-number">9.</span> <span class="nav-text">内边距</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#背景样式"><span class="nav-number">1.</span> <span class="nav-text">背景样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#背景图片"><span class="nav-number">2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调整背景图像大小"><span class="nav-number">3.</span> <span class="nav-text">调整背景图像大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#背景附加"><span class="nav-number">4.</span> <span class="nav-text">背景附加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#书写模式"><span class="nav-number">5.</span> <span class="nav-text">书写模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#溢出"><span class="nav-number">6.</span> <span class="nav-text">溢出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#控制溢出"><span class="nav-number">7.</span> <span class="nav-text">控制溢出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS的值"><span class="nav-number">8.</span> <span class="nav-text">CSS的值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#长度"><span class="nav-number">9.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#相对长度单位"><span class="nav-number">10.</span> <span class="nav-text">相对长度单位</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
