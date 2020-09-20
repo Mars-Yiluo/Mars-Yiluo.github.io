@@ -179,6 +179,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/20/JavaScript%E5%9F%BA%E7%A1%801--%E7%AE%80%E4%BB%8B%E5%8F%8A%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/20/JavaScript%E5%9F%BA%E7%A1%801--%E7%AE%80%E4%BB%8B%E5%8F%8A%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">JavaScript基础1--简介及简单应用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-20 11:49:59 / 修改时间：11:50:38" itemprop="dateCreated datePublished" datetime="2020-09-20T11:49:59+08:00">2020-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h5><p>JavaScript 是一种脚本，一门编程语言，它可以在网页上实现复杂的功能，网页展现给你的不再是简单的静态信息，而是实时的内容更新，交互式的地图，2D/3D 动画，滚动播放的视频等等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;p&gt;Name：伊洛Yiluo&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      const para &#x3D; document.querySelector(&#39;p&#39;);</span><br><span class="line">      para.addEventListener(&#39;click&#39;, updateName);</span><br><span class="line">      function updateName() &#123;</span><br><span class="line">        const name &#x3D; prompt(&#39;输入公众号名字：&#39;);</span><br><span class="line">        para.textContent &#x3D; &#39;公众号：&#39; + name;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>运行<br><img src="https://img-blog.csdnimg.cn/img_convert/5d340dbeadcd588ce0b3b5633958a98c.png" alt=""></p>
+<h5 id="JavaScript-运行次序"><a href="#JavaScript-运行次序" class="headerlink" title="JavaScript 运行次序"></a>JavaScript 运行次序</h5><p>从上往下的顺序执行代码</p>
+<h5 id="添加-JavaScript"><a href="#添加-JavaScript" class="headerlink" title="添加 JavaScript"></a>添加 JavaScript</h5><p>通过<Script>标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; JavaScript 代码</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="外部-JavaScript"><a href="#外部-JavaScript" class="headerlink" title="外部 JavaScript"></a>外部 JavaScript</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;微信搜索：伊洛的小屋&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link href&#x3D;&quot;index.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;demo.js&quot; async&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;button&gt;CLICK ME&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5103d3bc2c2dbd7cd9deb2082d1a1007.png" alt=""></p>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 我是一条注释</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">  我也是</span><br><span class="line">  一条注释</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let randomNumber &#x3D; Math.floor(Math.random() * 100) + 1;</span><br><span class="line"></span><br><span class="line">const guesses &#x3D; document.querySelector(&#39;.guesses&#39;);</span><br><span class="line">const lastResult &#x3D; document.querySelector(&#39;.lastResult&#39;);</span><br><span class="line">const lowOrHi &#x3D; document.querySelector(&#39;.lowOrHi&#39;);</span><br><span class="line"></span><br><span class="line">const guessSubmit &#x3D; document.querySelector(&#39;.guessSubmit&#39;);</span><br><span class="line">const guessField &#x3D; document.querySelector(&#39;.guessField&#39;);</span><br><span class="line"></span><br><span class="line">let guessCount &#x3D; 1;</span><br><span class="line">let resetButton;</span><br></pre></td></tr></table></figure>
+<p>使用关键字 let创建变量，常量用于存储不希望更改的数据，用关键字 const 创建，使用等号<code>=</code>和一个值来为变量赋值，</p>
+<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function checkGuess() &#123;</span><br><span class="line">  alert(&#39;我是一个占位符&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数是可复用的代码块，可以一次编写，反复运行，从而节省了大量的重复代码,关键字 function 、一个函数名、一对小括号定义了一个函数。 随后是一对花括号<code>{}</code>。花括号内部是调用函数时要运行的所有代码<br>运行一个函数代码时，可以输入函数名加一对小括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkGuess();</span><br></pre></td></tr></table></figure>
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>做数学运算，连接字符串，以及其他类似的事情</p>
+<h5 id="条件语句（Conditional）"><a href="#条件语句（Conditional）" class="headerlink" title="条件语句（Conditional）"></a>条件语句（Conditional）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function checkGuess() &#123;</span><br><span class="line">  let userGuess &#x3D; Number(guessField.value);</span><br><span class="line">  if (guessCount &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">    guesses.textContent &#x3D; &#39;上次猜的数：&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  guesses.textContent +&#x3D; userGuess + &#39; &#39;;</span><br><span class="line"> </span><br><span class="line">  if (userGuess &#x3D;&#x3D;&#x3D; randomNumber) &#123;</span><br><span class="line">    lastResult.textContent &#x3D; &#39;恭喜你！猜对了&#39;;</span><br><span class="line">    lastResult.style.backgroundColor &#x3D; &#39;green&#39;;</span><br><span class="line">    lowOrHi.textContent &#x3D; &#39;&#39;;</span><br><span class="line">    setGameOver();</span><br><span class="line">  &#125; else if (guessCount &#x3D;&#x3D;&#x3D; 10) &#123;</span><br><span class="line">    lastResult.textContent &#x3D; &#39;!!!GAME OVER!!!&#39;;</span><br><span class="line">    setGameOver();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    lastResult.textContent &#x3D; &#39;你猜错了！&#39;;</span><br><span class="line">    lastResult.style.backgroundColor &#x3D; &#39;red&#39;;</span><br><span class="line">    if(userGuess &lt; randomNumber) &#123;</span><br><span class="line">      lowOrHi.textContent &#x3D; &#39;你猜低了！&#39;;</span><br><span class="line">    &#125; else if(userGuess &gt; randomNumber) &#123;</span><br><span class="line">      lowOrHi.textContent &#x3D; &#39;你猜高了&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  guessCount++;</span><br><span class="line">  guessField.value &#x3D; &#39;&#39;;</span><br><span class="line">  guessField.focus();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h5><p>1.起始值<br>2.退出条件<br>3.增加器</p>
+<h5 id="结合HTML页面简单的猜数游戏"><a href="#结合HTML页面简单的猜数游戏" class="headerlink" title="结合HTML页面简单的猜数游戏"></a>结合HTML页面简单的猜数游戏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;游戏时间&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;</span><br><span class="line">    &lt;script async src&#x3D;&quot;demo.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;猜猜数字吧&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;随机选定100以内的自然数，要求10 次以内猜中&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;form&quot;&gt;</span><br><span class="line">    &lt;label for&#x3D;&quot;guessField&quot;&gt;请猜数: &lt;&#x2F;label&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;guessField&quot; class&#x3D;&quot;guessField&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;确定&quot; class&#x3D;&quot;guessSubmit&quot;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;resultParas&quot;&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;guesses&quot;&gt;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;lastResult&quot;&gt;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;lowOrHi&quot;&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/19/CSS%E5%9F%BA%E7%A1%806--%E8%83%8C%E6%99%AF%E6%A0%B7%E5%BC%8F%E5%8F%8A%E4%B9%A6%E5%86%99%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1151,119 +1265,6 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/10/HTML%E5%9F%BA%E7%A1%808--%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%8F%8A%E5%B5%8C%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/10/HTML%E5%9F%BA%E7%A1%808--%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%8F%8A%E5%B5%8C%E5%85%A5/" class="post-title-link" itemprop="url">HTML基础8--插入图片及嵌入</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-10 11:34:59 / 修改时间：11:34:52" itemprop="dateCreated datePublished" datetime="2020-09-10T11:34:59+08:00">2020-09-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="图片放到网页上"><a href="#图片放到网页上" class="headerlink" title="图片放到网页上"></a>图片放到网页上</h5><p>用<code>&lt;img&gt;</code> 元素来把图片放到网页上，需要一个<code>src</code>（一般读作其全称 source）来使其生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/9563080f8647daae184b1a02a60ae49b.png" alt=""><br>通常都会把图片和 HTML 放在同一个服务器上</p>
-<h5 id="备选文本"><a href="#备选文本" class="headerlink" title="备选文本"></a>备选文本</h5><p>属性<code>alt</code>对图片的文字描述，用于在图片无法显示或不能被看到的情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demoo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器（这里故意的把图片的名称写错）<br><img src="https://img-service.csdnimg.cn/img_convert/9659f870aa358c7e7dbabb8d8cec1ea6.png" alt=""></p>
-<h5 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h5><p>调节图片在浏览器中的宽度和高度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器<br><img src="https://img-service.csdnimg.cn/img_convert/99cf7c58d7fe22a664d1bdafac4319a9.png" alt=""></p>
-<h5 id="图片标题"><a href="#图片标题" class="headerlink" title="图片标题"></a>图片标题</h5><p>title属性来提供标题，鼠标悬停的时候就会有对应的内容显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">公号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;</span><br><span class="line">title&#x3D;&quot;很美的风景图&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-service.csdnimg.cn/img_convert/7b233ee1fdb4ba901e92ed1c50c03b3e.png" alt=""></p>
-<h5 id="搭配说明文字"><a href="#搭配说明文字" class="headerlink" title="搭配说明文字"></a>搭配说明文字</h5><p>添加一段说明文字来搭配图片，用<code>&lt;p&gt;</code>标签或者<code>&lt;figcaption&gt;，&lt;figcaption&gt;</code>可以是几张图片、一段代码、音视频、方程、表格或别的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;demo.jpg&quot; alt&#x3D;&quot;这本应该是一张风车的图片&quot; width&#x3D;&quot;650&quot; height&#x3D;&quot;400&quot;</span><br><span class="line">title&#x3D;&quot;很美的风景图&quot;&gt;</span><br><span class="line">&lt;p&gt;荷兰风车图片&lt;&#x2F;p&gt;</span><br><span class="line">&lt;figcaption&gt;荷兰风车景色图片&lt;&#x2F;figcaption&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-service.csdnimg.cn/img_convert/184bd5dbc3a62762e9f87a2e7d3d6211.png" alt=""></p>
-<h5 id="嵌入"><a href="#嵌入" class="headerlink" title="嵌入"></a>嵌入</h5><p><code>&lt;iframe&gt;,&lt;embed&gt;,&lt;object&gt;；&lt;iframe&gt;</code>用于嵌入其他网页，<code>&lt;embed&gt;,&lt;object&gt;</code>分别允许嵌入PDF,SVG</p>
-<iframe>允许讲其他的web文档嵌入到当前的文档中。方便引入第三方的网站内容
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;嵌入地图&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src&#x3D;&quot;地图资源&quot;</span><br><span class="line">        width&#x3D;&quot;600&quot; height&#x3D;&quot;450&quot; frameborder&#x3D;&quot;0&quot; style&#x3D;&quot;border:0;&quot; allowfullscreen&#x3D;&quot;&quot; aria-hidden&#x3D;&quot;false&quot; tabindex&#x3D;&quot;0&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;p&gt;深圳地图&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-service.csdnimg.cn/img_convert/52e2370bd447066b74a28648811f979d.png" alt=""></p>
-<h5 id="基本要素"><a href="#基本要素" class="headerlink" title="基本要素"></a><iframe>基本要素</h5><p>allowfullscreen：全屏模式<br>frameborder：如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。0删除边框<br>src：嵌入文档URL路径<br>width<code>和</code>height ，想要iframe的宽度和高度<br>sandbox：提高安全性，会尽可能的减少攻击者在网站搞事情的机会</p>
-<h5 id="和元素"><a href="#和元素" class="headerlink" title="和元素"></a><embed>和<object>元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;PDF&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;object data&#x3D;&quot;pdf.pdf&quot; type&#x3D;&quot;application&#x2F;pdf&quot;</span><br><span class="line">        width&#x3D;&quot;800&quot; height&#x3D;&quot;1200&quot; typemustmatch&gt;</span><br><span class="line">&lt;&#x2F;object&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开网页<br><img src="https://img-service.csdnimg.cn/img_convert/7b9afe80afd07f748f68150140d204c6.png" alt=""></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1334,20 +1335,20 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
