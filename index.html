@@ -179,6 +179,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/21/JavaScript%E5%9F%BA%E7%A1%802--%E5%8F%98%E9%87%8F%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/21/JavaScript%E5%9F%BA%E7%A1%802--%E5%8F%98%E9%87%8F%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">JavaScript基础2--变量及运算符</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-21 10:50:59 / 修改时间：10:50:50" itemprop="dateCreated datePublished" datetime="2020-09-21T10:50:59+08:00">2020-09-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="错误类型"><a href="#错误类型" class="headerlink" title="错误类型"></a>错误类型</h5><p>错误分为：语法错误，逻辑错误</p>
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>用于存放数值的容器，不只是字符串和数字。变量可以存储更复杂的数据，甚至是函数</p>
+<h5 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h5><p>在 var 或 let 关键字之后加上这个变量的名字，在JavaScript中，所有代码指令都会以分号结尾 <code>;</code> — 如果忘记加分号，你的单行代码可能执行正常，但是在多行代码在一起的时候就可能出错</p>
+<h5 id="变量命名的规则"><a href="#变量命名的规则" class="headerlink" title="变量命名的规则"></a>变量命名的规则</h5><p>使用拉丁字符(0-9,a-z,A-Z)和下划线字符<br>变量名不要以下划线开头<br>变量名不要以数字开头<br>小写整个命名的第一个字母然后大写剩下单词的首字符<br>让变量名直观，它们描述了所包含的数据<br>变量名大小写敏感<br>避免使用JavaScript的保留字给变量命名</p>
+<h5 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h5><p>Number<br>在变量中存储数字<br>String<br>字符串是文本的一部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let myName &#x3D; &#39;伊洛Yiluo&#39;</span><br></pre></td></tr></table></figure>
+<p>Boolean<br>2种：true或false<br>Array<br>数组是一个单个对象，其中包含很多值，方括号括起来，并用逗号分隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let myNameArray &#x3D; [&#39;伊洛Yiluo&#39;, &#39;Tom&#39;, &#39;Jim&#39;];</span><br></pre></td></tr></table></figure>
+<p>同Python一样可以通过索引取值myNameArray[0];<br>Object<br>创建一个学生群体的对象，然后实例化一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 公号：伊洛的小屋</span><br><span class="line">let student &#x3D; &#123; name : &#39;伊洛Yiluo&#39;, score : 99 &#125;;</span><br><span class="line">student.name;</span><br><span class="line">&quot;伊洛Yiluo&quot;</span><br><span class="line">student.score;</span><br><span class="line">99</span><br></pre></td></tr></table></figure>
+<h5 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h5><p>JavaScript是一种“动态类型语言”，如果你声明一个变量并给它一个带引号的值，浏览器就会知道它是一个字符串</p>
+<h5 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h5><p>整数 就是整数<br>浮点数 (浮点) 有小数点或小数位<br>双精度双精度是一种特定类型的浮点数，它们具有比标准浮点数更高的精度（这意味着它们精确到更大的小数位数）<br>二进制 — 计算机的最基础语言<br>八进制 — 基数8，每列使用0-7<br>十六进制 — 基数16，每列使用0-9，然后使用a-f</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let myInt &#x3D; 66;</span><br><span class="line">typeof myInt;</span><br><span class="line">&quot;number&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>通常熟知的加、减、乘、除、求余、密</p>
+<h5 id="自增和自减运算符"><a href="#自增和自减运算符" class="headerlink" title="自增和自减运算符"></a>自增和自减运算符</h5><p>使用增量<code>++</code>和递减<code>--</code>运算符来完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">demoCount++;</span><br></pre></td></tr></table></figure>
+<h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h5><p>使用 <code>=</code></p>
+<h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><p><code>===</code>    严格等于<br><code>!==</code>    严格不等于<br><code>&lt;</code>    小于    测试左值是否小于右值<br><code>&gt;</code>    大于    测试左值是否大于右值<br><code>&lt;=</code>    小于或等于    测试左值是否小于或等于右值<br><code>&gt;=</code>    大于或等于</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/20/JavaScript%E5%9F%BA%E7%A1%801--%E7%AE%80%E4%BB%8B%E5%8F%8A%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1163,108 +1271,6 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/11/HTML%E5%9F%BA%E7%A1%809--%E8%A7%86%E9%A2%91%E9%9F%B3%E9%A2%91%E5%8F%8A%E7%9F%A2%E9%87%8F%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/11/HTML%E5%9F%BA%E7%A1%809--%E8%A7%86%E9%A2%91%E9%9F%B3%E9%A2%91%E5%8F%8A%E7%9F%A2%E9%87%8F%E5%9B%BE/" class="post-title-link" itemprop="url">HTML基础9--视频音频及矢量图</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-11 11:36:59 / 修改时间：11:36:44" itemprop="dateCreated datePublished" datetime="2020-09-11T11:36:59+08:00">2020-09-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h5><p><video> 元素用来嵌入一段视频</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Photo&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;video src&#x3D;&quot;land.mov&quot; controls&gt;&lt;&#x2F;video&gt;</span><br><span class="line">&lt;p&gt;欢迎观看航拍视频&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器播放视频<br><img src="https://img-service.csdnimg.cn/img_convert/21eac5f826f264b02507f1b49d1d90cd.png" alt=""><br>src 属性指向你想要嵌入网页当中的视频资源<br>controls 控制视频和音频的回放功能<br> video 当浏览器不支持 <video> 标签的时候，就会显示这段内容</p>
-<h5 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h5><p><audio> 标签，使用的方法几乎与上面的<video>完全的相同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">公众号：伊洛的小屋</span><br><span class="line">个人主页：https:&#x2F;&#x2F;yiluotalk.com&#x2F;</span><br><span class="line">博客园：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yiluotalk&#x2F;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;音频&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;audio controls&gt;</span><br><span class="line">  &lt;source src&#x3D;&quot;music.mp3&quot; type&#x3D;&quot;audio&#x2F;mp3&quot;&gt;&lt;&#x2F;audio&gt;</span><br><span class="line">  &lt;p&gt;这是一首简单的小情歌&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器听音频<br><img src="https://img-service.csdnimg.cn/img_convert/c447f2f814da20ea314cfe8c04c1f8d5.png" alt=""><br>音频播放器所占用的空间比视频播放器要小，<audio> 标签支持所有 <video> 标签拥有的特性</p>
-<h5 id="矢量图形"><a href="#矢量图形" class="headerlink" title="矢量图形"></a>矢量图形</h5><p>拥有较小的文件尺寸，高度可以缩放，不会在镜头拉进或者放大时像素化<br>位图：用像素网格定义<br>矢量图：算法定义</p>
-<h5 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h5><p>用于描述矢量图的XML语言，需要用不同的元素定义要显示在图像中的形状<br>优点：矢量图像中的文本仍然可访问</p>
-<h5 id="SVG添加到页面"><a href="#SVG添加到页面" class="headerlink" title="SVG添加到页面"></a>SVG添加到页面</h5><p>要通过 <code>&lt;img&gt;</code>元素嵌入SVG</p>
-<h5 id="自适应图片"><a href="#自适应图片" class="headerlink" title="自适应图片"></a>自适应图片</h5><p>可以在不同的屏幕尺寸和分辨率的设备上都能良好工作以及其他特性的图片<br>比如在手机上查看页面的时候，一些图片的显示就可能存在问题</p>
-<h5 id="新属性"><a href="#新属性" class="headerlink" title="新属性"></a>新属性</h5><p>srcset和sizes</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img srcset&#x3D;&quot;320w.jpg 320w,</span><br><span class="line">             480w.jpg 480w,</span><br><span class="line">             800w.jpg 800w&quot;</span><br><span class="line">     sizes&#x3D;&quot;(max-width: 320px) 280px,</span><br><span class="line">            (max-width: 480px) 440px,</span><br><span class="line">            800px&quot;</span><br><span class="line">     src&#x3D;&quot;800w.jpg&quot; alt&#x3D;&quot;display&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>srcset:定义允许浏览器选择的图像集<br>sizes:定义了一组媒体条件，什么样的尺寸<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1335,7 +1341,7 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
