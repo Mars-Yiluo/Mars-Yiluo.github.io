@@ -179,6 +179,135 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/23/JavaScript%E5%9F%BA%E7%A1%804--%E5%87%BD%E6%95%B0%E4%BA%8B%E4%BB%B6%E5%8F%8AJSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="伊洛">
+      <meta itemprop="description" content="公号「伊洛的小屋」">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiluoTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/JavaScript%E5%9F%BA%E7%A1%804--%E5%87%BD%E6%95%B0%E4%BA%8B%E4%BB%B6%E5%8F%8AJSON/" class="post-title-link" itemprop="url">JavaScript基础4--函数事件及JSON</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-23 14:55:59 / 修改时间：14:55:12" itemprop="dateCreated datePublished" datetime="2020-09-23T14:55:59+08:00">2020-09-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript基础</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
+<blockquote>
+<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
+</blockquote>
+<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><p>代码块中存储一段用于处理单任务的代码，然后在任何需要的时候用一个简短的命令来调用<br>JavaScript有许多内置的函数，浏览器函数不是核心JavaScript语言的一部分而是被定义为浏览器API的一部分</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>函数称为对象方法（method）的一部分,内置浏览器函数并不是函数——它们是方法</p>
+<h5 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h5><p>自身根据需求来定义的函数</p>
+<h5 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h5><p>后跟圆括号来完成的调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function demoFunction() &#123;</span><br><span class="line">  alert(&#39;hi function!&#39;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demoFunction()</span><br></pre></td></tr></table></figure>
+<h5 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h5><p>没有名字的函数就是匿名函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function() &#123;</span><br><span class="line">  alert(&#39;no name&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常将匿名函数与事件处理程序一起使用</p>
+<h5 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var demoText &#x3D; &#39;I am a boy&#39;;</span><br><span class="line">var newText &#x3D; demoText.replace(&#39;boy&#39;, &#39;girl&#39;);</span><br></pre></td></tr></table></figure>
+<p>‘boy’, ‘girl’ 就是replace函数的参数</p>
+<h5 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h5><p>指函数执行完毕后返回的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> demoText = <span class="string">'I am a string'</span>;</span><br><span class="line"><span class="keyword">var</span> demoString = myText.replace(<span class="string">'string'</span>, <span class="string">'demo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(demoString);</span><br></pre></td></tr></table></figure>
+
+<p>上面的内容保存了返回值，以作为<code>demoString</code>变量的内容</p>
+<h5 id="使用返回值"><a href="#使用返回值" class="headerlink" title="使用返回值"></a>使用返回值</h5><p>使用return关键字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomNumber</span>(<span class="params">number</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><p><strong>事件</strong>是编程时系统内发生的动作或者发生的事情，系统会在事件出现时产生或触发某种信号，并且会提供一个自动加载某种动作，每个可用的事件都会有一个<strong>事件处理器</strong>,事件处理器有时候被叫做<strong>事件监听器</strong></p>
+<h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><p>对象是一个包含相关数据和方法的集合，创建一个对象通常先定义初始化变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>丰富一下对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name : [<span class="string">'伊洛'</span>, <span class="string">'Yiluo'</span>],</span><br><span class="line">  age : <span class="number">19</span>,</span><br><span class="line">  gender : <span class="string">'male'</span>,</span><br><span class="line">  interests : [<span class="string">'games'</span>, <span class="string">'shopping'</span>],</span><br><span class="line">  contact : <span class="string">'微信搜索：伊洛的小屋'</span>,</span><br><span class="line">  greeting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hi! I\'m '</span> + <span class="keyword">this</span>.name[<span class="number">0</span>] + <span class="string">'.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后调用一下 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.name[<span class="number">0</span>]</span><br><span class="line">person.age</span><br><span class="line">person.greeting()</span><br></pre></td></tr></table></figure>
+
+<p>查看调用的结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">person.name[<span class="number">0</span>]</span><br><span class="line"><span class="string">"伊洛"</span></span><br><span class="line">person.age</span><br><span class="line"><span class="number">19</span></span><br><span class="line">person.greeting</span><br><span class="line">ƒ () &#123;</span><br><span class="line">    alert(<span class="string">'Hi! I\'m '</span> + <span class="keyword">this</span>.name[<span class="number">0</span>] + <span class="string">'.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">person.contact;</span><br><span class="line"><span class="string">"微信搜索：伊洛的小屋"</span></span><br><span class="line">person.greeting()</span><br><span class="line"><span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="点表示法"><a href="#点表示法" class="headerlink" title="点表示法"></a>点表示法</h5><p>在上面的例子中，使用了点表示法(dot notation)来访问对象的属性和方法，对象的名字必须写在第一位，</p>
+<h5 id="括号表示法"><a href="#括号表示法" class="headerlink" title="括号表示法"></a>括号表示法</h5><p>使用括号表示法(bracket notation)，对象做了字符串到值的映射，例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'age'</span>]</span><br><span class="line">person[<span class="string">'name'</span>][<span class="string">'age'</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="“this”的含义"><a href="#“this”的含义" class="headerlink" title="“this”的含义"></a>“this”的含义</h5><p>关键字”this”指向了当前代码运行时的对象。</p>
+<h5 id="原型的语言"><a href="#原型的语言" class="headerlink" title="原型的语言"></a>原型的语言</h5><p>JavaScript 常被描述为一种<strong>基于原型的语言 (prototype-based language)</strong>，准确地说，这些属性和方法定义在Object的构造器函数(constructor functions)之上的<code>prototype</code>属性上，而非对象实例本身</p>
+<h5 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h5><p>Json一种按照JavaScript对象语法的数据格式，JSON可以作为一个对象或者字符串存在，扩展名为 <code>.json</code></p>
+<h5 id="JSON结构"><a href="#JSON结构" class="headerlink" title="JSON结构"></a>JSON结构</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">demoObj = &#123;</span><br><span class="line">    "name":"伊洛Yiluo",</span><br><span class="line">    "zone":"微信搜索：伊洛的小屋",</span><br><span class="line">    "sites": &#123;</span><br><span class="line">        "site1":"https://yiluotalk.com/",</span><br><span class="line">        "site2":"https://yiluotalk.com/",</span><br><span class="line">        "site3":"https://yiluotalk.com/"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "18933-1576860332987-627",
+			        "name": "伊洛的小屋",
+			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/22/JavaScript%E5%9F%BA%E7%A1%803--%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8A%E5%88%A4%E6%96%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1183,102 +1312,6 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yiluotalk.com/2020/09/13/HTML%E5%9F%BA%E7%A1%8011--%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%8A%A0%E6%A0%87%E9%A2%98%E5%8F%8A%E8%87%AA%E9%80%82%E5%BA%94%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="伊洛">
-      <meta itemprop="description" content="公号「伊洛的小屋」">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiluoTalk">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/13/HTML%E5%9F%BA%E7%A1%8011--%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%8A%A0%E6%A0%87%E9%A2%98%E5%8F%8A%E8%87%AA%E9%80%82%E5%BA%94%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">HTML基础11--表格增加标题及自适应图片</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-13 12:42:59 / 修改时间：12:43:09" itemprop="dateCreated datePublished" datetime="2020-09-13T12:42:59+08:00">2020-09-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLWM2YjAxODdmNzM5M2Q1MmEucG5n?x-oss-process=image/format,png" alt=""></p>
-<blockquote>
-<p>本文首发公众号： 伊洛的小屋，欢迎关注并查看更多内容！！！</p>
-</blockquote>
-<h5 id="为表格增加标题"><a href="#为表格增加标题" class="headerlink" title="为表格增加标题"></a>为表格增加标题</h5><p>通过<caption></caption>元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;表格TITLE&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link href&#x3D;&quot;table.css&quot; rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;城市表格&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">        &lt;caption&gt;中国城市&lt;&#x2F;caption&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;北京&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;上海&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;广东&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;广州&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;深圳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th colspan&#x3D;&quot;2&quot;&gt;天津&lt;&#x2F;th&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th rowspan&#x3D;&quot;2&quot;&gt;辽宁&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;td&gt;沈阳&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;大连&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>标题放在<table>下面，打开浏览器查看效果<br><img src="https://img-service.csdnimg.cn/img_convert/fdb3d4cbe1fea2020b7d73aee0101ec3.png" alt=""></p>
-<h5 id="自适应图片"><a href="#自适应图片" class="headerlink" title="自适应图片"></a>自适应图片</h5><p>可以在不同的屏幕尺寸和分辨率的设备上都能良好工作以及其他特性的图片<br>比如在手机上查看页面的时候，一些图片的显示就可能存在问题</p>
-<h5 id="新属性"><a href="#新属性" class="headerlink" title="新属性"></a>新属性</h5><p>srcset和sizes</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img srcset&#x3D;&quot;320w.jpg 320w,</span><br><span class="line">             480w.jpg 480w,</span><br><span class="line">             800w.jpg 800w&quot;</span><br><span class="line">     sizes&#x3D;&quot;(max-width: 320px) 280px,</span><br><span class="line">            (max-width: 480px) 440px,</span><br><span class="line">            800px&quot;</span><br><span class="line">     src&#x3D;&quot;800w.jpg&quot; alt&#x3D;&quot;display&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>srcset:定义允许浏览器选择的图像集<br>sizes:定义了一组媒体条件，什么样的尺寸<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81OTU5NTUxLTBkOTg5NzYzZmIyNmMxMjAuanBn?x-oss-process=image/format,png" alt="关注公众号获取更多内容"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "18933-1576860332987-627",
-			        "name": "伊洛的小屋",
-			        "qrcode": "https://open.weixin.qq.com/qr/code?username=gh_7972411ff70e",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1349,7 +1382,7 @@ CSS就不会隐藏的内容，隐藏引起的数据损失通常会造成困扰<h
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
